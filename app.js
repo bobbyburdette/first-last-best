@@ -119,3 +119,7 @@ function showThisDay(now=new Date(),push=true){
  if(push)d.scrollIntoView({behavior:'smooth',block:'start'});
 }
 $('#this-day').addEventListener('click',()=>showThisDay());
+
+/* Now-playing tile shows the doodle for the tape kind (first/last/best) */
+function syncArt(){const art=$('.now-art');if(playing?.k)art.dataset.kind=playing.k;art.classList.toggle('is-playing',Boolean(playing)&&!audio.paused&&!audio.ended)}
+['play','playing','pause','ended','emptied','loadstart'].forEach(n=>audio.addEventListener(n,syncArt));

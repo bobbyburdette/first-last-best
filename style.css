@@ -28,6 +28,15 @@
 .day-open{padding:0;border:0;background:none;color:var(--accent-1);font-size:14px;text-decoration:underline;text-underline-offset:3px}
 .day-back{flex-shrink:0;display:inline-flex;align-items:center;min-height:46px;padding:10px 16px;font-size:14px;font-weight:600;color:var(--text);background:none;border:1px solid var(--line)}
 .day-back:hover{border-color:var(--accent-3)}
+/* Now-playing tile: doodle for the tape that's playing */
+.now-art{isolation:isolate}
+.now-art[data-kind]{background:#efe5cf}
+.now-art[data-kind] svg{display:none}
+.now-art[data-kind]::after{content:'';width:calc(100% - 8px);aspect-ratio:1/1;background:url('tape-doodles.webp') 0 50%/300% 100% no-repeat;mix-blend-mode:multiply}
+.now-art[data-kind=last]::after{background-position:50% 50%}
+.now-art[data-kind=best]::after{background-position:100% 50%}
+@keyframes art-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@media(prefers-reduced-motion:no-preference){.now-art.is-playing::after{animation:art-pulse 2.6s ease-in-out infinite}}
 @media(prefers-reduced-motion:no-preference){button,a{transition:background-color .15s ease,border-color .15s ease,color .15s ease}}
 
 .best-credit{font-size:14px;font-weight:600;line-height:1.45;margin:15px 0 -8px;grid-column:1/-1}.tape.best .date{grid-row:auto}.tape.best button{grid-row:auto}@media(max-width:900px){.tape.best button{grid-column:2;grid-row:3/6}}@media(max-width:380px){.best-credit{margin-bottom:0}}
