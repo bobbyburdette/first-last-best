@@ -44,8 +44,8 @@ audio.addEventListener('error',()=>{$('#player-status').textContent='Tape unavai
 audio.addEventListener('ended',advanceTape);
 $('#sort').addEventListener('change',()=>{renderList();$('#songs').scrollTop=0});
 $('#search').addEventListener('input',renderList);$('#search').addEventListener('keydown',e=>{if(e.key==='Enter'&&filtered().length){selectSong(filtered()[0].name);$('#detail h2').setAttribute('tabindex','-1');$('#detail h2').focus()}});
-window.addEventListener('hashchange',()=>{try{selectSong(decodeURIComponent(location.hash.slice(1)),false)}catch{}});
-fetch('songs.json').then(r=>{if(!r.ok)throw Error('Collection unavailable');return r.json()}).then(data=>{songs=data;let hash='';try{hash=decodeURIComponent(location.hash.slice(1))}catch{}selectSong(songs.find(s=>s.name===hash)?.name||songs[Math.floor(Math.random()*songs.length)].name);if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'select_grateful_dead_song',title:'Select a Grateful Dead song',description:'Search the collection and open one song’s first, last and HeadyVersion-favorite performances. Does not start audio.',inputSchema:{type:'object',properties:{name:{type:'string'}},required:['name'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){if(!input||typeof input.name!=='string')throw Error('A song name is required');const s=songs.find(s=>s.name.toLowerCase()===input.name.toLowerCase());if(!s)throw Error('Song not in this collection');$('#search').value='';selectSong(s.name);return {name:s.name,performances:['first','last','best'].map(k=>({type:k,date:s[k]?.date,playable:playable(s[k])}))}}})).catch(()=>{})}catch{}}}).catch(()=>{$('#detail').innerHTML='<h2>The tapes didn’t load.</h2><p>Please reload to try again.</p>';$('#songs').innerHTML='';$('#count').textContent='Collection unavailable'});
+window.addEventListener('hashchange',()=>{try{const h=decodeURIComponent(location.hash.slice(1));if(h==='this-day')showThisDay(new Date(),false);else selectSong(h,false)}catch{}});
+fetch('songs.json').then(r=>{if(!r.ok)throw Error('Collection unavailable');return r.json()}).then(data=>{songs=data;let hash='';try{hash=decodeURIComponent(location.hash.slice(1))}catch{}if(hash==='this-day'){selectSong(songs[Math.floor(Math.random()*songs.length)].name,false);showThisDay(new Date(),false)}else selectSong(songs.find(s=>s.name===hash)?.name||songs[Math.floor(Math.random()*songs.length)].name);if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'select_grateful_dead_song',title:'Select a Grateful Dead song',description:'Search the collection and open one song’s first, last and HeadyVersion-favorite performances. Does not start audio.',inputSchema:{type:'object',properties:{name:{type:'string'}},required:['name'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){if(!input||typeof input.name!=='string')throw Error('A song name is required');const s=songs.find(s=>s.name.toLowerCase()===input.name.toLowerCase());if(!s)throw Error('Song not in this collection');$('#search').value='';selectSong(s.name);return {name:s.name,performances:['first','last','best'].map(k=>({type:k,date:s[k]?.date,playable:playable(s[k])}))}}})).catch(()=>{})}catch{}}}).catch(()=>{$('#detail').innerHTML='<h2>The tapes didn’t load.</h2><p>Please reload to try again.</p>';$('#songs').innerHTML='';$('#count').textContent='Collection unavailable'});
 
 const toggle=$('#audio-toggle'),seek=$('#audio-seek'),mute=$('#audio-mute');
 const clock=n=>Number.isFinite(n)?`${Math.floor(n/60)}:${String(Math.floor(n%60)).padStart(2,'0')}`:'0:00';
@@ -60,3 +60,62 @@ audio.controls=false;$('.audio-controls').hidden=false;syncAudio();
 function reservePlayerSpace(){document.documentElement.style.setProperty('--player-space',`${Math.ceil($('.player').getBoundingClientRect().height)+32}px`)}
 if(typeof ResizeObserver==='function')new ResizeObserver(reservePlayerSpace).observe($('.player'));
 window.addEventListener('resize',reservePlayerSpace);reservePlayerSpace();
+
+/* This day in Dead history */
+const kindLabel={first:'The First',last:'The Last',best:'The Best'},DAY_CAP=5;
+function dayEntries(now){
+ const md=d=>String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+ const all=[];
+ songs.forEach(s=>['first','last','best'].forEach((k,ki)=>{const p=s[k];if(p?.date)all.push({s,k,ki,p,md:p.date.slice(5,10)})}));
+ for(const win of [0,3,7]){
+  const offs={};
+  for(let o=-win;o<=win;o++)offs[md(new Date(now.getFullYear(),now.getMonth(),now.getDate()+o))]=o;
+  const found=all.filter(e=>e.md in offs).map(e=>({...e,off:offs[e.md]}));
+  if(found.length)return {win,found};
+ }
+ return {win:7,found:[]};
+}
+function dayGroups(found){
+ const g=new Map();
+ found.forEach(e=>{
+  const loc=(e.p.venue||'').split(' - '),key=e.p.date+'|'+(e.p.venueName||loc[0]);
+  if(!g.has(key))g.set(key,{date:e.p.date,off:e.off,venue:e.p.venueName||loc[0],city:e.p.city||loc.slice(1).join(' · '),items:[]});
+  g.get(key).items.push(e);
+ });
+ return [...g.values()].map(x=>({...x,items:x.items.sort((a,b)=>a.ki-b.ki||a.s.name.localeCompare(b.s.name))}))
+  .sort((a,b)=>Math.abs(a.off)-Math.abs(b.off)||a.off-b.off||a.date.localeCompare(b.date));
+}
+const dayOffsetLabel=o=>o===0?'Today':o<0?`${-o} ${o===-1?'day':'days'} ago`:`in ${o} ${o===1?'day':'days'}`;
+function dayTapeHTML(e,gi,i){
+ const ok=playable(e.p),paper=tapeVariation(e.s,e.ki).paper,title=`${date(e.p.date)}, ${kindLabel[e.k]}: ${e.s.name}`;
+ const venue=e.p.venueName||(e.p.venue||'').split(' - ')[0];
+ return `<div class="day-row${i>=DAY_CAP?' day-extra':''}" ${i>=DAY_CAP?'hidden':''}><button type="button" class="day-tape ${e.k} paper-${paper}" data-day-play="${gi}:${i}" ${ok?'':'disabled'} aria-label="${ok?'Play':'No matched tape for'} ${escapeHTML(title)}"><span class="cassette-spine"><span class="spine-paper"><span class="spine-writing"><span class="spine-title"><time datetime="${e.p.date}">${compactDate(e.p.date)}</time><span aria-hidden="true"> - </span><span>${kindLabel[e.k]}</span><span>: ${escapeHTML(e.s.name)}</span></span><span class="venue">${escapeHTML(venue)}</span></span><span class="spine-icon icon-${e.ki}" aria-hidden="true"></span></span></span></button><button type="button" class="day-open" data-day-open="${gi}:${i}">Open song</button></div>`;
+}
+function dayGroupHTML(g,gi){
+ const nPlay=g.items.filter(e=>playable(e.p)).length,extra=g.items.length-DAY_CAP;
+ return `<section class="day-group"><div class="day-group-head"><div><h3>${escapeHTML(date(g.date))} · ${escapeHTML(g.venue)}</h3><p>${escapeHTML([g.city,dayOffsetLabel(g.off)].filter(Boolean).join(' · '))}</p></div>${nPlay>1?`<button type="button" class="day-play-all" data-day-all="${gi}">${icon('play')} Play all ${nPlay}</button>`:''}</div>${g.items.map((e,i)=>dayTapeHTML(e,gi,i)).join('')}${extra>0?`<button type="button" class="day-more" data-day-more="${gi}" aria-expanded="false">Show ${extra} more</button>`:''}</section>`;
+}
+let dayPushed=false,dayReturn=null;
+function leaveThisDay(){
+ if(dayPushed){dayPushed=false;history.back();return}
+ selectSong((dayReturn||songs[Math.floor(Math.random()*songs.length)]).name);
+}
+function showThisDay(now=new Date(),push=true){
+ if(!songs.length)return;
+ if(push&&location.hash!=='#this-day'){history.pushState(null,'','#this-day');dayPushed=true}
+ if(selected)dayReturn=selected;
+ const {win,found}=dayEntries(now),groups=dayGroups(found);
+ const pretty=now.toLocaleDateString('en-US',{month:'long',day:'numeric'});
+ const meta=!found.length?'No tapes found within a week of today.':win===0?`${found.length} ${found.length===1?'tape':'tapes'} from this date in Dead history.`:`Nothing on ${pretty} exactly. Here’s what happened within ${win} days.`;
+ selected=null;renderList();
+ const d=$('#detail');
+ d.innerHTML=`<div class="song-top"><div><p class="song-kicker">THIS DAY IN DEAD HISTORY</p><h2>${escapeHTML(pretty)}</h2><p class="song-meta">${meta}</p></div><button type="button" class="day-back" id="day-back">← Back to songs</button></div>${groups.map(dayGroupHTML).join('')}<p class="caveat">Matches use month and day only, from any year. “First” and “Last” are documented dates; “Best” is the HeadyVersion community favorite.</p>`;
+ $('#day-back').onclick=leaveThisDay;
+ const entry=v=>{const [gi,i]=v.split(':').map(Number);return groups[gi].items[i]};
+ d.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlay);queue=[];play(e.s,e.k)});
+ d.querySelectorAll('[data-day-open]').forEach(b=>b.onclick=()=>{const n=entry(b.dataset.dayOpen).s.name;history.pushState(null,'','#'+encodeURIComponent(n));selectSong(n,false)});
+ d.querySelectorAll('[data-day-all]').forEach(b=>b.onclick=()=>{queue=groups[Number(b.dataset.dayAll)].items.filter(e=>playable(e.p)).map(e=>({s:e.s,k:e.k}));const item=queue.shift();if(item)play(item.s,item.k)});
+ d.querySelectorAll('[data-day-more]').forEach(b=>b.onclick=()=>{const sec=b.closest('.day-group'),open=b.getAttribute('aria-expanded')==='true';sec.querySelectorAll('.day-extra').forEach(r=>r.hidden=open);b.setAttribute('aria-expanded',String(!open));b.textContent=open?`Show ${sec.querySelectorAll('.day-extra').length} more`:'Show fewer'});
+ if(push)d.scrollIntoView({behavior:'smooth',block:'start'});
+}
+$('#this-day').addEventListener('click',()=>showThisDay());
