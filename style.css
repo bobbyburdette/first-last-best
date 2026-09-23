@@ -19,7 +19,6 @@
 .spine-paper::before{content:'';position:absolute;inset:0;background:url('cassette-spine.webp') center/160% 580%;mix-blend-mode:multiply;opacity:.46;z-index:-1;pointer-events:none}
 .spine-writing{display:flex;flex-direction:column;justify-content:center;min-width:0;flex:1;color:var(--ink);font-family:'Journal','Kalam',cursive}
 .spine-title,.tape .venue{font:400 5cqw/1 'Journal','Kalam',cursive;-webkit-text-stroke:.04em currentColor;letter-spacing:0;margin:0;min-height:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink)}
-.spine-title>span:last-child{display:none}
 .spine-icon{display:block;flex:0 0 8cqw;height:8cqw;background-image:url('tape-doodles.webp');background-size:300% 100%;background-repeat:no-repeat;mix-blend-mode:multiply;opacity:.88}
 .icon-0{background-position:0 50%;transform:rotate(-5deg)}.icon-1{background-position:50% 50%;transform:rotate(3deg)}.icon-2{background-position:100% 50%;transform:rotate(-3deg)}
 .city{color:#41444b;margin:0 0 16px}
