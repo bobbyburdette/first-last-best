@@ -69,7 +69,7 @@
 .ui-icon{display:inline-block;width:22px;height:22px;flex:0 0 22px;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 button .ui-icon,a .ui-icon{margin-left:5px}.tape button .ui-icon,.play-all .ui-icon{margin:0 6px 0 0}
 .arrow .ui-icon{width:19px;height:19px}.search-wrap>.ui-icon{color:var(--accent-1);margin:0}
-[data-open-method]{touch-action:manipulation;min-height:44px;display:inline-flex;align-items:center;gap:4px;position:relative}
+[data-open-method],[data-open-homescreen]{touch-action:manipulation;min-height:44px;display:inline-flex;align-items:center;gap:4px;position:relative}
 .caveat [data-open-method]{font-size:14px}.source-links a,.song-meta a,#recording-link{min-height:44px;display:inline-flex;align-items:center}
 #recording-link[hidden]{display:none}
 #sort,#audio-speed{appearance:none;background-image:url('chevron.svg');background-position:right 8px center;background-repeat:no-repeat;background-size:18px;padding-right:30px}
@@ -100,7 +100,7 @@ html{scroll-padding-bottom:var(--player-space,230px)}
 @media(max-width:650px){#method{width:calc(100% - 20px);height:calc(100vh - 24px);height:calc(100dvh - 24px);max-height:calc(100dvh - 24px)}.method-head{padding:10px 14px}.method-head h2{font-size:22px}.method-body{padding:18px 18px max(24px,env(safe-area-inset-bottom))}.player{gap:8px 12px}.audio-controls span{font-size:12px}#audio-speed{width:61px}.audio-controls button{flex-basis:44px}}
 
 /* The dialog title receives reading focus, but is not an interactive control. */
-#method-title:focus{outline:none}
+#method-title:focus,#homescreen-title:focus{outline:none}
 
 .sequence-tag{display:block;font:500 12px/1.5 var(--mono);color:var(--accent-2);margin-top:3px}
 @media(max-width:650px){.song-button.sequence{grid-column:1/-1}}
@@ -108,3 +108,12 @@ html{scroll-padding-bottom:var(--player-space,230px)}
 /* First Last Best brand layer */
 .brand{display:inline-flex;align-items:center;text-decoration:none}
 .brand-logo{display:block;width:clamp(216px,calc(173vw - 433px),491px);height:auto}.now-art svg{width:56%;height:56%;fill:var(--accent-2)}
+
+/* Add to Home Screen dialog: same frame as the About dialog, sized to its content */
+#homescreen{padding:0;border-radius:8px;max-width:680px;width:calc(100% - 32px);max-height:min(760px,88dvh);overflow:hidden}
+#homescreen[open]{display:grid;grid-template-rows:auto minmax(0,1fr);position:fixed;inset:0;margin:auto;height:fit-content;z-index:51}
+dialog ol{margin:0 0 6px;padding-left:24px}
+dialog li{margin:6px 0;font-size:16px;line-height:1.6}
+.inline-icon{width:1.15em;height:1.15em;vertical-align:-.2em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.footer-links{justify-self:end;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:2px 20px}
+@media(max-width:650px){#homescreen{width:calc(100% - 20px);max-height:calc(100dvh - 24px)}.footer-links{justify-self:start;justify-content:flex-start}}
