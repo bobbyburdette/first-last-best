@@ -126,3 +126,26 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 .audio-controls input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:var(--accent-1)}
 .audio-controls input[type=range]::-moz-range-thumb{width:20px;height:20px;border:0;border-radius:50%;background:var(--accent-1)}
 .audio-controls input[type=range]:disabled{opacity:.4;cursor:default}
+.tape{--pad-x:16px;padding-left:var(--pad-x);padding-right:var(--pad-x);border-top:0}
+@media(max-width:650px){.tape{--pad-x:12px}}
+.tape-band{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:40px;margin:-12px calc(-1 * var(--pad-x)) 14px;padding:6px var(--pad-x);background:var(--accent);color:#141414;border-radius:2px 2px 0 0}
+.tape-band-title{font:500 14px/1.3 var(--mono);letter-spacing:1.2px;text-transform:uppercase;overflow-wrap:anywhere}.tape-band-title b{font-weight:700}
+
+@media(max-width:360px){.tape-band-title{letter-spacing:.6px}}
+.tape .venue{font-size:7cqw}
+.caveat [data-open-method]{display:inline-block;min-height:0;line-height:1.2;vertical-align:baseline}
+.caveat [data-open-method]::after{content:"";position:absolute;inset:-13px -6px}
+.caveat [data-open-method] .ui-icon{width:18px;height:18px;flex-basis:18px;vertical-align:-4px}
+.play-all{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--accent-3);border:1px solid var(--accent-3);box-shadow:none;font-weight:600}
+.play-all:disabled{opacity:.5}
+@media(hover:hover){.play-all:hover:not(:disabled){background:#f7f1e11f}}
+.play-bars{display:inline-flex;gap:3px}
+.play-bars i{display:block;width:8px;height:18px}
+.play-bars i:nth-child(1){background:var(--accent-1)}
+.play-bars i:nth-child(2){background:var(--accent-3)}
+.play-bars i:nth-child(3){background:var(--accent-2)}
+.tape-band-title{font-family:var(--display);font-weight:600;font-size:20px;line-height:1.2;letter-spacing:-.2px;text-transform:none}
+.tape-band-title b{font-weight:700}
+.report-line{margin-top:6px}
+.caveat .report-link{position:relative;font-size:14px;color:var(--accent-3);text-underline-offset:3px}
+.caveat .report-link::after{content:"";position:absolute;inset:-12px -6px}

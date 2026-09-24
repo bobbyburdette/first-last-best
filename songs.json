@@ -972,6 +972,7 @@
   {
     "name": "China Cat Sunflower → I Know You Rider",
     "kind": "sequence",
+    "short": "China > Rider",
     "aliases": [
       "China Rider",
       "China/Rider"
@@ -1741,6 +1742,7 @@
   {
     "name": "Drums → Space",
     "kind": "sequence",
+    "short": "Drums > Space",
     "aliases": [
       "Drums Space",
       "Drums/Space",
@@ -2599,6 +2601,7 @@
   {
     "name": "Help on the Way → Slipknot! → Franklin’s Tower",
     "kind": "sequence",
+    "short": "Help > Slip > Franklin’s",
     "aliases": [
       "Help Slip Frank",
       "Help Slip Franklins",
@@ -3320,6 +3323,7 @@
   {
     "name": "Lost Sailor → Saint of Circumstance",
     "kind": "sequence",
+    "short": "Lost Sailor > Saint",
     "aliases": [
       "Sailor Saint",
       "Sailor/Saint",
@@ -4336,6 +4340,7 @@
   {
     "name": "Scarlet Begonias → Fire on the Mountain",
     "kind": "sequence",
+    "short": "Scarlet > Fire",
     "aliases": [
       "Scarlet Fire",
       "Scar Fire",
