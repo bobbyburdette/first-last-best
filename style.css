@@ -119,3 +119,10 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 @media(max-width:650px){#homescreen{width:calc(100% - 20px);max-height:calc(100dvh - 24px)}.footer-links{justify-self:start;justify-content:flex-start}}
 .source-links .vote-link{order:2;flex-basis:100%;justify-content:flex-start;gap:6px}
 .tape .source-links{gap:0 14px}.tape .source-links a{min-height:30px}
+.audio-controls input[type=range]{-webkit-appearance:none;appearance:none;background:transparent;height:44px;padding:0;cursor:pointer}
+.audio-controls input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(to right,var(--accent-1) var(--p,0%),#4d4e50 var(--p,0%))}
+.audio-controls input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;margin-top:-8px;border:0;border-radius:50%;background:var(--accent-1)}
+.audio-controls input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:#4d4e50}
+.audio-controls input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:var(--accent-1)}
+.audio-controls input[type=range]::-moz-range-thumb{width:20px;height:20px;border:0;border-radius:50%;background:var(--accent-1)}
+.audio-controls input[type=range]:disabled{opacity:.4;cursor:default}
