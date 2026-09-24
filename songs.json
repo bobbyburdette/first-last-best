@@ -4978,11 +4978,14 @@
       "reviews": 24
     },
     "last": {
-      "date": "1970-06-07",
-      "venue": "Fillmore West - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0597",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1970-06-07"
+      "date": "1970-04-26",
+      "venue": "Sound Storm Festival, York Farm - Poynette, WI",
+      "venueName": "Sound Storm Festival, York Farm",
+      "city": "Poynette, WI",
+      "source": "https://www.dead.net/show/april-26-1970",
+      "sourceLabel": "Show page",
+      "note": "Last known performance of The Eleven, at the Sound Storm Festival. The setlist is incomplete and its order is uncertain.",
+      "unavailable": true
     },
     "best": {
       "date": "1968-10-12",
