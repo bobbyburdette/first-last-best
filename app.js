@@ -53,7 +53,7 @@ toggle.addEventListener('click',async()=>{if(audio.paused){try{await audio.play(
 seek.addEventListener('input',()=>{if(Number.isFinite(audio.duration))audio.currentTime=Number(seek.value)});
 mute.addEventListener('click',()=>{audio.muted=!audio.muted;syncAudio()});
 $('#audio-volume').addEventListener('input',e=>{audio.volume=Number(e.target.value);audio.muted=audio.volume===0;syncAudio()});
-$('#audio-speed').addEventListener('change',e=>{audio.defaultPlaybackRate=Number(e.target.value);audio.playbackRate=Number(e.target.value)});
+
 ['loadedmetadata','durationchange','timeupdate','play','pause','ended','emptied','volumechange','loadstart'].forEach(name=>audio.addEventListener(name,syncAudio));
 audio.controls=false;$('.audio-controls').hidden=false;syncAudio();
 function reservePlayerSpace(){document.documentElement.style.setProperty('--player-space',`${Math.ceil($('.player').getBoundingClientRect().height)+32}px`)}
