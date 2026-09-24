@@ -117,3 +117,5 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 .inline-icon{width:1.15em;height:1.15em;vertical-align:-.2em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .footer-links{justify-self:end;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:2px 20px}
 @media(max-width:650px){#homescreen{width:calc(100% - 20px);max-height:calc(100dvh - 24px)}.footer-links{justify-self:start;justify-content:flex-start}}
+.source-links .vote-link{order:2;flex-basis:100%;justify-content:flex-start;gap:6px}
+.tape .source-links{gap:0 14px}.tape .source-links a{min-height:30px}
