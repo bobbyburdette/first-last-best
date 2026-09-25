@@ -7979,5 +7979,214 @@
       "recording": "https://archive.org/details/gd78-04-24.sbd.mattman.20605.sbeok.shnf"
     },
     "rank": null
+  },
+  {
+    "name": "Lazy Lightnin’ → Supplication",
+    "kind": "sequence",
+    "short": "Lazy > Supp",
+    "aliases": [
+      "Lazy Supp",
+      "Lazy/Supp",
+      "Lazy Lightning",
+      "Lazy Lightnin",
+      "Lazy Lightning Supplication",
+      "Lazy Lightnin Supplication"
+    ],
+    "components": [
+      "Lazy Lightnin'",
+      "Supplication"
+    ],
+    "rank": null,
+    "count": null,
+    "history": "https://headyversion.com/song/314/grateful-dead/lazy-lightnin-supplication/",
+    "first": {
+      "date": "1976-06-03",
+      "venueName": "Paramount Theater",
+      "venue": "Paramount Theater - Portland, OR",
+      "city": "Portland, OR",
+      "source": "https://www.setlists.net/?show_id=0951",
+      "note": "First documented complete sequence with the original Grateful Dead.",
+      "sourceLabel": "Setlist",
+      "tracks": [
+        {
+          "url": "https://archive.org/download/gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf/gd76-06-03Berthad1t06.mp3",
+          "title": "Lazy Lightning",
+          "duration": "03:01"
+        },
+        {
+          "url": "https://archive.org/download/gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf/gd76-06-03Berthad1t07.mp3",
+          "title": "Supplication",
+          "duration": "04:17"
+        }
+      ],
+      "identifier": "gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
+      "recording": "https://archive.org/details/gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
+      "duration": "07:18"
+    },
+    "last": {
+      "date": "1984-10-31",
+      "venueName": "Berkeley Community Theater",
+      "venue": "Berkeley Community Theater - Berkeley, CA",
+      "city": "Berkeley, CA",
+      "source": "https://www.setlists.net/?show_id=1569",
+      "note": "Last documented complete sequence with the original Grateful Dead.",
+      "sourceLabel": "Setlist",
+      "tracks": [
+        {
+          "url": "https://archive.org/download/gd1984-10-31.168290.senn441.vita.miller.clugston.flac2496/gd84-10-31%20s1t06%20LL_Supplication.mp3",
+          "title": "Lazy Lightning > Supplication",
+          "duration": "12:11"
+        }
+      ],
+      "identifier": "gd1984-10-31.168290.senn441.vita.miller.clugston.flac2496",
+      "recording": "https://archive.org/details/gd1984-10-31.168290.senn441.vita.miller.clugston.flac2496",
+      "duration": "12:11"
+    },
+    "best": {
+      "date": "1977-05-22",
+      "venueName": "The Sportatorium",
+      "venue": "The Sportatorium - Pembroke Pines, FL",
+      "city": "Pembroke Pines, FL",
+      "source": "https://headyversion.com/song/314/grateful-dead/lazy-lightnin-supplication/",
+      "sourceType": "headyversion",
+      "votes": 89,
+      "checkedAt": "2026-09-24",
+      "category": "Lazy Lightnin' -> Supplication",
+      "submission": "https://headyversion.com/submission/1410/grateful-dead-lazy-lightnin-supplication-1977-05-22/",
+      "sourceShow": "https://headyversion.com/show/100/grateful-dead/1977-05-22/",
+      "ties": [],
+      "tracks": [
+        {
+          "url": "https://archive.org/download/gd1977-05-22.sbd.terrapin.dp3-rip.31789.sbeok.shnf/Gd77-05-22D1T6.mp3",
+          "title": "Lazy Lightning",
+          "duration": "05:18"
+        },
+        {
+          "url": "https://archive.org/download/gd1977-05-22.sbd.terrapin.dp3-rip.31789.sbeok.shnf/Gd77-05-22D1T7.mp3",
+          "title": "Supplication",
+          "duration": "08:22"
+        }
+      ],
+      "identifier": "gd1977-05-22.sbd.terrapin.dp3-rip.31789.sbeok.shnf",
+      "recording": "https://archive.org/details/gd1977-05-22.sbd.terrapin.dp3-rip.31789.sbeok.shnf",
+      "duration": "13:40"
+    }
+  },
+  {
+    "name": "Lazy Lightnin'",
+    "aliases": [
+      "Lazy Lightning"
+    ],
+    "history": "https://www.setlists.net/?search=true&songs=Lazy+Lightnin%27&songs_exact=true",
+    "count": 111,
+    "first": {
+      "date": "1976-06-03",
+      "venue": "Paramount Theater - Portland, OR",
+      "source": "https://www.setlists.net/?show_id=0951",
+      "audio": "https://archive.org/download/gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf/gd76-06-03Berthad1t06.mp3",
+      "track": "Lazy Lightning >",
+      "duration": "03:01",
+      "combined": true,
+      "identifier": "gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
+      "recording": "https://archive.org/details/gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
+      "rating": 4.31,
+      "reviews": 40
+    },
+    "last": {
+      "date": "1984-10-31",
+      "venue": "Berkeley Community Theater - Berkeley, CA",
+      "source": "https://www.setlists.net/?show_id=1569",
+      "audio": "https://archive.org/download/gd1984-10-31.168290.senn441.vita.miller.clugston.flac2496/gd84-10-31%20s1t06%20LL_Supplication.mp3",
+      "track": "Lazy Lightning > Supplication",
+      "duration": "12:11",
+      "combined": true,
+      "identifier": "gd1984-10-31.168290.senn441.vita.miller.clugston.flac2496",
+      "recording": "https://archive.org/details/gd1984-10-31.168290.senn441.vita.miller.clugston.flac2496"
+    },
+    "best": {
+      "date": "1977-05-05",
+      "venueName": "Veterans' Memorial Coliseum",
+      "venue": "Veterans' Memorial Coliseum - New Haven, CT",
+      "city": "New Haven, CT",
+      "source": "https://headyversion.com/song/152/grateful-dead/lazy-lightnin/",
+      "sourceType": "headyversion",
+      "votes": 9,
+      "checkedAt": "2026-09-24",
+      "category": "Lazy Lightnin'",
+      "submission": "https://headyversion.com/submission/6336/grateful-dead-lazy-lightnin-1977-05-05/",
+      "sourceShow": "https://headyversion.com/show/511/grateful-dead/1977-05-05/",
+      "ties": [],
+      "audio": "https://archive.org/download/gd77-05-05.sbd.stephens.8832.sbeok.shnf/gd77-05-05d1t09.mp3",
+      "track": "Lazy Lightning",
+      "duration": "03:31",
+      "combined": false,
+      "identifier": "gd77-05-05.sbd.stephens.8832.sbeok.shnf",
+      "recording": "https://archive.org/details/gd77-05-05.sbd.stephens.8832.sbeok.shnf",
+      "sequence": {
+        "category": "Lazy Lightnin' -> Supplication",
+        "source": "https://headyversion.com/song/314/grateful-dead/lazy-lightnin-supplication/",
+        "date": "1977-05-22",
+        "votes": 89
+      }
+    },
+    "rank": null
+  },
+  {
+    "name": "Supplication",
+    "history": "https://www.setlists.net/?search=true&songs=Supplication&songs_exact=true",
+    "count": 123,
+    "first": {
+      "date": "1976-06-03",
+      "venue": "Paramount Theater - Portland, OR",
+      "source": "https://www.setlists.net/?show_id=0951",
+      "audio": "https://archive.org/download/gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf/gd76-06-03Berthad1t07.mp3",
+      "track": "Supplication",
+      "duration": "04:17",
+      "combined": false,
+      "identifier": "gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
+      "recording": "https://archive.org/details/gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
+      "rating": 4.31,
+      "reviews": 40
+    },
+    "last": {
+      "date": "1993-05-22",
+      "venue": "Shoreline Amphitheatre - Mountain View, CA",
+      "source": "https://www.setlists.net/?show_id=2166",
+      "audio": "https://archive.org/download/gd93-05-22.sbd.gardner.9401.sbeok.shnf/gd93-05-22d1t06.mp3",
+      "track": "Supplication",
+      "duration": "05:14",
+      "combined": false,
+      "identifier": "gd93-05-22.sbd.gardner.9401.sbeok.shnf",
+      "recording": "https://archive.org/details/gd93-05-22.sbd.gardner.9401.sbeok.shnf",
+      "rating": 4.17,
+      "reviews": 12
+    },
+    "best": {
+      "date": "1976-09-24",
+      "venueName": "William and Mary College",
+      "venue": "William and Mary College - Williamsburg, VA",
+      "city": "Williamsburg, VA",
+      "source": "https://headyversion.com/song/255/grateful-dead/supplication/",
+      "sourceType": "headyversion",
+      "votes": 18,
+      "checkedAt": "2026-09-24",
+      "category": "Supplication",
+      "submission": "https://headyversion.com/submission/2750/grateful-dead-supplication-1976-09-24/",
+      "sourceShow": "https://headyversion.com/show/683/grateful-dead/1976-09-24/",
+      "ties": [],
+      "audio": "https://archive.org/download/gd76-09-24.aud.unknown.16901.sbeok.shnf/gd76-09-24d2t02.mp3",
+      "track": "Supplication >",
+      "duration": "04:10",
+      "combined": true,
+      "identifier": "gd76-09-24.aud.unknown.16901.sbeok.shnf",
+      "recording": "https://archive.org/details/gd76-09-24.aud.unknown.16901.sbeok.shnf",
+      "sequence": {
+        "category": "Lazy Lightnin' -> Supplication",
+        "source": "https://headyversion.com/song/314/grateful-dead/lazy-lightnin-supplication/",
+        "date": "1977-05-22",
+        "votes": 89
+      }
+    },
+    "rank": null
   }
 ]
