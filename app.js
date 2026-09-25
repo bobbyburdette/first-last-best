@@ -108,7 +108,7 @@ function showThisDay(now=new Date(),push=true){
  if(selected)dayReturn=selected;
  const {win,found}=dayEntries(now),groups=dayGroups(found);
  const pretty=now.toLocaleDateString('en-US',{month:'long',day:'numeric'});
- const meta=!found.length?'No tapes found within a week of today.':win===0?`${found.length} ${found.length===1?'tape':'tapes'} from this date in Dead history.`:`Nothing on ${pretty} exactly. Here’s what happened within ${win} days.`;
+ const meta=!found.length?`No First, Last, or Best falls within a week of ${pretty}. Check back tomorrow.`:win===0?'Songs first played, last played, or picked as fan favorite on this date, in any year.':`Nothing lands on ${pretty} itself. Here is what falls within ${win} days either side.`;
  selected=null;renderList();
  const d=$('#detail');
  d.innerHTML=`<div class="song-top"><div><p class="song-kicker">THIS DAY IN DEAD HISTORY</p><h2>${escapeHTML(pretty)}</h2><p class="song-meta">${meta}</p></div><button type="button" class="day-back" id="day-back">← Back to songs</button></div>${groups.map(dayGroupHTML).join('')}<p class="caveat">Matches use month and day only, from any year. “First” and “Last” are documented dates; “Best” is the HeadyVersion community favorite.</p>`;
