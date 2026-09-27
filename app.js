@@ -1,6 +1,6 @@
 'use strict';
 const $=s=>document.querySelector(s), audio=$('#audio');
-let songs=[],selected=null,queue=[],playing=null,playToken=0;
+let songs=[],selected=null,queue=[],playHistory=[],playing=null,playToken=0;
 const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const date=d=>d?new Date(d+'T12:00:00Z').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}):'Not verified';
 const compactDate=d=>d?Number(d.slice(5,7))+'.'+Number(d.slice(8,10))+'.'+d.slice(2,4):'—';
@@ -25,7 +25,7 @@ return `<article class="tape ${k} paper-${variation.paper}"><div class="tape-ban
 const requestHref=q=>{const to=['mountaineerbob','gmail.com'].join('@');const body=`Song I'd like added: ${q||''}\n\nWhy it belongs (optional):\n`;return 'mailto:'+to+'?subject='+encodeURIComponent('Song request for First Last Best'+(q?': '+q:''))+'&body='+encodeURIComponent(body)};
 $('#request-song').href=requestHref('');$('#request-song-modal').href=requestHref('');
 const reportHref=name=>{const to=['mountaineerbob','gmail.com'].join('@');const body=`Song: ${name}\nPage: https://firstlastbest.com/#${encodeURIComponent(name)}\n\nWhich card (The First, The Last, or The Best)?\n\nWhat's wrong, and what should it say?\n\nA link to a source, if you have one:\n`;return 'mailto:'+to+'?subject='+encodeURIComponent('Mistake on First Last Best: '+name)+'&body='+encodeURIComponent(body)};
-function selectSong(name,updateURL=true){const s=songs.find(s=>s.name===name);if(!s)return false;selected=s;renderList();const available=['first','last','best'].filter(k=>playable(s[k]));$('#detail').innerHTML=`<div class="song-top"><div><p class="song-kicker">THE GRATEFUL DEAD SONGBOOK</p><h2>${escapeHTML(s.name)}</h2><p class="song-meta">${s.first?.date?.slice(0,4)||'?'}—${s.last?.date?.slice(0,4)||'?'} <span aria-hidden="true">/</span> ${s.kind==='sequence'?'Complete live sequence':s.count===null?'Performance research pending':s.count+' concert listings'} <span aria-hidden="true">/</span> <a href="${escapeHTML(s.history)}" target="_blank" rel="noopener">${s.kind==='sequence'?'Sequence ranking':'History'} ${icon('external')}</a></p></div><button class="play-all" id="play-all" ${available.length?'':'disabled'}>${available.length===3?'<span class="play-bars" aria-hidden="true"><i></i><i></i><i></i></span>':icon('play')} ${available.length===3?'Play all three':`Play ${available.length} available`}</button></div><div class="cards">${['first','last','best'].map((k,i)=>card(s,k,i)).join('')}</div><p class="caveat">${s.kind==='sequence'?'First and last refer to the complete sequence in order, not the individual songs. “Best” uses HeadyVersion’s separate sequence ranking.':'First and last are documented dates, not always surviving tapes. “Best” follows HeadyVersion’s individual-song votes. Linked sequence rankings are separate.'} Votes are a dated snapshot, not a universal verdict. <button type="button" id="explain" data-open-method aria-haspopup="dialog" aria-controls="method">How picks work ${icon('info')}</button></p><p class="caveat report-line">Something wrong? <a class="report-link" href="${escapeHTML(reportHref(s.name))}">Report a mistake</a></p>`;$('#detail').querySelectorAll('[data-play]').forEach(b=>b.onclick=()=>{queue=[];play(s,b.dataset.play)});$('#detail').querySelectorAll('[data-play-show]').forEach(b=>b.onclick=()=>playShow(s,b.dataset.playShow));$('#play-all').onclick=()=>{queue=available.map(k=>({s,k}));const item=queue.shift();if(item)play(item.s,item.k)};if(updateURL)history.replaceState(null,'','#'+encodeURIComponent(name));return true}
+function selectSong(name,updateURL=true){const s=songs.find(s=>s.name===name);if(!s)return false;selected=s;renderList();const available=['first','last','best'].filter(k=>playable(s[k]));$('#detail').innerHTML=`<div class="song-top"><div><p class="song-kicker">THE GRATEFUL DEAD SONGBOOK</p><h2>${escapeHTML(s.name)}</h2><p class="song-meta">${s.first?.date?.slice(0,4)||'?'}—${s.last?.date?.slice(0,4)||'?'} <span aria-hidden="true">/</span> ${s.kind==='sequence'?'Complete live sequence':s.count===null?'Performance research pending':s.count+' concert listings'} <span aria-hidden="true">/</span> <a href="${escapeHTML(s.history)}" target="_blank" rel="noopener">${s.kind==='sequence'?'Sequence ranking':'History'} ${icon('external')}</a></p></div><button class="play-all" id="play-all" ${available.length?'':'disabled'}>${available.length===3?'<span class="play-bars" aria-hidden="true"><i></i><i></i><i></i></span>':icon('play')} ${available.length===3?'Play all three':`Play ${available.length} available`}</button></div><div class="cards">${['first','last','best'].map((k,i)=>card(s,k,i)).join('')}</div><p class="caveat">${s.kind==='sequence'?'First and last refer to the complete sequence in order, not the individual songs. “Best” uses HeadyVersion’s separate sequence ranking.':'First and last are documented dates, not always surviving tapes. “Best” follows HeadyVersion’s individual-song votes. Linked sequence rankings are separate.'} Votes are a dated snapshot, not a universal verdict. <button type="button" id="explain" data-open-method aria-haspopup="dialog" aria-controls="method">How picks work ${icon('info')}</button></p><p class="caveat report-line">Something wrong? <a class="report-link" href="${escapeHTML(reportHref(s.name))}">Report a mistake</a></p>`;$('#detail').querySelectorAll('[data-play]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];play(s,b.dataset.play)});$('#detail').querySelectorAll('[data-play-show]').forEach(b=>b.onclick=()=>playShow(s,b.dataset.playShow));$('#play-all').onclick=()=>{queue=available.map(k=>({s,k}));playHistory=[];const item=queue.shift();if(item)play(item.s,item.k)};if(updateURL)history.replaceState(null,'','#'+encodeURIComponent(name));return true}
 async function play(s,k,part=0,tracksOverride=null,showMeta=null){
  const p=s[k],tracks=tracksOverride||tracksFor(p);if(!tracks[part])return;
  const token=++playToken;$('.player').classList.remove('is-idle');audio.pause();playing={s,k,part,tracks,show:showMeta};
@@ -40,22 +40,34 @@ async function play(s,k,part=0,tracksOverride=null,showMeta=null){
  audio.src=tracks[part].url;
  syncTrackNav();
  try{await audio.play();if(token===playToken)$('#player-status').textContent=''}
- catch(e){if(token!==playToken)return;$('#player-status').textContent=e.name==='NotAllowedError'?'Tap Play on the player to continue.':'Tape unavailable. Try “Open recording”.';if(e.name!=='NotAllowedError')queue=[]}
+ catch(e){if(token!==playToken)return;$('#player-status').textContent=e.name==='NotAllowedError'?'Tap Play on the player to continue.':'Tape unavailable. Try “Open recording”.';if(e.name!=='NotAllowedError'){queue=[];playHistory=[]}}
 }
 function advanceTape(){
  if(playing&&playing.part+1<playing.tracks.length){play(playing.s,playing.k,playing.part+1,playing.tracks,playing.show);return}
- const next=queue.shift();if(next)play(next.s,next.k);else $('#player-status').textContent='End of tape.';
+ goNext();
+}
+function goNext(){
+ if(!queue.length){$('#player-status').textContent='End of tape.';syncTrackNav();return}
+ if(playing)playHistory.push({s:playing.s,k:playing.k});
+ const next=queue.shift();play(next.s,next.k);
+}
+function goPrev(){
+ if(!playHistory.length)return;
+ if(playing)queue.unshift({s:playing.s,k:playing.k});
+ const prev=playHistory.pop();play(prev.s,prev.k);
 }
 function stepTrack(delta){
  if(!playing)return;
  const dest=playing.part+delta;
- if(dest<0||dest>=playing.tracks.length)return;
- play(playing.s,playing.k,dest,playing.tracks,playing.show);
+ if(dest>=0&&dest<playing.tracks.length){play(playing.s,playing.k,dest,playing.tracks,playing.show);return}
+ if(delta>0)goNext();else goPrev();
 }
 function syncTrackNav(){
- const multi=playing&&playing.tracks.length>1;
- $('#track-prev').hidden=$('#track-next').hidden=!multi;
- if(multi){$('#track-prev').disabled=playing.part===0;$('#track-next').disabled=playing.part===playing.tracks.length-1}
+ const hasNext=!!playing&&(playing.part+1<playing.tracks.length||queue.length>0);
+ const hasPrev=!!playing&&(playing.part>0||playHistory.length>0);
+ const show=hasNext||hasPrev;
+ $('#track-prev').hidden=$('#track-next').hidden=!show;
+ if(show){$('#track-prev').disabled=!hasPrev;$('#track-next').disabled=!hasNext}
 }
 function showTracksFromMeta(meta,identifier){
  let files=(meta.files||[]).filter(f=>/\.mp3$/i.test(f.name||''));
@@ -67,7 +79,7 @@ function showTracksFromMeta(meta,identifier){
 }
 async function playShow(s,k){
  const p=s[k];if(!p?.identifier)return;
- queue=[];const token=++playToken;playing=null;
+ queue=[];playHistory=[];const token=++playToken;playing=null;
  $('.player').classList.remove('is-idle');audio.pause();
  const loc=(p.venue||'').split(' - '),venue=p.venueName||loc[0]||'Unknown venue';
  $('#now-type').textContent='FULL SHOW';$('#now-title').textContent=venue;$('#now-date').textContent=date(p.date)+' · Loading the whole show…';
@@ -85,7 +97,7 @@ async function playShow(s,k){
 }
 audio.addEventListener('playing',()=>{$('#player-status').textContent=''});
 audio.addEventListener('waiting',()=>{$('#player-status').textContent='Buffering…'});
-audio.addEventListener('error',()=>{$('#player-status').textContent='Tape unavailable. Try “Open recording”.';queue=[]});
+audio.addEventListener('error',()=>{$('#player-status').textContent='Tape unavailable. Try “Open recording”.';queue=[];playHistory=[]});
 audio.addEventListener('ended',advanceTape);
 $('#sort').addEventListener('change',()=>{renderList();$('#songs').scrollTop=0});
 $('#search').addEventListener('input',renderList);$('#search').addEventListener('keydown',e=>{if(e.key==='Enter'&&filtered().length){selectSong(filtered()[0].name);$('#detail h2').setAttribute('tabindex','-1');$('#detail h2').focus()}});
@@ -166,10 +178,10 @@ function showThisDay(now=new Date(),push=true){
  d.innerHTML=`<div class="song-top"><div><p class="song-kicker">THIS DAY IN DEAD HISTORY</p><h2>${escapeHTML(pretty)}</h2><p class="song-meta">${meta}</p></div><button type="button" class="day-back" id="day-back">← Back to songs</button></div>${groups.map(dayGroupHTML).join('')}<p class="caveat">Matches use month and day only, from any year. “First” and “Last” are documented dates; “Best” is the HeadyVersion community favorite.</p>`;
  $('#day-back').onclick=leaveThisDay;
  const entry=v=>{const [gi,i]=v.split(':').map(Number);return groups[gi].items[i]};
- d.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlay);queue=[];play(e.s,e.k)});
- d.querySelectorAll('[data-day-play-show]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlayShow);queue=[];playShow(e.s,e.k)});
+ d.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlay);queue=[];playHistory=[];play(e.s,e.k)});
+ d.querySelectorAll('[data-day-play-show]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlayShow);queue=[];playHistory=[];playShow(e.s,e.k)});
  d.querySelectorAll('[data-day-open]').forEach(b=>b.onclick=()=>{const n=entry(b.dataset.dayOpen).s.name;history.pushState(null,'','#'+encodeURIComponent(n));selectSong(n,false)});
- d.querySelectorAll('[data-day-all]').forEach(b=>b.onclick=()=>{queue=groups[Number(b.dataset.dayAll)].items.filter(e=>playable(e.p)).map(e=>({s:e.s,k:e.k}));const item=queue.shift();if(item)play(item.s,item.k)});
+ d.querySelectorAll('[data-day-all]').forEach(b=>b.onclick=()=>{queue=groups[Number(b.dataset.dayAll)].items.filter(e=>playable(e.p)).map(e=>({s:e.s,k:e.k}));playHistory=[];const item=queue.shift();if(item)play(item.s,item.k)});
  d.querySelectorAll('[data-day-more]').forEach(b=>b.onclick=()=>{const sec=b.closest('.day-group'),open=b.getAttribute('aria-expanded')==='true';sec.querySelectorAll('.day-extra').forEach(r=>r.hidden=open);b.setAttribute('aria-expanded',String(!open));b.textContent=open?`Show ${sec.querySelectorAll('.day-extra').length} more`:'Show fewer'});
  if(push)d.scrollIntoView({behavior:'smooth',block:'start'});
 }
