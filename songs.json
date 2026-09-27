@@ -8189,5 +8189,63 @@
       }
     },
     "rank": null
+  },
+  {
+    "name": "Lost Sailor",
+    "history": "https://www.setlists.net/?search=true&songs=Lost+Sailor&songs_exact=true",
+    "count": 145,
+    "first": {
+      "date": "1979-08-04",
+      "venue": "Oakland Auditorium Arena - Oakland, CA",
+      "source": "https://www.setlists.net/?show_id=1168",
+      "audio": "https://archive.org/download/gd79-08-04.sbd.munder.9578.sbeok.shnf/gd79-08-04d1t09.mp3",
+      "track": "Lost Sailor",
+      "duration": "06:10",
+      "combined": false,
+      "identifier": "gd79-08-04.sbd.munder.9578.sbeok.shnf",
+      "recording": "https://archive.org/details/gd79-08-04.sbd.munder.9578.sbeok.shnf",
+      "rating": 3.96,
+      "reviews": 28
+    },
+    "last": {
+      "date": "1986-03-24",
+      "venue": "The Spectrum - Philadelphia, PA",
+      "source": "https://www.setlists.net/?show_id=1655",
+      "audio": "https://archive.org/download/gd86-03-24.naks.braverman.16746.sbeok.shnf/gd86-03-24d2t04.mp3",
+      "track": "Lost Sailor",
+      "duration": "06:43",
+      "combined": false,
+      "identifier": "gd86-03-24.naks.braverman.16746.sbeok.shnf",
+      "recording": "https://archive.org/details/gd86-03-24.naks.braverman.16746.sbeok.shnf",
+      "rating": 4.09,
+      "reviews": 12
+    },
+    "best": {
+      "date": "1985-11-01",
+      "venueName": "Richmond Coliseum",
+      "venue": "Richmond Coliseum - Richmond, VA",
+      "city": "Richmond, VA",
+      "source": "https://headyversion.com/song/165/grateful-dead/lost-sailor/",
+      "sourceType": "headyversion",
+      "votes": 15,
+      "checkedAt": "2026-09-24",
+      "category": "Lost Sailor",
+      "submission": "https://headyversion.com/submission/4514/grateful-dead-lost-sailor-1985-11-01/",
+      "sourceShow": "https://headyversion.com/show/420/grateful-dead/1985-11-01/",
+      "ties": [],
+      "audio": "https://archive.org/download/gd85-11-01.oade.connor.9217.sbeok.shnf/gd85-11-01d2t06.mp3",
+      "track": "Lost Sailor",
+      "duration": "07:30",
+      "combined": false,
+      "identifier": "gd85-11-01.oade.connor.9217.sbeok.shnf",
+      "recording": "https://archive.org/details/gd85-11-01.oade.connor.9217.sbeok.shnf",
+      "sequence": {
+        "category": "Lost Sailor -> Saint of Circumstance",
+        "source": "https://headyversion.com/song/313/grateful-dead/lost-sailor-saint-of-circumstance/",
+        "date": "1982-10-10",
+        "votes": 80
+      }
+    },
+    "rank": null
   }
 ]
