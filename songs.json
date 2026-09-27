@@ -8058,19 +8058,19 @@
       "ties": [],
       "tracks": [
         {
-          "url": "https://archive.org/download/gd1977-05-22.sbd.terrapin.dp3-rip.31789.sbeok.shnf/Gd77-05-22D1T6.mp3",
+          "url": "https://archive.org/download/gd1977-05-22.140278.sbd.miller.flac2496/08LazyLightning.mp3",
           "title": "Lazy Lightning",
-          "duration": "05:18"
+          "duration": "03:22"
         },
         {
-          "url": "https://archive.org/download/gd1977-05-22.sbd.terrapin.dp3-rip.31789.sbeok.shnf/Gd77-05-22D1T7.mp3",
+          "url": "https://archive.org/download/gd1977-05-22.140278.sbd.miller.flac2496/09Supplication.mp3",
           "title": "Supplication",
-          "duration": "08:22"
+          "duration": "05:41"
         }
       ],
-      "identifier": "gd1977-05-22.sbd.terrapin.dp3-rip.31789.sbeok.shnf",
-      "recording": "https://archive.org/details/gd1977-05-22.sbd.terrapin.dp3-rip.31789.sbeok.shnf",
-      "duration": "13:40"
+      "identifier": "gd1977-05-22.140278.sbd.miller.flac2496",
+      "recording": "https://archive.org/details/gd1977-05-22.140278.sbd.miller.flac2496",
+      "duration": "09:03"
     }
   },
   {
