@@ -174,6 +174,10 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 .day-play{display:inline-flex;align-items:center;gap:6px;min-width:150px;min-height:46px;padding:0 18px;border-radius:3px;border:1px solid #0f1010;background:#212223;box-shadow:0 2px 0 #0f1010;color:#fff8ec;font:700 14px/1 var(--mono)}
 .day-play .ui-icon{margin:0 6px 0 0;width:18px;height:18px;flex-basis:18px}
 .day-play:disabled{box-shadow:none;background:#d4c9b5;color:#514e4a;border-color:#aa9b83;cursor:not-allowed}
+.day-play-show{display:inline-flex;align-items:center;gap:6px;min-width:150px;min-height:46px;padding:0 18px;border-radius:3px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:600 14px/1 var(--mono)}
+.day-play-show .ui-icon{margin:0 6px 0 0;width:18px;height:18px;flex-basis:18px}
+@media(hover:hover){.day-play-show:hover{background:var(--ink);color:#fff8ec}}
+.day-play-show:focus-visible{background:var(--ink);color:#fff8ec}
 .day-open{display:inline-flex;align-items:center;min-height:44px;padding:0;background:none;border:0;color:#2f3132;font-size:13px;text-decoration:underline;text-underline-offset:3px}
 .day-open::after{content:"\00a0\2192"}
 .day-open:focus-visible,.day-spine:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
