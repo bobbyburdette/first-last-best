@@ -8,6 +8,7 @@ const normalizeSearch=s=>s.toLowerCase().replace(/[^a-z0-9]/g,'');
 const tracksFor=p=>p?.tracks?.length?p.tracks:p?.audio?[{url:p.audio,title:p.track||'',duration:p.duration}]:[];
 const playable=p=>tracksFor(p).length>0;
 const labels={first:'First documented',last:'Last documented',best:'HeadyVersion community favorite'};
+const nowTypeLabel={first:'First documented',last:'Last documented',best:'The Best Version'};
 function icon(name){return `<svg class="ui-icon" aria-hidden="true" focusable="false"><use href="#sketch-${name}"></use></svg>`}
 const method=$('#method'),homescreen=$('#homescreen'),dialogs=[method,homescreen];let activeDialog=method,methodOpener=null,methodScroll=0,methodFallback=false;
 function openMethod(opener,dlg=method){if(dialogs.some(d=>d.open))return;activeDialog=dlg;methodOpener=opener instanceof HTMLElement?opener:document.activeElement;methodScroll=window.scrollY;methodFallback=typeof dlg.showModal!=='function';if(methodFallback){dlg.setAttribute('open','');dlg.setAttribute('aria-modal','true');$('#method-backdrop').hidden=false;document.querySelectorAll('body > header, body > main, body > .player').forEach(el=>el.inert=true)}else dlg.showModal();document.body.style.top=`-${methodScroll}px`;document.body.classList.add('method-open');dlg.querySelector('.method-body').scrollTop=0;dlg.querySelector('h2').focus({preventScroll:true})}
@@ -33,7 +34,7 @@ async function play(s,k,part=0,tracksOverride=null,showMeta=null){
   $('#now-type').textContent='FULL SHOW';$('#now-title').textContent=showMeta.venue;
   $('#now-date').textContent=date(p.date)+` · Track ${part+1}/${tracks.length}: ${tracks[part].title}`;
  }else{
-  $('#now-type').textContent=labels[k].toUpperCase();$('#now-title').textContent=s.name;
+  $('#now-type').textContent=nowTypeLabel[k].toUpperCase();$('#now-title').textContent=s.name;
   $('#now-date').textContent=date(p.date)+(tracks.length>1?` · ${part+1}/${tracks.length}: ${tracks[part].title}`:p.duration?' · '+p.duration:'');
  }
  $('#player-status').textContent='Loading tape…';$('#recording-link').hidden=!p.recording;$('#recording-link').href=p.recording||'';
