@@ -4,7 +4,7 @@
 @media(max-width:1150px){.workspace{grid-template-columns:235px minmax(0,1fr)}.song-detail{padding:24px 20px}.cards{gap:10px}.tape{padding:16px 12px}.song-top{flex-wrap:wrap}.date{font-size:25px}}
 @media(max-width:900px){.cards{grid-template-columns:1fr}.tape{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:20px;padding:18px}.tape-label{grid-column:1/-1}.date{font-size:29px;margin:17px 0 10px}.venue,.city,.tape-note{grid-column:1;min-height:0}.tape-note{margin-bottom:0}.tape button{grid-column:2;grid-row:2/5;align-self:center;min-width:110px}.source-links{grid-column:1/-1}.player{flex-wrap:wrap;gap:9px 14px}audio{order:4;width:100%;max-width:none;height:36px}.now{flex-basis:50%}main{padding-bottom:210px}}
 @media(max-width:650px){header,main{width:92%}.intro{padding:22px 0}.day-button .day-full{display:none}.day-button .day-short{display:inline;white-space:nowrap}h1{font-size:30px}.eyebrow{font-size:12px;letter-spacing:1px}.workspace{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line);padding-top:18px}.side-inner>label{margin-bottom:12px}.list-heading{padding:14px 18px 6px}#songs{height:200px;display:grid;grid-template-columns:1fr;align-content:start}.song-button{font-size:14px;padding:11px 8px}.num{min-width:25px}.song-detail{padding:24px 16px}.song-top{gap:16px}h2{font-size:36px}.song-kicker{font-size:12px;letter-spacing:.9px}.cards{margin-top:24px;gap:18px}.player{padding-left:4%;padding-right:4%}.now-art{width:42px;height:46px;font-size:32px}.now small{font-size:12px;letter-spacing:0}.now strong{font-size:14px}footer{grid-template-columns:1fr;justify-items:start;gap:8px}.footer-link{justify-self:start}dialog{padding:22px}.song-meta{font-size:14px}}
-@media(max-width:380px){.tape{display:flex}.tape button{margin-top:18px;width:100%}.tape-note{margin-top:5px}.song-detail h2{font-size:32px}#songs{grid-template-columns:1fr}}
+@media(max-width:380px){.tape{display:flex}.tape-actions{margin-top:18px;flex-direction:column;align-items:stretch}.tape button{width:100%}.tape-note{margin-top:5px}.song-detail h2{font-size:32px}#songs{grid-template-columns:1fr}}
 @media(min-width:651px){aside{padding:0}.side-inner{position:sticky;top:0;display:flex;flex-direction:column;box-sizing:border-box;padding-top:22px;height:max(420px,calc(100vh - var(--player-space,140px) + 16px))}#songs{height:auto;flex:1 1 auto;min-height:0}}
 @media(min-width:901px){.city{align-self:center;width:100%;max-width:560px}}
 /* This day in Dead history */
@@ -48,8 +48,12 @@
 .city{color:#41444b;margin:0 0 16px}
 .best-credit{font:500 14px/1.5 var(--mono);color:#513c30;margin:0 0 13px}
 .tape-note{min-height:0;border-top:1px solid #a79b85;color:#3f454d;padding-top:13px;line-height:1.65;margin-bottom:16px}
-.tape button{width:auto;min-width:150px;align-self:flex-start;border-radius:3px;border:1px solid #0f1010;background:#212223;box-shadow:0 2px 0 #0f1010;font-family:var(--mono);font-size:14px;margin-top:auto;min-height:46px}
+.tape-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;margin-top:auto}
+.tape button{width:auto;min-width:150px;border-radius:3px;border:1px solid #0f1010;background:#212223;box-shadow:0 2px 0 #0f1010;font-family:var(--mono);font-size:14px;min-height:46px}
 .tape button:disabled{box-shadow:none;background:#d4c9b5;color:#514e4a}
+.tape [data-play-show]{background:transparent;color:var(--ink);border-color:var(--ink);box-shadow:none}
+@media(hover:hover){.tape [data-play-show]:hover{background:var(--ink);color:#fff8ec}}
+.tape [data-play-show]:focus-visible{background:var(--ink);color:#fff8ec}
 .tape .source-links{font-size:13px;line-height:1.6;color:#2f3132;gap:9px 14px}
 .tape a:focus-visible{outline-color:var(--ink)}
 @media(max-width:650px){.song-detail{padding-left:10px;padding-right:10px}.tape{padding-left:12px;padding-right:12px}.tape .source-links a{display:inline-flex;align-items:center;min-height:44px}}
@@ -177,3 +181,4 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 @media(hover:hover){.day-play-all:hover{background:#f7f1e11f}}
 .cassette-spine[data-play]{cursor:pointer}
 @media(hover:hover){.cassette-spine[data-play]:hover{filter:brightness(1.06)}}
+#track-prev .ui-icon{transform:scaleX(-1)}
