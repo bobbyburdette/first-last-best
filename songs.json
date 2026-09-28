@@ -5088,17 +5088,18 @@
     "history": "https://www.setlists.net/?search=true&songs=The+Other+One&songs_exact=true",
     "count": 584,
     "first": {
-      "date": "1967-10-22",
-      "venue": "Winterland Arena - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0229",
-      "audio": "https://archive.org/download/gd1967-10-22.sbd.yerys.1525.shnf/gd67-10-22d1t08.mp3",
-      "track": "The Other One >",
-      "duration": "04:42",
+      "date": "1967-08-05",
+      "venue": "O'Keefe Center - Toronto, Canada",
+      "source": "https://www.setlists.net/?show_id=0205",
+      "note": "Earlier than SetList Program's own structured setlist shows for this song; documented by the circulating soundboard tape (\"first recording in circulation\") and a community-submitted setlist correction.",
+      "audio": "https://archive.org/download/gd1967-08-05.176008.sbd.flegel.miller.flac1648/04%20That's%20It%20For%20The%20Other%20One.mp3",
+      "track": "That's It For The Other One >",
+      "duration": "11:54",
       "combined": true,
-      "identifier": "gd1967-10-22.sbd.yerys.1525.shnf",
-      "recording": "https://archive.org/details/gd1967-10-22.sbd.yerys.1525.shnf",
-      "rating": 4.67,
-      "reviews": 10
+      "identifier": "gd1967-08-05.176008.sbd.flegel.miller.flac1648",
+      "recording": "https://archive.org/details/gd1967-08-05.176008.sbd.flegel.miller.flac1648",
+      "rating": 5,
+      "reviews": 1
     },
     "last": {
       "date": "1995-07-08",
