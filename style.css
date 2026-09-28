@@ -124,6 +124,7 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 .audio-controls input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:var(--accent-1)}
 .audio-controls input[type=range]::-moz-range-thumb{width:20px;height:20px;border:0;border-radius:50%;background:var(--accent-1)}
 .audio-controls input[type=range]:disabled{opacity:.4;cursor:default}
+.audio-controls input[type=range]:focus-visible{outline:2px solid var(--accent-1);outline-offset:3px}
 .tape{--pad-x:16px;padding-left:var(--pad-x);padding-right:var(--pad-x);border-top:0}
 @media(max-width:650px){.tape{--pad-x:12px}}
 .tape-band{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:40px;margin:-12px calc(-1 * var(--pad-x)) 14px;padding:6px var(--pad-x);background:var(--accent);color:#141414;border-radius:2px 2px 0 0}
