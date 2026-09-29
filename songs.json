@@ -14,7 +14,8 @@
       "identifier": "gd1979-11-04.142917.sbd.miller.flac1648",
       "recording": "https://archive.org/details/gd1979-11-04.142917.sbd.miller.flac1648",
       "rating": 5,
-      "reviews": 2
+      "reviews": 2,
+      "showId": "gd-1979-11-04"
     },
     "last": {
       "date": "1995-06-02",
@@ -27,7 +28,8 @@
       "identifier": "gd95-06-02.sbd.583.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-02.sbd.583.sbeok.shnf",
       "rating": 4,
-      "reviews": 56
+      "reviews": 56,
+      "showId": "gd-1995-06-02"
     },
     "best": {
       "date": "1979-12-26",
@@ -47,7 +49,8 @@
       "identifier": "gd1979-12-26.sonyECM250.walker-scotton.miller.89187.sbeok.flac16",
       "recording": "https://archive.org/details/gd1979-12-26.sonyECM250.walker-scotton.miller.89187.sbeok.flac16",
       "venueName": "Oakland Auditorium",
-      "city": "Oakland, CA"
+      "city": "Oakland, CA",
+      "showId": "gd-1979-12-26"
     },
     "rank": 93,
     "liveRank": 83,
@@ -69,7 +72,8 @@
       "identifier": "gd67-01-27.aud.hanno.16744.sbeok.shnf",
       "recording": "https://archive.org/details/gd67-01-27.aud.hanno.16744.sbeok.shnf",
       "rating": 3.37,
-      "reviews": 47
+      "reviews": 47,
+      "showId": "gd-1967-01-27"
     },
     "last": {
       "date": "1971-04-29",
@@ -82,7 +86,8 @@
       "identifier": "gd71-04-29.sbd.frisco.16782.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-04-29.sbd.frisco.16782.sbeok.shnf",
       "rating": 4.65,
-      "reviews": 54
+      "reviews": 54,
+      "showId": "gd-1971-04-29"
     },
     "best": {
       "date": "1968-08-23",
@@ -102,7 +107,8 @@
       "identifier": "gd68-08-23.sbd.sacks.52.sbefail.shnf",
       "recording": "https://archive.org/details/gd68-08-23.sbd.sacks.52.sbefail.shnf",
       "venueName": "Shrine Auditorium",
-      "city": "Los Angeles, CA"
+      "city": "Los Angeles, CA",
+      "showId": "gd-1968-08-23"
     },
     "rank": 98
   },
@@ -121,7 +127,8 @@
       "identifier": "gd79-08-04.sbd.munder.9578.sbeok.shnf",
       "recording": "https://archive.org/details/gd79-08-04.sbd.munder.9578.sbeok.shnf",
       "rating": 3.96,
-      "reviews": 28
+      "reviews": 28,
+      "showId": "gd-1979-08-04"
     },
     "last": {
       "date": "1995-07-08",
@@ -134,7 +141,8 @@
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
       "rating": 2.95,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1981-03-14",
@@ -154,7 +162,8 @@
       "identifier": "gd1981-03-14.nak700.glassberg.motb.84826.sbeok.flac16",
       "recording": "https://archive.org/details/gd1981-03-14.nak700.glassberg.motb.84826.sbeok.flac16",
       "venueName": "Hartford Civic Center",
-      "city": "Hartford, CT"
+      "city": "Hartford, CT",
+      "showId": "gd-1981-03-14"
     },
     "rank": 29,
     "liveRank": 52,
@@ -176,7 +185,8 @@
       "identifier": "gd1968-03-16.sbd.miller.109944.flac16",
       "recording": "https://archive.org/details/gd1968-03-16.sbd.miller.109944.flac16",
       "rating": 4.86,
-      "reviews": 9
+      "reviews": 9,
+      "showId": "gd-1968-03-16"
     },
     "last": {
       "date": "1991-09-26",
@@ -189,7 +199,8 @@
       "identifier": "gd91-09-26.sbd.fishman.21242.sbeok.shnf",
       "recording": "https://archive.org/details/gd91-09-26.sbd.fishman.21242.sbeok.shnf",
       "rating": 4.3,
-      "reviews": 20
+      "reviews": 20,
+      "showId": "gd-1991-09-26"
     },
     "best": {
       "date": "1971-04-29",
@@ -209,7 +220,8 @@
       "identifier": "gd71-04-29.sbd.frisco.16782.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-04-29.sbd.frisco.16782.sbeok.shnf",
       "venueName": "Fillmore East",
-      "city": "New York City, NY"
+      "city": "New York City, NY",
+      "showId": "gd-1971-04-29"
     },
     "rank": 95
   },
@@ -228,7 +240,8 @@
       "identifier": "gd70-05-14.sbd.cotsman.12439.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-05-14.sbd.cotsman.12439.sbeok.shnf",
       "rating": 4.63,
-      "reviews": 25
+      "reviews": 25,
+      "showId": "gd-1970-05-14"
     },
     "last": {
       "date": "1995-07-02",
@@ -241,7 +254,8 @@
       "identifier": "gd95-07-02.aud.unk.12578.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-02.aud.unk.12578.sbeok.shnf",
       "rating": 3.12,
-      "reviews": 36
+      "reviews": 36,
+      "showId": "gd-1995-07-02"
     },
     "best": {
       "date": "1972-09-27",
@@ -261,7 +275,8 @@
       "identifier": "gd72-09-27.sbd.vernon.18106.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-09-27.sbd.vernon.18106.sbeok.shnf",
       "venueName": "Stanley Theatre",
-      "city": "Jersey City, NJ"
+      "city": "Jersey City, NJ",
+      "showId": "gd-1972-09-27"
     },
     "rank": 41
   },
@@ -280,7 +295,8 @@
       "identifier": "gd88-06-23.dsbd.terrapin-flyer.13051.sbeok.shnf",
       "recording": "https://archive.org/details/gd88-06-23.dsbd.terrapin-flyer.13051.sbeok.shnf",
       "rating": 4.34,
-      "reviews": 54
+      "reviews": 54,
+      "showId": "gd-1988-06-23"
     },
     "last": {
       "date": "1990-03-22",
@@ -293,7 +309,8 @@
       "identifier": "gd90-03-22.sbd.bertha-ashley.21433.sbeok.shnf",
       "recording": "https://archive.org/details/gd90-03-22.sbd.bertha-ashley.21433.sbeok.shnf",
       "rating": 4.43,
-      "reviews": 50
+      "reviews": 50,
+      "showId": "gd-1990-03-22"
     },
     "best": {
       "date": "1990-03-22",
@@ -313,7 +330,8 @@
       "identifier": "gd90-03-22.sbd.bertha-ashley.21433.sbeok.shnf",
       "recording": "https://archive.org/details/gd90-03-22.sbd.bertha-ashley.21433.sbeok.shnf",
       "venueName": "Copps Coliseum",
-      "city": "Hamilton, ON"
+      "city": "Hamilton, ON",
+      "showId": "gd-1990-03-22"
     },
     "rank": 96
   },
@@ -334,7 +352,8 @@
       "recording": "https://archive.org/details/gd71-02-18.sbd.orf.107.sbeok.shnf",
       "rating": 4.59,
       "reviews": 68,
-      "sourceLabel": "Show page"
+      "sourceLabel": "Show page",
+      "showId": "gd-1971-02-18"
     },
     "last": {
       "date": "1995-06-27",
@@ -347,7 +366,8 @@
       "identifier": "gd95-06-27.schoeps.10180.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-27.schoeps.10180.sbeok.shnf",
       "rating": 3.14,
-      "reviews": 17
+      "reviews": 17,
+      "showId": "gd-1995-06-27"
     },
     "best": {
       "date": "1972-08-27",
@@ -367,7 +387,8 @@
       "identifier": "gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "venueName": "Old Renaissance Faire Grounds",
-      "city": "Veneta, OR"
+      "city": "Veneta, OR",
+      "showId": "gd-1972-08-27"
     },
     "rank": 24,
     "liveRank": 18,
@@ -389,7 +410,8 @@
       "identifier": "gd71-02-19.sbd.orf.1029.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-02-19.sbd.orf.1029.sbeok.shnf",
       "rating": 4.36,
-      "reviews": 11
+      "reviews": 11,
+      "showId": "gd-1971-02-19"
     },
     "last": {
       "date": "1995-06-30",
@@ -402,7 +424,8 @@
       "identifier": "gd95-06-30.schoeps.3376.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-30.schoeps.3376.sbeok.shnf",
       "rating": 4.1,
-      "reviews": 71
+      "reviews": 71,
+      "showId": "gd-1995-06-30"
     },
     "best": {
       "date": "1972-08-27",
@@ -422,7 +445,8 @@
       "identifier": "gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "venueName": "Old Renaissance Faire Grounds",
-      "city": "Veneta, OR"
+      "city": "Veneta, OR",
+      "showId": "gd-1972-08-27"
     },
     "rank": 26,
     "liveRank": 45,
@@ -444,7 +468,8 @@
       "identifier": "gd86-12-15.nakcm101-dwonk.25263.sbeok.flacf",
       "recording": "https://archive.org/details/gd86-12-15.nakcm101-dwonk.25263.sbeok.flacf",
       "rating": 4.48,
-      "reviews": 23
+      "reviews": 23,
+      "showId": "gd-1986-12-15"
     },
     "last": {
       "date": "1995-07-09",
@@ -457,7 +482,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "rating": 3.48,
-      "reviews": 361
+      "reviews": 361,
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1995-07-09",
@@ -477,7 +503,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "venueName": "Soldier Field",
-      "city": "Chicago, IL"
+      "city": "Chicago, IL",
+      "showId": "gd-1995-07-09"
     },
     "rank": 84
   },
@@ -496,7 +523,8 @@
       "identifier": "gd69-12-04.sbd.wizard.23975.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-12-04.sbd.wizard.23975.sbeok.shnf",
       "rating": 3.6,
-      "reviews": 6
+      "reviews": 6,
+      "showId": "gd-1969-12-04"
     },
     "last": {
       "date": "1995-06-22",
@@ -509,7 +537,8 @@
       "identifier": "gd95-06-22.naks.18802.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-22.naks.18802.sbeok.shnf",
       "rating": 3.57,
-      "reviews": 22
+      "reviews": 22,
+      "showId": "gd-1995-06-22"
     },
     "best": {
       "date": "1977-10-29",
@@ -529,7 +558,8 @@
       "identifier": "gd1977-10-29.sbd.miller.92085.sbeok.flac16",
       "recording": "https://archive.org/details/gd1977-10-29.sbd.miller.92085.sbeok.flac16",
       "venueName": "Evans Field House, Northern Illinois University",
-      "city": "Dekalb, Il"
+      "city": "Dekalb, Il",
+      "showId": "gd-1977-10-29"
     },
     "rank": 35,
     "liveRank": 26,
@@ -551,7 +581,8 @@
       "identifier": "gd72-03-05.sbd.miller.20739.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-03-05.sbd.miller.20739.sbeok.shnf",
       "rating": 3.83,
-      "reviews": 6
+      "reviews": 6,
+      "showId": "gd-1972-03-05"
     },
     "last": {
       "date": "1995-06-28",
@@ -564,7 +595,8 @@
       "identifier": "gd95-06-28.schoeps.10154.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-28.schoeps.10154.sbeok.shnf",
       "rating": 3.17,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1995-06-28"
     },
     "best": {
       "date": "1972-08-27",
@@ -584,7 +616,8 @@
       "identifier": "gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "venueName": "Old Renaissance Faire Grounds",
-      "city": "Veneta, OR"
+      "city": "Veneta, OR",
+      "showId": "gd-1972-08-27"
     },
     "rank": 78,
     "liveRank": 78,
@@ -606,7 +639,8 @@
       "identifier": "gd72-10-09.sbd.vernon.5249.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-10-09.sbd.vernon.5249.sbeok.shnf",
       "rating": 4.36,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1972-10-09"
     },
     "last": {
       "date": "1995-07-09",
@@ -619,7 +653,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "rating": 3.48,
-      "reviews": 361
+      "reviews": 361,
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1989-07-07",
@@ -639,7 +674,8 @@
       "identifier": "gd89-07-07.aud.wiley.7855.sbeok.shnf",
       "recording": "https://archive.org/details/gd89-07-07.aud.wiley.7855.sbeok.shnf",
       "venueName": "JFK Stadium",
-      "city": "Philadelphia, PA"
+      "city": "Philadelphia, PA",
+      "showId": "gd-1989-07-07"
     },
     "rank": 2,
     "liveRank": 75,
@@ -661,7 +697,8 @@
       "identifier": "gd70-08-18.aud.yerys.1346.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-08-18.aud.yerys.1346.sbeok.shnf",
       "rating": 4.07,
-      "reviews": 36
+      "reviews": 36,
+      "showId": "gd-1970-08-18"
     },
     "last": {
       "date": "1995-06-25",
@@ -674,7 +711,8 @@
       "identifier": "gd95-06-25.sbd.2236.sbefail.shnf",
       "recording": "https://archive.org/details/gd95-06-25.sbd.2236.sbefail.shnf",
       "rating": 3.51,
-      "reviews": 48
+      "reviews": 48,
+      "showId": "gd-1995-06-25"
     },
     "best": {
       "date": "1972-09-27",
@@ -694,7 +732,8 @@
       "identifier": "gd72-09-27.sbd.vernon.18106.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-09-27.sbd.vernon.18106.sbeok.shnf",
       "venueName": "Stanley Theatre",
-      "city": "Jersey City, NJ"
+      "city": "Jersey City, NJ",
+      "showId": "gd-1972-09-27"
     },
     "rank": 14,
     "liveRank": 67,
@@ -710,7 +749,8 @@
       "venue": "Auditorium Theater - Chicago, IL",
       "source": "https://www.setlists.net/?show_id=0725",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1971-08-23"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1971-08-23",
+      "showId": "gd-1971-08-23"
     },
     "last": {
       "date": "1995-07-06",
@@ -723,7 +763,8 @@
       "identifier": "gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "recording": "https://archive.org/details/gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "rating": 3.4,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1995-07-06"
     },
     "best": {
       "date": "1977-05-08",
@@ -743,7 +784,8 @@
       "identifier": "gd77-05-08.sbd.hicks.4982.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-05-08.sbd.hicks.4982.sbeok.shnf",
       "venueName": "Barton Hall - Cornell University",
-      "city": "Ithaca, NY"
+      "city": "Ithaca, NY",
+      "showId": "gd-1977-05-08"
     },
     "rank": 30,
     "liveRank": 29,
@@ -765,7 +807,8 @@
       "identifier": "gd70-04-03.sbd.cotsman.4283.sbefail.shnf",
       "recording": "https://archive.org/details/gd70-04-03.sbd.cotsman.4283.sbefail.shnf",
       "rating": 4.38,
-      "reviews": 8
+      "reviews": 8,
+      "showId": "gd-1970-04-03"
     },
     "last": {
       "date": "1995-06-30",
@@ -778,7 +821,8 @@
       "identifier": "gd95-06-30.schoeps.3376.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-30.schoeps.3376.sbeok.shnf",
       "rating": 4.1,
-      "reviews": 71
+      "reviews": 71,
+      "showId": "gd-1995-06-30"
     },
     "best": {
       "date": "1974-02-24",
@@ -798,7 +842,8 @@
       "identifier": "gd74-02-24.sbd.windsor.199.sbefail.shnf",
       "recording": "https://archive.org/details/gd74-02-24.sbd.windsor.199.sbefail.shnf",
       "venueName": "Winterland Arena",
-      "city": "San Francisco, CA"
+      "city": "San Francisco, CA",
+      "showId": "gd-1974-02-24"
     },
     "rank": 46,
     "liveRank": 49,
@@ -814,7 +859,8 @@
       "venue": "Seminole Indian Village - Hollywood, FL",
       "source": "https://www.setlists.net/?show_id=0443",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-05-23"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-05-23",
+      "showId": "gd-1969-05-23"
     },
     "last": {
       "date": "1993-03-27",
@@ -827,7 +873,8 @@
       "identifier": "gd93-03-27.sbd.nawrocki.31956.sbeok.shnf",
       "recording": "https://archive.org/details/gd93-03-27.sbd.nawrocki.31956.sbeok.shnf",
       "rating": 4.04,
-      "reviews": 23
+      "reviews": 23,
+      "showId": "gd-1993-03-27"
     },
     "best": {
       "date": "1977-10-02",
@@ -847,7 +894,8 @@
       "identifier": "gd77-10-02.sbd.unknown.278.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-10-02.sbd.unknown.278.sbeok.shnf",
       "venueName": "Paramount Theatre",
-      "city": "Portland, OR"
+      "city": "Portland, OR",
+      "showId": "gd-1977-10-02"
     },
     "rank": 31,
     "liveRank": 36,
@@ -869,7 +917,8 @@
       "identifier": "gd1974-03-23.sbd.clugston-orf.1995.sbeok.shnf",
       "recording": "https://archive.org/details/gd1974-03-23.sbd.clugston-orf.1995.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 30
+      "reviews": 30,
+      "showId": "gd-1974-03-23"
     },
     "last": {
       "date": "1995-07-06",
@@ -882,7 +931,8 @@
       "identifier": "gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "recording": "https://archive.org/details/gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "rating": 3.4,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1995-07-06"
     },
     "best": {
       "date": "1977-05-09",
@@ -902,7 +952,8 @@
       "identifier": "gd77-05-09.sbd.connor.8304.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-05-09.sbd.connor.8304.sbeok.shnf",
       "venueName": "War Memorial",
-      "city": "Buffalo, NY"
+      "city": "Buffalo, NY",
+      "showId": "gd-1977-05-09"
     },
     "rank": 37,
     "liveRank": 32,
@@ -924,7 +975,8 @@
       "identifier": "gd1968-01-17.sbd.cotsman.11795.shnf",
       "recording": "https://archive.org/details/gd1968-01-17.sbd.cotsman.11795.shnf",
       "rating": 4.71,
-      "reviews": 24
+      "reviews": 24,
+      "showId": "gd-1968-01-17"
     },
     "last": {
       "date": "1995-07-08",
@@ -937,7 +989,8 @@
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
       "rating": 2.95,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1969-04-26",
@@ -963,7 +1016,8 @@
       "identifier": "gd1969-04-26.sbd.miller.97393.sbeok.flac16",
       "recording": "https://archive.org/details/gd1969-04-26.sbd.miller.97393.sbeok.flac16",
       "venueName": "The Electric Theatre",
-      "city": "Chicago, IL"
+      "city": "Chicago, IL",
+      "showId": "gd-1969-04-26"
     },
     "rank": 7,
     "liveRank": 4,
@@ -1007,7 +1061,8 @@
       ],
       "identifier": "gd69-09-30.aud.early.hollister.80.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-09-30.aud.early.hollister.80.sbeok.shnf",
-      "duration": "8:51"
+      "duration": "8:51",
+      "showId": "gd-1969-09-30"
     },
     "last": {
       "date": "1995-07-08",
@@ -1031,7 +1086,8 @@
       ],
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
-      "duration": "11:51"
+      "duration": "11:51",
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1974-06-26",
@@ -1065,7 +1121,8 @@
       ],
       "identifier": "gd1974-06-26.119613.mtx.dusborne.flac16",
       "recording": "https://archive.org/details/gd1974-06-26.119613.mtx.dusborne.flac16",
-      "duration": "22:05"
+      "duration": "22:05",
+      "showId": "gd-1974-06-26"
     }
   },
   {
@@ -1083,7 +1140,8 @@
       "identifier": "gd73-02-09.sbd.bertha-fink.14939.sbeok.shnf",
       "recording": "https://archive.org/details/gd73-02-09.sbd.bertha-fink.14939.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 63
+      "reviews": 63,
+      "showId": "gd-1973-02-09"
     },
     "last": {
       "date": "1994-10-11",
@@ -1096,7 +1154,8 @@
       "identifier": "gd1994-10-11.sbd.miller.34564.sbeok.flac16",
       "recording": "https://archive.org/details/gd1994-10-11.sbd.miller.34564.sbeok.flac16",
       "rating": 3.8,
-      "reviews": 6
+      "reviews": 6,
+      "showId": "gd-1994-10-11"
     },
     "best": {
       "date": "1977-05-19",
@@ -1116,7 +1175,8 @@
       "identifier": "gd77-05-19.sbd.direwolf.3120.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-05-19.sbd.direwolf.3120.sbeok.shnf",
       "venueName": "Fox Theatre",
-      "city": "Atlanta, GA"
+      "city": "Atlanta, GA",
+      "showId": "gd-1977-05-19"
     },
     "rank": 36,
     "liveRank": 94,
@@ -1132,7 +1192,8 @@
       "venue": "Ivar Theater - Los Angeles, CA",
       "source": "https://www.setlists.net/?show_id=0034",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-02-25"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-02-25",
+      "showId": "gd-1966-02-25"
     },
     "last": {
       "date": "1995-06-19",
@@ -1145,7 +1206,8 @@
       "identifier": "gd95-06-19.naks.10934.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-19.naks.10934.sbeok.shnf",
       "rating": 2.65,
-      "reviews": 32
+      "reviews": 32,
+      "showId": "gd-1995-06-19"
     },
     "best": {
       "date": "1978-02-03",
@@ -1165,7 +1227,8 @@
       "identifier": "gd78-02-03.aud.warner.19465.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-02-03.aud.warner.19465.sbeok.shnf",
       "venueName": "Dane County Coliseum",
-      "city": "Madison, WI"
+      "city": "Madison, WI",
+      "showId": "gd-1978-02-03"
     },
     "rank": 62,
     "liveRank": 56,
@@ -1187,7 +1250,8 @@
       "identifier": "gd1971-10-19.sbd.miller.114351.flac16",
       "recording": "https://archive.org/details/gd1971-10-19.sbd.miller.114351.flac16",
       "rating": 4.17,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1971-10-19"
     },
     "last": {
       "date": "1994-10-09",
@@ -1200,7 +1264,8 @@
       "identifier": "gd94-10-09.sbd.braverman.17357.sbeok.shnf",
       "recording": "https://archive.org/details/gd94-10-09.sbd.braverman.17357.sbeok.shnf",
       "rating": 3.75,
-      "reviews": 8
+      "reviews": 8,
+      "showId": "gd-1994-10-09"
     },
     "best": {
       "date": "1977-05-09",
@@ -1220,7 +1285,8 @@
       "identifier": "gd77-05-09.sbd.connor.8304.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-05-09.sbd.connor.8304.sbeok.shnf",
       "venueName": "War Memorial",
-      "city": "Buffalo, NY"
+      "city": "Buffalo, NY",
+      "showId": "gd-1977-05-09"
     },
     "rank": 76
   },
@@ -1239,7 +1305,8 @@
       "identifier": "gd1975-06-17.aud.unknown.87560.flac16",
       "recording": "https://archive.org/details/gd1975-06-17.aud.unknown.87560.flac16",
       "rating": 4.44,
-      "reviews": 102
+      "reviews": 102,
+      "showId": "gd-1975-06-17"
     },
     "last": {
       "date": "1995-07-05",
@@ -1252,7 +1319,8 @@
       "identifier": "gd95-07-05.sbd.9370.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-05.sbd.9370.sbeok.shnf",
       "rating": 3,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1995-07-05"
     },
     "best": {
       "date": "1976-06-09",
@@ -1272,7 +1340,8 @@
       "identifier": "gd1976-06-09.sbd.miller.95399.sbeok.flac16",
       "recording": "https://archive.org/details/gd1976-06-09.sbd.miller.95399.sbeok.flac16",
       "venueName": "Boston Music Hall",
-      "city": "Boston, MA"
+      "city": "Boston, MA",
+      "showId": "gd-1976-06-09"
     },
     "rank": 79,
     "liveRank": 82,
@@ -1294,14 +1363,16 @@
       "identifier": "gd66-05-19.sbd.lestatkat.6516.sbeok.shnf",
       "recording": "https://archive.org/details/gd66-05-19.sbd.lestatkat.6516.sbeok.shnf",
       "rating": 4.73,
-      "reviews": 53
+      "reviews": 53,
+      "showId": "gd-1966-05-19"
     },
     "last": {
       "date": "1967-06-08",
       "venue": "Cafe au Go-Go - New York City, NY",
       "source": "https://www.setlists.net/?show_id=0183",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1967-06-08"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1967-06-08",
+      "showId": "gd-1967-06-08"
     },
     "best": {
       "date": "1966-11-19",
@@ -1321,7 +1392,8 @@
       "identifier": "gd66-11-19.sbd.seff.41.sbeok.shnf",
       "recording": "https://archive.org/details/gd66-11-19.sbd.seff.41.sbeok.shnf",
       "venueName": "Fillmore Auditorium",
-      "city": "San Francisco, CA"
+      "city": "San Francisco, CA",
+      "showId": "gd-1966-11-19"
     },
     "rank": 87
   },
@@ -1334,7 +1406,8 @@
       "venue": "Fillmore Auditorium - San Francisco, CA",
       "source": "https://www.setlists.net/?show_id=0508",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-11-08"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-11-08",
+      "showId": "gd-1969-11-08"
     },
     "last": {
       "date": "1995-07-09",
@@ -1347,7 +1420,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "rating": 3.48,
-      "reviews": 361
+      "reviews": 361,
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1972-04-08",
@@ -1367,7 +1441,8 @@
       "identifier": "gd72-04-08.sbd.giles-jeffm.2534.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-04-08.sbd.giles-jeffm.2534.sbeok.shnf",
       "venueName": "Wembley Empire Pool",
-      "city": "London"
+      "city": "London",
+      "showId": "gd-1972-04-08"
     },
     "rank": 39,
     "liveRank": 60,
@@ -1389,7 +1464,8 @@
       "identifier": "gd70-02-14.early-late.sbd.cotsman.18115.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-02-14.early-late.sbd.cotsman.18115.sbeok.shnf",
       "rating": 4.17,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1970-02-14"
     },
     "last": {
       "date": "1981-04-25",
@@ -1402,7 +1478,8 @@
       "identifier": "gd1981-04-25.sbd.gems.103640.flac16",
       "recording": "https://archive.org/details/gd1981-04-25.sbd.gems.103640.flac16",
       "rating": 4.7,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1981-04-25"
     },
     "best": {
       "date": "1971-04-29",
@@ -1422,7 +1499,8 @@
       "identifier": "gd71-04-29.sbd.frisco.16782.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-04-29.sbd.frisco.16782.sbeok.shnf",
       "venueName": "Fillmore East",
-      "city": "New York City, NY"
+      "city": "New York City, NY",
+      "showId": "gd-1971-04-29"
     },
     "rank": 99
   },
@@ -1437,7 +1515,8 @@
       "note": "Disputed date: Dead Essays questions this Dec. 13 listing. The true live debut is not verified.",
       "additionalSource": "https://deadessays.blogspot.com/2014/08/1967-setlists.html",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1967-12-13"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1967-12-13",
+      "showId": "gd-1967-12-13"
     },
     "last": {
       "date": "1994-03-30",
@@ -1450,7 +1529,8 @@
       "identifier": "gd94-03-30.sbd.miller.14832.sbeok.shnf",
       "recording": "https://archive.org/details/gd94-03-30.sbd.miller.14832.sbeok.shnf",
       "rating": 4.21,
-      "reviews": 47
+      "reviews": 47,
+      "showId": "gd-1994-03-30"
     },
     "best": {
       "date": "1972-08-27",
@@ -1470,7 +1550,8 @@
       "identifier": "gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "venueName": "Old Renaissance Faire Grounds",
-      "city": "Veneta, OR"
+      "city": "Veneta, OR",
+      "showId": "gd-1972-08-27"
     },
     "rank": 12,
     "liveRank": 57,
@@ -1492,7 +1573,8 @@
       "identifier": "gd93-02-22.dsbd.vernon.19238.sbeok.shnf",
       "recording": "https://archive.org/details/gd93-02-22.dsbd.vernon.19238.sbeok.shnf",
       "rating": 2.83,
-      "reviews": 7
+      "reviews": 7,
+      "showId": "gd-1993-02-22"
     },
     "last": {
       "date": "1995-06-24",
@@ -1505,7 +1587,8 @@
       "identifier": "gd95-06-24.naks.12271.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-24.naks.12271.sbeok.shnf",
       "rating": 3.33,
-      "reviews": 33
+      "reviews": 33,
+      "showId": "gd-1995-06-24"
     },
     "best": {
       "date": "1994-12-11",
@@ -1525,7 +1608,8 @@
       "identifier": "gd94-12-11.sbd.unknown.12525.sbeok.shnf",
       "recording": "https://archive.org/details/gd94-12-11.sbd.unknown.12525.sbeok.shnf",
       "venueName": "Oakland-Alameda County Coliseum Stadium",
-      "city": "Oakland, CA"
+      "city": "Oakland, CA",
+      "showId": "gd-1994-12-11"
     },
     "rank": 71
   },
@@ -1544,7 +1628,8 @@
       "identifier": "gd71-02-19.sbd.orf.1029.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-02-19.sbd.orf.1029.sbeok.shnf",
       "rating": 4.36,
-      "reviews": 11
+      "reviews": 11,
+      "showId": "gd-1971-02-19"
     },
     "last": {
       "date": "1995-06-18",
@@ -1557,7 +1642,8 @@
       "identifier": "gd95-06-18.aud.2543.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-18.aud.2543.sbeok.shnf",
       "rating": 2.45,
-      "reviews": 66
+      "reviews": 66,
+      "showId": "gd-1995-06-18"
     },
     "best": {
       "date": "1989-07-19",
@@ -1577,7 +1663,8 @@
       "identifier": "gd1989-07-19.mtx.hansokolow.96232.flac16",
       "recording": "https://archive.org/details/gd1989-07-19.mtx.hansokolow.96232.flac16",
       "venueName": "Alpine Valley Music Theatre",
-      "city": "East Troy, WI"
+      "city": "East Troy, WI",
+      "showId": "gd-1989-07-19"
     },
     "rank": 47,
     "liveRank": 15,
@@ -1593,7 +1680,8 @@
       "venue": "The Matrix - San Francisco, CA",
       "source": "https://www.setlists.net/?show_id=0018",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-01-07"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-01-07",
+      "showId": "gd-1966-01-07"
     },
     "last": {
       "date": "1990-04-02",
@@ -1606,7 +1694,8 @@
       "identifier": "gd90-04-02.sbd.dodd.17731.sbeok.shnf",
       "recording": "https://archive.org/details/gd90-04-02.sbd.dodd.17731.sbeok.shnf",
       "rating": 4.27,
-      "reviews": 22
+      "reviews": 22,
+      "showId": "gd-1990-04-02"
     },
     "best": {
       "date": "1969-03-02",
@@ -1626,7 +1715,8 @@
       "identifier": "gd69-03-02.sbd.16track.kaplan.3344.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-03-02.sbd.16track.kaplan.3344.sbeok.shnf",
       "venueName": "Fillmore West",
-      "city": "San Francisco, CA"
+      "city": "San Francisco, CA",
+      "showId": "gd-1969-03-02"
     },
     "rank": 89
   },
@@ -1645,7 +1735,8 @@
       "identifier": "gd69-06-07.sbd.kaplan.9074.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-06-07.sbd.kaplan.9074.sbeok.shnf",
       "rating": 4.45,
-      "reviews": 33
+      "reviews": 33,
+      "showId": "gd-1969-06-07"
     },
     "last": {
       "date": "1995-07-02",
@@ -1658,7 +1749,8 @@
       "identifier": "gd95-07-02.aud.unk.12578.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-02.aud.unk.12578.sbeok.shnf",
       "rating": 3.12,
-      "reviews": 36
+      "reviews": 36,
+      "showId": "gd-1995-07-02"
     },
     "best": {
       "date": "1970-05-02",
@@ -1678,7 +1770,8 @@
       "identifier": "gd1970-05-02.138227.sbd.miller.flac1648",
       "recording": "https://archive.org/details/gd1970-05-02.138227.sbd.miller.flac1648",
       "venueName": "Harpur College",
-      "city": "Binghamton, NY"
+      "city": "Binghamton, NY",
+      "showId": "gd-1970-05-02"
     },
     "rank": 40,
     "liveRank": 63,
@@ -1700,7 +1793,8 @@
       "identifier": "gd1966-07-16.sbd.miller.89555.sbeok.flac16",
       "recording": "https://archive.org/details/gd1966-07-16.sbd.miller.89555.sbeok.flac16",
       "rating": 4.74,
-      "reviews": 22
+      "reviews": 22,
+      "showId": "gd-1966-07-16"
     },
     "last": {
       "date": "1995-07-08",
@@ -1713,7 +1807,8 @@
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
       "rating": 2.95,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1970-05-02",
@@ -1733,7 +1828,8 @@
       "identifier": "gd1970-05-02.138227.sbd.miller.flac1648",
       "recording": "https://archive.org/details/gd1970-05-02.138227.sbd.miller.flac1648",
       "venueName": "Harpur College",
-      "city": "Binghamton, NY"
+      "city": "Binghamton, NY",
+      "showId": "gd-1970-05-02"
     },
     "rank": 100,
     "liveRank": 38,
@@ -1787,7 +1883,8 @@
       ],
       "identifier": "gd1995-07-09.sbd.miller.114369.flac16",
       "recording": "https://archive.org/details/gd1995-07-09.sbd.miller.114369.flac16",
-      "duration": "27:21"
+      "duration": "27:21",
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1990-03-29",
@@ -1823,7 +1920,8 @@
       ],
       "identifier": "gd90-03-29.sbd.miller.26341.sbeok.shnf",
       "recording": "https://archive.org/details/gd90-03-29.sbd.miller.26341.sbeok.shnf",
-      "duration": "17:49"
+      "duration": "17:49",
+      "showId": "gd-1990-03-29"
     }
   },
   {
@@ -1841,7 +1939,8 @@
       "identifier": "gd69-08-30.sbd.barbella.8594.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-08-30.sbd.barbella.8594.sbeok.shnf",
       "rating": 4.5,
-      "reviews": 26
+      "reviews": 26,
+      "showId": "gd-1969-08-30"
     },
     "last": {
       "date": "1971-04-04",
@@ -1854,7 +1953,8 @@
       "identifier": "gd1971-04-04.sbd.miller.110325.flac16",
       "recording": "https://archive.org/details/gd1971-04-04.sbd.miller.110325.flac16",
       "rating": 4.12,
-      "reviews": 17
+      "reviews": 17,
+      "showId": "gd-1971-04-04"
     },
     "best": {
       "date": "1970-06-24",
@@ -1874,7 +1974,8 @@
       "identifier": "gd_nrps70-06-24.aud.pcrp5.23062.sbeok.flacf",
       "recording": "https://archive.org/details/gd_nrps70-06-24.aud.pcrp5.23062.sbeok.flacf",
       "venueName": "Capitol Theatre",
-      "city": "Port Chester, NY"
+      "city": "Port Chester, NY",
+      "showId": "gd-1970-06-24"
     },
     "rank": 75
   },
@@ -1887,7 +1988,8 @@
       "venue": "Rock Pile - Toronto, Canada",
       "source": "https://www.setlists.net/?show_id=0468",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-07-08"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-07-08",
+      "showId": "gd-1969-07-08"
     },
     "last": {
       "date": "1995-07-05",
@@ -1900,7 +2002,8 @@
       "identifier": "gd95-07-05.sbd.9370.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-05.sbd.9370.sbeok.shnf",
       "rating": 3,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1995-07-05"
     },
     "best": {
       "date": "1972-08-27",
@@ -1920,7 +2023,8 @@
       "identifier": "gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "venueName": "Old Renaissance Faire Grounds",
-      "city": "Veneta, OR"
+      "city": "Veneta, OR",
+      "showId": "gd-1972-08-27"
     },
     "rank": 83,
     "liveRank": 21,
@@ -1942,7 +2046,8 @@
       "identifier": "gd77-02-26.sbd.alphadog.9752.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-02-26.sbd.alphadog.9752.sbeok.shnf",
       "rating": 4.83,
-      "reviews": 176
+      "reviews": 176,
+      "showId": "gd-1977-02-26"
     },
     "last": {
       "date": "1995-06-28",
@@ -1955,7 +2060,8 @@
       "identifier": "gd95-06-28.schoeps.10154.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-28.schoeps.10154.sbeok.shnf",
       "rating": 3.17,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1995-06-28"
     },
     "best": {
       "date": "1978-02-03",
@@ -1975,7 +2081,8 @@
       "identifier": "gd78-02-03.aud.warner.19465.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-02-03.aud.warner.19465.sbeok.shnf",
       "venueName": "Dane County Coliseum",
-      "city": "Madison, WI"
+      "city": "Madison, WI",
+      "showId": "gd-1978-02-03"
     },
     "rank": 18,
     "liveRank": 22,
@@ -1997,7 +2104,8 @@
       "identifier": "gd73-02-09.sbd.bertha-fink.14939.sbeok.shnf",
       "recording": "https://archive.org/details/gd73-02-09.sbd.bertha-fink.14939.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 63
+      "reviews": 63,
+      "showId": "gd-1973-02-09"
     },
     "last": {
       "date": "1995-07-06",
@@ -2010,7 +2118,8 @@
       "identifier": "gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "recording": "https://archive.org/details/gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "rating": 3.4,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1995-07-06"
     },
     "best": {
       "date": "1974-08-06",
@@ -2030,7 +2139,8 @@
       "identifier": "gd74-08-06.merin.weiner.gdADT.5914.sbefail.shnf",
       "recording": "https://archive.org/details/gd74-08-06.merin.weiner.gdADT.5914.sbefail.shnf",
       "venueName": "Roosevelt Stadium",
-      "city": "Jersey City, NJ"
+      "city": "Jersey City, NJ",
+      "showId": "gd-1974-08-06"
     },
     "rank": 9,
     "liveRank": 23,
@@ -2052,7 +2162,8 @@
       "identifier": "gd80-03-31.senn.barbella.4741.sbeok.shnf",
       "recording": "https://archive.org/details/gd80-03-31.senn.barbella.4741.sbeok.shnf",
       "rating": 3.43,
-      "reviews": 9
+      "reviews": 9,
+      "showId": "gd-1980-03-31"
     },
     "last": {
       "date": "1995-07-05",
@@ -2065,7 +2176,8 @@
       "identifier": "gd95-07-05.sbd.9370.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-05.sbd.9370.sbeok.shnf",
       "rating": 3,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1995-07-05"
     },
     "best": {
       "date": "1989-10-09",
@@ -2085,7 +2197,8 @@
       "identifier": "gd89-10-09.sbd.serafin.7721.sbeok.shnf",
       "recording": "https://archive.org/details/gd89-10-09.sbd.serafin.7721.sbeok.shnf",
       "venueName": "Hampton Coliseum",
-      "city": "Hampton, VA"
+      "city": "Hampton, VA",
+      "showId": "gd-1989-10-09"
     },
     "rank": 69,
     "liveRank": 69,
@@ -2107,7 +2220,8 @@
       "identifier": "gd77-03-18.sbd.unknown.254.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-03-18.sbd.unknown.254.sbeok.shnf",
       "rating": 4.58,
-      "reviews": 68
+      "reviews": 68,
+      "showId": "gd-1977-03-18"
     },
     "last": {
       "date": "1995-07-02",
@@ -2120,7 +2234,8 @@
       "identifier": "gd95-07-02.aud.unk.12578.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-02.aud.unk.12578.sbeok.shnf",
       "rating": 3.12,
-      "reviews": 36
+      "reviews": 36,
+      "showId": "gd-1995-07-02"
     },
     "best": {
       "date": "1980-10-31",
@@ -2146,7 +2261,8 @@
       "identifier": "gd80-10-31.sbd-preFM.cousinit.20377.sbeok.shnf",
       "recording": "https://archive.org/details/gd80-10-31.sbd-preFM.cousinit.20377.sbeok.shnf",
       "venueName": "Radio City Music Hall",
-      "city": "New York, NY"
+      "city": "New York, NY",
+      "showId": "gd-1980-10-31"
     },
     "rank": 21,
     "liveRank": 58,
@@ -2168,7 +2284,8 @@
       "identifier": "gd1975-06-17.aud.unknown.87560.flac16",
       "recording": "https://archive.org/details/gd1975-06-17.aud.unknown.87560.flac16",
       "rating": 4.44,
-      "reviews": 102
+      "reviews": 102,
+      "showId": "gd-1975-06-17"
     },
     "last": {
       "date": "1995-06-22",
@@ -2181,7 +2298,8 @@
       "identifier": "gd95-06-22.naks.18802.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-22.naks.18802.sbeok.shnf",
       "rating": 3.57,
-      "reviews": 22
+      "reviews": 22,
+      "showId": "gd-1995-06-22"
     },
     "best": {
       "date": "1976-10-09",
@@ -2207,7 +2325,8 @@
       "identifier": "gd76-10-09.set2-sbd.miller.12519.sbeok.shnf",
       "recording": "https://archive.org/details/gd76-10-09.set2-sbd.miller.12519.sbeok.shnf",
       "venueName": "Oakland-Alameda County Coliseum Stadium",
-      "city": "Oakland, CA"
+      "city": "Oakland, CA",
+      "showId": "gd-1976-10-09"
     },
     "rank": 11,
     "liveRank": 66,
@@ -2229,7 +2348,8 @@
       "identifier": "gd70-03-20.sbd.late.hamilton.14287.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-03-20.sbd.late.hamilton.14287.sbeok.shnf",
       "rating": 3.4,
-      "reviews": 5
+      "reviews": 5,
+      "showId": "gd-1970-03-20"
     },
     "last": {
       "date": "1995-06-24",
@@ -2242,7 +2362,8 @@
       "identifier": "gd95-06-24.naks.12271.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-24.naks.12271.sbeok.shnf",
       "rating": 3.33,
-      "reviews": 33
+      "reviews": 33,
+      "showId": "gd-1995-06-24"
     },
     "best": {
       "date": "1970-05-02",
@@ -2262,7 +2383,8 @@
       "identifier": "gd1970-05-02.138227.sbd.miller.flac1648",
       "recording": "https://archive.org/details/gd1970-05-02.138227.sbd.miller.flac1648",
       "venueName": "Harpur College",
-      "city": "Binghamton, NY"
+      "city": "Binghamton, NY",
+      "showId": "gd-1970-05-02"
     },
     "rank": 19,
     "liveRank": 41,
@@ -2278,7 +2400,8 @@
       "venue": "Colden Auditorium, Queens College - Queens, NY",
       "source": "https://www.setlists.net/?show_id=0630",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1970-10-10"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1970-10-10",
+      "showId": "gd-1970-10-10"
     },
     "last": {
       "date": "1995-07-05",
@@ -2291,7 +2414,8 @@
       "identifier": "gd95-07-05.sbd.9370.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-05.sbd.9370.sbeok.shnf",
       "rating": 3,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1995-07-05"
     },
     "best": {
       "date": "1972-04-26",
@@ -2311,7 +2435,8 @@
       "identifier": "gd1972-04-26.sbd.backus.12884.sbeok.shnf",
       "recording": "https://archive.org/details/gd1972-04-26.sbd.backus.12884.sbeok.shnf",
       "venueName": "Jahrhunderthalle",
-      "city": "Frankfurt"
+      "city": "Frankfurt",
+      "showId": "gd-1972-04-26"
     },
     "rank": 50,
     "liveRank": 43,
@@ -2333,7 +2458,8 @@
       "identifier": "gd66-05-19.sbd.lestatkat.6516.sbeok.shnf",
       "recording": "https://archive.org/details/gd66-05-19.sbd.lestatkat.6516.sbeok.shnf",
       "rating": 4.73,
-      "reviews": 53
+      "reviews": 53,
+      "showId": "gd-1966-05-19"
     },
     "last": {
       "date": "1995-06-28",
@@ -2346,7 +2472,8 @@
       "identifier": "gd95-06-28.schoeps.10154.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-28.schoeps.10154.sbeok.shnf",
       "rating": 3.17,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1995-06-28"
     },
     "best": {
       "date": "1970-05-02",
@@ -2366,7 +2493,8 @@
       "identifier": "gd1970-05-02.138227.sbd.miller.flac1648",
       "recording": "https://archive.org/details/gd1970-05-02.138227.sbd.miller.flac1648",
       "venueName": "Harpur College",
-      "city": "Binghamton, NY"
+      "city": "Binghamton, NY",
+      "showId": "gd-1970-05-02"
     },
     "rank": 74,
     "liveRank": 10,
@@ -2388,7 +2516,8 @@
       "identifier": "gd71-02-18.sbd.orf.107.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-02-18.sbd.orf.107.sbeok.shnf",
       "rating": 4.59,
-      "reviews": 68
+      "reviews": 68,
+      "showId": "gd-1971-02-18"
     },
     "last": {
       "date": "1995-06-27",
@@ -2401,7 +2530,8 @@
       "identifier": "gd95-06-27.schoeps.10180.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-27.schoeps.10180.sbeok.shnf",
       "rating": 3.14,
-      "reviews": 17
+      "reviews": 17,
+      "showId": "gd-1995-06-27"
     },
     "best": {
       "date": "1972-08-27",
@@ -2421,7 +2551,8 @@
       "identifier": "gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "venueName": "Old Renaissance Faire Grounds",
-      "city": "Veneta, OR"
+      "city": "Veneta, OR",
+      "showId": "gd-1972-08-27"
     },
     "rank": 97,
     "liveRank": 47,
@@ -2443,7 +2574,8 @@
       "identifier": "gd1972-04-17.sbd.ashley-field.34032.sbeok.flac16",
       "recording": "https://archive.org/details/gd1972-04-17.sbd.ashley-field.34032.sbeok.flac16",
       "rating": 4.71,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1972-04-17"
     },
     "last": {
       "date": "1995-07-06",
@@ -2456,7 +2588,8 @@
       "identifier": "gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "recording": "https://archive.org/details/gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "rating": 3.4,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1995-07-06"
     },
     "best": {
       "date": "1972-08-27",
@@ -2476,7 +2609,8 @@
       "identifier": "gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "venueName": "Old Renaissance Faire Grounds",
-      "city": "Veneta, OR"
+      "city": "Veneta, OR",
+      "showId": "gd-1972-08-27"
     },
     "rank": 43,
     "liveRank": 34,
@@ -2498,7 +2632,8 @@
       "identifier": "gd1983-05-13.fob.sonyecm220t.keshavan.miller.fix.94514.sbeok.flac16",
       "recording": "https://archive.org/details/gd1983-05-13.fob.sonyecm220t.keshavan.miller.fix.94514.sbeok.flac16",
       "rating": 4.71,
-      "reviews": 7
+      "reviews": 7,
+      "showId": "gd-1983-05-13"
     },
     "last": {
       "date": "1995-06-30",
@@ -2511,7 +2646,8 @@
       "identifier": "gd95-06-30.schoeps.3376.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-30.schoeps.3376.sbeok.shnf",
       "rating": 4.1,
-      "reviews": 71
+      "reviews": 71,
+      "showId": "gd-1995-06-30"
     },
     "best": {
       "date": "1990-03-26",
@@ -2531,7 +2667,8 @@
       "identifier": "gd1990-03-26.sbd.miller.87350.sbeok.flac16",
       "recording": "https://archive.org/details/gd1990-03-26.sbd.miller.87350.sbeok.flac16",
       "venueName": "Knickerbocker Arena",
-      "city": "Albany, NY"
+      "city": "Albany, NY",
+      "showId": "gd-1990-03-26"
     },
     "rank": 68,
     "liveRank": 68,
@@ -2553,7 +2690,8 @@
       "identifier": "gd1975-06-17.aud.unknown.87560.flac16",
       "recording": "https://archive.org/details/gd1975-06-17.aud.unknown.87560.flac16",
       "rating": 4.44,
-      "reviews": 102
+      "reviews": 102,
+      "showId": "gd-1975-06-17"
     },
     "last": {
       "date": "1995-06-22",
@@ -2566,7 +2704,8 @@
       "identifier": "gd95-06-22.naks.18802.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-22.naks.18802.sbeok.shnf",
       "rating": 3.57,
-      "reviews": 22
+      "reviews": 22,
+      "showId": "gd-1995-06-22"
     },
     "best": {
       "date": "1975-08-13",
@@ -2592,7 +2731,8 @@
       "identifier": "gd75-08-13.fm.vernon.23661.sbeok.shnf",
       "recording": "https://archive.org/details/gd75-08-13.fm.vernon.23661.sbeok.shnf",
       "venueName": "Great American Music Hall",
-      "city": "San Francisco, CA"
+      "city": "San Francisco, CA",
+      "showId": "gd-1975-08-13"
     },
     "rank": 10,
     "liveRank": 96,
@@ -2644,7 +2784,8 @@
       ],
       "identifier": "gd1975-06-17.aud.unknown.87560.flac16",
       "recording": "https://archive.org/details/gd1975-06-17.aud.unknown.87560.flac16",
-      "duration": "22:59"
+      "duration": "22:59",
+      "showId": "gd-1975-06-17"
     },
     "last": {
       "date": "1995-06-22",
@@ -2673,7 +2814,8 @@
       ],
       "identifier": "gd95-06-22.naks.18802.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-22.naks.18802.sbeok.shnf",
-      "duration": "29:54"
+      "duration": "29:54",
+      "showId": "gd-1995-06-22"
     },
     "best": {
       "date": "1975-08-13",
@@ -2707,7 +2849,8 @@
       ],
       "identifier": "gd75-08-13.fm.vernon.23661.sbeok.shnf",
       "recording": "https://archive.org/details/gd75-08-13.fm.vernon.23661.sbeok.shnf",
-      "duration": "15:04"
+      "duration": "15:04",
+      "showId": "gd-1975-08-13"
     }
   },
   {
@@ -2725,7 +2868,8 @@
       "identifier": "gd73-02-09.sbd.bertha-fink.14939.sbeok.shnf",
       "recording": "https://archive.org/details/gd73-02-09.sbd.bertha-fink.14939.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 63
+      "reviews": 63,
+      "showId": "gd-1973-02-09"
     },
     "last": {
       "date": "1995-07-02",
@@ -2738,7 +2882,8 @@
       "identifier": "gd95-07-02.aud.unk.12578.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-02.aud.unk.12578.sbeok.shnf",
       "rating": 3.12,
-      "reviews": 36
+      "reviews": 36,
+      "showId": "gd-1995-07-02"
     },
     "best": {
       "date": "1973-12-19",
@@ -2758,7 +2903,8 @@
       "identifier": "gd1973-12-19.sbd.miller.113503.flac16",
       "recording": "https://archive.org/details/gd1973-12-19.sbd.miller.113503.flac16",
       "venueName": "Curtis Hixon Convention Hall",
-      "city": "Tampa, FL"
+      "city": "Tampa, FL",
+      "showId": "gd-1973-12-19"
     },
     "rank": 56
   },
@@ -2777,7 +2923,8 @@
       "identifier": "gd69-06-21.early-late.aud-sbd.cotsman.16334.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-06-21.early-late.aud-sbd.cotsman.16334.sbeok.shnf",
       "rating": 4.13,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1969-06-21"
     },
     "last": {
       "date": "1995-03-24",
@@ -2790,7 +2937,8 @@
       "identifier": "gd95-03-24.akg.5668.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-03-24.akg.5668.sbeok.shnf",
       "rating": 2.6,
-      "reviews": 16
+      "reviews": 16,
+      "showId": "gd-1995-03-24"
     },
     "best": {
       "date": "1977-05-17",
@@ -2810,7 +2958,8 @@
       "identifier": "gd77-05-17.sbd.weiner.18554.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-05-17.sbd.weiner.18554.sbeok.shnf",
       "venueName": "Memorial Coliseum",
-      "city": "Tuscaloosa, AL"
+      "city": "Tuscaloosa, AL",
+      "showId": "gd-1977-05-17"
     },
     "rank": 52,
     "liveRank": 85,
@@ -2832,7 +2981,8 @@
       "identifier": "gd66-02-25.sbd.unknown.1593.sbefail.shnf",
       "recording": "https://archive.org/details/gd66-02-25.sbd.unknown.1593.sbefail.shnf",
       "rating": 4.86,
-      "reviews": 52
+      "reviews": 52,
+      "showId": "gd-1966-02-25"
     },
     "last": {
       "date": "1995-07-08",
@@ -2845,7 +2995,8 @@
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
       "rating": 2.95,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1970-05-02",
@@ -2871,7 +3022,8 @@
       "identifier": "gd1970-05-02.138227.sbd.miller.flac1648",
       "recording": "https://archive.org/details/gd1970-05-02.138227.sbd.miller.flac1648",
       "venueName": "Harpur College",
-      "city": "Binghamton, NY"
+      "city": "Binghamton, NY",
+      "showId": "gd-1970-05-02"
     },
     "rank": 8,
     "liveRank": 5,
@@ -2893,7 +3045,8 @@
       "identifier": "gd78-08-30.aud.wiley.11479.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-08-30.aud.wiley.11479.sbeok.shnf",
       "rating": 3.2,
-      "reviews": 11
+      "reviews": 11,
+      "showId": "gd-1978-08-30"
     },
     "last": {
       "date": "1995-06-30",
@@ -2906,7 +3059,8 @@
       "identifier": "gd95-06-30.schoeps.3376.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-30.schoeps.3376.sbeok.shnf",
       "rating": 4.1,
-      "reviews": 71
+      "reviews": 71,
+      "showId": "gd-1995-06-30"
     },
     "best": {
       "date": "1978-12-31",
@@ -2926,7 +3080,8 @@
       "identifier": "gd78-12-31.sbd.ashley.1667.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-12-31.sbd.ashley.1667.sbeok.shnf",
       "venueName": "Winterland Arena",
-      "city": "San Francisco, CA"
+      "city": "San Francisco, CA",
+      "showId": "gd-1978-12-31"
     },
     "rank": 101,
     "liveRank": 53,
@@ -2948,7 +3103,8 @@
       "identifier": "gd66-05-19.sbd.lestatkat.6516.sbeok.shnf",
       "recording": "https://archive.org/details/gd66-05-19.sbd.lestatkat.6516.sbeok.shnf",
       "rating": 4.73,
-      "reviews": 53
+      "reviews": 53,
+      "showId": "gd-1966-05-19"
     },
     "last": {
       "date": "1972-05-24",
@@ -2961,7 +3117,8 @@
       "identifier": "gd72-05-24.jones.macdonald.5920.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-05-24.jones.macdonald.5920.sbeok.shnf",
       "rating": 2.86,
-      "reviews": 8
+      "reviews": 8,
+      "showId": "gd-1972-05-24"
     },
     "best": {
       "date": "1972-04-14",
@@ -2981,7 +3138,8 @@
       "identifier": "gd72-04-14.aud.vernon.23662.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-04-14.aud.vernon.23662.sbeok.shnf",
       "venueName": "Tivolis Koncertsal",
-      "city": "Copenhagen, DN"
+      "city": "Copenhagen, DN",
+      "showId": "gd-1972-04-14"
     },
     "rank": 90
   },
@@ -3000,7 +3158,8 @@
       "identifier": "gd74-02-22.sbd.patched.sirmick.21539.sbeok.shnf",
       "recording": "https://archive.org/details/gd74-02-22.sbd.patched.sirmick.21539.sbeok.shnf",
       "rating": 4.4,
-      "reviews": 37
+      "reviews": 37,
+      "showId": "gd-1974-02-22"
     },
     "last": {
       "date": "1995-06-22",
@@ -3013,7 +3172,8 @@
       "identifier": "gd95-06-22.naks.18802.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-22.naks.18802.sbeok.shnf",
       "rating": 3.57,
-      "reviews": 22
+      "reviews": 22,
+      "showId": "gd-1995-06-22"
     },
     "best": {
       "date": "1978-07-08",
@@ -3033,7 +3193,8 @@
       "identifier": "gd78-07-08.sbd.unknown.294.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-07-08.sbd.unknown.294.sbeok.shnf",
       "venueName": "Red Rocks Amphitheatre",
-      "city": "Morrison, CO"
+      "city": "Morrison, CO",
+      "showId": "gd-1978-07-08"
     },
     "rank": 72,
     "liveRank": 77,
@@ -3055,7 +3216,8 @@
       "identifier": "gd71-10-19.orefm.clugston.3301.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-10-19.orefm.clugston.3301.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 41
+      "reviews": 41,
+      "showId": "gd-1971-10-19"
     },
     "last": {
       "date": "1995-07-08",
@@ -3068,7 +3230,8 @@
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
       "rating": 2.95,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1979-01-11",
@@ -3088,7 +3251,8 @@
       "identifier": "gd79-01-11.gatto.kempka.308.sbeok.shnf",
       "recording": "https://archive.org/details/gd79-01-11.gatto.kempka.308.sbeok.shnf",
       "venueName": "Nassau Coliseum",
-      "city": "Uniondale, NY"
+      "city": "Uniondale, NY",
+      "showId": "gd-1979-01-11"
     },
     "rank": 16,
     "liveRank": 9,
@@ -3110,7 +3274,8 @@
       "identifier": "gd73-09-07.sbd.cotsman.19893.sbeok.shnf",
       "recording": "https://archive.org/details/gd73-09-07.sbd.cotsman.19893.sbeok.shnf",
       "rating": 4.1,
-      "reviews": 20
+      "reviews": 20,
+      "showId": "gd-1973-09-07"
     },
     "last": {
       "date": "1995-07-02",
@@ -3123,7 +3288,8 @@
       "identifier": "gd95-07-02.aud.unk.12578.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-02.aud.unk.12578.sbeok.shnf",
       "rating": 3.12,
-      "reviews": 36
+      "reviews": 36,
+      "showId": "gd-1995-07-02"
     },
     "best": {
       "date": "1977-10-29",
@@ -3143,7 +3309,8 @@
       "identifier": "gd1977-10-29.sbd.miller.92085.sbeok.flac16",
       "recording": "https://archive.org/details/gd1977-10-29.sbd.miller.92085.sbeok.flac16",
       "venueName": "Evans Field House, Northern Illinois University",
-      "city": "Dekalb, Il"
+      "city": "Dekalb, Il",
+      "showId": "gd-1977-10-29"
     },
     "rank": 63,
     "liveRank": 62,
@@ -3165,7 +3332,8 @@
       "identifier": "gd1972-03-21.sbd.miller.92395.sbeok.flac16",
       "recording": "https://archive.org/details/gd1972-03-21.sbd.miller.92395.sbeok.flac16",
       "rating": 4.7,
-      "reviews": 21
+      "reviews": 21,
+      "showId": "gd-1972-03-21"
     },
     "last": {
       "date": "1995-06-30",
@@ -3178,7 +3346,8 @@
       "identifier": "gd95-06-30.schoeps.3376.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-30.schoeps.3376.sbeok.shnf",
       "rating": 4.1,
-      "reviews": 71
+      "reviews": 71,
+      "showId": "gd-1995-06-30"
     },
     "best": {
       "date": "1972-04-08",
@@ -3198,7 +3367,8 @@
       "identifier": "gd72-04-08.sbd.giles-jeffm.2534.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-04-08.sbd.giles-jeffm.2534.sbeok.shnf",
       "venueName": "Wembley Empire Pool",
-      "city": "London"
+      "city": "London",
+      "showId": "gd-1972-04-08"
     },
     "rank": 64,
     "liveRank": 17,
@@ -3220,7 +3390,8 @@
       "identifier": "gd73-02-09.sbd.bertha-fink.14939.sbeok.shnf",
       "recording": "https://archive.org/details/gd73-02-09.sbd.bertha-fink.14939.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 63
+      "reviews": 63,
+      "showId": "gd-1973-02-09"
     },
     "last": {
       "date": "1995-07-05",
@@ -3233,7 +3404,8 @@
       "identifier": "gd95-07-05.sbd.9370.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-05.sbd.9370.sbeok.shnf",
       "rating": 3,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1995-07-05"
     },
     "best": {
       "date": "1990-03-14",
@@ -3262,7 +3434,8 @@
       "identifier": "gd90-03-14.sbd.ladner.8466.sbeok.shnf",
       "recording": "https://archive.org/details/gd90-03-14.sbd.ladner.8466.sbeok.shnf",
       "venueName": "Capital Centre",
-      "city": "Landover, MD"
+      "city": "Landover, MD",
+      "showId": "gd-1990-03-14"
     },
     "rank": 80
   },
@@ -3281,7 +3454,8 @@
       "identifier": "gd71-02-18.sbd.orf.107.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-02-18.sbd.orf.107.sbeok.shnf",
       "rating": 4.59,
-      "reviews": 68
+      "reviews": 68,
+      "showId": "gd-1971-02-18"
     },
     "last": {
       "date": "1995-06-28",
@@ -3294,7 +3468,8 @@
       "identifier": "gd95-06-28.schoeps.10154.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-28.schoeps.10154.sbeok.shnf",
       "rating": 3.17,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1995-06-28"
     },
     "best": {
       "date": "1990-03-24",
@@ -3314,7 +3489,8 @@
       "identifier": "gd90-03-24.schoeps.wiley.11806.sbeok.shnf",
       "recording": "https://archive.org/details/gd90-03-24.schoeps.wiley.11806.sbeok.shnf",
       "venueName": "Knickerbocker Arena",
-      "city": "Albany, NY"
+      "city": "Albany, NY",
+      "showId": "gd-1990-03-24"
     },
     "rank": 51,
     "liveRank": 27,
@@ -3359,7 +3535,8 @@
       ],
       "identifier": "gd1979-08-31.sbd.miller.92924.sbeok.flac16",
       "recording": "https://archive.org/details/gd1979-08-31.sbd.miller.92924.sbeok.flac16",
-      "duration": "11:44"
+      "duration": "11:44",
+      "showId": "gd-1979-08-31"
     },
     "last": {
       "date": "1986-03-24",
@@ -3383,7 +3560,8 @@
       ],
       "identifier": "gd86-03-24.sbd.miller.22783.sbeok.shnf",
       "recording": "https://archive.org/details/gd86-03-24.sbd.miller.22783.sbeok.shnf",
-      "duration": "13:28"
+      "duration": "13:28",
+      "showId": "gd-1986-03-24"
     },
     "best": {
       "date": "1982-10-10",
@@ -3412,7 +3590,8 @@
       ],
       "identifier": "gd1982-10-10.mtx.seamons.ht02.110970.flac16",
       "recording": "https://archive.org/details/gd1982-10-10.mtx.seamons.ht02.110970.flac16",
-      "duration": "14:26"
+      "duration": "14:26",
+      "showId": "gd-1982-10-10"
     }
   },
   {
@@ -3424,7 +3603,8 @@
       "venue": "California Hall - San Francisco, CA",
       "source": "https://www.setlists.net/?show_id=0453",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-06-11"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-06-11",
+      "showId": "gd-1969-06-11"
     },
     "last": {
       "date": "1995-06-25",
@@ -3437,7 +3617,8 @@
       "identifier": "gd95-06-25.sbd.2236.sbefail.shnf",
       "recording": "https://archive.org/details/gd95-06-25.sbd.2236.sbefail.shnf",
       "rating": 3.51,
-      "reviews": 48
+      "reviews": 48,
+      "showId": "gd-1995-06-25"
     },
     "best": {
       "date": "1977-05-08",
@@ -3457,7 +3638,8 @@
       "identifier": "gd77-05-08.sbd.hicks.4982.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-05-08.sbd.hicks.4982.sbeok.shnf",
       "venueName": "Barton Hall - Cornell University",
-      "city": "Ithaca, NY"
+      "city": "Ithaca, NY",
+      "showId": "gd-1977-05-08"
     },
     "rank": 77,
     "liveRank": 42,
@@ -3479,7 +3661,8 @@
       "identifier": "gd66-11-29.sbd.ret.20448.sbeok.shnf",
       "recording": "https://archive.org/details/gd66-11-29.sbd.ret.20448.sbeok.shnf",
       "rating": 3.9,
-      "reviews": 11
+      "reviews": 11,
+      "showId": "gd-1966-11-29"
     },
     "last": {
       "date": "1995-07-06",
@@ -3492,7 +3675,8 @@
       "identifier": "gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "recording": "https://archive.org/details/gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "rating": 3.4,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1995-07-06"
     },
     "best": {
       "date": "1978-04-24",
@@ -3512,7 +3696,8 @@
       "identifier": "gd1978-04-24.sbd.miller.97543.sbeok.flac16",
       "recording": "https://archive.org/details/gd1978-04-24.sbd.miller.97543.sbeok.flac16",
       "venueName": "Horton Field House - Illinois State University",
-      "city": "Normal, IL"
+      "city": "Normal, IL",
+      "showId": "gd-1978-04-24"
     },
     "rank": 81,
     "liveRank": 1,
@@ -3534,7 +3719,8 @@
       "identifier": "gd72-07-16.sbd-aud.cotsman.11258.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-07-16.sbd-aud.cotsman.11258.sbeok.shnf",
       "rating": 4.33,
-      "reviews": 29
+      "reviews": 29,
+      "showId": "gd-1972-07-16"
     },
     "last": {
       "date": "1995-07-06",
@@ -3547,7 +3733,8 @@
       "identifier": "gd95-07-06.schoeps.5452.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-06.schoeps.5452.sbeok.shnf",
       "rating": 3.25,
-      "reviews": 16
+      "reviews": 16,
+      "showId": "gd-1995-07-06"
     },
     "best": {
       "date": "1977-09-03",
@@ -3567,7 +3754,8 @@
       "identifier": "gd77-09-03.sbd.unk.276.sbefixed.shnf",
       "recording": "https://archive.org/details/gd77-09-03.sbd.unk.276.sbefixed.shnf",
       "venueName": "Raceway Park",
-      "city": "Englishtown, NJ"
+      "city": "Englishtown, NJ",
+      "showId": "gd-1977-09-03"
     },
     "rank": 53,
     "liveRank": 59,
@@ -3589,7 +3777,8 @@
       "identifier": "gd67-01-14.sbd.vernon.9108.sbeok.shnf",
       "recording": "https://archive.org/details/gd67-01-14.sbd.vernon.9108.sbeok.shnf",
       "rating": 4.05,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1967-01-14"
     },
     "last": {
       "date": "1995-06-21",
@@ -3602,7 +3791,8 @@
       "identifier": "gd95-06-21.naks.5971.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-21.naks.5971.sbeok.shnf",
       "rating": 3.31,
-      "reviews": 37
+      "reviews": 37,
+      "showId": "gd-1995-06-21"
     },
     "best": {
       "date": "1977-05-08",
@@ -3622,7 +3812,8 @@
       "identifier": "gd77-05-08.sbd.hicks.4982.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-05-08.sbd.hicks.4982.sbeok.shnf",
       "venueName": "Barton Hall - Cornell University",
-      "city": "Ithaca, NY"
+      "city": "Ithaca, NY",
+      "showId": "gd-1977-05-08"
     },
     "rank": 4,
     "liveRank": 46,
@@ -3644,7 +3835,8 @@
       "identifier": "gd1968-12-20.sbd.miller.89663.sbeok.flac16",
       "recording": "https://archive.org/details/gd1968-12-20.sbd.miller.89663.sbeok.flac16",
       "rating": 4.67,
-      "reviews": 10
+      "reviews": 10,
+      "showId": "gd-1968-12-20"
     },
     "last": {
       "date": "1969-07-12",
@@ -3657,7 +3849,8 @@
       "identifier": "gd69-07-12.sbd-aud.hanno.4645.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-07-12.sbd-aud.hanno.4645.sbeok.shnf",
       "rating": 4,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1969-07-12"
     },
     "best": {
       "date": "1969-02-22",
@@ -3677,7 +3870,8 @@
       "identifier": "gd69-02-22.sbd.owen.7860.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-02-22.sbd.owen.7860.sbeok.shnf",
       "venueName": "Dream Bowl",
-      "city": "Vallejo, CA"
+      "city": "Vallejo, CA",
+      "showId": "gd-1969-02-22"
     },
     "rank": 48
   },
@@ -3696,7 +3890,8 @@
       "identifier": "gd1971-07-31.132730.sbd.miller.flac16",
       "recording": "https://archive.org/details/gd1971-07-31.132730.sbd.miller.flac16",
       "rating": 4.8,
-      "reviews": 10
+      "reviews": 10,
+      "showId": "gd-1971-07-31"
     },
     "last": {
       "date": "1972-05-26",
@@ -3709,7 +3904,8 @@
       "identifier": "gd72-05-26.sbd.hollister.12758.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-05-26.sbd.hollister.12758.sbeok.shnf",
       "rating": 4.82,
-      "reviews": 55
+      "reviews": 55,
+      "showId": "gd-1972-05-26"
     },
     "best": {
       "date": "1971-08-06",
@@ -3729,7 +3925,8 @@
       "identifier": "gd71-08-06.aud.bertrando.yerys.129.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-08-06.aud.bertrando.yerys.129.sbeok.shnf",
       "venueName": "Hollywood Palladium",
-      "city": "Hollywood, CA"
+      "city": "Hollywood, CA",
+      "showId": "gd-1971-08-06"
     },
     "rank": 94
   },
@@ -3748,7 +3945,8 @@
       "identifier": "gd69-12-20.sbd.cotsman.6301.sbefail.shnf",
       "recording": "https://archive.org/details/gd69-12-20.sbd.cotsman.6301.sbefail.shnf",
       "rating": 3.4,
-      "reviews": 19
+      "reviews": 19,
+      "showId": "gd-1969-12-20"
     },
     "last": {
       "date": "1995-07-02",
@@ -3761,7 +3959,8 @@
       "identifier": "gd95-07-02.aud.unk.12578.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-02.aud.unk.12578.sbeok.shnf",
       "rating": 3.12,
-      "reviews": 36
+      "reviews": 36,
+      "showId": "gd-1995-07-02"
     },
     "best": {
       "date": "1991-06-17",
@@ -3781,7 +3980,8 @@
       "identifier": "gd91-06-17.sbd.gardner.3591.sbeok.shnf",
       "recording": "https://archive.org/details/gd91-06-17.sbd.gardner.3591.sbeok.shnf",
       "venueName": "Giants Stadium",
-      "city": "East Rutherford, NJ"
+      "city": "East Rutherford, NJ",
+      "showId": "gd-1991-06-17"
     },
     "rank": 34
   },
@@ -3794,7 +3994,8 @@
       "venue": "Carousel Ballroom - San Francisco, CA",
       "source": "https://www.setlists.net/?show_id=0306",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-06-19"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-06-19",
+      "showId": "gd-1968-06-19"
     },
     "last": {
       "date": "1995-07-05",
@@ -3807,7 +4008,8 @@
       "identifier": "gd95-07-05.sbd.9370.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-05.sbd.9370.sbeok.shnf",
       "rating": 3,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1995-07-05"
     },
     "best": {
       "date": "1977-09-03",
@@ -3827,7 +4029,8 @@
       "identifier": "gd77-09-03.sbd.unk.276.sbefixed.shnf",
       "recording": "https://archive.org/details/gd77-09-03.sbd.unk.276.sbefixed.shnf",
       "venueName": "Raceway Park",
-      "city": "Englishtown, NJ"
+      "city": "Englishtown, NJ",
+      "showId": "gd-1977-09-03"
     },
     "rank": 57,
     "liveRank": 6,
@@ -3849,7 +4052,8 @@
       "identifier": "gd71-10-19.orefm.clugston.3301.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-10-19.orefm.clugston.3301.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 41
+      "reviews": 41,
+      "showId": "gd-1971-10-19"
     },
     "last": {
       "date": "1995-07-08",
@@ -3862,7 +4066,8 @@
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
       "rating": 2.95,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1972-04-08",
@@ -3882,7 +4087,8 @@
       "identifier": "gd72-04-08.sbd.giles-jeffm.2534.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-04-08.sbd.giles-jeffm.2534.sbeok.shnf",
       "venueName": "Wembley Empire Pool",
-      "city": "London"
+      "city": "London",
+      "showId": "gd-1972-04-08"
     },
     "rank": 54,
     "liveRank": 33,
@@ -3904,7 +4110,8 @@
       "identifier": "gd73-12-12.sbd.hobbs.6023.sbeok.shnf",
       "recording": "https://archive.org/details/gd73-12-12.sbd.hobbs.6023.sbeok.shnf",
       "rating": 4.44,
-      "reviews": 18
+      "reviews": 18,
+      "showId": "gd-1973-12-12"
     },
     "last": {
       "date": "1995-07-05",
@@ -3917,7 +4124,8 @@
       "identifier": "gd95-07-05.sbd.9370.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-05.sbd.9370.sbeok.shnf",
       "rating": 3,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1995-07-05"
     },
     "best": {
       "date": "1978-04-16",
@@ -3937,7 +4145,8 @@
       "identifier": "gd1978-04-16.sbd.cantor.motb.81457.sbeok.flac16",
       "recording": "https://archive.org/details/gd1978-04-16.sbd.cantor.motb.81457.sbeok.flac16",
       "venueName": "Huntington Civic Center",
-      "city": "Huntington, WV"
+      "city": "Huntington, WV",
+      "showId": "gd-1978-04-16"
     },
     "rank": 55,
     "liveRank": 54,
@@ -3962,7 +4171,8 @@
       "identifier": "gd71-02-18.sbd.orf.107.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-02-18.sbd.orf.107.sbeok.shnf",
       "rating": 4.59,
-      "reviews": 68
+      "reviews": 68,
+      "showId": "gd-1971-02-18"
     },
     "last": {
       "date": "1995-07-05",
@@ -3975,7 +4185,8 @@
       "identifier": "gd95-07-05.sbd.9370.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-05.sbd.9370.sbeok.shnf",
       "rating": 3,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1995-07-05"
     },
     "best": {
       "date": "1972-08-27",
@@ -3995,7 +4206,8 @@
       "identifier": "gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "venueName": "Old Renaissance Faire Grounds",
-      "city": "Veneta, OR"
+      "city": "Veneta, OR",
+      "showId": "gd-1972-08-27"
     },
     "rank": 15,
     "liveRank": 2,
@@ -4017,7 +4229,8 @@
       "identifier": "gd71-10-19.orefm.clugston.3301.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-10-19.orefm.clugston.3301.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 41
+      "reviews": 41,
+      "showId": "gd-1971-10-19"
     },
     "last": {
       "date": "1995-06-27",
@@ -4030,7 +4243,8 @@
       "identifier": "gd95-06-27.schoeps.10180.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-27.schoeps.10180.sbeok.shnf",
       "rating": 3.14,
-      "reviews": 17
+      "reviews": 17,
+      "showId": "gd-1995-06-27"
     },
     "best": {
       "date": "1989-07-07",
@@ -4050,7 +4264,8 @@
       "identifier": "gd89-07-07.aud.wiley.7855.sbeok.shnf",
       "recording": "https://archive.org/details/gd89-07-07.aud.wiley.7855.sbeok.shnf",
       "venueName": "JFK Stadium",
-      "city": "Philadelphia, PA"
+      "city": "Philadelphia, PA",
+      "showId": "gd-1989-07-07"
     },
     "rank": 33,
     "liveRank": 39,
@@ -4072,7 +4287,8 @@
       "identifier": "gd70-08-18.aud.yerys.1346.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-08-18.aud.yerys.1346.sbeok.shnf",
       "rating": 4.07,
-      "reviews": 36
+      "reviews": 36,
+      "showId": "gd-1970-08-18"
     },
     "last": {
       "date": "1988-09-03",
@@ -4085,7 +4301,8 @@
       "identifier": "gd88-09-03.sbd.miller.27749.sbeok.flacf",
       "recording": "https://archive.org/details/gd88-09-03.sbd.miller.27749.sbeok.flacf",
       "rating": 3.83,
-      "reviews": 26
+      "reviews": 26,
+      "showId": "gd-1988-09-03"
     },
     "best": {
       "date": "1970-09-20",
@@ -4105,7 +4322,8 @@
       "identifier": "gd70-09-20.aud.remaster.sirmick.27583.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-09-20.aud.remaster.sirmick.27583.sbeok.shnf",
       "venueName": "Fillmore East",
-      "city": "New York, NY"
+      "city": "New York, NY",
+      "showId": "gd-1970-09-20"
     },
     "rank": 3
   },
@@ -4124,7 +4342,8 @@
       "identifier": "gd73-02-09.sbd.bertha-fink.14939.sbeok.shnf",
       "recording": "https://archive.org/details/gd73-02-09.sbd.bertha-fink.14939.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 63
+      "reviews": 63,
+      "showId": "gd-1973-02-09"
     },
     "last": {
       "date": "1995-06-21",
@@ -4137,7 +4356,8 @@
       "identifier": "gd95-06-21.naks.5971.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-21.naks.5971.sbeok.shnf",
       "rating": 3.31,
-      "reviews": 37
+      "reviews": 37,
+      "showId": "gd-1995-06-21"
     },
     "best": {
       "date": "1977-03-20",
@@ -4157,7 +4377,8 @@
       "identifier": "gd77-03-20.sbd.miller.25610.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-03-20.sbd.miller.25610.sbeok.shnf",
       "venueName": "Winterland Arena",
-      "city": "San Francisco, CA"
+      "city": "San Francisco, CA",
+      "showId": "gd-1977-03-20"
     },
     "rank": 42,
     "liveRank": 51,
@@ -4179,7 +4400,8 @@
       "identifier": "gd1979-08-31.sbd.miller.92924.sbeok.flac16",
       "recording": "https://archive.org/details/gd1979-08-31.sbd.miller.92924.sbeok.flac16",
       "rating": 4,
-      "reviews": 6
+      "reviews": 6,
+      "showId": "gd-1979-08-31"
     },
     "last": {
       "date": "1995-07-08",
@@ -4192,7 +4414,8 @@
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
       "rating": 2.95,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1991-06-17",
@@ -4218,7 +4441,8 @@
       "identifier": "gd91-06-17.sbd.gardner.3591.sbeok.shnf",
       "recording": "https://archive.org/details/gd91-06-17.sbd.gardner.3591.sbeok.shnf",
       "venueName": "Giants Stadium",
-      "city": "East Rutherford, NJ"
+      "city": "East Rutherford, NJ",
+      "showId": "gd-1991-06-17"
     },
     "rank": 88,
     "liveRank": 65,
@@ -4240,7 +4464,8 @@
       "identifier": "gd76-06-03.sbd.serafin.7719.sbeok.shnf",
       "recording": "https://archive.org/details/gd76-06-03.sbd.serafin.7719.sbeok.shnf",
       "rating": 4.68,
-      "reviews": 28
+      "reviews": 28,
+      "showId": "gd-1976-06-03"
     },
     "last": {
       "date": "1995-07-09",
@@ -4253,7 +4478,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "rating": 3.48,
-      "reviews": 361
+      "reviews": 361,
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1978-02-05",
@@ -4273,7 +4499,8 @@
       "identifier": "gd78-02-05.aud.set2.warner.19466.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-02-05.aud.set2.warner.19466.sbeok.shnf",
       "venueName": "Uni Dome, U of Northern Iowa",
-      "city": "Cedar Falls, IA"
+      "city": "Cedar Falls, IA",
+      "showId": "gd-1978-02-05"
     },
     "rank": 66,
     "liveRank": 24,
@@ -4295,7 +4522,8 @@
       "identifier": "gd1974-03-23.sbd.clugston-orf.1995.sbeok.shnf",
       "recording": "https://archive.org/details/gd1974-03-23.sbd.clugston-orf.1995.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 30
+      "reviews": 30,
+      "showId": "gd-1974-03-23"
     },
     "last": {
       "date": "1995-07-02",
@@ -4308,7 +4536,8 @@
       "identifier": "gd95-07-02.aud.unk.12578.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-02.aud.unk.12578.sbeok.shnf",
       "rating": 3.12,
-      "reviews": 36
+      "reviews": 36,
+      "showId": "gd-1995-07-02"
     },
     "best": {
       "date": "1976-10-09",
@@ -4334,7 +4563,8 @@
       "identifier": "gd1976-10-09.sbd.unknown.249.sbeok.shnf",
       "recording": "https://archive.org/details/gd1976-10-09.sbd.unknown.249.sbeok.shnf",
       "venueName": "Oakland-Alameda County Coliseum Stadium",
-      "city": "Oakland, CA"
+      "city": "Oakland, CA",
+      "showId": "gd-1976-10-09"
     },
     "rank": 1,
     "liveRank": 40,
@@ -4380,7 +4610,8 @@
       ],
       "identifier": "gd77-03-18.sbd.unknown.254.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-03-18.sbd.unknown.254.sbeok.shnf",
-      "duration": "17:27"
+      "duration": "17:27",
+      "showId": "gd-1977-03-18"
     },
     "last": {
       "date": "1995-07-02",
@@ -4404,7 +4635,8 @@
       ],
       "identifier": "gd95-07-02.aud.unk.12578.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-02.aud.unk.12578.sbeok.shnf",
-      "duration": "22:25"
+      "duration": "22:25",
+      "showId": "gd-1995-07-02"
     },
     "best": {
       "date": "1977-05-08",
@@ -4428,7 +4660,8 @@
       ],
       "identifier": "gd77-05-08.sbd.hicks.4982.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-05-08.sbd.hicks.4982.sbeok.shnf",
-      "duration": "25:55"
+      "duration": "25:55",
+      "showId": "gd-1977-05-08"
     }
   },
   {
@@ -4446,7 +4679,8 @@
       "identifier": "gd78-08-31.aud-sbd.miller.20726.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-08-31.aud-sbd.miller.20726.sbeok.shnf",
       "rating": 4.27,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1978-08-31"
     },
     "last": {
       "date": "1995-07-09",
@@ -4459,7 +4693,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "rating": 3.48,
-      "reviews": 361
+      "reviews": 361,
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1985-06-30",
@@ -4479,7 +4714,8 @@
       "identifier": "gd85-06-30.oade-schoeps.sacks.25242.sbeok.flacf",
       "recording": "https://archive.org/details/gd85-06-30.oade-schoeps.sacks.25242.sbeok.flacf",
       "venueName": "Merriweather Post Pavilion",
-      "city": "Columbia, MD"
+      "city": "Columbia, MD",
+      "showId": "gd-1985-06-30"
     },
     "rank": 27,
     "liveRank": 74,
@@ -4501,7 +4737,8 @@
       "identifier": "gd74-02-22.sbd.patched.sirmick.21539.sbeok.shnf",
       "recording": "https://archive.org/details/gd74-02-22.sbd.patched.sirmick.21539.sbeok.shnf",
       "rating": 4.4,
-      "reviews": 37
+      "reviews": 37,
+      "showId": "gd-1974-02-22"
     },
     "last": {
       "date": "1995-06-25",
@@ -4514,7 +4751,8 @@
       "identifier": "gd95-06-25.sbd.2236.sbefail.shnf",
       "recording": "https://archive.org/details/gd95-06-25.sbd.2236.sbefail.shnf",
       "rating": 3.51,
-      "reviews": 48
+      "reviews": 48,
+      "showId": "gd-1995-06-25"
     },
     "best": {
       "date": "1974-06-23",
@@ -4534,7 +4772,8 @@
       "identifier": "gd74-06-23.sbd.cribbs.16780.sbeok.shnf",
       "recording": "https://archive.org/details/gd74-06-23.sbd.cribbs.16780.sbeok.shnf",
       "venueName": "Jai-Alai Fronton",
-      "city": "Miami, FL"
+      "city": "Miami, FL",
+      "showId": "gd-1974-06-23"
     },
     "rank": 38,
     "liveRank": 64,
@@ -4556,7 +4795,8 @@
       "identifier": "gd92-02-22.sbd.gardner.9981.sbeok.shnf",
       "recording": "https://archive.org/details/gd92-02-22.sbd.gardner.9981.sbeok.shnf",
       "rating": 3.67,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1992-02-22"
     },
     "last": {
       "date": "1995-07-09",
@@ -4569,7 +4809,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "rating": 3.48,
-      "reviews": 361
+      "reviews": 361,
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1995-07-09",
@@ -4589,7 +4830,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "venueName": "Soldier Field",
-      "city": "Chicago, IL"
+      "city": "Chicago, IL",
+      "showId": "gd-1995-07-09"
     },
     "rank": 82
   },
@@ -4605,7 +4847,8 @@
       "venue": "Carousel Ballroom - San Francisco, CA",
       "source": "https://www.setlists.net/?show_id=0299",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-06-07"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-06-07",
+      "showId": "gd-1968-06-07"
     },
     "last": {
       "date": "1983-10-31",
@@ -4618,7 +4861,8 @@
       "identifier": "gd83-10-31.horvath-nak.ladner.19894.sbeok.shnf",
       "recording": "https://archive.org/details/gd83-10-31.horvath-nak.ladner.19894.sbeok.shnf",
       "rating": 4.46,
-      "reviews": 28
+      "reviews": 28,
+      "showId": "gd-1983-10-31"
     },
     "best": {
       "date": "1978-01-22",
@@ -4638,7 +4882,8 @@
       "identifier": "gd78-01-22.sbd.popi.4974.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-01-22.sbd.popi.4974.sbeok.shnf",
       "venueName": "McArthur Court, U of Oregon",
-      "city": "Eugene, OR"
+      "city": "Eugene, OR",
+      "showId": "gd-1978-01-22"
     },
     "rank": 13,
     "liveRank": 71,
@@ -4660,7 +4905,8 @@
       "identifier": "gd1989-02-05.sbd.walker-scotton.miller.105612.flac16",
       "recording": "https://archive.org/details/gd1989-02-05.sbd.walker-scotton.miller.105612.flac16",
       "rating": 4.75,
-      "reviews": 4
+      "reviews": 4,
+      "showId": "gd-1989-02-05"
     },
     "last": {
       "date": "1995-06-30",
@@ -4673,7 +4919,8 @@
       "identifier": "gd95-06-30.schoeps.3376.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-30.schoeps.3376.sbeok.shnf",
       "rating": 4.1,
-      "reviews": 71
+      "reviews": 71,
+      "showId": "gd-1995-06-30"
     },
     "best": {
       "date": "1993-08-21",
@@ -4693,7 +4940,8 @@
       "identifier": "gd93-08-21.sbd.nawrocki.15035.sbeok.shnf",
       "recording": "https://archive.org/details/gd93-08-21.sbd.nawrocki.15035.sbeok.shnf",
       "venueName": "Autzen Stadium - University of Oregon",
-      "city": "Eugene, OR"
+      "city": "Eugene, OR",
+      "showId": "gd-1993-08-21"
     },
     "rank": 58
   },
@@ -4712,7 +4960,8 @@
       "identifier": "gd1972-06-17.shure.melton.miller.116272.flac16",
       "recording": "https://archive.org/details/gd1972-06-17.shure.melton.miller.116272.flac16",
       "rating": 4.71,
-      "reviews": 21
+      "reviews": 21,
+      "showId": "gd-1972-06-17"
     },
     "last": {
       "date": "1995-07-06",
@@ -4725,7 +4974,8 @@
       "identifier": "gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "recording": "https://archive.org/details/gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "rating": 3.4,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1995-07-06"
     },
     "best": {
       "date": "1978-10-21",
@@ -4745,7 +4995,8 @@
       "identifier": "gd78-10-21.sbd.popi.6100.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-10-21.sbd.popi.6100.sbeok.shnf",
       "venueName": "Winterland Arena",
-      "city": "San Francisco, CA"
+      "city": "San Francisco, CA",
+      "showId": "gd-1978-10-21"
     },
     "rank": 20,
     "liveRank": 35,
@@ -4770,7 +5021,8 @@
       "identifier": "gd70-06-07.sbd.hollister.98.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-06-07.sbd.hollister.98.sbeok.shnf",
       "rating": 4.52,
-      "reviews": 23
+      "reviews": 23,
+      "showId": "gd-1970-06-07"
     },
     "last": {
       "date": "1995-07-09",
@@ -4783,7 +5035,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "rating": 3.48,
-      "reviews": 361
+      "reviews": 361,
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1972-08-27",
@@ -4803,7 +5056,8 @@
       "identifier": "gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf",
       "venueName": "Old Renaissance Faire Grounds",
-      "city": "Veneta, OR"
+      "city": "Veneta, OR",
+      "showId": "gd-1972-08-27"
     },
     "rank": 17,
     "liveRank": 3,
@@ -4825,7 +5079,8 @@
       "identifier": "gd71-07-31.winberg.weiner.5678.gdADT05.sbefail.shnf",
       "recording": "https://archive.org/details/gd71-07-31.winberg.weiner.5678.gdADT05.sbefail.shnf",
       "rating": 4.12,
-      "reviews": 18
+      "reviews": 18,
+      "showId": "gd-1971-07-31"
     },
     "last": {
       "date": "1995-07-08",
@@ -4838,7 +5093,8 @@
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
       "rating": 2.95,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1977-05-22",
@@ -4858,7 +5114,8 @@
       "identifier": "gd1977-05-22.140278.sbd.miller.flac2496",
       "recording": "https://archive.org/details/gd1977-05-22.140278.sbd.miller.flac2496",
       "venueName": "The Sportatorium",
-      "city": "Pembroke Pines, FL"
+      "city": "Pembroke Pines, FL",
+      "showId": "gd-1977-05-22"
     },
     "rank": 32,
     "liveRank": 25,
@@ -4880,7 +5137,8 @@
       "identifier": "gd71-10-19.orefm.clugston.3301.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-10-19.orefm.clugston.3301.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 41
+      "reviews": 41,
+      "showId": "gd-1971-10-19"
     },
     "last": {
       "date": "1995-07-08",
@@ -4893,7 +5151,8 @@
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
       "rating": 2.95,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1972-05-03",
@@ -4913,7 +5172,8 @@
       "identifier": "gd72-05-03.sbd.masse.142.sbeok.shnf",
       "recording": "https://archive.org/details/gd72-05-03.sbd.masse.142.sbeok.shnf",
       "venueName": "Olympia Theater",
-      "city": "Paris"
+      "city": "Paris",
+      "showId": "gd-1972-05-03"
     },
     "rank": 49,
     "liveRank": 13,
@@ -4935,7 +5195,8 @@
       "identifier": "gd77-02-26.sbd.alphadog.9752.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-02-26.sbd.alphadog.9752.sbeok.shnf",
       "rating": 4.83,
-      "reviews": 176
+      "reviews": 176,
+      "showId": "gd-1977-02-26"
     },
     "last": {
       "date": "1995-07-08",
@@ -4948,7 +5209,8 @@
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
       "rating": 2.95,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1977-02-26",
@@ -4968,7 +5230,8 @@
       "identifier": "gd77-02-26.sbd.alphadog.9752.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-02-26.sbd.alphadog.9752.sbeok.shnf",
       "venueName": "Swing Auditorium",
-      "city": "San Bernardino, CA"
+      "city": "San Bernardino, CA",
+      "showId": "gd-1977-02-26"
     },
     "rank": 5,
     "liveRank": 44,
@@ -4990,7 +5253,8 @@
       "identifier": "gd1968-01-17.sbd.cotsman.11795.shnf",
       "recording": "https://archive.org/details/gd1968-01-17.sbd.cotsman.11795.shnf",
       "rating": 4.71,
-      "reviews": 24
+      "reviews": 24,
+      "showId": "gd-1968-01-17"
     },
     "last": {
       "date": "1970-04-26",
@@ -5000,7 +5264,8 @@
       "source": "https://www.dead.net/show/april-26-1970",
       "sourceLabel": "Show page",
       "note": "Last known performance of The Eleven, at the Sound Storm Festival. The setlist is incomplete and its order is uncertain.",
-      "unavailable": true
+      "unavailable": true,
+      "showId": "gd-1970-04-26"
     },
     "best": {
       "date": "1968-10-12",
@@ -5020,7 +5285,8 @@
       "identifier": "gd68-10-12.sbd.eD.10909.sbeok.shnf",
       "recording": "https://archive.org/details/gd68-10-12.sbd.eD.10909.sbeok.shnf",
       "venueName": "Avalon Ballroom",
-      "city": "San Francisco, CA"
+      "city": "San Francisco, CA",
+      "showId": "gd-1968-10-12"
     },
     "rank": 70
   },
@@ -5039,7 +5305,8 @@
       "identifier": "gd75-08-13.fm.vernon.23661.sbeok.shnf",
       "recording": "https://archive.org/details/gd75-08-13.fm.vernon.23661.sbeok.shnf",
       "rating": 4.92,
-      "reviews": 67
+      "reviews": 67,
+      "showId": "gd-1975-08-13"
     },
     "last": {
       "date": "1995-06-28",
@@ -5052,7 +5319,8 @@
       "identifier": "gd95-06-28.schoeps.10154.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-28.schoeps.10154.sbeok.shnf",
       "rating": 3.17,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1995-06-28"
     },
     "best": {
       "date": "1978-04-24",
@@ -5072,7 +5340,8 @@
       "identifier": "gd78-04-24.sbd.mattman.20605.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-04-24.sbd.mattman.20605.sbeok.shnf",
       "venueName": "Horton Field House - Illinois State University",
-      "city": "Normal, IL"
+      "city": "Normal, IL",
+      "showId": "gd-1978-04-24"
     },
     "rank": 61,
     "liveRank": 61,
@@ -5099,7 +5368,8 @@
       "identifier": "gd1967-08-05.176008.sbd.flegel.miller.flac1648",
       "recording": "https://archive.org/details/gd1967-08-05.176008.sbd.flegel.miller.flac1648",
       "rating": 5,
-      "reviews": 1
+      "reviews": 1,
+      "showId": "gd-1967-08-05"
     },
     "last": {
       "date": "1995-07-08",
@@ -5112,7 +5382,8 @@
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
       "rating": 2.95,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1970-05-02",
@@ -5132,7 +5403,8 @@
       "identifier": "gd1970-05-02.sbd-fm-aud.unknown.108955.flac16",
       "recording": "https://archive.org/details/gd1970-05-02.sbd-fm-aud.unknown.108955.flac16",
       "venueName": "Harpur College",
-      "city": "Binghamton, NY"
+      "city": "Binghamton, NY",
+      "showId": "gd-1970-05-02"
     },
     "rank": 22,
     "liveRank": 8,
@@ -5154,7 +5426,8 @@
       "identifier": "gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
       "recording": "https://archive.org/details/gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
       "rating": 4.31,
-      "reviews": 40
+      "reviews": 40,
+      "showId": "gd-1976-06-03"
     },
     "last": {
       "date": "1995-05-25",
@@ -5167,7 +5440,8 @@
       "identifier": "gd95-05-25.neumann.18801.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-05-25.neumann.18801.sbeok.shnf",
       "rating": 2.86,
-      "reviews": 9
+      "reviews": 9,
+      "showId": "gd-1995-05-25"
     },
     "best": {
       "date": "1977-02-26",
@@ -5187,7 +5461,8 @@
       "identifier": "gd77-02-26.sbd.alphadog.9752.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-02-26.sbd.alphadog.9752.sbeok.shnf",
       "venueName": "Swing Auditorium",
-      "city": "San Bernardino, CA"
+      "city": "San Bernardino, CA",
+      "showId": "gd-1977-02-26"
     },
     "rank": 44,
     "liveRank": 55,
@@ -5209,7 +5484,8 @@
       "identifier": "gd73-02-09.sbd.bertha-fink.14939.sbeok.shnf",
       "recording": "https://archive.org/details/gd73-02-09.sbd.bertha-fink.14939.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 63
+      "reviews": 63,
+      "showId": "gd-1973-02-09"
     },
     "last": {
       "date": "1994-09-27",
@@ -5222,7 +5498,8 @@
       "identifier": "gd94-09-27.pnb.pujol.14021.sbeok.shnf",
       "recording": "https://archive.org/details/gd94-09-27.pnb.pujol.14021.sbeok.shnf",
       "rating": 3.67,
-      "reviews": 5
+      "reviews": 5,
+      "showId": "gd-1994-09-27"
     },
     "best": {
       "date": "1977-02-26",
@@ -5242,7 +5519,8 @@
       "identifier": "gd77-02-26.sbd.alphadog.9752.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-02-26.sbd.alphadog.9752.sbeok.shnf",
       "venueName": "Swing Auditorium",
-      "city": "San Bernardino, CA"
+      "city": "San Bernardino, CA",
+      "showId": "gd-1977-02-26"
     },
     "rank": 67
   },
@@ -5261,7 +5539,8 @@
       "identifier": "gd82-09-17.aud.lai.2577.sbefail.shnf",
       "recording": "https://archive.org/details/gd82-09-17.aud.lai.2577.sbefail.shnf",
       "rating": 4.89,
-      "reviews": 10
+      "reviews": 10,
+      "showId": "gd-1982-09-17"
     },
     "last": {
       "date": "1995-07-05",
@@ -5274,7 +5553,8 @@
       "identifier": "gd95-07-05.sbd.9370.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-05.sbd.9370.sbeok.shnf",
       "rating": 3,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1995-07-05"
     },
     "best": {
       "date": "1989-10-09",
@@ -5294,7 +5574,8 @@
       "identifier": "gd89-10-09.sbd.serafin.7721.sbeok.shnf",
       "recording": "https://archive.org/details/gd89-10-09.sbd.serafin.7721.sbeok.shnf",
       "venueName": "Hampton Coliseum",
-      "city": "Hampton, VA"
+      "city": "Hampton, VA",
+      "showId": "gd-1989-10-09"
     },
     "rank": 73
   },
@@ -5313,7 +5594,8 @@
       "identifier": "gd70-09-18.set2.aud-sbd.sirmick.sbeok.30882.flacf",
       "recording": "https://archive.org/details/gd70-09-18.set2.aud-sbd.sirmick.sbeok.30882.flacf",
       "rating": 4,
-      "reviews": 6
+      "reviews": 6,
+      "showId": "gd-1970-09-18"
     },
     "last": {
       "date": "1970-12-26",
@@ -5326,7 +5608,8 @@
       "identifier": "gd70-12-26.sbd.miller.22369.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-12-26.sbd.miller.22369.sbeok.shnf",
       "rating": 4.23,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1970-12-26"
     },
     "best": {
       "date": "1970-10-04",
@@ -5346,7 +5629,8 @@
       "identifier": "gd70-10-04.fm.glassberg_winters.28363.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-10-04.fm.glassberg_winters.28363.sbeok.shnf",
       "venueName": "Winterland Arena",
-      "city": "San Francisco, CA"
+      "city": "San Francisco, CA",
+      "showId": "gd-1970-10-04"
     },
     "rank": 91
   },
@@ -5365,7 +5649,8 @@
       "identifier": "gd70-07-30.sbd.cotsman.17077.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-07-30.sbd.cotsman.17077.sbeok.shnf",
       "rating": 4,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1970-07-30"
     },
     "last": {
       "date": "1992-06-28",
@@ -5378,7 +5663,8 @@
       "identifier": "gd92-06-28.sbd.braverman.8601.sbeok.shnf",
       "recording": "https://archive.org/details/gd92-06-28.sbd.braverman.8601.sbeok.shnf",
       "rating": 4.17,
-      "reviews": 30
+      "reviews": 30,
+      "showId": "gd-1992-06-28"
     },
     "best": {
       "date": "1974-06-23",
@@ -5398,7 +5684,8 @@
       "identifier": "gd74-06-23.sbd.cribbs.16780.sbeok.shnf",
       "recording": "https://archive.org/details/gd74-06-23.sbd.cribbs.16780.sbeok.shnf",
       "venueName": "Jai-Alai Fronton",
-      "city": "Miami, FL"
+      "city": "Miami, FL",
+      "showId": "gd-1974-06-23"
     },
     "rank": 60
   },
@@ -5417,7 +5704,8 @@
       "identifier": "gd1982-09-15.sbd.miller.124586.flac16",
       "recording": "https://archive.org/details/gd1982-09-15.sbd.miller.124586.flac16",
       "rating": 4.67,
-      "reviews": 5
+      "reviews": 5,
+      "showId": "gd-1982-09-15"
     },
     "last": {
       "date": "1995-07-09",
@@ -5430,7 +5718,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "rating": 3.48,
-      "reviews": 361
+      "reviews": 361,
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1987-03-27",
@@ -5450,7 +5739,8 @@
       "identifier": "gd87-03-27.nak.braverman.7343.sbefixed.shnf",
       "recording": "https://archive.org/details/gd87-03-27.nak.braverman.7343.sbefixed.shnf",
       "venueName": "Civic Center",
-      "city": "Hartford, CT"
+      "city": "Hartford, CT",
+      "showId": "gd-1987-03-27"
     },
     "rank": 28
   },
@@ -5469,7 +5759,8 @@
       "identifier": "gd70-08-18.aud.yerys.1346.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-08-18.aud.yerys.1346.sbeok.shnf",
       "rating": 4.07,
-      "reviews": 36
+      "reviews": 36,
+      "showId": "gd-1970-08-18"
     },
     "last": {
       "date": "1995-07-06",
@@ -5482,7 +5773,8 @@
       "identifier": "gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "recording": "https://archive.org/details/gd95-07-06.NEWsbd.30888.sbeok.shnf_shn",
       "rating": 3.4,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1995-07-06"
     },
     "best": {
       "date": "1974-05-19",
@@ -5502,7 +5794,8 @@
       "identifier": "gd74-05-19.sbd.clugston.6957.sbeok.shnf",
       "recording": "https://archive.org/details/gd74-05-19.sbd.clugston.6957.sbeok.shnf",
       "venueName": "Portland Memorial Coliseum",
-      "city": "Portland, OR"
+      "city": "Portland, OR",
+      "showId": "gd-1974-05-19"
     },
     "rank": 25,
     "liveRank": 7,
@@ -5524,7 +5817,8 @@
       "identifier": "gd67-08-05.sbd.hanno.16753.sbeok.shnf",
       "recording": "https://archive.org/details/gd67-08-05.sbd.hanno.16753.sbeok.shnf",
       "rating": 4.75,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1967-08-05"
     },
     "last": {
       "date": "1995-06-19",
@@ -5537,7 +5831,8 @@
       "identifier": "gd95-06-19.naks.10934.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-19.naks.10934.sbeok.shnf",
       "rating": 2.65,
-      "reviews": 32
+      "reviews": 32,
+      "showId": "gd-1995-06-19"
     },
     "best": {
       "date": "1972-04-26",
@@ -5557,7 +5852,8 @@
       "identifier": "gd1972-04-26.sbd.backus.12884.sbeok.shnf",
       "recording": "https://archive.org/details/gd1972-04-26.sbd.backus.12884.sbeok.shnf",
       "venueName": "Jahrhunderthalle",
-      "city": "Frankfurt"
+      "city": "Frankfurt",
+      "showId": "gd-1972-04-26"
     },
     "rank": 65,
     "liveRank": 28,
@@ -5579,7 +5875,8 @@
       "identifier": "gd74-02-22.sbd.patched.sirmick.21539.sbeok.shnf",
       "recording": "https://archive.org/details/gd74-02-22.sbd.patched.sirmick.21539.sbeok.shnf",
       "rating": 4.4,
-      "reviews": 37
+      "reviews": 37,
+      "showId": "gd-1974-02-22"
     },
     "last": {
       "date": "1995-07-08",
@@ -5592,7 +5889,8 @@
       "identifier": "gd95-07-08.sbd.10071.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-08.sbd.10071.sbeok.shnf",
       "rating": 2.95,
-      "reviews": 44
+      "reviews": 44,
+      "showId": "gd-1995-07-08"
     },
     "best": {
       "date": "1978-04-12",
@@ -5612,7 +5910,8 @@
       "identifier": "gd78-04-12.sbd.ashley-bertha.14085.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-04-12.sbd.ashley-bertha.14085.sbeok.shnf",
       "venueName": "Cameron Indoor Stadium",
-      "city": "Durham, NC"
+      "city": "Durham, NC",
+      "showId": "gd-1978-04-12"
     },
     "rank": 59,
     "liveRank": 37,
@@ -5634,7 +5933,8 @@
       "identifier": "gd95-03-19.schoeps.15097.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-03-19.schoeps.15097.sbeok.shnf",
       "rating": 3.32,
-      "reviews": 56
+      "reviews": 56,
+      "showId": "gd-1995-03-19"
     },
     "last": {
       "date": "1995-07-09",
@@ -5647,7 +5947,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "rating": 3.48,
-      "reviews": 361
+      "reviews": 361,
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1995-03-23",
@@ -5667,7 +5968,8 @@
       "identifier": "gd95-03-23.sbd.miller.25273.sbeok.flacf",
       "recording": "https://archive.org/details/gd95-03-23.sbd.miller.25273.sbeok.flacf",
       "venueName": "Charlotte Coliseum",
-      "city": "Charlotte, NC"
+      "city": "Charlotte, NC",
+      "showId": "gd-1995-03-23"
     },
     "rank": 45
   },
@@ -5686,7 +5988,8 @@
       "identifier": "gd69-12-04.sbd.wizard.23975.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-12-04.sbd.wizard.23975.sbeok.shnf",
       "rating": 3.6,
-      "reviews": 6
+      "reviews": 6,
+      "showId": "gd-1969-12-04"
     },
     "last": {
       "date": "1995-06-28",
@@ -5699,7 +6002,8 @@
       "identifier": "gd95-06-28.schoeps.10154.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-28.schoeps.10154.sbeok.shnf",
       "rating": 3.17,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1995-06-28"
     },
     "best": {
       "date": "1979-12-26",
@@ -5719,7 +6023,8 @@
       "identifier": "gd1979-12-26.sonyECM250.walker-scotton.miller.89187.sbeok.flac16",
       "recording": "https://archive.org/details/gd1979-12-26.sonyECM250.walker-scotton.miller.89187.sbeok.flac16",
       "venueName": "Oakland Auditorium",
-      "city": "Oakland, CA"
+      "city": "Oakland, CA",
+      "showId": "gd-1979-12-26"
     },
     "rank": 6,
     "liveRank": 31,
@@ -5741,7 +6046,8 @@
       "identifier": "gd66-acid-test-supplement.sbd.unknown.9514.shnf",
       "recording": "https://archive.org/details/gd66-acid-test-supplement.sbd.unknown.9514.shnf",
       "rating": 4.75,
-      "reviews": 18
+      "reviews": 18,
+      "showId": "gd-1966-03-12"
     },
     "last": {
       "date": "1970-10-31",
@@ -5754,7 +6060,8 @@
       "identifier": "gd70-10-31.early.sbd.fischer.6517.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-10-31.early.sbd.fischer.6517.sbeok.shnf",
       "rating": 3.6,
-      "reviews": 18
+      "reviews": 18,
+      "showId": "gd-1970-10-31"
     },
     "best": {
       "date": "1970-05-02",
@@ -5774,7 +6081,8 @@
       "identifier": "gd1970-05-02.138227.sbd.miller.flac1648",
       "recording": "https://archive.org/details/gd1970-05-02.138227.sbd.miller.flac1648",
       "venueName": "Harpur College",
-      "city": "Binghamton, NY"
+      "city": "Binghamton, NY",
+      "showId": "gd-1970-05-02"
     },
     "rank": 92
   },
@@ -5802,7 +6110,8 @@
       "identifier": "gd74-06-18.sbd.sacks.209.sbefail.shnf",
       "recording": "https://archive.org/details/gd74-06-18.sbd.sacks.209.sbefail.shnf",
       "venueName": "Freedom Hall",
-      "city": "Louisville, KY"
+      "city": "Louisville, KY",
+      "showId": "gd-1974-06-18"
     },
     "rank": 85,
     "researchPending": true
@@ -5822,7 +6131,8 @@
       "identifier": "gd82-08-28.sbd.lai.2333.sbefail.shnf",
       "recording": "https://archive.org/details/gd82-08-28.sbd.lai.2333.sbefail.shnf",
       "rating": 4.88,
-      "reviews": 28
+      "reviews": 28,
+      "showId": "gd-1982-08-28"
     },
     "last": {
       "date": "1995-06-30",
@@ -5835,7 +6145,8 @@
       "identifier": "gd95-06-30.schoeps.3376.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-30.schoeps.3376.sbeok.shnf",
       "rating": 4.1,
-      "reviews": 71
+      "reviews": 71,
+      "showId": "gd-1995-06-30"
     },
     "best": {
       "date": "1989-07-19",
@@ -5855,7 +6166,8 @@
       "identifier": "gd1989-07-19.mtx.hansokolow.96232.flac16",
       "recording": "https://archive.org/details/gd1989-07-19.mtx.hansokolow.96232.flac16",
       "venueName": "Alpine Valley Music Theatre",
-      "city": "East Troy, WI"
+      "city": "East Troy, WI",
+      "showId": "gd-1989-07-19"
     },
     "rank": 86
   },
@@ -5874,7 +6186,8 @@
       "identifier": "gd71-02-18.sbd.orf.107.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-02-18.sbd.orf.107.sbeok.shnf",
       "rating": 4.59,
-      "reviews": 68
+      "reviews": 68,
+      "showId": "gd-1971-02-18"
     },
     "last": {
       "date": "1995-06-25",
@@ -5887,7 +6200,8 @@
       "identifier": "gd95-06-25.sbd.2236.sbefail.shnf",
       "recording": "https://archive.org/details/gd95-06-25.sbd.2236.sbefail.shnf",
       "rating": 3.51,
-      "reviews": 48
+      "reviews": 48,
+      "showId": "gd-1995-06-25"
     },
     "best": {
       "date": "1977-10-07",
@@ -5907,7 +6221,8 @@
       "identifier": "gd1977-10-07.sbd-set2.miller.79020.sbeok.flac16",
       "recording": "https://archive.org/details/gd1977-10-07.sbd-set2.miller.79020.sbeok.flac16",
       "venueName": "University of New Mexico",
-      "city": "Albuquerque, NM"
+      "city": "Albuquerque, NM",
+      "showId": "gd-1977-10-07"
     },
     "rank": 23,
     "liveRank": 20,
@@ -5929,7 +6244,8 @@
       "identifier": "gd71-10-19.orefm.clugston.3301.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-10-19.orefm.clugston.3301.sbeok.shnf",
       "rating": 4.76,
-      "reviews": 41
+      "reviews": 41,
+      "showId": "gd-1971-10-19"
     },
     "last": {
       "date": "1995-06-25",
@@ -5942,7 +6258,8 @@
       "identifier": "gd95-06-25.sbd.2236.sbefail.shnf",
       "recording": "https://archive.org/details/gd95-06-25.sbd.2236.sbefail.shnf",
       "rating": 3.51,
-      "reviews": 48
+      "reviews": 48,
+      "showId": "gd-1995-06-25"
     },
     "best": {
       "date": "1972-08-27",
@@ -5962,7 +6279,8 @@
       "duration": "03:43",
       "combined": false,
       "identifier": "gd72-08-27.sbd.orf.3328.sbeok.shnf",
-      "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf"
+      "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf",
+      "showId": "gd-1972-08-27"
     },
     "rank": null
   },
@@ -5981,7 +6299,8 @@
       "identifier": "gd69-01-24.sbd.kaplan.7922.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-01-24.sbd.kaplan.7922.sbeok.shnf",
       "rating": 3.92,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1969-01-24"
     },
     "last": {
       "date": "1994-10-13",
@@ -5994,7 +6313,8 @@
       "identifier": "gd94-10-13.sbd.wiley.7800.sbefail.shnf",
       "recording": "https://archive.org/details/gd94-10-13.sbd.wiley.7800.sbefail.shnf",
       "rating": 3.83,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1994-10-13"
     },
     "best": {
       "date": "1969-03-01",
@@ -6014,7 +6334,8 @@
       "duration": "03:58",
       "combined": false,
       "identifier": "gd69-03-01.sbd.16track.kaplan.4030.sbeok.shnf",
-      "recording": "https://archive.org/details/gd69-03-01.sbd.16track.kaplan.4030.sbeok.shnf"
+      "recording": "https://archive.org/details/gd69-03-01.sbd.16track.kaplan.4030.sbeok.shnf",
+      "showId": "gd-1969-03-01"
     },
     "rank": null
   },
@@ -6033,7 +6354,8 @@
       "identifier": "gd71-12-31.fm.lanum.135.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-12-31.fm.lanum.135.sbeok.shnf",
       "rating": 4.58,
-      "reviews": 52
+      "reviews": 52,
+      "showId": "gd-1971-12-31"
     },
     "last": {
       "date": "1995-07-06",
@@ -6046,7 +6368,8 @@
       "identifier": "gd95-07-06.schoeps.5452.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-06.schoeps.5452.sbeok.shnf",
       "rating": 3.25,
-      "reviews": 16
+      "reviews": 16,
+      "showId": "gd-1995-07-06"
     },
     "best": {
       "date": "1977-05-09",
@@ -6066,7 +6389,8 @@
       "duration": "08:37",
       "combined": false,
       "identifier": "gd77-05-09.sbd.connor.8304.sbeok.shnf",
-      "recording": "https://archive.org/details/gd77-05-09.sbd.connor.8304.sbeok.shnf"
+      "recording": "https://archive.org/details/gd77-05-09.sbd.connor.8304.sbeok.shnf",
+      "showId": "gd-1977-05-09"
     },
     "rank": null
   },
@@ -6085,7 +6409,8 @@
       "identifier": "gd66-acid-test-supplement.sbd.unknown.9514.shnf",
       "recording": "https://archive.org/details/gd66-acid-test-supplement.sbd.unknown.9514.shnf",
       "rating": 4.75,
-      "reviews": 18
+      "reviews": 18,
+      "showId": "gd-1966-03-12"
     },
     "last": {
       "date": "1994-10-03",
@@ -6098,7 +6423,8 @@
       "identifier": "gd94-10-03.pmb.pujol.15112.sbeok.shnf",
       "recording": "https://archive.org/details/gd94-10-03.pmb.pujol.15112.sbeok.shnf",
       "rating": 4.11,
-      "reviews": 18
+      "reviews": 18,
+      "showId": "gd-1994-10-03"
     },
     "best": {
       "date": "1977-03-20",
@@ -6118,7 +6444,8 @@
       "duration": "03:51",
       "combined": false,
       "identifier": "gd77-03-20.sbd.miller.25610.sbeok.shnf",
-      "recording": "https://archive.org/details/gd77-03-20.sbd.miller.25610.sbeok.shnf"
+      "recording": "https://archive.org/details/gd77-03-20.sbd.miller.25610.sbeok.shnf",
+      "showId": "gd-1977-03-20"
     },
     "rank": null
   },
@@ -6137,7 +6464,8 @@
       "identifier": "gd77-05-13.sbd.miller.9393.sbeok.shnf",
       "recording": "https://archive.org/details/gd77-05-13.sbd.miller.9393.sbeok.shnf",
       "rating": 4.69,
-      "reviews": 61
+      "reviews": 61,
+      "showId": "gd-1977-05-13"
     },
     "last": {
       "date": "1995-06-25",
@@ -6150,7 +6478,8 @@
       "identifier": "gd95-06-25.sbd.2236.sbefail.shnf",
       "recording": "https://archive.org/details/gd95-06-25.sbd.2236.sbefail.shnf",
       "rating": 3.51,
-      "reviews": 48
+      "reviews": 48,
+      "showId": "gd-1995-06-25"
     },
     "best": {
       "date": "1977-05-17",
@@ -6170,7 +6499,8 @@
       "duration": "05:51",
       "combined": false,
       "identifier": "gd77-05-17.sbd.weiner.18554.sbeok.shnf",
-      "recording": "https://archive.org/details/gd77-05-17.sbd.weiner.18554.sbeok.shnf"
+      "recording": "https://archive.org/details/gd77-05-17.sbd.weiner.18554.sbeok.shnf",
+      "showId": "gd-1977-05-17"
     },
     "rank": null
   },
@@ -6189,7 +6519,8 @@
       "identifier": "gd69-09-07.sbd.dfinney.5808.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-09-07.sbd.dfinney.5808.sbeok.shnf",
       "rating": 3.52,
-      "reviews": 24
+      "reviews": 24,
+      "showId": "gd-1969-09-07"
     },
     "last": {
       "date": "1995-06-28",
@@ -6202,7 +6533,8 @@
       "identifier": "gd95-06-28.schoeps.10154.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-28.schoeps.10154.sbeok.shnf",
       "rating": 3.17,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1995-06-28"
     },
     "best": {
       "date": "1983-09-02",
@@ -6222,7 +6554,8 @@
       "duration": "07:25",
       "combined": false,
       "identifier": "gd83-09-02.beyer_senn.unk.23854.sbefail.shnf",
-      "recording": "https://archive.org/details/gd83-09-02.beyer_senn.unk.23854.sbefail.shnf"
+      "recording": "https://archive.org/details/gd83-09-02.beyer_senn.unk.23854.sbefail.shnf",
+      "showId": "gd-1983-09-02"
     },
     "rank": null
   },
@@ -6241,7 +6574,8 @@
       "identifier": "gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
       "recording": "https://archive.org/details/gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
       "rating": 4.31,
-      "reviews": 40
+      "reviews": 40,
+      "showId": "gd-1976-06-03"
     },
     "last": {
       "date": "1994-03-23",
@@ -6254,7 +6588,8 @@
       "identifier": "gd94-03-23.sbd-aud.herman.13793.sbeok.shnf",
       "recording": "https://archive.org/details/gd94-03-23.sbd-aud.herman.13793.sbeok.shnf",
       "rating": 3.6,
-      "reviews": 11
+      "reviews": 11,
+      "showId": "gd-1994-03-23"
     },
     "best": {
       "date": "1977-10-29",
@@ -6274,7 +6609,8 @@
       "duration": "05:42",
       "combined": false,
       "identifier": "gd1977-10-29.sbd.miller.92085.sbeok.flac16",
-      "recording": "https://archive.org/details/gd1977-10-29.sbd.miller.92085.sbeok.flac16"
+      "recording": "https://archive.org/details/gd1977-10-29.sbd.miller.92085.sbeok.flac16",
+      "showId": "gd-1977-10-29"
     },
     "rank": null
   },
@@ -6293,7 +6629,8 @@
       "identifier": "gd69-03-15.sbd.cotsman.4280.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-03-15.sbd.cotsman.4280.sbeok.shnf",
       "rating": 3.78,
-      "reviews": 10
+      "reviews": 10,
+      "showId": "gd-1969-03-15"
     },
     "last": {
       "date": "1982-12-31",
@@ -6306,7 +6643,8 @@
       "identifier": "gd82-12-31.sbd.bode.5958.sbeok.shnf",
       "recording": "https://archive.org/details/gd82-12-31.sbd.bode.5958.sbeok.shnf",
       "rating": 4.16,
-      "reviews": 19
+      "reviews": 19,
+      "showId": "gd-1982-12-31"
     },
     "best": {
       "date": "1971-08-06",
@@ -6326,7 +6664,8 @@
       "duration": "07:35",
       "combined": false,
       "identifier": "gd71-08-06.aud.bertrando.yerys.129.sbeok.shnf",
-      "recording": "https://archive.org/details/gd71-08-06.aud.bertrando.yerys.129.sbeok.shnf"
+      "recording": "https://archive.org/details/gd71-08-06.aud.bertrando.yerys.129.sbeok.shnf",
+      "showId": "gd-1971-08-06"
     },
     "rank": null
   },
@@ -6345,7 +6684,8 @@
       "identifier": "gd1970-11-08.aud.weiner.28609.sbeok.shnf",
       "recording": "https://archive.org/details/gd1970-11-08.aud.weiner.28609.sbeok.shnf",
       "rating": 4.51,
-      "reviews": 81
+      "reviews": 81,
+      "showId": "gd-1970-11-08"
     },
     "last": {
       "date": "1995-07-06",
@@ -6358,7 +6698,8 @@
       "identifier": "gd95-07-06.schoeps.5452.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-06.schoeps.5452.sbeok.shnf",
       "rating": 3.25,
-      "reviews": 16
+      "reviews": 16,
+      "showId": "gd-1995-07-06"
     },
     "best": {
       "date": "1972-09-27",
@@ -6378,7 +6719,8 @@
       "duration": "04:54",
       "combined": false,
       "identifier": "gd72-09-27.sbd.vernon.18106.sbeok.shnf",
-      "recording": "https://archive.org/details/gd72-09-27.sbd.vernon.18106.sbeok.shnf"
+      "recording": "https://archive.org/details/gd72-09-27.sbd.vernon.18106.sbeok.shnf",
+      "showId": "gd-1972-09-27"
     },
     "rank": null
   },
@@ -6397,7 +6739,8 @@
       "identifier": "gd71-05-29.aud.cotsman.19153.sbeok.shnf",
       "recording": "https://archive.org/details/gd71-05-29.aud.cotsman.19153.sbeok.shnf",
       "rating": 3.6,
-      "reviews": 11
+      "reviews": 11,
+      "showId": "gd-1971-05-29"
     },
     "last": {
       "date": "1995-07-09",
@@ -6410,7 +6753,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "rating": 3.48,
-      "reviews": 361
+      "reviews": 361,
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1972-08-27",
@@ -6430,7 +6774,8 @@
       "duration": "03:36",
       "combined": false,
       "identifier": "gd72-08-27.sbd.orf.3328.sbeok.shnf",
-      "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf"
+      "recording": "https://archive.org/details/gd72-08-27.sbd.orf.3328.sbeok.shnf",
+      "showId": "gd-1972-08-27"
     },
     "rank": null
   },
@@ -6449,7 +6794,8 @@
       "identifier": "gd81-07-02.senn421.munder.9828.sbeok.shnf",
       "recording": "https://archive.org/details/gd81-07-02.senn421.munder.9828.sbeok.shnf",
       "rating": 3.6,
-      "reviews": 5
+      "reviews": 5,
+      "showId": "gd-1981-07-02"
     },
     "last": {
       "date": "1995-06-21",
@@ -6462,7 +6808,8 @@
       "identifier": "gd95-06-21.naks.5971.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-21.naks.5971.sbeok.shnf",
       "rating": 3.31,
-      "reviews": 37
+      "reviews": 37,
+      "showId": "gd-1995-06-21"
     },
     "best": {
       "date": "1989-07-04",
@@ -6482,7 +6829,8 @@
       "duration": "08:46",
       "combined": false,
       "identifier": "gd89-07-04.aud.wiley.9045.sbeok.shnf",
-      "recording": "https://archive.org/details/gd89-07-04.aud.wiley.9045.sbeok.shnf"
+      "recording": "https://archive.org/details/gd89-07-04.aud.wiley.9045.sbeok.shnf",
+      "showId": "gd-1989-07-04"
     },
     "rank": null
   },
@@ -6495,7 +6843,8 @@
       "venue": "Family Dog at The Great Highway - San Francisco, CA",
       "source": "https://www.setlists.net/?show_id=0485",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-09-07"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-09-07",
+      "showId": "gd-1969-09-07"
     },
     "last": {
       "date": "1995-04-05",
@@ -6508,7 +6857,8 @@
       "identifier": "gd95-04-05.schoeps.10385.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-04-05.schoeps.10385.sbeok.shnf",
       "rating": 3.93,
-      "reviews": 15
+      "reviews": 15,
+      "showId": "gd-1995-04-05"
     },
     "best": {
       "date": "1971-07-02",
@@ -6535,7 +6885,8 @@
       "duration": "04:27",
       "combined": false,
       "identifier": "gd71-07-02.sbd.backus.11798.sbeok.shnf",
-      "recording": "https://archive.org/details/gd71-07-02.sbd.backus.11798.sbeok.shnf"
+      "recording": "https://archive.org/details/gd71-07-02.sbd.backus.11798.sbeok.shnf",
+      "showId": "gd-1971-07-02"
     },
     "rank": null
   },
@@ -6554,7 +6905,8 @@
       "identifier": "gd76-06-04.sbd.cotsman.9797.sbeok.shnf",
       "recording": "https://archive.org/details/gd76-06-04.sbd.cotsman.9797.sbeok.shnf",
       "rating": 4.06,
-      "reviews": 17
+      "reviews": 17,
+      "showId": "gd-1976-06-04"
     },
     "last": {
       "date": "1976-06-29",
@@ -6567,7 +6919,8 @@
       "identifier": "gd76-06-29.sbd.parrillo.1812.sbeok.shnf",
       "recording": "https://archive.org/details/gd76-06-29.sbd.parrillo.1812.sbeok.shnf",
       "rating": 4.58,
-      "reviews": 36
+      "reviews": 36,
+      "showId": "gd-1976-06-29"
     },
     "best": {
       "date": "1976-06-12",
@@ -6587,7 +6940,8 @@
       "duration": "08:17",
       "combined": false,
       "identifier": "gd76-06-12.fm.wren.5556.sbeok.shnf",
-      "recording": "https://archive.org/details/gd76-06-12.fm.wren.5556.sbeok.shnf"
+      "recording": "https://archive.org/details/gd76-06-12.fm.wren.5556.sbeok.shnf",
+      "showId": "gd-1976-06-12"
     },
     "rank": null
   },
@@ -6606,7 +6960,8 @@
       "identifier": "gd87-06-13.sbd.clugston.11895.sbefail.shnf",
       "recording": "https://archive.org/details/gd87-06-13.sbd.clugston.11895.sbefail.shnf",
       "rating": 4.3,
-      "reviews": 10
+      "reviews": 10,
+      "showId": "gd-1987-06-13"
     },
     "last": {
       "date": "1995-07-09",
@@ -6619,7 +6974,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "rating": 3.48,
-      "reviews": 361
+      "reviews": 361,
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1990-03-29",
@@ -6639,7 +6995,8 @@
       "duration": "05:39",
       "combined": false,
       "identifier": "gd90-03-29.sbd.nawrocki.3389.sbeok.shnf",
-      "recording": "https://archive.org/details/gd90-03-29.sbd.nawrocki.3389.sbeok.shnf"
+      "recording": "https://archive.org/details/gd90-03-29.sbd.nawrocki.3389.sbeok.shnf",
+      "showId": "gd-1990-03-29"
     },
     "rank": null
   },
@@ -6658,7 +7015,8 @@
       "identifier": "gd70-08-18.aud.yerys.1346.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-08-18.aud.yerys.1346.sbeok.shnf",
       "rating": 4.07,
-      "reviews": 36
+      "reviews": 36,
+      "showId": "gd-1970-08-18"
     },
     "last": {
       "date": "1970-11-08",
@@ -6671,7 +7029,8 @@
       "identifier": "gd1970-11-08.aud.weiner.28609.sbeok.shnf",
       "recording": "https://archive.org/details/gd1970-11-08.aud.weiner.28609.sbeok.shnf",
       "rating": 4.51,
-      "reviews": 81
+      "reviews": 81,
+      "showId": "gd-1970-11-08"
     },
     "best": {
       "date": "1970-09-18",
@@ -6691,7 +7050,8 @@
       "duration": "04:14",
       "combined": false,
       "identifier": "gd1970-09-18.sbd.reynolds.97525.flac16",
-      "recording": "https://archive.org/details/gd1970-09-18.sbd.reynolds.97525.flac16"
+      "recording": "https://archive.org/details/gd1970-09-18.sbd.reynolds.97525.flac16",
+      "showId": "gd-1970-09-18"
     },
     "rank": null
   },
@@ -6710,7 +7070,8 @@
       "identifier": "gd69-01-17.sbd.clugston.3115.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-01-17.sbd.clugston.3115.sbeok.shnf",
       "rating": 4.09,
-      "reviews": 23
+      "reviews": 23,
+      "showId": "gd-1969-01-17"
     },
     "last": {
       "date": "1976-09-25",
@@ -6723,7 +7084,8 @@
       "identifier": "gd76-09-25.sbd.aj.246.sbefail.shnf",
       "recording": "https://archive.org/details/gd76-09-25.sbd.aj.246.sbefail.shnf",
       "rating": 4.6,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1976-09-25"
     },
     "best": {
       "date": "1970-05-02",
@@ -6743,7 +7105,8 @@
       "duration": "07:24",
       "combined": false,
       "identifier": "gd1970-05-02.138227.sbd.miller.flac1648",
-      "recording": "https://archive.org/details/gd1970-05-02.138227.sbd.miller.flac1648"
+      "recording": "https://archive.org/details/gd1970-05-02.138227.sbd.miller.flac1648",
+      "showId": "gd-1970-05-02"
     },
     "rank": null
   },
@@ -6765,14 +7128,16 @@
       "identifier": "gd69-01-24.sbd.kaplan.7922.sbeok.shnf",
       "recording": "https://archive.org/details/gd69-01-24.sbd.kaplan.7922.sbeok.shnf",
       "rating": 3.92,
-      "reviews": 14
+      "reviews": 14,
+      "showId": "gd-1969-01-24"
     },
     "last": {
       "date": "1969-10-26",
       "venue": "Winterland Arena - San Francisco, CA",
       "source": "https://www.setlists.net/?show_id=0503",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-10-26"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-10-26",
+      "showId": "gd-1969-10-26"
     },
     "best": {
       "date": "1969-02-28",
@@ -6792,7 +7157,8 @@
       "duration": "06:04",
       "combined": false,
       "identifier": "gd69-02-28.sbd.16track.kaplan.3397.sbeok.shnf",
-      "recording": "https://archive.org/details/gd69-02-28.sbd.16track.kaplan.3397.sbeok.shnf"
+      "recording": "https://archive.org/details/gd69-02-28.sbd.16track.kaplan.3397.sbeok.shnf",
+      "showId": "gd-1969-02-28"
     },
     "rank": null
   },
@@ -6811,7 +7177,8 @@
       "identifier": "gd66-12-01.sbd.sirmick.26968.sbeok.shnf",
       "recording": "https://archive.org/details/gd66-12-01.sbd.sirmick.26968.sbeok.shnf",
       "rating": 4.15,
-      "reviews": 30
+      "reviews": 30,
+      "showId": "gd-1966-12-01"
     },
     "last": {
       "date": "1983-09-24",
@@ -6824,7 +7191,8 @@
       "identifier": "gd83-09-24.neumann.wiley.9200.sbeok.shnf",
       "recording": "https://archive.org/details/gd83-09-24.neumann.wiley.9200.sbeok.shnf",
       "rating": 4.58,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1983-09-24"
     },
     "best": {
       "date": "1970-05-02",
@@ -6844,7 +7212,8 @@
       "duration": "07:38",
       "combined": false,
       "identifier": "gd1970-05-02.138227.sbd.miller.flac1648",
-      "recording": "https://archive.org/details/gd1970-05-02.138227.sbd.miller.flac1648"
+      "recording": "https://archive.org/details/gd1970-05-02.138227.sbd.miller.flac1648",
+      "showId": "gd-1970-05-02"
     },
     "rank": null
   },
@@ -6863,7 +7232,8 @@
       "identifier": "gd78-08-30.aud.wiley.11479.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-08-30.aud.wiley.11479.sbeok.shnf",
       "rating": 3.2,
-      "reviews": 11
+      "reviews": 11,
+      "showId": "gd-1978-08-30"
     },
     "last": {
       "date": "1995-06-18",
@@ -6876,7 +7246,8 @@
       "identifier": "gd95-06-18.aud.2543.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-18.aud.2543.sbeok.shnf",
       "rating": 2.45,
-      "reviews": 66
+      "reviews": 66,
+      "showId": "gd-1995-06-18"
     },
     "best": {
       "date": "1978-12-31",
@@ -6896,7 +7267,8 @@
       "duration": "10:56",
       "combined": true,
       "identifier": "gd78-12-31.sbd.ashley.1667.sbeok.shnf",
-      "recording": "https://archive.org/details/gd78-12-31.sbd.ashley.1667.sbeok.shnf"
+      "recording": "https://archive.org/details/gd78-12-31.sbd.ashley.1667.sbeok.shnf",
+      "showId": "gd-1978-12-31"
     },
     "rank": null
   },
@@ -6919,7 +7291,8 @@
       "identifier": "gd1966-07-03.139751.sbd.miller.clugston.flac1648",
       "recording": "https://archive.org/details/gd1966-07-03.139751.sbd.miller.clugston.flac1648",
       "rating": 4.33,
-      "reviews": 4
+      "reviews": 4,
+      "showId": "gd-1966-07-03"
     },
     "last": {
       "date": "1987-04-06",
@@ -6932,7 +7305,8 @@
       "identifier": "gd87-04-06.sbd-matrix.hinko.19848.sbeok.shnf",
       "recording": "https://archive.org/details/gd87-04-06.sbd-matrix.hinko.19848.sbeok.shnf",
       "rating": 3.83,
-      "reviews": 30
+      "reviews": 30,
+      "showId": "gd-1987-04-06"
     },
     "best": {
       "date": "1977-05-08",
@@ -6952,7 +7326,8 @@
       "duration": "16:35",
       "combined": false,
       "identifier": "gd77-05-08.sbd.hicks.4982.sbeok.shnf",
-      "recording": "https://archive.org/details/gd77-05-08.sbd.hicks.4982.sbeok.shnf"
+      "recording": "https://archive.org/details/gd77-05-08.sbd.hicks.4982.sbeok.shnf",
+      "showId": "gd-1977-05-08"
     },
     "rank": null
   },
@@ -6971,7 +7346,8 @@
       "identifier": "gd66-05-19.sbd.lestatkat.6516.sbeok.shnf",
       "recording": "https://archive.org/details/gd66-05-19.sbd.lestatkat.6516.sbeok.shnf",
       "rating": 4.73,
-      "reviews": 53
+      "reviews": 53,
+      "showId": "gd-1966-05-19"
     },
     "last": {
       "date": "1995-06-27",
@@ -6984,7 +7360,8 @@
       "identifier": "gd95-06-27.schoeps.10180.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-27.schoeps.10180.sbeok.shnf",
       "rating": 3.14,
-      "reviews": 17
+      "reviews": 17,
+      "showId": "gd-1995-06-27"
     },
     "best": {
       "date": "1971-04-29",
@@ -7004,7 +7381,8 @@
       "duration": "06:47",
       "combined": false,
       "identifier": "gd71-04-29.sbd.frisco.16782.sbeok.shnf",
-      "recording": "https://archive.org/details/gd71-04-29.sbd.frisco.16782.sbeok.shnf"
+      "recording": "https://archive.org/details/gd71-04-29.sbd.frisco.16782.sbeok.shnf",
+      "showId": "gd-1971-04-29"
     },
     "rank": null
   },
@@ -7026,7 +7404,8 @@
       "identifier": "gd78-11-17.acoustic.sbd.dodd.7687.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-11-17.acoustic.sbd.dodd.7687.sbeok.shnf",
       "rating": 4.87,
-      "reviews": 33
+      "reviews": 33,
+      "showId": "gd-1978-11-17"
     },
     "last": {
       "date": "1994-07-23",
@@ -7039,7 +7418,8 @@
       "identifier": "gd1994-07-23.sbd.burns.14853.sbeok.flac16",
       "recording": "https://archive.org/details/gd1994-07-23.sbd.burns.14853.sbeok.flac16",
       "rating": 3.83,
-      "reviews": 6
+      "reviews": 6,
+      "showId": "gd-1994-07-23"
     },
     "best": {
       "date": "1989-07-07",
@@ -7059,7 +7439,8 @@
       "duration": "08:45",
       "combined": false,
       "identifier": "gd89-07-07.aud.wiley.7855.sbeok.shnf",
-      "recording": "https://archive.org/details/gd89-07-07.aud.wiley.7855.sbeok.shnf"
+      "recording": "https://archive.org/details/gd89-07-07.aud.wiley.7855.sbeok.shnf",
+      "showId": "gd-1989-07-07"
     },
     "rank": null
   },
@@ -7078,7 +7459,8 @@
       "identifier": "gd92-02-23.schoeps.gardner.9982.sbeok.shnf",
       "recording": "https://archive.org/details/gd92-02-23.schoeps.gardner.9982.sbeok.shnf",
       "rating": 3.67,
-      "reviews": 6
+      "reviews": 6,
+      "showId": "gd-1992-02-23"
     },
     "last": {
       "date": "1995-07-09",
@@ -7091,7 +7473,8 @@
       "identifier": "gd95-07-09.sbd.7233.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-09.sbd.7233.sbeok.shnf",
       "rating": 3.48,
-      "reviews": 361
+      "reviews": 361,
+      "showId": "gd-1995-07-09"
     },
     "best": {
       "date": "1993-03-10",
@@ -7111,7 +7494,8 @@
       "duration": "12:39",
       "combined": false,
       "identifier": "gd93-03-10.sbd.ladner.2024.sbeok.shnf",
-      "recording": "https://archive.org/details/gd93-03-10.sbd.ladner.2024.sbeok.shnf"
+      "recording": "https://archive.org/details/gd93-03-10.sbd.ladner.2024.sbeok.shnf",
+      "showId": "gd-1993-03-10"
     },
     "rank": null
   },
@@ -7129,8 +7513,9 @@
       "combined": false,
       "identifier": "gd88-06-17.aud.goetz.19544.sbeok.shnf",
       "recording": "https://archive.org/details/gd88-06-17.aud.goetz.19544.sbeok.shnf",
-      "rating": 2.0,
-      "reviews": 5
+      "rating": 2,
+      "reviews": 5,
+      "showId": "gd-1988-06-17"
     },
     "last": {
       "date": "1995-07-02",
@@ -7143,7 +7528,8 @@
       "identifier": "gd95-07-02.aud.ball.587.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-02.aud.ball.587.sbeok.shnf",
       "rating": 2.79,
-      "reviews": 46
+      "reviews": 46,
+      "showId": "gd-1995-07-02"
     },
     "best": {
       "date": "1990-07-19",
@@ -7163,7 +7549,8 @@
       "duration": "10:05",
       "combined": false,
       "identifier": "gd90-07-19.dsbd.garcia420.2177.sbeok.shnf",
-      "recording": "https://archive.org/details/gd90-07-19.dsbd.garcia420.2177.sbeok.shnf"
+      "recording": "https://archive.org/details/gd90-07-19.dsbd.garcia420.2177.sbeok.shnf",
+      "showId": "gd-1990-07-19"
     },
     "rank": null
   },
@@ -7181,8 +7568,9 @@
       "combined": false,
       "identifier": "gd88-06-19.sennheiser.ladner.17267.sbeok.shnf",
       "recording": "https://archive.org/details/gd88-06-19.sennheiser.ladner.17267.sbeok.shnf",
-      "rating": 4.0,
-      "reviews": 15
+      "rating": 4,
+      "reviews": 15,
+      "showId": "gd-1988-06-19"
     },
     "last": {
       "date": "1995-06-27",
@@ -7195,7 +7583,8 @@
       "identifier": "gd95-06-27.schoeps.10180.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-27.schoeps.10180.sbeok.shnf",
       "rating": 3.14,
-      "reviews": 17
+      "reviews": 17,
+      "showId": "gd-1995-06-27"
     },
     "best": {
       "date": "1990-03-19",
@@ -7215,7 +7604,8 @@
       "duration": "11:34",
       "combined": false,
       "identifier": "gd90-03-19.prefm-sbd.sacks.1526.sbeok.shnf",
-      "recording": "https://archive.org/details/gd90-03-19.prefm-sbd.sacks.1526.sbeok.shnf"
+      "recording": "https://archive.org/details/gd90-03-19.prefm-sbd.sacks.1526.sbeok.shnf",
+      "showId": "gd-1990-03-19"
     },
     "rank": null
   },
@@ -7233,8 +7623,9 @@
       "combined": false,
       "identifier": "gd1969-09-06.134413.sbd.samaratino.droncit.flac16",
       "recording": "https://archive.org/details/gd1969-09-06.134413.sbd.samaratino.droncit.flac16",
-      "rating": 4.0,
-      "reviews": 4
+      "rating": 4,
+      "reviews": 4,
+      "showId": "gd-1969-09-06"
     },
     "last": {
       "date": "1995-07-02",
@@ -7247,7 +7638,8 @@
       "identifier": "gd95-07-02.aud.ball.587.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-02.aud.ball.587.sbeok.shnf",
       "rating": 2.79,
-      "reviews": 46
+      "reviews": 46,
+      "showId": "gd-1995-07-02"
     },
     "best": {
       "date": "1979-12-28",
@@ -7267,7 +7659,8 @@
       "duration": "08:24",
       "combined": false,
       "identifier": "gd79-12-28.sbd.lai.4145.sbefail.shnf",
-      "recording": "https://archive.org/details/gd79-12-28.sbd.lai.4145.sbefail.shnf"
+      "recording": "https://archive.org/details/gd79-12-28.sbd.lai.4145.sbefail.shnf",
+      "showId": "gd-1979-12-28"
     },
     "rank": null
   },
@@ -7283,7 +7676,8 @@
       "venue": "The Matrix - San Francisco, CA",
       "source": "https://www.setlists.net/?show_id=0018",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-01-07"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-01-07",
+      "showId": "gd-1966-01-07"
     },
     "last": {
       "date": "1994-10-17",
@@ -7296,7 +7690,8 @@
       "identifier": "gd94-10-17.sbd.carr.14615.sbeok.shnf",
       "recording": "https://archive.org/details/gd94-10-17.sbd.carr.14615.sbeok.shnf",
       "rating": 4.05,
-      "reviews": 24
+      "reviews": 24,
+      "showId": "gd-1994-10-17"
     },
     "best": {
       "date": "1967-09-03",
@@ -7316,7 +7711,8 @@
       "duration": "31:14",
       "combined": false,
       "identifier": "gd67-09-03.sbd.backus.17272.sbeok.shnf",
-      "recording": "https://archive.org/details/gd67-09-03.sbd.backus.17272.sbeok.shnf"
+      "recording": "https://archive.org/details/gd67-09-03.sbd.backus.17272.sbeok.shnf",
+      "showId": "gd-1967-09-03"
     },
     "rank": null
   },
@@ -7338,7 +7734,8 @@
       "identifier": "gd1977-05-15.28916.sbeok.flac16",
       "recording": "https://archive.org/details/gd1977-05-15.28916.sbeok.flac16",
       "rating": 4.79,
-      "reviews": 56
+      "reviews": 56,
+      "showId": "gd-1977-05-15"
     },
     "last": {
       "date": "1995-07-05",
@@ -7350,8 +7747,9 @@
       "combined": false,
       "identifier": "gd95-07-05.sbd.9370.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-07-05.sbd.9370.sbeok.shnf",
-      "rating": 3.0,
-      "reviews": 14
+      "rating": 3,
+      "reviews": 14,
+      "showId": "gd-1995-07-05"
     },
     "best": {
       "date": "1989-07-07",
@@ -7371,7 +7769,8 @@
       "duration": "07:42",
       "combined": false,
       "identifier": "gd89-07-07.aud.wiley.7855.sbeok.shnf",
-      "recording": "https://archive.org/details/gd89-07-07.aud.wiley.7855.sbeok.shnf"
+      "recording": "https://archive.org/details/gd89-07-07.aud.wiley.7855.sbeok.shnf",
+      "showId": "gd-1989-07-07"
     },
     "rank": null
   },
@@ -7393,7 +7792,8 @@
       "identifier": "gd70-11-29.aud.hanno.7592.sbeok.shnf",
       "recording": "https://archive.org/details/gd70-11-29.aud.hanno.7592.sbeok.shnf",
       "rating": 3.2,
-      "reviews": 11
+      "reviews": 11,
+      "showId": "gd-1970-11-29"
     },
     "last": {
       "date": "1981-12-31",
@@ -7406,7 +7806,8 @@
       "identifier": "gd81-12-31.acoustic.warren.14040.sbefail.shnf",
       "recording": "https://archive.org/details/gd81-12-31.acoustic.warren.14040.sbefail.shnf",
       "rating": 4.18,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1981-12-31"
     },
     "best": {
       "date": "1974-07-19",
@@ -7426,7 +7827,8 @@
       "duration": "06:19",
       "combined": false,
       "identifier": "gd74-07-19.sbd.symons.12381.sbeok.shnf",
-      "recording": "https://archive.org/details/gd74-07-19.sbd.symons.12381.sbeok.shnf"
+      "recording": "https://archive.org/details/gd74-07-19.sbd.symons.12381.sbeok.shnf",
+      "showId": "gd-1974-07-19"
     },
     "rank": null
   },
@@ -7448,14 +7850,16 @@
       "identifier": "gd66-05-19.sbd.lestatkat.6516.sbeok.shnf",
       "recording": "https://archive.org/details/gd66-05-19.sbd.lestatkat.6516.sbeok.shnf",
       "rating": 4.73,
-      "reviews": 53
+      "reviews": 53,
+      "showId": "gd-1966-05-19"
     },
     "last": {
       "date": "1972-05-25",
       "venue": "The Strand Lyceum - London, England",
       "source": "https://www.setlists.net/?show_id=0782",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1972-05-25"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1972-05-25",
+      "showId": "gd-1972-05-25"
     },
     "best": {
       "date": "1971-10-21",
@@ -7475,7 +7879,8 @@
       "duration": "03:20",
       "combined": true,
       "identifier": "gd1971-10-21.sbd.miller.112086.flac16",
-      "recording": "https://archive.org/details/gd1971-10-21.sbd.miller.112086.flac16"
+      "recording": "https://archive.org/details/gd1971-10-21.sbd.miller.112086.flac16",
+      "showId": "gd-1971-10-21"
     },
     "rank": null
   },
@@ -7499,7 +7904,8 @@
       "identifier": "gd66-02-25.sbd.unknown.1593.sbefail.shnf",
       "recording": "https://archive.org/details/gd66-02-25.sbd.unknown.1593.sbefail.shnf",
       "rating": 4.86,
-      "reviews": 52
+      "reviews": 52,
+      "showId": "gd-1966-02-25"
     },
     "last": {
       "date": "1972-05-11",
@@ -7512,7 +7918,8 @@
       "identifier": "gd72-05-11.sbd.ashley-bertha.7364.sbefail.shnf",
       "recording": "https://archive.org/details/gd72-05-11.sbd.ashley-bertha.7364.sbefail.shnf",
       "rating": 4.98,
-      "reviews": 48
+      "reviews": 48,
+      "showId": "gd-1972-05-11"
     },
     "best": {
       "date": "1972-04-08",
@@ -7532,7 +7939,8 @@
       "duration": "16:43",
       "combined": false,
       "identifier": "gd72-04-08.sbd.giles-jeffm.2534.sbeok.shnf",
-      "recording": "https://archive.org/details/gd72-04-08.sbd.giles-jeffm.2534.sbeok.shnf"
+      "recording": "https://archive.org/details/gd72-04-08.sbd.giles-jeffm.2534.sbeok.shnf",
+      "showId": "gd-1972-04-08"
     },
     "rank": null
   },
@@ -7551,14 +7959,16 @@
       "identifier": "gd67-01-27.aud.hanno.16744.sbeok.shnf",
       "recording": "https://archive.org/details/gd67-01-27.aud.hanno.16744.sbeok.shnf",
       "rating": 3.37,
-      "reviews": 47
+      "reviews": 47,
+      "showId": "gd-1967-01-27"
     },
     "last": {
       "date": "1969-05-09",
       "venue": "Hall Of Flowers, County Fairgrounds - San Mateo, CA",
       "source": "https://www.setlists.net/?show_id=0439",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-05-09"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-05-09",
+      "showId": "gd-1969-05-09"
     },
     "best": {
       "date": "1968-08-24",
@@ -7574,7 +7984,8 @@
       "sourceShow": "https://headyversion.com/show/666/grateful-dead/1968-08-24/",
       "ties": [],
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-08-24"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-08-24",
+      "showId": "gd-1968-08-24"
     },
     "rank": null
   },
@@ -7587,14 +7998,16 @@
       "venue": "Cafe au Go-Go - New York City, NY",
       "source": "https://www.setlists.net/?show_id=0183",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1967-06-08"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1967-06-08",
+      "showId": "gd-1967-06-08"
     },
     "last": {
       "date": "1968-04-03",
       "venue": "Winterland Arena - San Francisco, CA",
       "source": "https://www.setlists.net/?show_id=0274",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-04-03"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-04-03",
+      "showId": "gd-1968-04-03"
     },
     "best": {
       "date": "1968-02-14",
@@ -7614,7 +8027,8 @@
       "duration": "06:27",
       "combined": false,
       "identifier": "gd68-02-14.sbd.kaplan.15640.sbeok.shnf",
-      "recording": "https://archive.org/details/gd68-02-14.sbd.kaplan.15640.sbeok.shnf"
+      "recording": "https://archive.org/details/gd68-02-14.sbd.kaplan.15640.sbeok.shnf",
+      "showId": "gd-1968-02-14"
     },
     "rank": null
   },
@@ -7633,7 +8047,8 @@
       "identifier": "gd1966-07-16.sbd.miller.89555.sbeok.flac16",
       "recording": "https://archive.org/details/gd1966-07-16.sbd.miller.89555.sbeok.flac16",
       "rating": 4.74,
-      "reviews": 22
+      "reviews": 22,
+      "showId": "gd-1966-07-16"
     },
     "last": {
       "date": "1995-06-28",
@@ -7646,7 +8061,8 @@
       "identifier": "gd95-06-28.schoeps.10154.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-28.schoeps.10154.sbeok.shnf",
       "rating": 3.17,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1995-06-28"
     },
     "best": {
       "date": "1968-08-24",
@@ -7662,7 +8078,8 @@
       "sourceShow": "https://headyversion.com/show/666/grateful-dead/1968-08-24/",
       "ties": [],
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-08-24"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-08-24",
+      "showId": "gd-1968-08-24"
     },
     "rank": null
   },
@@ -7675,7 +8092,8 @@
       "venue": "The Matrix - San Francisco, CA",
       "source": "https://www.setlists.net/?show_id=0018",
       "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-01-07"
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-01-07",
+      "showId": "gd-1966-01-07"
     },
     "last": {
       "date": "1995-02-19",
@@ -7687,8 +8105,9 @@
       "combined": false,
       "identifier": "gd95-02-19.schoeps.10544.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-02-19.schoeps.10544.sbeok.shnf",
-      "rating": 3.0,
-      "reviews": 18
+      "rating": 3,
+      "reviews": 18,
+      "showId": "gd-1995-02-19"
     },
     "best": {
       "date": "1982-10-10",
@@ -7708,7 +8127,8 @@
       "duration": "06:37",
       "combined": false,
       "identifier": "gd82-10-10.sbd.sacks.338.sbefail.shnf",
-      "recording": "https://archive.org/details/gd82-10-10.sbd.sacks.338.sbefail.shnf"
+      "recording": "https://archive.org/details/gd82-10-10.sbd.sacks.338.sbefail.shnf",
+      "showId": "gd-1982-10-10"
     },
     "rank": null
   },
@@ -7731,7 +8151,8 @@
       "identifier": "gd87-07-04.fob-senn.lai.3858.sbeok.shnf",
       "recording": "https://archive.org/details/gd87-07-04.fob-senn.lai.3858.sbeok.shnf",
       "rating": 2.87,
-      "reviews": 30
+      "reviews": 30,
+      "showId": "gd-1987-07-04"
     },
     "last": {
       "date": "1995-04-02",
@@ -7744,7 +8165,8 @@
       "identifier": "gd95-04-02.sbd.11622.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-04-02.sbd.11622.sbeok.shnf",
       "rating": 3.83,
-      "reviews": 53
+      "reviews": 53,
+      "showId": "gd-1995-04-02"
     },
     "best": {
       "date": "1989-07-07",
@@ -7764,7 +8186,8 @@
       "duration": "09:33",
       "combined": false,
       "identifier": "gd1989-07-07.fob.clugston.10925.sbeok.shnf",
-      "recording": "https://archive.org/details/gd1989-07-07.fob.clugston.10925.sbeok.shnf"
+      "recording": "https://archive.org/details/gd1989-07-07.fob.clugston.10925.sbeok.shnf",
+      "showId": "gd-1989-07-07"
     },
     "rank": null
   },
@@ -7785,8 +8208,9 @@
       "combined": false,
       "identifier": "gd85-03-27.sbd.ladner.8567.sbeok.shnf",
       "recording": "https://archive.org/details/gd85-03-27.sbd.ladner.8567.sbeok.shnf",
-      "rating": 4.0,
-      "reviews": 16
+      "rating": 4,
+      "reviews": 16,
+      "showId": "gd-1985-03-27"
     },
     "last": {
       "date": "1995-06-28",
@@ -7799,7 +8223,8 @@
       "identifier": "gd95-06-28.schoeps.10154.sbeok.shnf",
       "recording": "https://archive.org/details/gd95-06-28.schoeps.10154.sbeok.shnf",
       "rating": 3.17,
-      "reviews": 13
+      "reviews": 13,
+      "showId": "gd-1995-06-28"
     },
     "best": {
       "date": "1994-10-01",
@@ -7819,7 +8244,8 @@
       "duration": "05:42",
       "combined": false,
       "identifier": "gd94-10-01.sbd.ashley-bertha.14869.sbeok.shnf",
-      "recording": "https://archive.org/details/gd94-10-01.sbd.ashley-bertha.14869.sbeok.shnf"
+      "recording": "https://archive.org/details/gd94-10-01.sbd.ashley-bertha.14869.sbeok.shnf",
+      "showId": "gd-1994-10-01"
     },
     "rank": null
   },
@@ -7841,7 +8267,8 @@
       "identifier": "gd78-04-19.sbd.murphy.7286.sbeok.shnf",
       "recording": "https://archive.org/details/gd78-04-19.sbd.murphy.7286.sbeok.shnf",
       "rating": 4.17,
-      "reviews": 6
+      "reviews": 6,
+      "showId": "gd-1978-04-19"
     },
     "last": {
       "date": "1991-10-31",
@@ -7854,7 +8281,8 @@
       "identifier": "gd91-10-31.sbd.gardner.2897.sbeok.shnf",
       "recording": "https://archive.org/details/gd91-10-31.sbd.gardner.2897.sbeok.shnf",
       "rating": 4.89,
-      "reviews": 56
+      "reviews": 56,
+      "showId": "gd-1991-10-31"
     },
     "best": {
       "date": "1978-07-08",
@@ -7874,7 +8302,8 @@
       "duration": "07:07",
       "combined": false,
       "identifier": "gd78-07-08.sbd.unknown.294.sbeok.shnf",
-      "recording": "https://archive.org/details/gd78-07-08.sbd.unknown.294.sbeok.shnf"
+      "recording": "https://archive.org/details/gd78-07-08.sbd.unknown.294.sbeok.shnf",
+      "showId": "gd-1978-07-08"
     },
     "rank": null
   },
@@ -7893,7 +8322,8 @@
       "identifier": "gd87-09-09.sbd.miller.21014.sbeok.shnf",
       "recording": "https://archive.org/details/gd87-09-09.sbd.miller.21014.sbeok.shnf",
       "rating": 3.88,
-      "reviews": 17
+      "reviews": 17,
+      "showId": "gd-1987-09-09"
     },
     "last": {
       "date": "1990-07-22",
@@ -7905,8 +8335,9 @@
       "combined": false,
       "identifier": "gd90-07-22.sbd.conner.7834.sbeok.shnf",
       "recording": "https://archive.org/details/gd90-07-22.sbd.conner.7834.sbeok.shnf",
-      "rating": 4.0,
-      "reviews": 21
+      "rating": 4,
+      "reviews": 21,
+      "showId": "gd-1990-07-22"
     },
     "best": {
       "date": "1987-10-03",
@@ -7926,7 +8357,8 @@
       "duration": "05:31",
       "combined": false,
       "identifier": "gd87-10-03.sbd.bertha-ashley.7368.sbeok.shnf",
-      "recording": "https://archive.org/details/gd87-10-03.sbd.bertha-ashley.7368.sbeok.shnf"
+      "recording": "https://archive.org/details/gd87-10-03.sbd.bertha-ashley.7368.sbeok.shnf",
+      "showId": "gd-1987-10-03"
     },
     "rank": null
   },
@@ -7945,7 +8377,8 @@
       "identifier": "gd1977-05-15.28916.sbeok.flac16",
       "recording": "https://archive.org/details/gd1977-05-15.28916.sbeok.flac16",
       "rating": 4.79,
-      "reviews": 56
+      "reviews": 56,
+      "showId": "gd-1977-05-15"
     },
     "last": {
       "date": "1981-12-27",
@@ -7958,7 +8391,8 @@
       "identifier": "gd1981-12-27.sbd.gans.33568.sbeok.flac16",
       "recording": "https://archive.org/details/gd1981-12-27.sbd.gans.33568.sbeok.flac16",
       "rating": 4.64,
-      "reviews": 15
+      "reviews": 15,
+      "showId": "gd-1981-12-27"
     },
     "best": {
       "date": "1978-04-24",
@@ -7978,7 +8412,8 @@
       "duration": "05:57",
       "combined": false,
       "identifier": "gd78-04-24.sbd.mattman.20605.sbeok.shnf",
-      "recording": "https://archive.org/details/gd78-04-24.sbd.mattman.20605.sbeok.shnf"
+      "recording": "https://archive.org/details/gd78-04-24.sbd.mattman.20605.sbeok.shnf",
+      "showId": "gd-1978-04-24"
     },
     "rank": null
   },
@@ -8023,7 +8458,8 @@
       ],
       "identifier": "gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
       "recording": "https://archive.org/details/gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
-      "duration": "07:18"
+      "duration": "07:18",
+      "showId": "gd-1976-06-03"
     },
     "last": {
       "date": "1984-10-31",
@@ -8042,7 +8478,8 @@
       ],
       "identifier": "gd1984-10-31.168290.senn441.vita.miller.clugston.flac2496",
       "recording": "https://archive.org/details/gd1984-10-31.168290.senn441.vita.miller.clugston.flac2496",
-      "duration": "12:11"
+      "duration": "12:11",
+      "showId": "gd-1984-10-31"
     },
     "best": {
       "date": "1977-05-22",
@@ -8071,7 +8508,8 @@
       ],
       "identifier": "gd1977-05-22.140278.sbd.miller.flac2496",
       "recording": "https://archive.org/details/gd1977-05-22.140278.sbd.miller.flac2496",
-      "duration": "09:03"
+      "duration": "09:03",
+      "showId": "gd-1977-05-22"
     }
   },
   {
@@ -8092,7 +8530,8 @@
       "identifier": "gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
       "recording": "https://archive.org/details/gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
       "rating": 4.31,
-      "reviews": 40
+      "reviews": 40,
+      "showId": "gd-1976-06-03"
     },
     "last": {
       "date": "1984-10-31",
@@ -8103,7 +8542,8 @@
       "duration": "12:11",
       "combined": true,
       "identifier": "gd1984-10-31.168290.senn441.vita.miller.clugston.flac2496",
-      "recording": "https://archive.org/details/gd1984-10-31.168290.senn441.vita.miller.clugston.flac2496"
+      "recording": "https://archive.org/details/gd1984-10-31.168290.senn441.vita.miller.clugston.flac2496",
+      "showId": "gd-1984-10-31"
     },
     "best": {
       "date": "1977-05-05",
@@ -8129,7 +8569,8 @@
         "source": "https://headyversion.com/song/314/grateful-dead/lazy-lightnin-supplication/",
         "date": "1977-05-22",
         "votes": 89
-      }
+      },
+      "showId": "gd-1977-05-05"
     },
     "rank": null
   },
@@ -8148,7 +8589,8 @@
       "identifier": "gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
       "recording": "https://archive.org/details/gd76-06-03.sbd.bertha-ashley.20004.sbeok.shnf",
       "rating": 4.31,
-      "reviews": 40
+      "reviews": 40,
+      "showId": "gd-1976-06-03"
     },
     "last": {
       "date": "1993-05-22",
@@ -8161,7 +8603,8 @@
       "identifier": "gd93-05-22.sbd.gardner.9401.sbeok.shnf",
       "recording": "https://archive.org/details/gd93-05-22.sbd.gardner.9401.sbeok.shnf",
       "rating": 4.17,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1993-05-22"
     },
     "best": {
       "date": "1976-09-24",
@@ -8187,7 +8630,8 @@
         "source": "https://headyversion.com/song/314/grateful-dead/lazy-lightnin-supplication/",
         "date": "1977-05-22",
         "votes": 89
-      }
+      },
+      "showId": "gd-1976-09-24"
     },
     "rank": null
   },
@@ -8206,7 +8650,8 @@
       "identifier": "gd79-08-04.sbd.munder.9578.sbeok.shnf",
       "recording": "https://archive.org/details/gd79-08-04.sbd.munder.9578.sbeok.shnf",
       "rating": 3.96,
-      "reviews": 28
+      "reviews": 28,
+      "showId": "gd-1979-08-04"
     },
     "last": {
       "date": "1986-03-24",
@@ -8219,7 +8664,8 @@
       "identifier": "gd86-03-24.naks.braverman.16746.sbeok.shnf",
       "recording": "https://archive.org/details/gd86-03-24.naks.braverman.16746.sbeok.shnf",
       "rating": 4.09,
-      "reviews": 12
+      "reviews": 12,
+      "showId": "gd-1986-03-24"
     },
     "best": {
       "date": "1985-11-01",
@@ -8245,7 +8691,8 @@
         "source": "https://headyversion.com/song/313/grateful-dead/lost-sailor-saint-of-circumstance/",
         "date": "1982-10-10",
         "votes": 80
-      }
+      },
+      "showId": "gd-1985-11-01"
     },
     "rank": null
   }
