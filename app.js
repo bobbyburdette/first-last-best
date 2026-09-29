@@ -9,9 +9,6 @@ const tracksFor=p=>p?.tracks?.length?p.tracks:p?.audio?[{url:p.audio,title:p.tra
 const playable=p=>tracksFor(p).length>0;
 const labels={first:'First documented',last:'Last documented',best:'HeadyVersion community favorite'};
 const nowTypeLabel={first:'First documented',last:'Last documented',best:'The Best Version'};
-$('.now-art').innerHTML='<span class="idle-art idle-rose"></span><span class="idle-art idle-skull"></span><span class="idle-art idle-bolt"></span>';
-$('#now-title').textContent='Choose a tape. Your player will appear here.';
-$('#now-date').textContent='';
 function icon(name){return `<svg class="ui-icon" aria-hidden="true" focusable="false"><use href="#sketch-${name}"></use></svg>`}
 const method=$('#method'),homescreen=$('#homescreen'),dialogs=[method,homescreen];let activeDialog=method,methodOpener=null,methodScroll=0,methodFallback=false;
 function openMethod(opener,dlg=method){if(dialogs.some(d=>d.open))return;activeDialog=dlg;methodOpener=opener instanceof HTMLElement?opener:document.activeElement;methodScroll=window.scrollY;methodFallback=typeof dlg.showModal!=='function';if(methodFallback){dlg.setAttribute('open','');dlg.setAttribute('aria-modal','true');$('#method-backdrop').hidden=false;document.querySelectorAll('body > header, body > main, body > .player').forEach(el=>el.inert=true)}else dlg.showModal();document.body.style.top=`-${methodScroll}px`;document.body.classList.add('method-open');dlg.querySelector('.method-body').scrollTop=0;dlg.querySelector('h2').focus({preventScroll:true})}
