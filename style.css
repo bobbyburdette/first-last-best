@@ -56,6 +56,22 @@
 @media(hover:hover){.tape [data-play-show]:hover{background:var(--ink);color:#fff8ec}}
 .tape [data-play-show]:focus-visible{background:var(--ink);color:#fff8ec}
 .tape .source-links{font-size:13px;line-height:1.6;color:#2f3132;gap:9px 14px}
+.runners-up{margin-top:16px;border-top:1px solid #a79b85;padding-top:14px}
+.runners-label{font:600 11px/1.4 var(--mono);letter-spacing:.08em;color:#5c5147;text-transform:uppercase;margin:0 0 10px}
+.runners-row{display:flex;gap:10px}
+.runner{flex:0 1 calc(50% - 5px);max-width:234px;min-width:0;text-decoration:none;display:block;font:inherit;color:inherit;cursor:pointer}
+.runner-empty{flex:0 1 calc(50% - 5px);max-width:234px;min-width:0}
+.runners-row .runner-spine.runner-spine-scratched{background-color:#fffdf2;background-image:url('spine-scratched.webp');background-repeat:no-repeat;background-position:50% 50%;background-size:100% 100%}
+.runner-empty .runner-votes{color:#8a7c68;font-style:italic}
+button.runner{background:none!important;border:0!important;padding:0!important;min-height:0!important;min-width:0!important;box-shadow:none!important;border-radius:0!important;font-weight:400!important}
+button.runner:hover,button.runner:focus-visible{background:none!important}
+.runner-spine{position:relative;display:block;width:100%;aspect-ratio:4.5/1;container-type:inline-size;border-radius:3px;background:url('cassette-spine.webp') 50% 49.05%/101.8% 310.2% no-repeat}
+.runner-spine-paper{position:absolute;inset:9% 4%;background-color:#fffdf2;display:flex;align-items:center;justify-content:flex-start;padding:0 4%;overflow:hidden;box-shadow:inset 0 0 5px #786b3620;border:1px solid #80765b50}
+.runner-spine-date{font:400 15cqw/1 'Journal','Kalam',cursive;-webkit-text-stroke:.03em currentColor;color:#2f3132;white-space:nowrap}
+.runner-votes{display:block;text-align:center;font:600 10.5px var(--mono);letter-spacing:.03em;color:#5c5147;margin-top:6px}
+.runner-votes b{color:var(--accent-2)}
+@media(hover:hover){.runner:hover .runner-spine{filter:brightness(1.06)}}
+.runner:focus-visible{outline:2px solid var(--accent-1);outline-offset:3px;border-radius:3px}
 .tape a:focus-visible{outline-color:var(--ink)}
 @media(max-width:650px){.song-detail{padding-left:10px;padding-right:10px}.tape{padding-left:12px;padding-right:12px}.tape .source-links a{display:inline-flex;align-items:center;min-height:44px}}
 
