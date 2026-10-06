@@ -8247,5 +8247,57 @@
       }
     },
     "rank": null
+  },
+  {
+    "name": "Blow Away",
+    "history": "https://www.setlists.net/?search=true&songs=Blow+Away&songs_exact=true",
+    "count": 23,
+    "first": {
+      "date": "1988-06-20",
+      "venue": "Alpine Valley Music Theater - East Troy, WI",
+      "source": "https://www.setlists.net/?show_id=1809",
+      "audio": "https://archive.org/download/gd1988-06-20.123452.sbd.miller.flac16/gd88-06-20d1t12.mp3",
+      "track": "Blow Away ->",
+      "duration": "06:20",
+      "combined": true,
+      "identifier": "gd1988-06-20.123452.sbd.miller.flac16",
+      "recording": "https://archive.org/details/gd1988-06-20.123452.sbd.miller.flac16",
+      "rating": 3.5,
+      "reviews": 2
+    },
+    "last": {
+      "date": "1990-07-16",
+      "venue": "Rich Stadium - Orchard Park, NY",
+      "source": "https://www.setlists.net/?show_id=1966",
+      "audio": "https://archive.org/download/gd1990-07-16.sbd.miller.95782.sbeok.flac16/gd90-07-16d1t04.mp3",
+      "track": "Blow Away",
+      "duration": "08:56",
+      "combined": false,
+      "identifier": "gd1990-07-16.sbd.miller.95782.sbeok.flac16",
+      "recording": "https://archive.org/details/gd1990-07-16.sbd.miller.95782.sbeok.flac16",
+      "rating": 4.36,
+      "reviews": 13
+    },
+    "best": {
+      "date": "1989-07-07",
+      "venue": "John F. Kennedy Stadium - Philadelphia, PA",
+      "source": "https://headyversion.com/song/319/grateful-dead/blow-away/",
+      "sourceType": "headyversion",
+      "votes": 116,
+      "checkedAt": "2026-10-06",
+      "category": "Blow Away",
+      "submission": "https://headyversion.com/submission/802/grateful-dead-blow-away-1989-07-07/",
+      "sourceShow": "https://headyversion.com/show/281/grateful-dead/1989-07-07/",
+      "ties": [],
+      "audio": "https://archive.org/download/gd89-07-07.aud.wiley.7855.sbeok.shnf/gd89-07-07d1t8.mp3",
+      "track": "Blow Away",
+      "duration": "12:30",
+      "combined": false,
+      "identifier": "gd89-07-07.aud.wiley.7855.sbeok.shnf",
+      "recording": "https://archive.org/details/gd89-07-07.aud.wiley.7855.sbeok.shnf",
+      "venueName": "JFK Stadium",
+      "city": "Philadelphia, PA"
+    },
+    "rank": null
   }
 ]
