@@ -107,7 +107,7 @@ audio.addEventListener('ended',advanceTape);
 $('#sort').addEventListener('change',()=>{renderList();$('#songs').scrollTop=0});
 $('#search').addEventListener('input',renderList);$('#search').addEventListener('keydown',e=>{if(e.key==='Enter'&&filtered().length){selectSong(filtered()[0].name);$('#detail h2').setAttribute('tabindex','-1');$('#detail h2').focus()}});
 window.addEventListener('hashchange',()=>{try{const h=decodeURIComponent(location.hash.slice(1));if(h==='this-day')showThisDay(new Date(),false);else selectSong(h,false)}catch{}});
-fetch('songs.json?v=17').then(r=>{if(!r.ok)throw Error('Collection unavailable');return r.json()}).then(data=>{songs=data;let hash='';try{hash=decodeURIComponent(location.hash.slice(1))}catch{}if(hash==='this-day'){selectSong(songs[Math.floor(Math.random()*songs.length)].name,false);showThisDay(new Date(),false)}else selectSong(songs.find(s=>s.name===hash)?.name||songs[Math.floor(Math.random()*songs.length)].name);if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'select_grateful_dead_song',title:'Select a Grateful Dead song',description:'Search the collection and open one song’s first, last and HeadyVersion-favorite performances. Does not start audio.',inputSchema:{type:'object',properties:{name:{type:'string'}},required:['name'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){if(!input||typeof input.name!=='string')throw Error('A song name is required');const s=songs.find(s=>s.name.toLowerCase()===input.name.toLowerCase());if(!s)throw Error('Song not in this collection');$('#search').value='';selectSong(s.name);return {name:s.name,performances:['first','last','best'].map(k=>({type:k,date:s[k]?.date,playable:playable(s[k])}))}}})).catch(()=>{})}catch{}}}).catch(()=>{$('#detail').innerHTML='<h2>The tapes didn’t load.</h2><p>Please reload to try again.</p>';$('#songs').innerHTML='';$('#count').textContent='Collection unavailable'});
+fetch('songs.json?v=18').then(r=>{if(!r.ok)throw Error('Collection unavailable');return r.json()}).then(data=>{songs=data;let hash='';try{hash=decodeURIComponent(location.hash.slice(1))}catch{}if(hash==='this-day'){selectSong(songs[Math.floor(Math.random()*songs.length)].name,false);showThisDay(new Date(),false)}else selectSong(songs.find(s=>s.name===hash)?.name||songs[Math.floor(Math.random()*songs.length)].name);if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'select_grateful_dead_song',title:'Select a Grateful Dead song',description:'Search the collection and open one song’s first, last and HeadyVersion-favorite performances. Does not start audio.',inputSchema:{type:'object',properties:{name:{type:'string'}},required:['name'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){if(!input||typeof input.name!=='string')throw Error('A song name is required');const s=songs.find(s=>s.name.toLowerCase()===input.name.toLowerCase());if(!s)throw Error('Song not in this collection');$('#search').value='';selectSong(s.name);return {name:s.name,performances:['first','last','best'].map(k=>({type:k,date:s[k]?.date,playable:playable(s[k])}))}}})).catch(()=>{})}catch{}}}).catch(()=>{$('#detail').innerHTML='<h2>The tapes didn’t load.</h2><p>Please reload to try again.</p>';$('#songs').innerHTML='';$('#count').textContent='Collection unavailable'});
 
 const toggle=$('#audio-toggle'),seek=$('#audio-seek'),mute=$('#audio-mute');
 const clock=n=>Number.isFinite(n)?`${Math.floor(n/60)}:${String(Math.floor(n%60)).padStart(2,'0')}`:'0:00';
@@ -138,13 +138,11 @@ function dayEntries(now){
  const md=d=>String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
  const all=[];
  songs.forEach(s=>['first','last','best'].forEach((k,ki)=>{const p=s[k];if(p?.date)all.push({s,k,ki,p,md:p.date.slice(5,10)})}));
- for(const win of [0,3,7]){
-  const offs={};
-  for(let o=-win;o<=win;o++)offs[md(new Date(now.getFullYear(),now.getMonth(),now.getDate()+o))]=o;
-  const found=all.filter(e=>e.md in offs).map(e=>({...e,off:offs[e.md]}));
-  if(found.length)return {win,found};
- }
- return {win:7,found:[]};
+ const on=d=>all.filter(e=>e.md===md(d)).map(e=>({...e,off:0}));
+ const found=on(now);
+ let next=null;
+ for(let o=1;o<=366&&!next;o++){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+o),f=on(d);if(f.length)next={date:d,off:o,found:f}}
+ return {found,next};
 }
 function dayGroups(found){
  const g=new Map();
@@ -156,7 +154,17 @@ function dayGroups(found){
  return [...g.values()].map(x=>({...x,items:x.items.sort((a,b)=>a.ki-b.ki||a.s.name.localeCompare(b.s.name))}))
   .sort((a,b)=>Math.abs(a.off)-Math.abs(b.off)||a.off-b.off||a.date.localeCompare(b.date));
 }
-const dayOffsetLabel=o=>o===0?'Today':o<0?`${-o} ${o===-1?'day':'days'} ago`:`in ${o} ${o===1?'day':'days'}`;
+let dayYear=new Date().getFullYear();
+const yearsAgoLabel=d=>{const n=dayYear-Number(d.slice(0,4));return n>0?`${n} ${n===1?'year':'years'} ago today`:'Today'};
+function nextUpHTML(next,empty){
+ const when=next.date.toLocaleDateString('en-US',{month:'long',day:'numeric'});
+ const head=next.off===1?`Tomorrow, ${when}`:`Next up: ${when}, in ${next.off} days`;
+ const items=[...next.found].sort((a,b)=>a.ki-b.ki||a.s.name.localeCompare(b.s.name));
+ const names=items.slice(0,4).map(e=>`${escapeHTML(e.s.short||e.s.name)} (${kindLabel[e.k].replace('The ','')})`);
+ const more=items.length-names.length;
+ const list=names.length>1?names.slice(0,-1).join(', ')+(more>0?', ':' and ')+names[names.length-1]:names[0];
+ return `<aside class="day-next${empty?' is-lead':''}"><h3>${escapeHTML(head)}</h3><p>${list}${more>0?` and ${more} more`:''}.</p></aside>`;
+}
 function dayTapeHTML(e,gi,i){
  const ok=playable(e.p),paper=tapeVariation(e.s,e.ki).paper,title=`${date(e.p.date)}, ${kindLabel[e.k]}: ${e.s.name}`;
  const venue=e.p.venueName||(e.p.venue||'').split(' - ')[0];
@@ -164,7 +172,7 @@ function dayTapeHTML(e,gi,i){
 }
 function dayGroupHTML(g,gi){
  const nPlay=g.items.filter(e=>playable(e.p)).length,extra=g.items.length-DAY_CAP;
- return `<section class="day-group"><div class="day-group-head"><div><h3>${escapeHTML(date(g.date))} · ${escapeHTML(g.venue)}</h3><p>${escapeHTML([g.city,dayOffsetLabel(g.off)].filter(Boolean).join(' · '))}</p></div>${nPlay>1?`<button type="button" class="day-play-all" data-day-all="${gi}">${icon('play')} Play all ${nPlay}</button>`:''}</div>${g.items.map((e,i)=>dayTapeHTML(e,gi,i)).join('')}${extra>0?`<button type="button" class="day-more" data-day-more="${gi}" aria-expanded="false">Show ${extra} more</button>`:''}</section>`;
+ return `<section class="day-group"><div class="day-group-head"><div><h3>${escapeHTML(date(g.date))} · ${escapeHTML(g.venue)}</h3><p>${escapeHTML([g.city,yearsAgoLabel(g.date)].filter(Boolean).join(' · '))}</p></div>${nPlay>1?`<button type="button" class="day-play-all" data-day-all="${gi}">${icon('play')} Play all ${nPlay}</button>`:''}</div>${g.items.map((e,i)=>dayTapeHTML(e,gi,i)).join('')}${extra>0?`<button type="button" class="day-more" data-day-more="${gi}" aria-expanded="false">Show ${extra} more</button>`:''}</section>`;
 }
 let dayPushed=false,dayReturn=null;
 function leaveThisDay(){
@@ -175,12 +183,12 @@ function showThisDay(now=new Date(),push=true){
  if(!songs.length)return;
  if(push&&location.hash!=='#this-day'){history.pushState(null,'','#this-day');dayPushed=true}
  if(selected)dayReturn=selected;
- const {win,found}=dayEntries(now),groups=dayGroups(found);
+ dayYear=now.getFullYear();const {found,next}=dayEntries(now),groups=dayGroups(found);
  const pretty=now.toLocaleDateString('en-US',{month:'long',day:'numeric'});
- const meta=!found.length?`No First, Last, or Best falls within a week of ${pretty}. Check back tomorrow.`:win===0?'Songs first played, last played, or picked as fan favorite on this date, in any year.':`Nothing lands on ${pretty} itself. Here is what falls within ${win} days either side.`;
+ const meta=found.length?'Songs first played, last played, or picked as fan favorite on this date, in any year.':`No First, Last, or Best versions fall on ${pretty}.${next?.off===1?' Check back tomorrow.':''}`;
  selected=null;renderList();
  const d=$('#detail');
- d.innerHTML=`<div class="song-top"><div><p class="song-kicker">THIS DAY IN DEAD HISTORY</p><h2>${escapeHTML(pretty)}</h2><p class="song-meta">${meta}</p></div><button type="button" class="day-back" id="day-back">← Back to songs</button></div>${groups.map(dayGroupHTML).join('')}<p class="caveat">Matches use month and day only, from any year. “First” and “Last” are documented dates; “Best” is the HeadyVersion community favorite.</p>`;
+ d.innerHTML=`<div class="song-top"><div><p class="song-kicker">THIS DAY IN DEAD HISTORY</p><h2>${escapeHTML(pretty)}</h2><p class="song-meta">${meta}</p></div><button type="button" class="day-back" id="day-back">← Back to songs</button></div>${groups.map(dayGroupHTML).join('')}${next&&(!found.length||next.off===1)?nextUpHTML(next,!found.length):''}<p class="caveat">Matches use month and day only, from any year. “First” and “Last” are documented dates; “Best” is the HeadyVersion community favorite.</p>`;
  $('#day-back').onclick=leaveThisDay;
  const entry=v=>{const [gi,i]=v.split(':').map(Number);return groups[gi].items[i]};
  d.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlay);queue=[];playHistory=[];play(e.s,e.k)});
