@@ -174,6 +174,21 @@ function dayGroupHTML(g,gi){
  const nPlay=g.items.filter(e=>playable(e.p)).length,extra=g.items.length-DAY_CAP;
  return `<section class="day-group"><div class="day-group-head"><div><h3>${escapeHTML(date(g.date))} · ${escapeHTML(g.venue)}</h3><p>${escapeHTML([g.city,yearsAgoLabel(g.date)].filter(Boolean).join(' · '))}</p></div>${nPlay>1?`<button type="button" class="day-play-all" data-day-all="${gi}">${icon('play')} Play all ${nPlay}</button>`:''}</div>${g.items.map((e,i)=>dayTapeHTML(e,gi,i)).join('')}${extra>0?`<button type="button" class="day-more" data-day-more="${gi}" aria-expanded="false">Show ${extra} more</button>`:''}</section>`;
 }
+let showsData=null;
+async function loadShows(){if(showsData)return showsData;try{const r=await fetch('shows.json?v=1');if(!r.ok)throw Error('shows unavailable');showsData=await r.json()}catch{return []}return showsData}
+function dayShowsHTML(list){
+ const cap=list.length<=8?list.length:6,extra=list.length-cap;
+ const yrs=list.length>1?`${list[0].d.slice(0,4)} to ${list[list.length-1].d.slice(0,4)}`:list[0].d.slice(0,4);
+ return `<h3>Shows on this day</h3><p class="day-shows-sub">${list.length} ${list.length===1?'show':'shows'} in the Dead’s touring history, ${yrs}.</p><ul class="day-show-list">${list.map((e,i)=>`<li class="day-show${i>=cap?' day-show-extra':''}" ${i>=cap?'hidden':''}><div class="day-show-info"><span class="day-show-year">${e.d.slice(0,4)}</span><span class="day-show-venue">${escapeHTML(e.v)}</span><span class="day-show-city">${escapeHTML([e.c,yearsAgoLabel(e.d)].filter(Boolean).join(' · '))}</span></div><button type="button" class="day-show-play" data-show-play="${i}">${icon('play')} Play Full Show</button></li>`).join('')}</ul>${extra>0?`<button type="button" class="day-more" data-shows-more aria-expanded="false">Show ${extra} more</button>`:''}`;
+}
+async function fillDayShows(el,md){
+ const all=await loadShows(),list=all.filter(e=>e.d.slice(5)===md);
+ if(!el.isConnected||!list.length)return;
+ el.innerHTML=dayShowsHTML(list);
+ el.querySelectorAll('[data-show-play]').forEach(b=>b.onclick=()=>{const e=list[Number(b.dataset.showPlay)];const p={date:e.d,venueName:e.v,venue:e.c?`${e.v} - ${e.c}`:e.v,identifier:e.id,recording:`https://archive.org/details/${e.id}`};queue=[];playHistory=[];playShow({name:e.v,show:p},'show')});
+ const more=el.querySelector('[data-shows-more]');
+ if(more)more.onclick=()=>{const open=more.getAttribute('aria-expanded')==='true';el.querySelectorAll('.day-show-extra').forEach(r=>r.hidden=open);more.setAttribute('aria-expanded',String(!open));more.textContent=open?`Show ${el.querySelectorAll('.day-show-extra').length} more`:'Show fewer'};
+}
 let dayPushed=false,dayReturn=null;
 function leaveThisDay(){
  if(dayPushed){dayPushed=false;history.back();return}
@@ -188,8 +203,9 @@ function showThisDay(now=new Date(),push=true){
  const meta=found.length?'Songs first played, last played, or picked as fan favorite on this date, in any year.':`No First, Last, or Best versions fall on ${pretty}.${next?.off===1?' Check back tomorrow.':''}`;
  selected=null;renderList();
  const d=$('#detail');
- d.innerHTML=`<div class="song-top"><div><p class="song-kicker">THIS DAY IN DEAD HISTORY</p><h2>${escapeHTML(pretty)}</h2><p class="song-meta">${meta}</p></div><button type="button" class="day-back" id="day-back">← Back to songs</button></div>${groups.map(dayGroupHTML).join('')}${next&&(!found.length||next.off===1)?nextUpHTML(next,!found.length):''}<p class="caveat">Matches use month and day only, from any year. “First” and “Last” are documented dates; “Best” is the HeadyVersion community favorite.</p>`;
+ d.innerHTML=`<div class="song-top"><div><p class="song-kicker">THIS DAY IN DEAD HISTORY</p><h2>${escapeHTML(pretty)}</h2><p class="song-meta">${meta}</p></div><button type="button" class="day-back" id="day-back">← Back to songs</button></div>${groups.map(dayGroupHTML).join('')}<section class="day-shows" id="day-shows"></section>${next&&(!found.length||next.off===1)?nextUpHTML(next,!found.length):''}<p class="caveat">Matches use month and day only, from any year. “First” and “Last” are documented dates; “Best” is the HeadyVersion community favorite. The full show list comes from Internet Archive’s Grateful Dead collection, so shows with no surviving recording are not listed.</p>`;
  $('#day-back').onclick=leaveThisDay;
+ fillDayShows($('#day-shows'),String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0'));
  const entry=v=>{const [gi,i]=v.split(':').map(Number);return groups[gi].items[i]};
  d.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlay);queue=[];playHistory=[];play(e.s,e.k)});
  d.querySelectorAll('[data-day-play-show]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlayShow);queue=[];playHistory=[];playShow(e.s,e.k)});
