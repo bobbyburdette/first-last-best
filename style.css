@@ -228,3 +228,4 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 .day-show-play .ui-icon{margin:0 6px 0 0;width:18px;height:18px;flex-basis:18px}
 @media(hover:hover){.day-show-play:hover{background:#f7f1e11f}}
 .day-shows .day-more{margin-top:14px}
+@media(max-width:374px){.intro-top .eyebrow,.day-button{letter-spacing:.06em}}
