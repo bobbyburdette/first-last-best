@@ -12554,5 +12554,113 @@
       "city": "Philadelphia, PA"
     },
     "rank": null
+  },
+  {
+    "name": "That's It for the Other One",
+    "kind": "sequence",
+    "aliases": [
+      "Cryptical > Other One > Cryptical",
+      "Cryptical Envelopment > The Other One",
+      "Other One Suite"
+    ],
+    "components": [
+      "Cryptical Envelopment",
+      "The Other One",
+      "Cryptical Envelopment"
+    ],
+    "rank": null,
+    "count": null,
+    "history": "https://headyversion.com/song/262/grateful-dead/thats-it-for-the-other-one/",
+    "first": {
+      "date": "1967-08-05",
+      "venueName": "O'Keefe Center",
+      "venue": "O'Keefe Center - Toronto, Canada",
+      "city": "Toronto, Canada",
+      "source": "https://jerrybase.com/events/19670805-01",
+      "note": "First documented complete suite: Cryptical Envelopment > The Other One > Cryptical Envelopment. Early show.",
+      "sourceLabel": "JerryBase",
+      "tracks": [
+        {
+          "url": "https://archive.org/download/gd1967-08-05.176008.sbd.flegel.miller.flac1648/04%20That's%20It%20For%20The%20Other%20One.mp3",
+          "title": "That's It For The Other One",
+          "duration": "11:54"
+        }
+      ],
+      "identifier": "gd1967-08-05.176008.sbd.flegel.miller.flac1648",
+      "recording": "https://archive.org/details/gd1967-08-05.176008.sbd.flegel.miller.flac1648",
+      "duration": "11:54",
+      "showId": "gd-1967-08-05"
+    },
+    "last": {
+      "date": "1985-06-24",
+      "venueName": "River Bend Music Center",
+      "venue": "River Bend Music Center - Cincinnati, OH",
+      "city": "Cincinnati, OH",
+      "source": "https://www.setlists.net/?show_id=1605",
+      "note": "Last time the full suite was played, with Drums, Space and Comes A Time inside it. The last uninterrupted suite was 11/6/71 at the Harding Theater.",
+      "sourceLabel": "Setlist",
+      "tracks": [
+        {
+          "url": "https://archive.org/download/gd85-06-24.sbd.miller.25315.sbeok.shnf/gd85-06-24d2t05.mp3",
+          "title": "Cryptical Envelopment ->",
+          "duration": "01:47"
+        },
+        {
+          "url": "https://archive.org/download/gd85-06-24.sbd.miller.25315.sbeok.shnf/gd85-06-24d2t06.mp3",
+          "title": "Drums ->",
+          "duration": "10:17"
+        },
+        {
+          "url": "https://archive.org/download/gd85-06-24.sbd.miller.25315.sbeok.shnf/gd85-06-24d3t01.mp3",
+          "title": "Space ->",
+          "duration": "08:24"
+        },
+        {
+          "url": "https://archive.org/download/gd85-06-24.sbd.miller.25315.sbeok.shnf/gd85-06-24d3t02.mp3",
+          "title": "Comes A Time ->",
+          "duration": "05:49"
+        },
+        {
+          "url": "https://archive.org/download/gd85-06-24.sbd.miller.25315.sbeok.shnf/gd85-06-24d3t03.mp3",
+          "title": "The Other One ->",
+          "duration": "05:08"
+        },
+        {
+          "url": "https://archive.org/download/gd85-06-24.sbd.miller.25315.sbeok.shnf/gd85-06-24d3t04.mp3",
+          "title": "Cryptical Envelopment ->",
+          "duration": "00:40"
+        }
+      ],
+      "identifier": "gd85-06-24.sbd.miller.25315.sbeok.shnf",
+      "recording": "https://archive.org/details/gd85-06-24.sbd.miller.25315.sbeok.shnf",
+      "duration": "32:05",
+      "showId": "gd-1985-06-24"
+    },
+    "best": {
+      "date": "1970-05-02",
+      "venueName": "Harpur College",
+      "venue": "Harpur College - Binghamton, NY",
+      "city": "Binghamton, NY",
+      "source": "https://headyversion.com/song/262/grateful-dead/thats-it-for-the-other-one/",
+      "sourceType": "headyversion",
+      "votes": 198,
+      "checkedAt": "2026-10-09",
+      "category": "The Other One",
+      "submission": "https://headyversion.com/submission/1490/grateful-dead-thats-it-for-the-other-one-1970-05-02/",
+      "sourceShow": "https://headyversion.com/show/27/grateful-dead/1970-05-02/",
+      "ties": [],
+      "note": "HeadyVersion doesn't rank the suite separately; this is the top-voted Other One, and it's a complete suite.",
+      "tracks": [
+        {
+          "url": "https://archive.org/download/gd1970-05-02.138227.sbd.miller.flac1648/28ThatsItForTheOtherOne.mp3",
+          "title": "That's It For The Other One",
+          "duration": "28:45"
+        }
+      ],
+      "identifier": "gd1970-05-02.138227.sbd.miller.flac1648",
+      "recording": "https://archive.org/details/gd1970-05-02.138227.sbd.miller.flac1648",
+      "duration": "28:45",
+      "showId": "gd-1970-05-02"
+    }
   }
 ]
