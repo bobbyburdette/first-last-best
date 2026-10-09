@@ -7638,6 +7638,18 @@
       "showId": "gd-1970-05-02",
       "runnersUp": [
         {
+          "date": "1970-02-13",
+          "venue": "Fillmore East New York City, NY",
+          "votes": 119,
+          "headyHref": "https://headyversion.com/show/595/archive/",
+          "audio": "https://archive.org/download/gd1970-02-13.sbd.miller.fix-97613.97639.sbeok.flac16/gd70-02-13d3t02.mp3",
+          "track": "That's It For The Other One ->",
+          "duration": "29:57",
+          "combined": true,
+          "identifier": "gd1970-02-13.sbd.miller.fix-97613.97639.sbeok.flac16",
+          "recording": "https://archive.org/details/gd1970-02-13.sbd.miller.fix-97613.97639.sbeok.flac16"
+        },
+        {
           "date": "1974-06-18",
           "venue": "Freedom Hall Louisville, KY",
           "votes": 118,
@@ -7648,21 +7660,9 @@
           "combined": true,
           "identifier": "gd1974-06-18.sbd.miller.89690.sbeok.flac16",
           "recording": "https://archive.org/details/gd1974-06-18.sbd.miller.89690.sbeok.flac16"
-        },
-        {
-          "date": "1972-09-17",
-          "venue": "Baltimore Civic Center Baltimore, MD",
-          "votes": 104,
-          "headyHref": "https://headyversion.com/show/584/archive/",
-          "audio": "https://archive.org/download/gd1972-09-17.aud-wolfson.minches.28165.shnf/gd1972-09-17d3t002.mp3",
-          "track": "The Other One ->",
-          "duration": "32:01",
-          "combined": false,
-          "identifier": "gd1972-09-17.aud-wolfson.minches.28165.shnf",
-          "recording": "https://archive.org/details/gd1972-09-17.aud-wolfson.minches.28165.shnf"
         }
       ],
-      "runnersUpCheckedAt": "2026-09-29"
+      "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 22,
     "liveRank": 8,
