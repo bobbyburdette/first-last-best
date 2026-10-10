@@ -1704,9 +1704,15 @@
       "date": "1966-02-25",
       "venue": "Ivar Theater - Los Angeles, CA",
       "source": "https://www.setlists.net/?show_id=0034",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-02-25",
-      "showId": "gd-1966-02-25"
+      "showId": "gd-1966-02-25",
+      "audio": "https://archive.org/download/gd1966-02-25.sbd.unknown.20346.sbeok.shnf/gd66-02-25d1t05.mp3",
+      "track": "Cold Rain & Snow",
+      "duration": "03:09",
+      "combined": false,
+      "identifier": "gd1966-02-25.sbd.unknown.20346.sbeok.shnf",
+      "recording": "https://archive.org/details/gd1966-02-25.sbd.unknown.20346.sbeok.shnf",
+      "rating": 4.8,
+      "reviews": 17
     },
     "last": {
       "date": "1995-06-19",
@@ -3448,9 +3454,16 @@
       "date": "1970-10-10",
       "venue": "Colden Auditorium, Queens College - Queens, NY",
       "source": "https://www.setlists.net/?show_id=0630",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1970-10-10",
-      "showId": "gd-1970-10-10"
+      "showId": "gd-1970-10-10",
+      "audio": "https://archive.org/download/gd1970-10-10.144636.sony-f95.lee.hance.sirmick.flac1648/gd1970-10-10s1t12.mp3",
+      "track": "Going Down The Road Feeling Bad jam",
+      "duration": "02:18",
+      "combined": false,
+      "identifier": "gd1970-10-10.144636.sony-f95.lee.hance.sirmick.flac1648",
+      "recording": "https://archive.org/details/gd1970-10-10.144636.sony-f95.lee.hance.sirmick.flac1648",
+      "rating": 4,
+      "reviews": 3,
+      "note": "Debuted as a short jam inside Not Fade Away."
     },
     "last": {
       "date": "1995-07-05",
