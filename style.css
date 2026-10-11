@@ -230,4 +230,4 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 .day-shows .day-more{margin-top:14px}
 @media(max-width:374px){.intro-top .eyebrow,.day-button{letter-spacing:.06em}}
 .footer-links{align-items:center}a.footer-link{line-height:inherit}
-.day-flb .day-section-title,.day-shows .day-section-title{margin:0 0 4px;font:600 28px/1.15 var(--display)}.day-flb{margin-top:30px}.day-flb .day-group:first-of-type{margin-top:22px}.day-shows{margin-top:52px;padding-top:30px;border-top:1px solid var(--line)}
+.day-flb .day-section-title,.day-shows .day-section-title{margin:0 0 4px;font:600 32px/1.15 var(--display)}.day-flb{margin-top:30px}.day-flb .day-group:first-of-type{margin-top:22px}.day-shows{margin-top:52px;padding-top:30px;border-top:1px solid var(--line)}
