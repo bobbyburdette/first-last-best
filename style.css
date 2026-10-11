@@ -233,3 +233,4 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 .day-flb .day-section-title,.day-shows .day-section-title{margin:0 0 4px;font:600 32px/1.15 var(--display)}.day-flb{margin-top:30px}.day-flb .day-group:first-of-type{margin-top:22px}.day-shows{margin-top:52px;padding-top:30px;border-top:1px solid var(--line)}
 .day-shows-box{margin-top:22px;border:1px solid var(--line);background:var(--panel);padding:28px}.day-shows-box .day-shows{margin:0;padding:0;border:0}@media(max-width:650px){.day-shows-box{padding:24px 10px}}
 @media(max-width:650px){.is-day aside{display:none}}
+.idle-links{display:none}.player.is-idle .idle-links{display:flex;align-items:center;gap:6px 18px;margin-left:14px;font-size:13px}.standalone .idle-hs{display:none}@media(max-width:650px){.player.is-idle{flex-wrap:wrap}.player.is-idle .idle-links{flex-basis:100%;justify-content:center;margin-left:0;font-size:12px}}
