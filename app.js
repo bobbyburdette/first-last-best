@@ -6,6 +6,8 @@ const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const date=d=>d?new Date(d+'T12:00:00Z').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}):'Not verified';
 const compactDate=d=>d?Number(d.slice(5,7))+'.'+Number(d.slice(8,10))+'.'+d.slice(2,4):'—';
 const normalizeSearch=s=>s.toLowerCase().replace(/[^a-z0-9]/g,'');
+/* Real page addresses (tools/build_pages.py writes a crawlable page for each) */
+const slug=n=>n.toLowerCase().replace(/&/g,' and ').replace(/['’.]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''),songPath=s=>`/song/${slug(s.name)}/`,showPath=d=>`/show/${d}/`,DAY_PATH='/this-day/';
 const tracksFor=p=>p?.tracks?.length?p.tracks:p?.audio?[{url:p.audio,title:p.track||'',duration:p.duration}]:[];
 const playable=p=>tracksFor(p).length>0;
 const labels={first:'First documented',last:'Last documented',best:'HeadyVersion community favorite'};
@@ -34,7 +36,7 @@ $('#request-song').href=requestHref('');$('#request-song-modal').href=requestHre
 const reportHref=name=>{const to=['mountaineerbob','gmail.com'].join('@');const body=`Song: ${name}\nPage: https://firstlastbest.com/#${encodeURIComponent(name)}\n\nWhich card (The First, The Last, or The Best)?\n\nWhat's wrong, and what should it say?\n\nA link to a source, if you have one:\n`;return 'mailto:'+to+'?subject='+encodeURIComponent('Mistake on First Last Best: '+name)+'&body='+encodeURIComponent(body)};
 
 let tracking=false;function track(path,title){if(!tracking)return;try{window.goatcounter?.count?.({path,title,event:true})}catch{}}
-function selectSong(name,updateURL=true){const s=songs.find(s=>s.name===name);if(!s)return false;const dsb=$('#day-shows-box');if(dsb){dsb.hidden=true;dsb.innerHTML=''}document.body.classList.remove('is-day');selected=s;renderList();const available=['first','last','best'].filter(k=>playable(s[k]));$('#detail').innerHTML=`<div class="song-top"><div><p class="song-kicker">THE GRATEFUL DEAD</p><h2>${escapeHTML(s.name)}</h2><p class="song-meta">${s.first?.date?.slice(0,4)||'?'}—${s.last?.date?.slice(0,4)||'?'} <span aria-hidden="true">/</span> ${s.kind==='sequence'?'Complete live sequence':s.count===null?'Performance research pending':s.count+' concert listings'} <span aria-hidden="true">/</span> <a href="${escapeHTML(s.history)}" target="_blank" rel="noopener">${s.kind==='sequence'?'Sequence ranking':'History'} ${icon('external')}</a></p></div><button class="play-all" id="play-all" ${available.length?'':'disabled'}>${available.length===3?'<span class="play-bars" aria-hidden="true"><i></i><i></i><i></i></span>':icon('play')} ${available.length===3?'Play all three':`Play ${available.length} available`}</button></div><div class="cards">${['first','last','best'].map((k,i)=>card(s,k,i)).join('')}</div><p class="caveat">${s.kind==='sequence'?'First and last refer to the complete sequence in order, not the individual songs. “Best” uses HeadyVersion’s separate sequence ranking.':'First and last are documented dates, not always surviving tapes. “Best” follows HeadyVersion’s individual-song votes. Linked sequence rankings are separate.'} Votes are a dated snapshot, not a universal verdict. <button type="button" id="explain" data-open-method aria-haspopup="dialog" aria-controls="method">How picks work ${icon('info')}</button></p><p class="caveat report-line">Something wrong? <a class="report-link" href="${escapeHTML(reportHref(s.name))}">Report a mistake</a></p>`;$('#detail').querySelectorAll('[data-play]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];play(s,b.dataset.play)});$('#detail').querySelectorAll('[data-play-show]').forEach(b=>b.onclick=()=>playShow(s,b.dataset.playShow));$('#detail').querySelectorAll('[data-play-runner]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];const ri=Number(b.dataset.playRunner);play(s,'best',0,null,null,s.best.runnersUp[ri])});$('#play-all').onclick=()=>{queue=available.map(k=>({s,k}));playHistory=[];const item=queue.shift();if(item)play(item.s,item.k)};if(updateURL)history.replaceState(null,'','#'+encodeURIComponent(name));track('song/'+s.name,s.name);return true}
+function selectSong(name,updateURL=true){const s=songs.find(s=>s.name===name);if(!s)return false;const dsb=$('#day-shows-box');if(dsb){dsb.hidden=true;dsb.innerHTML=''}document.body.classList.remove('is-day');selected=s;renderList();const available=['first','last','best'].filter(k=>playable(s[k]));$('#detail').innerHTML=`<div class="song-top"><div><p class="song-kicker">THE GRATEFUL DEAD</p><h2>${escapeHTML(s.name)}</h2><p class="song-meta">${s.first?.date?.slice(0,4)||'?'}—${s.last?.date?.slice(0,4)||'?'} <span aria-hidden="true">/</span> ${s.kind==='sequence'?'Complete live sequence':s.count===null?'Performance research pending':s.count+' concert listings'} <span aria-hidden="true">/</span> <a href="${escapeHTML(s.history)}" target="_blank" rel="noopener">${s.kind==='sequence'?'Sequence ranking':'History'} ${icon('external')}</a></p></div><button class="play-all" id="play-all" ${available.length?'':'disabled'}>${available.length===3?'<span class="play-bars" aria-hidden="true"><i></i><i></i><i></i></span>':icon('play')} ${available.length===3?'Play all three':`Play ${available.length} available`}</button></div><div class="cards">${['first','last','best'].map((k,i)=>card(s,k,i)).join('')}</div><p class="caveat">${s.kind==='sequence'?'First and last refer to the complete sequence in order, not the individual songs. “Best” uses HeadyVersion’s separate sequence ranking.':'First and last are documented dates, not always surviving tapes. “Best” follows HeadyVersion’s individual-song votes. Linked sequence rankings are separate.'} Votes are a dated snapshot, not a universal verdict. <button type="button" id="explain" data-open-method aria-haspopup="dialog" aria-controls="method">How picks work ${icon('info')}</button></p><p class="caveat report-line">Something wrong? <a class="report-link" href="${escapeHTML(reportHref(s.name))}">Report a mistake</a></p>`;$('#detail').querySelectorAll('[data-play]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];play(s,b.dataset.play)});$('#detail').querySelectorAll('[data-play-show]').forEach(b=>b.onclick=()=>playShow(s,b.dataset.playShow));$('#detail').querySelectorAll('[data-play-runner]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];const ri=Number(b.dataset.playRunner);play(s,'best',0,null,null,s.best.runnersUp[ri])});$('#play-all').onclick=()=>{queue=available.map(k=>({s,k}));playHistory=[];const item=queue.shift();if(item)play(item.s,item.k)};if(updateURL)history.replaceState(null,'',songPath(s));track('song/'+s.name,s.name);return true}
 async function play(s,k,part=0,tracksOverride=null,showMeta=null,perfOverride=null){
  const p=perfOverride||s[k],tracks=tracksOverride||tracksFor(p);if(!tracks[part])return;if(part===0)track('play/'+s.name+'/'+k,s.name+' · '+k);
  const token=++playToken;$('.player').classList.remove('is-idle');audio.pause();playing={s,k,part,tracks,show:showMeta};
@@ -110,8 +112,20 @@ audio.addEventListener('error',()=>{$('#player-status').textContent='Tape unavai
 audio.addEventListener('ended',advanceTape);
 $('#sort').addEventListener('change',()=>{renderList();$('#songs').scrollTop=0});
 $('#search').addEventListener('input',renderList);$('#search').addEventListener('keydown',e=>{if(e.key!=='Enter')return;const sh=showMatches();if(filtered().length)selectSong(filtered()[0].name);else if(sh?.length)showShow(sh[0].d);else return;$('#detail h2').setAttribute('tabindex','-1');$('#detail h2').focus()});
-window.addEventListener('hashchange',()=>{try{const h=decodeURIComponent(location.hash.slice(1));if(h==='this-day')showThisDay(new Date(),false);else if(h.startsWith('show-'))openShowHash(h.slice(5),false);else selectSong(h||(dayReturn||selected||songs[0]).name,false)}catch{}});
-Promise.all([fetch('songs.json?v=28').then(r=>{if(!r.ok)throw Error('Collection unavailable');return r.json()}),fetch('tapes.json?v=3').then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([data,t])=>{tapes=t||{};songs=data;let hash='';try{hash=decodeURIComponent(location.hash.slice(1))}catch{}if(hash==='this-day'){selectSong(songs[Math.floor(Math.random()*songs.length)].name,false);selected=null;showThisDay(new Date(),false)}else if(hash.startsWith('show-')){selectSong(songs[Math.floor(Math.random()*songs.length)].name,false);selected=null;openShowHash(hash.slice(5),false)}else{const linked=songs.find(s=>s.name===hash);selectSong(linked?linked.name:songs[Math.floor(Math.random()*songs.length)].name,!!linked)}tracking=true;if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'select_grateful_dead_song',title:'Select a Grateful Dead song',description:'Search the collection and open one song’s first, last and HeadyVersion-favorite performances. Does not start audio.',inputSchema:{type:'object',properties:{name:{type:'string'}},required:['name'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){if(!input||typeof input.name!=='string')throw Error('A song name is required');const s=songs.find(s=>s.name.toLowerCase()===input.name.toLowerCase());if(!s)throw Error('Song not in this collection');$('#search').value='';selectSong(s.name);return {name:s.name,performances:['first','last','best'].map(k=>({type:k,date:s[k]?.date,playable:playable(s[k])}))}}})).catch(()=>{})}catch{}}}).catch(()=>{$('#detail').innerHTML='<h2>The tapes didn’t load.</h2><p>Please reload to try again.</p>';$('#songs').innerHTML='';$('#count').textContent='Collection unavailable'});
+function routeFromURL(initial){
+ let p=location.pathname,h='';try{h=decodeURIComponent(location.hash.slice(1))}catch{}
+ if(h){const s=songs.find(x=>x.name===h),np=h==='this-day'?DAY_PATH:h.startsWith('show-')?showPath(h.slice(5)):s?songPath(s):null;if(np){history.replaceState(null,'',np);p=np}}
+ const m=p.match(/^\/(song|show)\/([^/]+)\/?$/),random=()=>songs[Math.floor(Math.random()*songs.length)].name;
+ if(initial&&(p===DAY_PATH||m?.[1]==='show')){selectSong(random(),false);selected=null}
+ if(p===DAY_PATH)return showThisDay(new Date(),false);
+ if(m?.[1]==='show')return openShow(m[2],false).then(ok=>{if(!ok)history.replaceState(null,'','/')});
+ const s=m?.[1]==='song'&&songs.find(x=>slug(x.name)===m[2]);
+ if(s)return selectSong(s.name,false);
+ if(p!=='/')history.replaceState(null,'','/');
+ selectSong((initial?null:dayReturn||selected)?.name||random(),false);
+}
+window.addEventListener('popstate',()=>routeFromURL(false));window.addEventListener('hashchange',()=>routeFromURL(false));
+Promise.all([fetch('/songs.json?v=28').then(r=>{if(!r.ok)throw Error('Collection unavailable');return r.json()}),fetch('/tapes.json?v=3').then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([data,t])=>{tapes=t||{};songs=data;routeFromURL(true);tracking=true;if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'select_grateful_dead_song',title:'Select a Grateful Dead song',description:'Search the collection and open one song’s first, last and HeadyVersion-favorite performances. Does not start audio.',inputSchema:{type:'object',properties:{name:{type:'string'}},required:['name'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){if(!input||typeof input.name!=='string')throw Error('A song name is required');const s=songs.find(s=>s.name.toLowerCase()===input.name.toLowerCase());if(!s)throw Error('Song not in this collection');$('#search').value='';selectSong(s.name);return {name:s.name,performances:['first','last','best'].map(k=>({type:k,date:s[k]?.date,playable:playable(s[k])}))}}})).catch(()=>{})}catch{}}}).catch(()=>{$('#detail').innerHTML='<h2>The tapes didn’t load.</h2><p>Please reload to try again.</p>';$('#songs').innerHTML='';$('#count').textContent='Collection unavailable'});
 
 const toggle=$('#audio-toggle'),seek=$('#audio-seek'),mute=$('#audio-mute');
 const clock=n=>Number.isFinite(n)?`${Math.floor(n/60)}:${String(Math.floor(n%60)).padStart(2,'0')}`:'0:00';
@@ -184,7 +198,7 @@ function dayGroupHTML(g,gi){
  return `<section class="day-group">${stripHTML(g)}${nPlay>1?`<div class="day-group-head"><button type="button" class="day-play-all" data-day-all="${gi}">${icon('play')} Play all ${nPlay}</button></div>`:''}${g.items.map((e,i)=>dayTapeHTML(e,gi,i)).join('')}${extra>0?`<button type="button" class="day-more" data-day-more="${gi}" aria-expanded="false">Show ${extra} more</button>`:''}</section>`;
 }
 let showsData=null;
-async function loadShows(){if(showsData)return showsData;try{const r=await fetch('shows.json?v=3');if(!r.ok)throw Error('shows unavailable');showsData=await r.json()}catch{return []}return showsData}
+async function loadShows(){if(showsData)return showsData;try{const r=await fetch('/shows.json?v=3');if(!r.ok)throw Error('shows unavailable');showsData=await r.json()}catch{return []}return showsData}
 function pipsOn(d){const t={first:0,last:0,best:0};songs.forEach(s=>['first','last','best'].forEach(k=>{if(s[k]?.date===d)t[k]++}));const ks=Object.keys(t).filter(k=>t[k]);return ks.length?`<span class="show-pips" aria-label="${ks.map(k=>t[k]+' '+k).join(', ')}">${ks.map(k=>`<i class="pip ${k}">${t[k]}</i>`).join('')}</span>`:''}
 function dayShowsHTML(list){
  const cap=list.length<=8?list.length:6,extra=list.length-cap;
@@ -196,7 +210,7 @@ async function fillDayShows(el,md){
  if(!el.isConnected||!list.length)return;
  el.innerHTML=dayShowsHTML(list);el.closest('.day-shows-box')?.removeAttribute('hidden');
  el.querySelectorAll('[data-show-play]').forEach(b=>b.onclick=()=>{const e=list[Number(b.dataset.showPlay)];const p={date:e.d,venueName:e.v,venue:e.c?`${e.v} - ${e.c}`:e.v,identifier:e.id,recording:`https://archive.org/details/${e.id}`};queue=[];playHistory=[];playShow({name:e.v,show:p},'show')});
- el.querySelectorAll('[data-show-open]').forEach(b=>b.onclick=()=>openShowHash(b.dataset.showOpen,true));
+ el.querySelectorAll('[data-show-open]').forEach(b=>b.onclick=()=>openShow(b.dataset.showOpen,true));
  const more=el.querySelector('[data-shows-more]');
  if(more)more.onclick=()=>{const open=more.getAttribute('aria-expanded')==='true';el.querySelectorAll('.day-show-extra').forEach(r=>r.hidden=open);more.setAttribute('aria-expanded',String(!open));more.textContent=open?`Show ${el.querySelectorAll('.day-show-extra').length} more`:'Show fewer'};
 }
@@ -209,7 +223,7 @@ function leaveThisDay(){
 }
 function showThisDay(now=new Date(),push=true){track('this-day','This day');
  if(!songs.length)return;
- if(push&&location.hash!=='#this-day'){history.pushState(null,'','#this-day');dayPushed=true}
+ if(push&&location.pathname!==DAY_PATH){history.pushState(null,'',DAY_PATH);dayPushed=true}
  if(selected)dayReturn=selected;
  dayYear=now.getFullYear();const {found,next}=dayEntries(now),groups=dayGroups(found);
  const pretty=now.toLocaleDateString('en-US',{month:'long',day:'numeric'});
@@ -223,8 +237,8 @@ function showThisDay(now=new Date(),push=true){track('this-day','This day');
  const entry=v=>{const [gi,i]=v.split(':').map(Number);return groups[gi].items[i]};
  d.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlay);queue=[];playHistory=[];play(e.s,e.k)});
  d.querySelectorAll('[data-day-play-show]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlayShow);queue=[];playHistory=[];playShow(e.s,e.k)});
- d.querySelectorAll('[data-day-open]').forEach(b=>b.onclick=()=>{const n=entry(b.dataset.dayOpen).s.name;history.pushState(null,'','#'+encodeURIComponent(n));selectSong(n,false)});
- d.querySelectorAll('[data-show-open]').forEach(b=>b.onclick=()=>openShowHash(b.dataset.showOpen,true));
+ d.querySelectorAll('[data-day-open]').forEach(b=>b.onclick=()=>{const n=entry(b.dataset.dayOpen).s.name;history.pushState(null,'',songPath({name:n}));selectSong(n,false)});
+ d.querySelectorAll('[data-show-open]').forEach(b=>b.onclick=()=>openShow(b.dataset.showOpen,true));
  d.querySelectorAll('[data-day-all]').forEach(b=>b.onclick=()=>{queue=groups[Number(b.dataset.dayAll)].items.filter(e=>playable(e.p)).map(e=>({s:e.s,k:e.k}));playHistory=[];const item=queue.shift();if(item)play(item.s,item.k)});
  d.querySelectorAll('[data-day-more]').forEach(b=>b.onclick=()=>{const sec=b.closest('.day-group'),open=b.getAttribute('aria-expanded')==='true';sec.querySelectorAll('.day-extra').forEach(r=>r.hidden=open);b.setAttribute('aria-expanded',String(!open));b.textContent=open?`Show ${sec.querySelectorAll('.day-extra').length} more`:'Show fewer'});
  if(push)d.scrollIntoView({behavior:'smooth',block:'start'});
@@ -275,7 +289,7 @@ function ticketHTML(e,n,t,has){
 }
 function showShow(d,push=true){
  const e=showIndex?.find(x=>x.d===d);if(!e)return false;track('show/'+d,'Show '+d);
- if(push&&location.hash!=='#show-'+d){history.pushState(null,'','#show-'+d);dayPushed=true}
+ if(push&&location.pathname!==showPath(d)){history.pushState(null,'',showPath(d));dayPushed=true}
  if(selected)dayReturn=selected;selected=null;renderList();
  const dsb=$('#day-shows-box');if(dsb){dsb.hidden=true;dsb.innerHTML=''}document.body.classList.remove('is-day');
  const n=new Date().getFullYear()-Number(d.slice(0,4)),[y,m,dd]=d.split('-').map(Number),t=tally(e);
@@ -292,13 +306,13 @@ function showShow(d,push=true){
  $('#show-this-day').onclick=()=>showThisDay(new Date(new Date().getFullYear(),m-1,dd));
  const full=$('#show-play-full');if(full)full.onclick=()=>{queue=[];playHistory=[];playShow({name:e.v,show:{date:d,venueName:e.v,venue:e.c?`${e.v} - ${e.c}`:e.v,identifier:e.id,recording:`https://archive.org/details/${e.id}`}},'show')};
  d0.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];const x=items[Number(b.dataset.dayPlay.split(':')[1])];play(x.s,x.k)});
- d0.querySelectorAll('[data-day-open]').forEach(b=>b.onclick=()=>{const nm=items[Number(b.dataset.dayOpen.split(':')[1])].s.name;history.pushState(null,'','#'+encodeURIComponent(nm));selectSong(nm,false)});
+ d0.querySelectorAll('[data-day-open]').forEach(b=>b.onclick=()=>{const nm=items[Number(b.dataset.dayOpen.split(':')[1])].s.name;history.pushState(null,'',songPath({name:nm}));selectSong(nm,false)});
  d0.querySelectorAll('[data-day-all]').forEach(b=>b.onclick=()=>{const list=items.filter(x=>playable(x.p)).map(x=>({s:x.s,k:x.k}));queue=list;playHistory=[];const it=queue.shift();if(it)play(it.s,it.k)});
  d0.querySelectorAll('.show-chip').forEach(b=>b.onclick=()=>showShow(b.dataset.show));
  if(push)d0.scrollIntoView({behavior:'smooth',block:'start'});
  return true;
 }
-async function openShowHash(d,push){if(!showIndex){await loadShows();if(!showsData)return false;showIndex=buildShowIndex(showsData)}return showShow(d,push)}
+async function openShow(d,push){if(!showIndex){await loadShows();if(!showsData)return false;showIndex=buildShowIndex(showsData)}return showShow(d,push)}
 $('#search').addEventListener('focus',()=>{loadShows()},{once:true});
 
 /* Now-playing tile shows the doodle for the tape kind (first/last/best) */

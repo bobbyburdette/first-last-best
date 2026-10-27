@@ -333,3 +333,6 @@ button.day-show-info:hover .day-show-venue{text-decoration-color:currentColor}
 .day-show-year .show-pips{display:inline-flex;margin-left:10px;vertical-align:3px}
 #detail .day-shows-inline{margin:40px 0 28px;padding-top:30px;border-top:1px solid var(--line)}
 @media (min-width:651px){#day-back{display:none}}
+/* Plain-text summary baked into each page for crawlers; the app replaces it on load */
+.seo-summary{max-width:68ch}.seo-summary h3{margin:22px 0 4px;font:600 18px var(--display)}.seo-summary p{margin:6px 0;color:var(--muted);line-height:1.5}.seo-summary ul{margin:6px 0;padding-left:20px;color:var(--muted)}
+a.song-button{text-decoration:none;color:inherit}
