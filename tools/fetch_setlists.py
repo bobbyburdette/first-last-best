@@ -104,6 +104,15 @@ def match(sets, tracks):
                 rows.append([song, tape[hit][0], int(tape[hit][2])])
                 pos = hit + 1
         out.append([name, rows])
+    # Songs the tape has in a different order: match by exact name to any unused track.
+    used = {r[1] for _, rows in out for r in rows if r[1] >= 0}
+    for _, rows in out:
+        for r in rows:
+            if r[1] < 0:
+                j = next((j for j, key in enumerate(keys) if key == title_key(r[0]) and tape[j][0] not in used), None)
+                if j is not None:
+                    r[1], r[2] = tape[j][0], int(tape[j][2])
+                    used.add(tape[j][0])
     return out
 
 
@@ -112,17 +121,48 @@ def hit_rate(sets):
     return sum(r[1] >= 0 for r in rows) / len(rows) if rows else 0
 
 
-def better_tape(date, sets, ident, rows):
-    """Untitled or mislabeled tapes can't be matched; try the other good uploads of the same show."""
+def borrow_labels(tracks, labeled):
+    """Copy song names onto an unlabeled tape from a labeled copy of the same show: each track takes the name of
+    the labeled track playing at the same point in the show."""
+    def spans(ts):
+        lens = [flb.secs(t[2]) for t in ts]
+        total, start, out = sum(lens), 0, []
+        for n in lens:
+            out.append((start / total, (start + n) / total) if total else (0, 0))
+            start += n
+        return out, total
+    a, ta = spans(tracks)
+    b, tb = spans(labeled)
+    if not ta or not tb or abs(ta - tb) > 0.1 * tb:
+        return None
+    out = [list(t) for t in tracks]
+    for i, (s0, s1) in enumerate(a):
+        mid = (s0 + s1) / 2
+        j = next((j for j, (b0, b1) in enumerate(b) if b0 <= mid < b1), None)
+        if j is not None:
+            out[i][1] = labeled[j][1]
+    return out
+
+
+def better_tape(date, sets, ident, tracks, rows):
+    """Untitled or mislabeled tapes can't be matched. Keep the best-sounding tape and borrow song names from a
+    labeled copy of the same show; only switch tapes when the other one sounds at least as good."""
     best = (hit_rate(rows), ident, None, rows)
     for u in sorted(flb.uploads_for_date(date), key=flb.rank_key)[:6]:
         alt = u['identifier']
         if alt == ident or flb.risky_source(alt):
             continue
-        tracks = tape_tracks(alt)
-        alt_rows = match(sets, tracks) if tracks else []
-        if hit_rate(alt_rows) > best[0] + 0.1:
-            best = (hit_rate(alt_rows), alt, tracks, alt_rows)
+        alt_tracks = tape_tracks(alt)
+        if not alt_tracks:
+            continue
+        borrowed = borrow_labels(tracks, alt_tracks)
+        options = [(ident, borrowed)] if borrowed else []
+        if not flb.is_upgrade(alt, ident):
+            options.append((alt, alt_tracks))
+        for who, t in options:
+            r = match(sets, t)
+            if hit_rate(r) > best[0] + 0.1:
+                best = (hit_rate(r), who, t, r)
     return best
 
 
@@ -147,9 +187,10 @@ def main():
         if sets:
             rows, stats['sets'] = match(sets, tracks), stats['sets'] + 1
             if hit_rate(rows) < 0.8:
-                rate, alt, alt_tracks, alt_rows = better_tape(date, sets, ident, rows)
-                if alt_tracks:
-                    ident, tracks, rows, stats['swapped'] = alt, alt_tracks, alt_rows, stats.get('swapped', 0) + 1
+                rate, who, new_tracks, new_rows = better_tape(date, sets, ident, tracks, rows)
+                if new_tracks:
+                    kind = 'relabeled' if who == ident else 'swapped'
+                    ident, tracks, rows, stats[kind] = who, new_tracks, new_rows, stats.get(kind, 0) + 1
         elif tracks:
             rows, stats['tape_only'] = tape_only(tracks), stats['tape_only'] + 1
         else:

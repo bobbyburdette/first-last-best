@@ -196,7 +196,7 @@ function dayGroupHTML(g,gi){
  return `<section class="day-group">${stripHTML(g)}${nPlay>1?`<div class="day-group-head"><button type="button" class="day-play-all" data-day-all="${gi}">${icon('play')} Play all ${nPlay}</button></div>`:''}${g.items.map((e,i)=>dayTapeHTML(e,gi,i)).join('')}${extra>0?`<button type="button" class="day-more" data-day-more="${gi}" aria-expanded="false">Show ${extra} more</button>`:''}</section>`;
 }
 let showsData=null;
-async function loadShows(){if(showsData)return showsData;try{const r=await fetch('/shows.json?v=3');if(!r.ok)throw Error('shows unavailable');showsData=await r.json()}catch{return []}return showsData}
+async function loadShows(){if(showsData)return showsData;try{const r=await fetch('/shows.json?v=4');if(!r.ok)throw Error('shows unavailable');showsData=await r.json()}catch{return []}return showsData}
 function pipsOn(d){const t={first:0,last:0,best:0};songs.forEach(s=>['first','last','best'].forEach(k=>{if(s[k]?.date===d)t[k]++}));const ks=Object.keys(t).filter(k=>t[k]);return ks.length?`<span class="show-pips" aria-label="${ks.map(k=>t[k]+' '+k).join(', ')}">${ks.map(k=>`<i class="pip ${k}">${t[k]}</i>`).join('')}</span>`:''}
 function dayShowsHTML(list){
  const cap=list.length<=8?list.length:6,extra=list.length-cap;
@@ -338,6 +338,7 @@ async function fillSetlist(e){
  el.innerHTML=setlistHTML(sl,e);el._tracks=tracks;
  const p={date:e.d,venueName:e.v,venue:e.c?`${e.v} - ${e.c}`:e.v,identifier:sl.id,recording:`https://archive.org/details/${sl.id}`};
  el.querySelectorAll('[data-sl]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];playShow({name:e.v,show:p},'show',Number(b.dataset.sl),tracks)});
+ const full=$('#show-play-full');if(full&&sl.id)full.onclick=()=>{queue=[];playHistory=[];playShow({name:e.v,show:p},'show',0,tracks)};
  el.querySelectorAll('[data-sl-song]').forEach(a=>a.onclick=ev=>{ev.preventDefault();history.pushState(null,'',a.getAttribute('href'));selectSong(a.dataset.slSong,false)});
  markSetlist();
 }
