@@ -107,6 +107,25 @@ def match(sets, tracks):
     return out
 
 
+def hit_rate(sets):
+    rows = [r for _, rs in sets for r in rs]
+    return sum(r[1] >= 0 for r in rows) / len(rows) if rows else 0
+
+
+def better_tape(date, sets, ident, rows):
+    """Untitled or mislabeled tapes can't be matched; try the other good uploads of the same show."""
+    best = (hit_rate(rows), ident, None, rows)
+    for u in sorted(flb.uploads_for_date(date), key=flb.rank_key)[:6]:
+        alt = u['identifier']
+        if alt == ident or flb.risky_source(alt):
+            continue
+        tracks = tape_tracks(alt)
+        alt_rows = match(sets, tracks) if tracks else []
+        if hit_rate(alt_rows) > best[0] + 0.1:
+            best = (hit_rate(alt_rows), alt, tracks, alt_rows)
+    return best
+
+
 def tape_only(tracks):
     rows = [[SEGUE.sub('', t).strip(), i, int(bool(SEGUE.search(t)))] for i, (_, t, _) in enumerate(tracks)
             if not NON_SONG.match(SEGUE.sub('', t).strip())]
@@ -127,6 +146,10 @@ def main():
         tracks = tapes[date]
         if sets:
             rows, stats['sets'] = match(sets, tracks), stats['sets'] + 1
+            if hit_rate(rows) < 0.8:
+                rate, alt, alt_tracks, alt_rows = better_tape(date, sets, ident, rows)
+                if alt_tracks:
+                    ident, tracks, rows, stats['swapped'] = alt, alt_tracks, alt_rows, stats.get('swapped', 0) + 1
         elif tracks:
             rows, stats['tape_only'] = tape_only(tracks), stats['tape_only'] + 1
         else:
