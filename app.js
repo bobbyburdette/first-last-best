@@ -169,10 +169,10 @@ function nextUpHTML(next,empty){
  const list=names.length>1?names.slice(0,-1).join(', ')+(more>0?', ':' and ')+names[names.length-1]:names[0];
  return `<aside class="day-next${empty?' is-lead':''}"><h3>${escapeHTML(head)}</h3><p>${list}${more>0?` and ${more} more`:''}.</p></aside>`;
 }
-function dayTapeHTML(e,gi,i){
- const ok=playable(e.p),paper=tapeVariation(e.s,e.ki).paper,title=`${date(e.p.date)}, ${kindLabel[e.k]}: ${e.s.name}`;
+function dayTapeHTML(e,gi,i,cap=DAY_CAP){
+ const ok=playable(e.p),paper=tapeVariation(e.s,e.ki).paper,label=e.label||kindLabel[e.k];
  const venue=e.p.venueName||(e.p.venue||'').split(' - ')[0];
- return `<div class="day-row ${e.k} paper-${paper}${i>=DAY_CAP?' day-extra':''}" ${i>=DAY_CAP?'hidden':''}><div class="tape-band"><span class="tape-band-title"><b>${kindLabel[e.k]}</b><span aria-hidden="true"> - </span>${escapeHTML(e.s.short||e.s.name)}</span></div><button type="button" class="day-spine" data-day-play="${gi}:${i}" ${ok?'':'disabled'} tabindex="-1" aria-hidden="true"><span class="cassette-spine"><span class="spine-paper"><span class="spine-writing"><span class="venue"><time datetime="${e.p.date}">${compactDate(e.p.date)}</time><span aria-hidden="true"> - </span>${escapeHTML(venue)}</span></span><span class="spine-icon icon-${e.ki}" aria-hidden="true"></span></span></span></button><div class="day-actions"><button type="button" class="day-play" data-day-play="${gi}:${i}" ${ok?'':'disabled'}>${ok?icon('play')+(e.s.kind==='sequence'?' Play sequence':' Play Song'):'No matched tape'}</button>${ok&&e.p.identifier?`<button type="button" class="day-play-show" data-day-play-show="${gi}:${i}">${icon('play')} Play Full Show</button>`:''}<button type="button" class="day-open" data-day-open="${gi}:${i}">Open song</button></div></div>`;
+ return `<div class="day-row ${e.k} paper-${paper}${i>=cap?' day-extra':''}" ${i>=cap?'hidden':''}><div class="tape-band"><span class="tape-band-title"><b>${label}</b><span aria-hidden="true"> - </span>${escapeHTML(e.s.short||e.s.name)}</span></div><button type="button" class="day-spine" data-day-play="${gi}:${i}" ${ok?'':'disabled'} tabindex="-1" aria-hidden="true"><span class="cassette-spine"><span class="spine-paper"><span class="spine-writing"><span class="venue"><time datetime="${e.p.date}">${compactDate(e.p.date)}</time><span aria-hidden="true"> - </span>${escapeHTML(venue)}</span></span><span class="spine-icon icon-${e.ki}" aria-hidden="true"></span></span></span></button><div class="day-actions"><button type="button" class="day-play" data-day-play="${gi}:${i}" ${ok?'':'disabled'}>${ok?icon('play')+(e.s.kind==='sequence'?' Play sequence':' Play Song'):'No matched tape'}</button>${ok&&e.p.identifier?`<button type="button" class="day-play-show" data-day-play-show="${gi}:${i}">${icon('play')} Play Full Show</button>`:''}<button type="button" class="day-open" data-day-open="${gi}:${i}">Open song</button></div></div>`;
 }
 function dayGroupHTML(g,gi,sub=yearsAgoLabel(g.date)){
  const nPlay=g.items.filter(e=>playable(e.p)).length,extra=g.items.length-DAY_CAP;
@@ -226,13 +226,16 @@ const STATE_CODE=Object.fromEntries(Object.entries(STATES).map(([k,v])=>[v.repla
 const pad2=n=>String(n).padStart(2,'0'),SHOW_CAP=40;
 let showIndex=null;
 function stateOf(c){const t=(c||'').split(',').pop().trim(),u=t.toUpperCase().replace(/\./g,'');return STATES[u]?u:STATE_CODE[normalizeSearch(t)]||(/\bCA$/.test(t)?'CA':'')}
+const VENUE_ALIAS=[[/johnfkennedy/g,'jfk'],[/oaklandalamedacounty|alamedacounty/g,'oakland'],[/henryjkaiser(conventioncenter|auditorium)/g,'kaiser'],[/^(the)/,''],[/(earlyshow|lateshow)$/,'']];
+function venueKey(v,c){const city=normalizeSearch((c||'').split(',')[0]);let k=normalizeSearch((v||'').split(/ - |,|\(/)[0].replace(/theatre/gi,'theater'));VENUE_ALIAS.forEach(([re,to])=>k=k.replace(re,to));if(city&&k!==city&&k.startsWith(city))k=k.slice(city.length);return city+'|'+k}
 function buildShowIndex(list){
  const byDate=new Map(list.map(e=>[e.d,{...e,picks:[]}]));
- songs.forEach(s=>['first','last','best'].forEach((k,ki)=>{const p=s[k];if(!p?.date)return;
-  if(!byDate.has(p.date)){const loc=(p.venue||'').split(' - ');byDate.set(p.date,{d:p.date,v:p.venueName||loc[0],c:p.city||loc.slice(1).join(', '),id:p.identifier,picks:[]})}
-  byDate.get(p.date).picks.push({s,k,ki,p,off:0})}));
- return [...byDate.values()].map(e=>{const st=stateOf(e.c);return {...e,st,hay:normalizeSearch([e.v,e.c,STATES[st]||''].join(' '))}}).sort((a,b)=>a.d.localeCompare(b.d));
+ const add=(p,item)=>{if(!p?.date)return;if(!byDate.has(p.date)){const loc=(p.venue||'').split(' - ');byDate.set(p.date,{d:p.date,v:p.venueName||loc[0],c:p.city||loc.slice(1).join(', '),id:p.identifier,picks:[]})}byDate.get(p.date).picks.push(item)};
+ songs.forEach(s=>{['first','last','best'].forEach((k,ki)=>add(s[k],{s,k,ki,p:s[k],off:0}));(s.best?.runnersUp||[]).forEach((r,ri)=>add(r,{s,k:'best',ki:3+ri,p:r,off:0,runner:true,label:`Fan fav #${ri+2}`}))});
+ return [...byDate.values()].map(e=>{const st=stateOf(e.c);return {...e,st,vk:venueKey(e.v,e.c),hay:normalizeSearch([e.v,e.c,STATES[st]||''].join(' '))}}).sort((a,b)=>a.d.localeCompare(b.d));
 }
+const tally=e=>{const t={first:0,last:0,best:0,fav:0};e.picks.forEach(x=>t[x.runner?'fav':x.k]++);return t};
+const TALLY=[['first','First'],['last','Last'],['best','Best'],['fav','Fan fav']];
 function parseShowQuery(raw){
  const q=raw.trim().toLowerCase();let m;
  const yr=y=>y.length===4?y:(Number(y)<50?'20':'19')+y;
@@ -251,32 +254,30 @@ function showMatches(){
 }
 function showListHTML(list){
  if(!list?.length)return '';
- return `<p class="list-section">Shows</p>${list.slice(0,SHOW_CAP).map(e=>`<button class="song-button show-button" data-show="${e.d}"><span class="num">${compactDate(e.d)}</span><span class="song-name">${escapeHTML(e.v)}<small class="live-count">${escapeHTML(e.c)}${e.picks.length?` · ${e.picks.length} First/Last/Best`:''}</small></span></button>`).join('')}${list.length>SHOW_CAP?`<p class="empty">Showing ${SHOW_CAP} of ${list.length} shows. Add a year or city to narrow it down.</p>`:''}`;
+ return `<p class="list-section">Shows</p>${list.slice(0,SHOW_CAP).map(e=>{const t=tally(e);return `<button class="song-button show-button" data-show="${e.d}"><span class="num">${compactDate(e.d)}</span><span class="song-name">${escapeHTML(e.v)}<small class="live-count">${escapeHTML(e.c)}</small></span>${e.picks.length?`<span class="show-pips" aria-label="${e.picks.length} First, Last, Best or fan favorite">${TALLY.filter(([k])=>t[k]).map(([k])=>`<i class="pip ${k}">${t[k]}</i>`).join('')}</span>`:''}</button>`}).join('')}${list.length>SHOW_CAP?`<p class="empty">${SHOW_CAP} of ${list.length}. Add a year or city to narrow it.</p>`:''}`;
 }
 function showShow(d,push=true){
  const e=showIndex?.find(x=>x.d===d);if(!e)return false;track('show/'+d,'Show '+d);
  if(push&&location.hash!=='#show-'+d){history.pushState(null,'','#show-'+d);dayPushed=true}
  if(selected)dayReturn=selected;selected=null;renderList();
  const dsb=$('#day-shows-box');if(dsb){dsb.hidden=true;dsb.innerHTML=''}document.body.classList.remove('is-day');
- const n=new Date().getFullYear()-Number(d.slice(0,4)),[y,m,dd]=d.split('-').map(Number);
- const groups=e.picks.length?[{date:d,venue:e.v,city:e.c,items:[...e.picks].sort((a,b)=>a.ki-b.ki||a.s.name.localeCompare(b.s.name))}]:[];
- const sameVenue=showIndex.filter(x=>x.v===e.v&&x.d!==d);
- const pretty=new Date(y,m-1,dd).toLocaleDateString('en-US',{month:'long',day:'numeric'});
- const fullShow=e.id?`<button type="button" class="day-play-all" id="show-play-full">${icon('play')} Play Full Show</button>`:'';
- $('#detail').innerHTML=`<div class="song-top"><div><p class="song-kicker">WERE YOU THERE?</p><h2>${escapeHTML(date(d))}</h2><p class="song-meta">${escapeHTML([e.v,e.c,`${n} years ago`].filter(Boolean).join(' · '))}</p></div><button type="button" class="day-back" id="day-back">← Back to songs</button></div>
- ${groups.length?`<section class="day-flb"><h3 class="day-section-title">Made history this night</h3><p class="day-shows-sub">${e.picks.length===1?'One song':e.picks.length+' songs'} from this show ${e.picks.length===1?'is':'are'} a First, Last, or Best.</p>${dayGroupHTML(groups[0],0,'')}</section>`:`<section class="day-flb show-quiet"><h3 class="day-section-title">No First, Last, or Best this night</h3><p class="day-shows-sub">${e.id?'Just a Dead show, which is to say a great night. The whole thing is on tape.':'There’s no tape of this one in the Internet Archive.'}</p></section>`}
- <div class="show-actions">${fullShow}<button type="button" class="day-more" id="show-this-day">More Dead history on ${escapeHTML(pretty)} →</button></div>
- ${sameVenue.length?`<section class="show-venue"><h3 class="day-section-title">More at ${escapeHTML(e.v)}</h3><div class="show-chips">${sameVenue.map(x=>`<button type="button" class="show-chip${x.picks.length?' has-picks':''}" data-show="${x.d}">${compactDate(x.d)}</button>`).join('')}</div></section>`:''}`;
+ const n=new Date().getFullYear()-Number(d.slice(0,4)),[y,m,dd]=d.split('-').map(Number),t=tally(e);
+ const items=[...e.picks].sort((a,b)=>a.ki-b.ki||a.s.name.localeCompare(b.s.name));
+ const sameVenue=showIndex.filter(x=>x.vk===e.vk&&x.d!==d);
+ const md=new Date(y,m-1,dd).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+ const main=items.filter(x=>!x.runner),favs=items.filter(x=>x.runner&&playable(x.p)),nPlay=main.filter(x=>playable(x.p)).length;
+ $('#detail').innerHTML=`<div class="show-page"><div class="ticket"><div class="ticket-main"><p class="ticket-kicker">Were you there?</p><h2>${escapeHTML(date(d))}</h2><p class="ticket-venue">${escapeHTML(e.v)}</p><p class="ticket-city">${escapeHTML(e.c)}</p></div><div class="ticket-stub"><p class="ticket-ago"><b>${n}</b> years ago</p>${items.length?`<div class="ticket-tally">${TALLY.filter(([k])=>t[k]).map(([k,l])=>`<span class="tally ${k}"><b>${t[k]}</b>${l}</span>`).join('')}</div>`:`<p class="ticket-none">No First, Last or Best. Still a great night.</p>`}</div></div>
+ <div class="show-actions">${e.id?`<button type="button" class="show-btn primary" id="show-play-full">${icon('play')} Full show</button>`:''}${nPlay>1?`<button type="button" class="show-btn" data-day-all="0">${icon('play')} Play all ${nPlay}</button>`:''}<button type="button" class="show-btn" id="show-this-day">${escapeHTML(md)} in Dead history ${icon('next')}</button><button type="button" class="show-btn ghost" id="day-back">← Songs</button></div>
+ ${main.length?`<div class="show-tapes">${main.map((x,i)=>dayTapeHTML(x,0,i,Infinity)).join('')}</div>`:''}${favs.length?`<section class="show-favs"><h3>Fan favorites from this night</h3><div class="fav-row">${favs.map((x,i)=>`<button type="button" class="fav-tape" data-fav="${i}" aria-label="Play ${escapeHTML(x.s.name)}, fan favorite number ${x.ki-1}"><b>#${x.ki-1}</b><span>${escapeHTML(x.s.short||x.s.name)}</span>${icon('play')}</button>`).join('')}</div></section>`:''}
+ ${sameVenue.length?`<section class="show-venue"><h3>Also at ${escapeHTML(e.v)}</h3><div class="show-chips">${sameVenue.map(x=>`<button type="button" class="show-chip${x.picks.length?' has-picks':''}" data-show="${x.d}">${compactDate(x.d)}${x.picks.length?`<i>${x.picks.length}</i>`:''}</button>`).join('')}</div></section>`:''}</div>`;
  const d0=$('#detail');
  $('#day-back').onclick=leaveThisDay;
  $('#show-this-day').onclick=()=>showThisDay(new Date(new Date().getFullYear(),m-1,dd));
  const full=$('#show-play-full');if(full)full.onclick=()=>{queue=[];playHistory=[];playShow({name:e.v,show:{date:d,venueName:e.v,venue:e.c?`${e.v} - ${e.c}`:e.v,identifier:e.id,recording:`https://archive.org/details/${e.id}`}},'show')};
- const items=groups[0]?.items||[];
- d0.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{const it=items[Number(b.dataset.dayPlay.split(':')[1])];queue=[];playHistory=[];play(it.s,it.k)});
- d0.querySelectorAll('[data-day-play-show]').forEach(b=>b.onclick=()=>{const it=items[Number(b.dataset.dayPlayShow.split(':')[1])];queue=[];playHistory=[];playShow(it.s,it.k)});
- d0.querySelectorAll('[data-day-open]').forEach(b=>b.onclick=()=>{const nm=items[Number(b.dataset.dayOpen.split(':')[1])].s.name;history.pushState(null,'','#'+encodeURIComponent(nm));selectSong(nm,false)});
- d0.querySelectorAll('[data-day-all]').forEach(b=>b.onclick=()=>{queue=items.filter(x=>playable(x.p)).map(x=>({s:x.s,k:x.k}));playHistory=[];const it=queue.shift();if(it)play(it.s,it.k)});
- d0.querySelectorAll('[data-day-more]').forEach(b=>b.onclick=()=>{const sec=b.closest('.day-group'),open=b.getAttribute('aria-expanded')==='true';sec.querySelectorAll('.day-extra').forEach(r=>r.hidden=open);b.setAttribute('aria-expanded',String(!open));b.textContent=open?`Show ${sec.querySelectorAll('.day-extra').length} more`:'Show fewer'});
+ const playItem=x=>x.runner?play(x.s,'best',0,null,null,x.p):play(x.s,x.k);
+ d0.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];playItem(main[Number(b.dataset.dayPlay.split(':')[1])])});d0.querySelectorAll('[data-fav]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];playItem(favs[Number(b.dataset.fav)])});
+ d0.querySelectorAll('[data-day-open]').forEach(b=>b.onclick=()=>{const nm=main[Number(b.dataset.dayOpen.split(':')[1])].s.name;history.pushState(null,'','#'+encodeURIComponent(nm));selectSong(nm,false)});
+ d0.querySelectorAll('[data-day-all]').forEach(b=>b.onclick=()=>{const list=main.filter(x=>playable(x.p)).map(x=>({s:x.s,k:x.k}));queue=list;playHistory=[];const it=queue.shift();if(it)play(it.s,it.k)});
  d0.querySelectorAll('.show-chip').forEach(b=>b.onclick=()=>showShow(b.dataset.show));
  if(push)d0.scrollIntoView({behavior:'smooth',block:'start'});
  return true;
