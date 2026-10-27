@@ -306,3 +306,27 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 .tk-d .tk-a-body>*:not(.tk-d-mark){position:relative}
 .tk-d-foil{background:linear-gradient(135deg,#d7e3ff,#f9d6f2 30%,#d6fbf0 55%,#fff3c4 80%,#d7e3ff);border-color:#8b4dd8aa!important;box-shadow:inset 0 0 0 1px #fff8}
 @media (max-width:650px){.tk-d-art .doodle{width:34px;height:34px}.tk-d-mark{width:180px!important;height:180px!important}}
+/* This day: slim ticket strip per show, opens the show page */
+.tk-strip{position:relative;display:flex;align-items:stretch;width:100%;margin:0 0 14px;padding:0;text-align:left;border:0;border-radius:5px;overflow:hidden;cursor:pointer;color:#2a2f7a;font-family:'Dot',var(--mono);text-transform:uppercase;filter:drop-shadow(3px 4px 0 #0c0c0c80);background:repeating-linear-gradient(135deg,#0000 0 6px,#9cc3e633 6px 7px),repeating-radial-gradient(circle at 20% 120%,#f6c1d133 0 4px,#0000 4px 9px),linear-gradient(180deg,#eef6fb,#f6eef4)}
+.tk-strip::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#f5222d,#ff8a00,#f8c537,#3bb273,#4a82ff,#8b4dd8)}
+.tk-strip-stub{flex:0 0 96px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:4px;padding:14px 10px 8px;border-right:2px dashed #8aa3c2;font-size:17px}
+.tk-strip .doodle{width:38px;height:38px;background:url('tape-doodles.webp') 0 50%/300% 100% no-repeat,var(--ink-c,#c4243a);background-blend-mode:screen;mix-blend-mode:multiply;opacity:.8}
+.tk-strip .doodle.d-1{background-position:50% 50%,0 0;--ink-c:#2a5bd7}.tk-strip .doodle.d-2{background-position:100% 50%,0 0;--ink-c:#8b4dd8}
+.tk-strip-body{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:14px 14px 10px}
+.tk-strip-venue{font-size:26px;line-height:1}
+.tk-strip-city{font-size:18px;line-height:1.1}
+.tk-strip-date{margin-top:4px;font-size:22px;line-height:1}
+.tk-strip-side{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:6px;padding:14px 4px 10px 8px}
+.tk-strip-ago{font-size:16px;white-space:nowrap}.tk-strip-ago b{font-size:24px;font-weight:400}
+.tk-strip .ticket-tally{justify-content:flex-end}
+.tk-strip .tally{font-family:'Dot',var(--mono);font-size:16px;font-weight:400;border-radius:0;padding:3px 7px}
+.tk-strip .tally b{font-size:19px;font-weight:400}
+.tk-strip-go{display:flex;align-items:center;padding:6px 12px 0 4px}
+.tk-strip-go .ui-icon{width:20px;height:20px}
+.tk-strip:hover,.tk-strip:focus-visible{filter:drop-shadow(3px 4px 0 #0c0c0c80) brightness(1.04);outline-offset:3px}
+.tk-strip:hover .tk-strip-go{transform:translateX(3px)}
+.day-group-head:has(.day-play-all){justify-content:flex-end;margin:-4px 0 12px}
+button.day-show-info{padding:0;text-align:left;background:none;border:0;color:inherit;font:inherit;cursor:pointer}
+button.day-show-info .day-show-venue{text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+button.day-show-info:hover .day-show-venue{text-decoration-color:currentColor}
+@media (max-width:650px){.tk-strip-stub{flex-basis:62px;font-size:13px;padding:12px 6px 6px}.tk-strip .doodle{width:30px;height:30px}.tk-strip-body{padding:12px 8px 8px}.tk-strip-venue{font-size:20px}.tk-strip-city{font-size:15px}.tk-strip-date{font-size:17px}.tk-strip-side{padding:12px 0 8px 4px}.tk-strip-ago{font-size:13px}.tk-strip-ago b{font-size:19px}.tk-strip .tally{font-size:13px;padding:2px 5px}.tk-strip .tally b{font-size:15px}.tk-strip-go{padding:6px 8px 0 2px}}

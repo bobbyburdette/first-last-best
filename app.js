@@ -151,7 +151,7 @@ function dayEntries(now){
 function dayGroups(found){
  const g=new Map();
  found.forEach(e=>{
-  const loc=(e.p.venue||'').split(' - '),key=e.p.showId;
+  const loc=(e.p.venue||'').split(' - '),key=e.p.date;
   if(!g.has(key))g.set(key,{date:e.p.date,off:e.off,venue:e.p.venueName||loc[0],city:e.p.city||loc.slice(1).join(' · '),items:[]});
   g.get(key).items.push(e);
  });
@@ -174,22 +174,28 @@ function dayTapeHTML(e,gi,i,cap=DAY_CAP){
  const venue=e.p.venueName||(e.p.venue||'').split(' - ')[0];
  return `<div class="day-row ${e.k} paper-${paper}${i>=cap?' day-extra':''}" ${i>=cap?'hidden':''}><div class="tape-band"><span class="tape-band-title"><b>${label}</b><span aria-hidden="true"> - </span>${escapeHTML(e.s.short||e.s.name)}</span></div><button type="button" class="day-spine" data-day-play="${gi}:${i}" ${ok?'':'disabled'} tabindex="-1" aria-hidden="true"><span class="cassette-spine"><span class="spine-paper"><span class="spine-writing"><span class="venue"><time datetime="${e.p.date}">${compactDate(e.p.date)}</time><span aria-hidden="true"> - </span>${escapeHTML(venue)}</span></span><span class="spine-icon icon-${e.ki}" aria-hidden="true"></span></span></span></button><div class="day-actions"><button type="button" class="day-play" data-day-play="${gi}:${i}" ${ok?'':'disabled'}>${ok?icon('play')+(e.s.kind==='sequence'?' Play sequence':' Play Song'):'No matched tape'}</button>${ok&&e.p.identifier?`<button type="button" class="day-play-show" data-day-play-show="${gi}:${i}">${icon('play')} Play Full Show</button>`:''}<button type="button" class="day-open" data-day-open="${gi}:${i}">Open song</button></div></div>`;
 }
-function dayGroupHTML(g,gi,sub=yearsAgoLabel(g.date)){
+function ticketDate(iso){const dt=new Date(iso+'T12:00:00Z'),[y,m,d]=iso.split('-'),o=k=>dt.toLocaleDateString('en-US',{[k]:'short',timeZone:'UTC'}).toUpperCase();return {code:'GD'+y.slice(2)+m+d,line:`${o('weekday')} ${o('month')} ${Number(d)} ${y}`,short:`${Number(m)}/${Number(d)}/${y.slice(2)}`}}
+function stripHTML(g){
+ const t={first:0,last:0,best:0};g.items.forEach(e=>t[e.k]++);const td=ticketDate(g.date),n=dayYear-Number(g.date.slice(0,4));
+ return `<button type="button" class="tk-strip" data-show-open="${g.date}" aria-label="Open the ${escapeHTML(date(g.date))} show at ${escapeHTML(g.venue)}"><span class="tk-strip-stub" aria-hidden="true"><span>${td.code}</span><span class="doodle d-${['first','last','best'].indexOf(g.items[0].k)}"></span></span><span class="tk-strip-body"><span class="tk-strip-venue">${escapeHTML(g.venue)}</span><span class="tk-strip-city">${escapeHTML(g.city)}</span><span class="tk-strip-date">${td.line}</span></span><span class="tk-strip-side"><span class="tk-strip-ago"><b>${n}</b> YRS AGO</span><span class="ticket-tally">${TALLY.filter(([k])=>t[k]).map(([k,l])=>`<span class="tally ${k}"><b>${t[k]}</b>${l}</span>`).join('')}</span></span><span class="tk-strip-go" aria-hidden="true">${icon('next')}</span></button>`;
+}
+function dayGroupHTML(g,gi){
  const nPlay=g.items.filter(e=>playable(e.p)).length,extra=g.items.length-DAY_CAP;
- return `<section class="day-group"><div class="day-group-head"><div><h3>${escapeHTML(date(g.date))} · ${escapeHTML(g.venue)}</h3><p>${escapeHTML([g.city,sub].filter(Boolean).join(' · '))}</p></div>${nPlay>1?`<button type="button" class="day-play-all" data-day-all="${gi}">${icon('play')} Play all ${nPlay}</button>`:''}</div>${g.items.map((e,i)=>dayTapeHTML(e,gi,i)).join('')}${extra>0?`<button type="button" class="day-more" data-day-more="${gi}" aria-expanded="false">Show ${extra} more</button>`:''}</section>`;
+ return `<section class="day-group">${stripHTML(g)}${nPlay>1?`<div class="day-group-head"><button type="button" class="day-play-all" data-day-all="${gi}">${icon('play')} Play all ${nPlay}</button></div>`:''}${g.items.map((e,i)=>dayTapeHTML(e,gi,i)).join('')}${extra>0?`<button type="button" class="day-more" data-day-more="${gi}" aria-expanded="false">Show ${extra} more</button>`:''}</section>`;
 }
 let showsData=null;
 async function loadShows(){if(showsData)return showsData;try{const r=await fetch('shows.json?v=3');if(!r.ok)throw Error('shows unavailable');showsData=await r.json()}catch{return []}return showsData}
 function dayShowsHTML(list){
  const cap=list.length<=8?list.length:6,extra=list.length-cap;
  const yrs=list.length>1?`${list[0].d.slice(0,4)} to ${list[list.length-1].d.slice(0,4)}`:list[0].d.slice(0,4);
- return `<h3 class="day-section-title">Shows on this day</h3><p class="day-shows-sub">${list.length} ${list.length===1?'show':'shows'} in the Dead’s touring history, ${yrs}.</p><ul class="day-show-list">${list.map((e,i)=>`<li class="day-show${i>=cap?' day-show-extra':''}" ${i>=cap?'hidden':''}><div class="day-show-info"><span class="day-show-year">${e.d.slice(0,4)}</span><span class="day-show-venue">${escapeHTML(e.v)}</span><span class="day-show-city">${escapeHTML([e.c,yearsAgoLabel(e.d)].filter(Boolean).join(' · '))}</span></div><button type="button" class="day-show-play" data-show-play="${i}">${icon('play')} Play Full Show</button></li>`).join('')}</ul>${extra>0?`<button type="button" class="day-more" data-shows-more aria-expanded="false">Show ${extra} more</button>`:''}<p class="caveat">The list comes from Internet Archive’s Grateful Dead collection, so shows with no surviving recording are not listed.</p>`;
+ return `<h3 class="day-section-title">Shows on this day</h3><p class="day-shows-sub">${list.length} ${list.length===1?'show':'shows'} in the Dead’s touring history, ${yrs}.</p><ul class="day-show-list">${list.map((e,i)=>`<li class="day-show${i>=cap?' day-show-extra':''}" ${i>=cap?'hidden':''}><button type="button" class="day-show-info" data-show-open="${e.d}"><span class="day-show-year">${e.d.slice(0,4)}</span><span class="day-show-venue">${escapeHTML(e.v)}</span><span class="day-show-city">${escapeHTML([e.c,yearsAgoLabel(e.d)].filter(Boolean).join(' · '))}</span></button><button type="button" class="day-show-play" data-show-play="${i}">${icon('play')} Play Full Show</button></li>`).join('')}</ul>${extra>0?`<button type="button" class="day-more" data-shows-more aria-expanded="false">Show ${extra} more</button>`:''}<p class="caveat">The list comes from Internet Archive’s Grateful Dead collection, so shows with no surviving recording are not listed.</p>`;
 }
 async function fillDayShows(el,md){
  const all=await loadShows(),list=all.filter(e=>e.d.slice(5)===md);
  if(!el.isConnected||!list.length)return;
  el.innerHTML=dayShowsHTML(list);el.closest('.day-shows-box')?.removeAttribute('hidden');
  el.querySelectorAll('[data-show-play]').forEach(b=>b.onclick=()=>{const e=list[Number(b.dataset.showPlay)];const p={date:e.d,venueName:e.v,venue:e.c?`${e.v} - ${e.c}`:e.v,identifier:e.id,recording:`https://archive.org/details/${e.id}`};queue=[];playHistory=[];playShow({name:e.v,show:p},'show')});
+ el.querySelectorAll('[data-show-open]').forEach(b=>b.onclick=()=>openShowHash(b.dataset.showOpen,true));
  const more=el.querySelector('[data-shows-more]');
  if(more)more.onclick=()=>{const open=more.getAttribute('aria-expanded')==='true';el.querySelectorAll('.day-show-extra').forEach(r=>r.hidden=open);more.setAttribute('aria-expanded',String(!open));more.textContent=open?`Show ${el.querySelectorAll('.day-show-extra').length} more`:'Show fewer'};
 }
@@ -215,6 +221,7 @@ function showThisDay(now=new Date(),push=true){track('this-day','This day');
  d.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlay);queue=[];playHistory=[];play(e.s,e.k)});
  d.querySelectorAll('[data-day-play-show]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlayShow);queue=[];playHistory=[];playShow(e.s,e.k)});
  d.querySelectorAll('[data-day-open]').forEach(b=>b.onclick=()=>{const n=entry(b.dataset.dayOpen).s.name;history.pushState(null,'','#'+encodeURIComponent(n));selectSong(n,false)});
+ d.querySelectorAll('[data-show-open]').forEach(b=>b.onclick=()=>openShowHash(b.dataset.showOpen,true));
  d.querySelectorAll('[data-day-all]').forEach(b=>b.onclick=()=>{queue=groups[Number(b.dataset.dayAll)].items.filter(e=>playable(e.p)).map(e=>({s:e.s,k:e.k}));playHistory=[];const item=queue.shift();if(item)play(item.s,item.k)});
  d.querySelectorAll('[data-day-more]').forEach(b=>b.onclick=()=>{const sec=b.closest('.day-group'),open=b.getAttribute('aria-expanded')==='true';sec.querySelectorAll('.day-extra').forEach(r=>r.hidden=open);b.setAttribute('aria-expanded',String(!open));b.textContent=open?`Show ${sec.querySelectorAll('.day-extra').length} more`:'Show fewer'});
  if(push)d.scrollIntoView({behavior:'smooth',block:'start'});
