@@ -18,6 +18,7 @@ import shutil
 import sys
 
 import flb
+from fetch_setlists import OUT as SETLISTS, title_key
 
 SITE = 'https://firstlastbest.com'
 TEMPLATE = flb.ROOT / 'index.html'
@@ -156,7 +157,19 @@ def event_ld(d, v, c):
             'performer': {'@type': 'MusicGroup', 'name': 'Grateful Dead'}}
 
 
-def show_page(show, prev, nxt, same_venue):
+def setlist_html(sl, song_by_key):
+    out = []
+    for name, rows in sl['sets']:
+        parts = []
+        for i, (title, _, seg) in enumerate(rows):
+            song = song_by_key.get(title_key(title))
+            parts.append((f'<a href="{song_url(song)}">{esc(title)}</a>' if song else esc(title))
+                         + ((' &gt; ' if seg else ', ') if i + 1 < len(rows) else ''))
+        out.append(f'<p>{"<strong>" + esc(name) + ":</strong> " if name else ""}{"".join(parts)}</p>')
+    return '<h3>Setlist</h3>' + ''.join(out)
+
+
+def show_page(show, prev, nxt, same_venue, sl, song_by_key):
     d, v, c = show['d'], show['v'], show['c']
     picks = show['picks']
     if picks:
@@ -174,12 +187,21 @@ def show_page(show, prev, nxt, same_venue):
     also = (f'<h3>More shows at {esc(v)}</h3><p>' + ', '.join(show_link(x['d'], short_date(x['d'])) for x in same_venue) + '</p>'
             if same_venue else '')
     nav = ' · '.join(x for x in (prev and f'Previous show: {show_link(prev["d"])}', nxt and f'Next show: {show_link(nxt["d"])}') if x)
+    played = [t for _, rows in (sl or {}).get('sets', []) for t, _, _ in rows]
+    if played:
+        opener = ', '.join(played[:3])
+        description = (f'Grateful Dead setlist for {long_date(d)} at {where(v, c)}, opening with {opener}. '
+                       + (f'Best versions: {", ".join([(s.get("short") or s["name"]) for s, k in picks if k == "best"][:3])}. ' if any(k == 'best' for _, k in picks) else '')
+                       + 'Play every song free from the tape.')
     body = (f'<div class="seo-summary"><p class="song-kicker">GRATEFUL DEAD CONCERT</p><h2>{esc(long_date(d))}</h2>'
             f'<p>The Grateful Dead played {esc(where(v, c))} on {dt(d):%A}, {esc(long_date(d))}.</p>'
-            f'{part}{rec}{also}<p>{nav}</p></div>')
+            f'{setlist_html(sl, song_by_key) if played else ""}{part}{rec}{also}<p>{nav}</p></div>')
     ld = {'@context': 'https://schema.org', **event_ld(d, v, c), 'url': SITE + show_url(d), 'description': description}
-    return {'path': show_url(d), 'song_list': False, 'title': f'Grateful Dead {short_date(d)} · {where(v, c)}',
-            'description': description, 'body': body, 'ld': ld}
+    if played:
+        ld['workPerformed'] = [{'@type': 'MusicComposition', 'name': t} for t in dict.fromkeys(played)]
+    title = f'Grateful Dead {short_date(d)}{" Setlist" if played else ""} · {where(v, c)}'
+    return {'path': show_url(d), 'song_list': False, 'title': title, 'description': description, 'body': body, 'ld': ld,
+            'data': sl}
 
 
 # ---------- template ----------
@@ -239,6 +261,8 @@ def main():
         raise SystemExit('template: #detail section not found')
 
     shows = build_shows(songs)
+    setlists = json.loads(SETLISTS.read_text()) if SETLISTS.exists() else {}
+    song_by_key = {title_key(n): s for s in songs if s.get('kind') != 'sequence' for n in [s['name'], *s.get('aliases', [])]}
     by_venue = {}
     for s in shows:
         by_venue.setdefault(s['vk'], []).append(s)
@@ -246,7 +270,8 @@ def main():
     pages = [song_page(s) for s in songs]
     for i, s in enumerate(shows):
         same = [x for x in by_venue[s['vk']] if x is not s]
-        pages.append(show_page(s, shows[i - 1] if i else None, shows[i + 1] if i + 1 < len(shows) else None, same))
+        pages.append(show_page(s, shows[i - 1] if i else None, shows[i + 1] if i + 1 < len(shows) else None, same,
+                               setlists.get(s['d']), song_by_key))
     pages.append({'path': '/this-day/', 'title': 'This Day in Grateful Dead History | First Last Best',
                   'description': 'Grateful Dead songs first played, last played or at their best on this date, plus every show played on this day.',
                   'body': '<div class="seo-summary"><p class="song-kicker">THIS DAY IN DEAD HISTORY</p><h2>This day in Dead history</h2>'
@@ -259,6 +284,8 @@ def main():
     expected[flb.ROOT / 'index.html'] = template
     for p in pages:
         expected[flb.ROOT / p['path'].strip('/') / 'index.html'] = render(template, p)
+        if p.get('data'):
+            expected[flb.ROOT / p['path'].strip('/') / 'setlist.json'] = json.dumps(p['data'], ensure_ascii=False, separators=(',', ':'))
     nf = render(template, {**pages[-1], 'path': '/', 'title': 'Page not found | First Last Best'})
     expected[flb.ROOT / '404.html'] = nf.replace('<link rel="canonical"', '<meta name="robots" content="noindex"><link rel="canonical"', 1)
     urls = ['/', '/this-day/'] + [p['path'] for p in pages if p['path'] != '/this-day/']
