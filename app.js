@@ -88,7 +88,7 @@ function showTracksFromMeta(meta,identifier){
    .sort((a,b)=>(Number.isFinite(a.n)?a.n:1e6)-(Number.isFinite(b.n)?b.n:1e6)||a.name.localeCompare(b.name));
  return files.map(f=>({url:`https://archive.org/download/${identifier}/${encodeURIComponent(f.name)}`,title:f.title||f.name.replace(/\.mp3$/i,''),duration:f.length||null}));
 }
-async function playShow(s,k){
+async function playShow(s,k,startAt=0,known=null){
  const p=s[k];if(!p?.identifier)return;
  queue=[];playHistory=[];const token=++playToken;playing=null;
  $('.player').classList.remove('is-idle');audio.pause();audio.removeAttribute('src');audio.load();
@@ -98,13 +98,11 @@ async function playShow(s,k){
  syncTrackNav();
  let tracks=null;
  try{
-  const res=await fetch(`https://archive.org/metadata/${encodeURIComponent(p.identifier)}`);
-  if(!res.ok)throw new Error('bad status');
-  tracks=showTracksFromMeta(await res.json(),p.identifier);
+  tracks=known||await showSetlistTracks(p.identifier);
  }catch(e){tracks=null}
  if(token!==playToken)return;
  if(!tracks||!tracks.length){$('#player-status').textContent='Could not load the whole show. Try “Open recording”.';return}
- play(s,k,0,tracks,{venue});
+ play(s,k,startAt,tracks,{venue});
 }
 audio.addEventListener('playing',()=>{$('#player-status').textContent=''});
 audio.addEventListener('waiting',()=>{$('#player-status').textContent='Buffering…'});
@@ -299,6 +297,7 @@ function showShow(d,push=true){
  const nPlay=items.filter(x=>playable(x.p)).length;
  $('#detail').innerHTML=`<div class="show-page">${ticketHTML(e,n,t,items.length)}
  <div class="show-actions">${e.id?`<button type="button" class="show-btn primary" id="show-play-full">${icon('play')} Full show</button>`:''}${nPlay>1?`<button type="button" class="show-btn" data-day-all="0">${icon('play')} Play all ${nPlay}</button>`:''}<button type="button" class="show-btn" id="show-this-day">${escapeHTML(md)} in Dead history ${icon('next')}</button><button type="button" class="show-btn ghost" id="day-back">${backLabel()}</button></div>
+ ${e.id?'<section class="setlist" id="setlist" aria-label="Setlist"><p class="sl-loading">Loading the setlist…</p></section>':''}
  ${items.length?`<div class="show-tapes">${items.map((x,i)=>dayTapeHTML(x,0,i,Infinity)).join('')}</div>`:''}
  ${sameVenue.length?`<section class="show-venue"><h3>Also at ${escapeHTML(e.v)}</h3><div class="show-chips">${sameVenue.map(x=>`<button type="button" class="show-chip${x.picks.length?' has-picks':''}" data-show="${x.d}">${compactDate(x.d)}${x.picks.length?`<i>${x.picks.length}</i>`:''}</button>`).join('')}</div></section>`:''}</div>`;
  const d0=$('#detail');
@@ -309,9 +308,37 @@ function showShow(d,push=true){
  d0.querySelectorAll('[data-day-open]').forEach(b=>b.onclick=()=>{const nm=items[Number(b.dataset.dayOpen.split(':')[1])].s.name;history.pushState(null,'',songPath({name:nm}));selectSong(nm,false)});
  d0.querySelectorAll('[data-day-all]').forEach(b=>b.onclick=()=>{const list=items.filter(x=>playable(x.p)).map(x=>({s:x.s,k:x.k}));queue=list;playHistory=[];const it=queue.shift();if(it)play(it.s,it.k)});
  d0.querySelectorAll('.show-chip').forEach(b=>b.onclick=()=>showShow(b.dataset.show));
+ fillSetlist(e);
  if(push)d0.scrollIntoView({behavior:'smooth',block:'start'});
  return true;
 }
+/* Playable setlist: the show's tape track list, written like the one taped to the stage */
+const setlistCache=new Map(),NON_SONG=/^(tuning|encore break|set ?break|crowd|applause|intro|banter|dead air|stage (announcements?|banter)|soundcheck|take a step back)\b/i;
+function showSetlistTracks(id){if(!setlistCache.has(id))setlistCache.set(id,fetch(`https://archive.org/metadata/${encodeURIComponent(id)}`).then(r=>{if(!r.ok)throw Error('bad status');return r.json()}).then(m=>showTracksFromMeta(m,id)).catch(()=>{setlistCache.delete(id);return null}));return setlistCache.get(id)}
+const titleKey=t=>t.toLowerCase().replace(/\bsaint\b/g,'st').replace(/\bthe\b|\band\b/g,'').replace(/[^a-z0-9]/g,'').replace(/ing/g,'in').replace(/s$/,'');
+let songKeys=null;
+function songForTitle(t){if(!songKeys){songKeys=new Map();songs.filter(s=>s.kind!=='sequence').forEach(s=>[s.name,...(s.aliases||[])].forEach(n=>songKeys.set(titleKey(n),s)))}return songKeys.get(titleKey(t))}
+function setlistHTML(tracks,e){
+ const marks=new Map();e.picks.forEach(x=>(x.s.kind==='sequence'?x.s.components:[x.s.name]).forEach(n=>{const k=titleKey(n);marks.set(k,[...(marks.get(k)||[]),x.k])}));
+ let n=0;
+ const rows=tracks.map((t,i)=>{const raw=t.title.replace(/^\s*\d{1,2}[\s.\-_]+/,''),segue=/(-?>|→)\s*$/.test(raw),name=raw.replace(/\s*(-?>|→)\s*$/,'').trim();
+  if(NON_SONG.test(name))return /encore/i.test(name)?'<li class="sl-break" aria-hidden="true">E:</li>':'';
+  const song=songForTitle(name),ks=[...new Set(marks.get(titleKey(name))||[])];n++;
+  return `<li class="sl-row${ks.length?' has-mark':''}" data-i="${i}"><button type="button" class="sl-play" data-sl="${i}" aria-label="Play ${escapeHTML(name)} from this show"><span class="sl-num">${n}</span><span class="sl-name">${escapeHTML(name)}${segue?'<span class="sl-seg" aria-label="segues into"> &gt;</span>':''}</span>${ks.map(k=>`<span class="tally ${k}">${k}</span>`).join('')}<span class="sl-time">${escapeHTML((t.duration||'').replace(/^0(\d:)/,'$1'))}</span></button>${song?`<a class="sl-song" href="${songPath(song)}" data-sl-song="${escapeHTML(song.name)}" aria-label="${escapeHTML(song.name)}: first, last and best">${icon('next')}</a>`:'<span class="sl-song" aria-hidden="true"></span>'}</li>`}).join('');
+ return `<div class="sl-paper"><h3 class="sl-title">Setlist</h3><p class="sl-hint">Tap a song to play it from this tape.</p><ol class="sl-list">${rows}</ol></div>`;
+}
+async function fillSetlist(e){
+ const el=$('#setlist');if(!el||!e.id)return;
+ const tracks=await showSetlistTracks(e.id);if(!el.isConnected)return;
+ if(!tracks?.length){el.remove();return}
+ el.innerHTML=setlistHTML(tracks,e);el._tracks=tracks;
+ const p={date:e.d,venueName:e.v,venue:e.c?`${e.v} - ${e.c}`:e.v,identifier:e.id,recording:`https://archive.org/details/${e.id}`};
+ el.querySelectorAll('[data-sl]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];playShow({name:e.v,show:p},'show',Number(b.dataset.sl),tracks)});
+ el.querySelectorAll('[data-sl-song]').forEach(a=>a.onclick=ev=>{ev.preventDefault();history.pushState(null,'',a.getAttribute('href'));selectSong(a.dataset.slSong,false)});
+ markSetlist();
+}
+function markSetlist(){const el=$('#setlist');if(!el?._tracks)return;el.querySelectorAll('.sl-row').forEach(r=>r.classList.toggle('is-playing',playing?.tracks===el._tracks&&Number(r.dataset.i)===playing.part))}
+['play','loadstart','emptied'].forEach(n=>audio.addEventListener(n,markSetlist));
 async function openShow(d,push){if(!showIndex){await loadShows();if(!showsData)return false;showIndex=buildShowIndex(showsData)}return showShow(d,push)}
 $('#search').addEventListener('focus',()=>{loadShows()},{once:true});
 
