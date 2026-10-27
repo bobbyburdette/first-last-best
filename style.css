@@ -244,7 +244,6 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 .pip.first,.tally.first{background:var(--accent-1);color:#fff}
 .pip.last,.tally.last{background:var(--accent-3);color:#141414}
 .pip.best,.tally.best{background:var(--accent-2);color:#fff}
-.pip.fav,.tally.fav{background:#f8c537;color:#141414}
 .ticket{display:grid;grid-template-columns:1fr 210px;color:#231d17;filter:drop-shadow(3px 5px 0 #0c0c0c80)}
 .ticket-main,.ticket-stub{background:#f8edc7;position:relative}
 .ticket-main{padding:22px 26px 22px;border-radius:6px 0 0 6px;background:linear-gradient(90deg,var(--accent-1) 0 8px,transparent 8px),repeating-linear-gradient(0deg,#0000 0 27px,#d9c99a55 27px 28px),#f8edc7;-webkit-mask:radial-gradient(circle at 100% 0,#0000 11px,#000 12px) top right/100% 51% no-repeat,radial-gradient(circle at 100% 100%,#0000 11px,#000 12px) bottom right/100% 51% no-repeat;mask:radial-gradient(circle at 100% 0,#0000 11px,#000 12px) top right/100% 51% no-repeat,radial-gradient(circle at 100% 100%,#0000 11px,#000 12px) bottom right/100% 51% no-repeat}
@@ -270,14 +269,6 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 .show-tapes .day-row{margin:0}
 .show-tapes .day-play-show{display:none}
 .show-tapes .day-play{min-width:0}
-.show-favs{margin-top:28px}
-.show-favs h3,.show-venue h3{margin:0;font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.fav-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:12px}
-.fav-tape{display:flex;align-items:center;gap:10px;min-height:48px;padding:8px 12px;text-align:left;border:0;border-radius:3px;background:#f8c537;color:#231d17;font:600 14px/1.2 var(--mono);box-shadow:2px 3px 0 #0c0c0c80;cursor:pointer}
-.fav-tape b{font:700 18px var(--display)}
-.fav-tape span{flex:1}
-.fav-tape .ui-icon{width:16px;height:16px;flex-shrink:0}
-.fav-tape:hover{background:#ffd457}
 .show-venue{margin-top:30px}
 .show-venue h3{margin:0;font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .show-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}

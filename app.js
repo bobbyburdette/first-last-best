@@ -231,11 +231,11 @@ function venueKey(v,c){const city=normalizeSearch((c||'').split(',')[0]);let k=n
 function buildShowIndex(list){
  const byDate=new Map(list.map(e=>[e.d,{...e,picks:[]}]));
  const add=(p,item)=>{if(!p?.date)return;if(!byDate.has(p.date)){const loc=(p.venue||'').split(' - ');byDate.set(p.date,{d:p.date,v:p.venueName||loc[0],c:p.city||loc.slice(1).join(', '),id:p.identifier,picks:[]})}byDate.get(p.date).picks.push(item)};
- songs.forEach(s=>{['first','last','best'].forEach((k,ki)=>add(s[k],{s,k,ki,p:s[k],off:0}));(s.best?.runnersUp||[]).forEach((r,ri)=>add(r,{s,k:'best',ki:3+ri,p:r,off:0,runner:true,label:`Fan fav #${ri+2}`}))});
+ songs.forEach(s=>['first','last','best'].forEach((k,ki)=>add(s[k],{s,k,ki,p:s[k],off:0})));
  return [...byDate.values()].map(e=>{const st=stateOf(e.c);return {...e,st,vk:venueKey(e.v,e.c),hay:normalizeSearch([e.v,e.c,STATES[st]||''].join(' '))}}).sort((a,b)=>a.d.localeCompare(b.d));
 }
-const tally=e=>{const t={first:0,last:0,best:0,fav:0};e.picks.forEach(x=>t[x.runner?'fav':x.k]++);return t};
-const TALLY=[['first','First'],['last','Last'],['best','Best'],['fav','Fan fav']];
+const tally=e=>{const t={first:0,last:0,best:0};e.picks.forEach(x=>t[x.k]++);return t};
+const TALLY=[['first','First'],['last','Last'],['best','Best']];
 function parseShowQuery(raw){
  const q=raw.trim().toLowerCase();let m;
  const yr=y=>y.length===4?y:(Number(y)<50?'20':'19')+y;
@@ -265,19 +265,18 @@ function showShow(d,push=true){
  const items=[...e.picks].sort((a,b)=>a.ki-b.ki||a.s.name.localeCompare(b.s.name));
  const sameVenue=showIndex.filter(x=>x.vk===e.vk&&x.d!==d);
  const md=new Date(y,m-1,dd).toLocaleDateString('en-US',{month:'short',day:'numeric'});
- const main=items.filter(x=>!x.runner),favs=items.filter(x=>x.runner&&playable(x.p)),nPlay=main.filter(x=>playable(x.p)).length;
+ const nPlay=items.filter(x=>playable(x.p)).length;
  $('#detail').innerHTML=`<div class="show-page"><div class="ticket"><div class="ticket-main"><p class="ticket-kicker">Were you there?</p><h2>${escapeHTML(date(d))}</h2><p class="ticket-venue">${escapeHTML(e.v)}</p><p class="ticket-city">${escapeHTML(e.c)}</p></div><div class="ticket-stub"><p class="ticket-ago"><b>${n}</b> years ago</p>${items.length?`<div class="ticket-tally">${TALLY.filter(([k])=>t[k]).map(([k,l])=>`<span class="tally ${k}"><b>${t[k]}</b>${l}</span>`).join('')}</div>`:`<p class="ticket-none">No First, Last or Best. Still a great night.</p>`}</div></div>
  <div class="show-actions">${e.id?`<button type="button" class="show-btn primary" id="show-play-full">${icon('play')} Full show</button>`:''}${nPlay>1?`<button type="button" class="show-btn" data-day-all="0">${icon('play')} Play all ${nPlay}</button>`:''}<button type="button" class="show-btn" id="show-this-day">${escapeHTML(md)} in Dead history ${icon('next')}</button><button type="button" class="show-btn ghost" id="day-back">← Songs</button></div>
- ${main.length?`<div class="show-tapes">${main.map((x,i)=>dayTapeHTML(x,0,i,Infinity)).join('')}</div>`:''}${favs.length?`<section class="show-favs"><h3>Fan favorites from this night</h3><div class="fav-row">${favs.map((x,i)=>`<button type="button" class="fav-tape" data-fav="${i}" aria-label="Play ${escapeHTML(x.s.name)}, fan favorite number ${x.ki-1}"><b>#${x.ki-1}</b><span>${escapeHTML(x.s.short||x.s.name)}</span>${icon('play')}</button>`).join('')}</div></section>`:''}
+ ${items.length?`<div class="show-tapes">${items.map((x,i)=>dayTapeHTML(x,0,i,Infinity)).join('')}</div>`:''}
  ${sameVenue.length?`<section class="show-venue"><h3>Also at ${escapeHTML(e.v)}</h3><div class="show-chips">${sameVenue.map(x=>`<button type="button" class="show-chip${x.picks.length?' has-picks':''}" data-show="${x.d}">${compactDate(x.d)}${x.picks.length?`<i>${x.picks.length}</i>`:''}</button>`).join('')}</div></section>`:''}</div>`;
  const d0=$('#detail');
  $('#day-back').onclick=leaveThisDay;
  $('#show-this-day').onclick=()=>showThisDay(new Date(new Date().getFullYear(),m-1,dd));
  const full=$('#show-play-full');if(full)full.onclick=()=>{queue=[];playHistory=[];playShow({name:e.v,show:{date:d,venueName:e.v,venue:e.c?`${e.v} - ${e.c}`:e.v,identifier:e.id,recording:`https://archive.org/details/${e.id}`}},'show')};
- const playItem=x=>x.runner?play(x.s,'best',0,null,null,x.p):play(x.s,x.k);
- d0.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];playItem(main[Number(b.dataset.dayPlay.split(':')[1])])});d0.querySelectorAll('[data-fav]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];playItem(favs[Number(b.dataset.fav)])});
- d0.querySelectorAll('[data-day-open]').forEach(b=>b.onclick=()=>{const nm=main[Number(b.dataset.dayOpen.split(':')[1])].s.name;history.pushState(null,'','#'+encodeURIComponent(nm));selectSong(nm,false)});
- d0.querySelectorAll('[data-day-all]').forEach(b=>b.onclick=()=>{const list=main.filter(x=>playable(x.p)).map(x=>({s:x.s,k:x.k}));queue=list;playHistory=[];const it=queue.shift();if(it)play(it.s,it.k)});
+ d0.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];const x=items[Number(b.dataset.dayPlay.split(':')[1])];play(x.s,x.k)});
+ d0.querySelectorAll('[data-day-open]').forEach(b=>b.onclick=()=>{const nm=items[Number(b.dataset.dayOpen.split(':')[1])].s.name;history.pushState(null,'','#'+encodeURIComponent(nm));selectSong(nm,false)});
+ d0.querySelectorAll('[data-day-all]').forEach(b=>b.onclick=()=>{const list=items.filter(x=>playable(x.p)).map(x=>({s:x.s,k:x.k}));queue=list;playHistory=[];const it=queue.shift();if(it)play(it.s,it.k)});
  d0.querySelectorAll('.show-chip').forEach(b=>b.onclick=()=>showShow(b.dataset.show));
  if(push)d0.scrollIntoView({behavior:'smooth',block:'start'});
  return true;
