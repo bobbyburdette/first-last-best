@@ -8,6 +8,7 @@ Scripts that maintain `songs.json`, `shows.json` and `tapes.json`. Python 3, sta
 | `refresh_runnersup.py` | Updates Best vote counts and the two runners-up from HeadyVersion. Reports, but doesn't change, songs whose #1 has moved. |
 | `build_tapes.py` | Rebuilds `tapes.json` (tape notes on the cards) from archive.org metadata. |
 | `check_audio.py` | Confirms every audio file still plays. |
+| `fetch_setlists.py` | Builds `data/setlists.json`: each show's sets from The SetList Program matched to the tracks on its archive.org tape (switching to a better-labeled tape of the same show when needed). Slow the first time; cached after. Run `build_pages.py` after. |
 | `build_pages.py` | Writes a crawlable page for every song (`/song/<slug>/`) and show (`/show/<date>/`), plus `sitemap.xml` and `404.html`, from `index.html`. Run after any change to `index.html`, `app.js`, `style.css`, `songs.json` or `shows.json`. `--check` reports stale pages. |
 | `indexnow.py` | After a change is live, tells Bing and other IndexNow engines which pages changed. |
 
