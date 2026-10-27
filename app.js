@@ -216,7 +216,7 @@ function showThisDay(now=new Date(),push=true){track('this-day','This day');
  const d=$('#detail');
  d.innerHTML=`<div class="song-top"><div><p class="song-kicker">THIS DAY IN DEAD HISTORY</p><h2>${escapeHTML(pretty)}</h2>${found.length?'':`<p class="song-meta">${meta}</p>`}</div><button type="button" class="day-back" id="day-back">← Back to songs</button></div>${found.length?`<section class="day-flb"><h3 class="day-section-title">First, Last &amp; Best</h3><p class="day-shows-sub">${meta}</p>${groups.map(dayGroupHTML).join('')}</section>`:''}${next&&(!found.length||next.off===1)?nextUpHTML(next,!found.length):''}<p class="caveat">Matches use month and day only, from any year. “First” and “Last” are documented dates; “Best” is the HeadyVersion community favorite.</p>`;
  $('#day-back').onclick=leaveThisDay;document.body.classList.add('is-day');
- $('#day-shows-box').innerHTML='<section class="day-shows" id="day-shows"></section>';
+ if(matchMedia('(min-width:651px)').matches){$('#day-shows-box').innerHTML='';d.querySelector(':scope>.caveat').insertAdjacentHTML('beforebegin','<section class="day-shows day-shows-inline" id="day-shows"></section>')}else $('#day-shows-box').innerHTML='<section class="day-shows" id="day-shows"></section>';
  fillDayShows($('#day-shows'),String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0'));
  const entry=v=>{const [gi,i]=v.split(':').map(Number);return groups[gi].items[i]};
  d.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlay);queue=[];playHistory=[];play(e.s,e.k)});
