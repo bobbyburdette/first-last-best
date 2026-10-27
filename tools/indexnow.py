@@ -51,7 +51,7 @@ def main():
         body = json.dumps({'host': 'firstlastbest.com', 'key': k, 'keyLocation': f'{SITE}/{k}.txt',
                            'urlList': [SITE + p for p in paths[i:i + 10000]]}).encode()
         req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body,
-                                     headers={'Content-Type': 'application/json; charset=utf-8'})
+                                     headers={**flb.UA, 'Content-Type': 'application/json; charset=utf-8'})
         with urllib.request.urlopen(req, timeout=60) as r:
             print(f'submitted {len(paths[i:i + 10000])} URLs: HTTP {r.status}')
 
