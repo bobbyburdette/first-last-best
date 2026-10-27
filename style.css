@@ -332,3 +332,4 @@ button.day-show-info:hover .day-show-venue{text-decoration-color:currentColor}
 @media (max-width:650px){.tk-strip-stub{flex-basis:62px;font-size:13px;padding:12px 6px 6px}.tk-strip .doodle{width:30px;height:30px}.tk-strip-body{padding:12px 8px 8px}.tk-strip-venue{font-size:20px}.tk-strip-city{font-size:15px}.tk-strip-date{font-size:17px}.tk-strip-side{padding:12px 0 8px 4px}.tk-strip-ago{font-size:13px}.tk-strip-ago b{font-size:19px}.tk-strip .tally{font-size:13px;padding:2px 5px}.tk-strip .tally b{font-size:15px}.tk-strip-go{padding:6px 8px 0 2px}}
 .day-show-year .show-pips{display:inline-flex;margin-left:10px;vertical-align:3px}
 #detail .day-shows-inline{margin:40px 0 28px;padding-top:30px;border-top:1px solid var(--line)}
+@media (min-width:651px){#day-back{display:none}}
