@@ -3,6 +3,7 @@
 The performance (the date) never changes, only which recording of it plays, so a card and its show page
 play the same tape. Uses data/setlists.json to find the song on the show tape. A move is held for a
 listen when the track length differs by more than 30%, unless the card's current track runs two songs together.
+Tapes kept after a listen (tools/listened.json) are left alone.
 
     python3 tools/align_picks.py          # dry run
     python3 tools/align_picks.py --apply  # write songs.json and bump its version
@@ -12,6 +13,8 @@ import json
 
 import flb
 from fetch_setlists import OUT as SETLISTS, title_key
+
+LISTENED = flb.ROOT / 'tools' / 'listened.json'  # tape choices made by ear: "song|slot|date": keep or switch
 
 
 def show_track(sl, names):
@@ -31,12 +34,15 @@ def main():
     shows = {s['d']: s['id'] for s in flb.load_shows()}
     setlists = json.loads(SETLISTS.read_text())
     songs = flb.load_songs()
+    listened = json.loads(LISTENED.read_text()) if LISTENED.exists() else {}
     moved, held = [], []
     for song in songs:
         if song.get('kind') == 'sequence':
             continue
         for slot, pick in flb.picks(song, runners=False):
             cur, date = pick.get('identifier'), pick.get('date')
+            if listened.get(f"{song['name']}|{slot}|{date}") == 'keep':  # Bobby listened and kept this tape
+                continue
             main_tape = shows.get(date)
             sl = setlists.get(date)
             if not (cur and main_tape and sl) or cur == main_tape or sl.get('id') != main_tape:

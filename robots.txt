@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /listen/
 
 Sitemap: https://firstlastbest.com/sitemap.xml
