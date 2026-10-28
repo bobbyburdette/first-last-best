@@ -3,3 +3,4 @@
 tools/.cache/
 __pycache__/
 tools/social/out/
+*-posts.zip
