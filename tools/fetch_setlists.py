@@ -171,31 +171,28 @@ def tape_label(ident):
     return kind + (' · Charlie Miller' if flb.is_miller(ident) else '')
 
 
-def fill_gaps(date, ident, tracks, rows):
-    """When the main tape is partial (often a one-set Miller transfer), play the missing songs from the best
-    other tape of the same show that has them. Returns (tracks, tape ids) or None."""
-    missing = [r for _, rs in rows for r in rs if r[1] < 0]
-    if len(missing) < 2:
-        return None
-    wanted = [['', [r[0] for r in missing]]]
-    best = None
-    for u in sorted(flb.uploads_for_date(date), key=flb.rank_key)[:6]:
-        alt = u['identifier']
-        if alt == ident or flb.risky_source(alt):
-            continue
+def fill_gaps(date, ident, tracks, rows, max_tapes=3):
+    """When the main tape is partial (often a one-set Miller transfer), play each missing song from the
+    best-sounding other tape of the same show that has it, using up to `max_tapes` tapes in all.
+    Returns (tracks, tape ids) or None."""
+    ids, tracks = [ident], list(tracks)
+    candidates = [u['identifier'] for u in sorted(flb.uploads_for_date(date), key=flb.rank_key)[:8]
+                  if u['identifier'] != ident and not flb.risky_source(u['identifier'])]
+    for alt in candidates:
+        missing = [r for _, rs in rows for r in rs if r[1] < 0]
+        if len(missing) < 2 or len(ids) >= max_tapes:
+            break
         alt_tracks = tape_tracks(alt)
-        found = match(wanted, alt_tracks)[0][1] if alt_tracks else []
-        hits = sum(f[1] >= 0 for f in found)
-        if hits >= 2 and (not best or hits > best[2]):
-            best = (alt, alt_tracks, hits, found)
-    if not best:
-        return None
-    alt, alt_tracks, _, found = best
-    offset = len(tracks)
-    for r, f in zip(missing, found):
-        if f[1] >= 0:
-            r[1], r[2] = offset + f[1], f[2]
-    return tracks + [[f, t, l, 1] for f, t, l in alt_tracks], [ident, alt]
+        found = match([['', [r[0] for r in missing]]], alt_tracks)[0][1] if alt_tracks else []
+        if sum(f[1] >= 0 for f in found) < 2:
+            continue
+        offset, k = len(tracks), len(ids)
+        for r, f in zip(missing, found):
+            if f[1] >= 0:
+                r[1], r[2] = offset + f[1], f[2]
+        tracks += [[f, t, l, k] for f, t, l in alt_tracks]
+        ids.append(alt)
+    return (tracks, ids) if len(ids) > 1 else None
 
 
 def tape_only(tracks):
