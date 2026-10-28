@@ -266,7 +266,9 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 .show-chip i{font-style:normal;font-weight:700;font-size:11px;background:var(--accent-2);color:#fff;border-radius:9px;padding:2px 6px}
 .show-chip.has-picks{border-color:#7a2a2d}
 .show-chip:hover,.show-chip:focus-visible{border-color:var(--text)}
-@media (max-width:650px){.show-actions{display:grid;grid-template-columns:1fr 1fr}.show-actions .show-btn{justify-content:center;padding:0 10px;font-size:13px}}
+.show-back{display:block;max-width:100%;margin:0 0 12px;padding:6px 0;background:none;border:0;color:var(--muted);font:600 13px var(--mono);text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.show-back:hover{color:var(--text)}
+@media (max-width:650px){.show-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.show-actions .show-btn{justify-content:center;padding:0 10px;font-size:13px;min-height:46px}#show-this-day{grid-column:1/-1}.show-actions:not(:has([data-day-all])) .show-btn.primary{grid-column:1/-1}}
 /* Show ticket: computer-printed stub on pre-printed art stock */
 @font-face{font-family:'Dot';src:url('fonts/vt323.woff2') format('woff2');font-display:swap}
 .tk{position:relative;display:flex;color:#231d17;filter:drop-shadow(3px 5px 0 #0c0c0c80)}

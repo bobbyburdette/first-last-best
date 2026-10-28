@@ -295,8 +295,8 @@ function showShow(d,push=true){
  const sameVenue=showIndex.filter(x=>x.vk===e.vk&&x.d!==d);
  const md=new Date(y,m-1,dd).toLocaleDateString('en-US',{month:'short',day:'numeric'});
  const nPlay=items.filter(x=>playable(x.p)).length;
- $('#detail').innerHTML=`<div class="show-page">${ticketHTML(e,n,t,items.length)}
- <div class="show-actions">${e.id?`<button type="button" class="show-btn primary" id="show-play-full">${icon('play')} Full show</button>`:''}${nPlay>1?`<button type="button" class="show-btn" data-day-all="0">${icon('play')} Play all ${nPlay}</button>`:''}<button type="button" class="show-btn" id="show-this-day">${escapeHTML(md)} in Dead history ${icon('next')}</button><button type="button" class="show-btn ghost" id="day-back">${backLabel()}</button></div>
+ $('#detail').innerHTML=`<div class="show-page"><button type="button" class="show-back" id="day-back">${backLabel()}</button>${ticketHTML(e,n,t,items.length)}
+ <div class="show-actions">${e.id?`<button type="button" class="show-btn primary" id="show-play-full">${icon('play')} Full show</button>`:''}${nPlay>1?`<button type="button" class="show-btn" data-day-all="0">${icon('play')} Play all ${nPlay}</button>`:''}<button type="button" class="show-btn" id="show-this-day">${escapeHTML(md)} in Dead history ${icon('next')}</button></div>
  <section class="setlist" id="setlist" aria-label="Setlist"><p class="sl-loading">Loading the setlist…</p></section>
  ${items.length?`<div class="show-tapes">${items.map((x,i)=>dayTapeHTML(x,0,i,Infinity)).join('')}</div>`:''}
  ${sameVenue.length?`<section class="show-venue"><h3>Also at ${escapeHTML(e.v)}</h3><div class="show-chips">${sameVenue.map(x=>`<button type="button" class="show-chip${x.picks.length?' has-picks':''}" data-show="${x.d}">${compactDate(x.d)}${x.picks.length?`<i>${x.picks.length}</i>`:''}</button>`).join('')}</div></section>`:''}</div>`;
