@@ -2,3 +2,4 @@
 .claude/
 tools/.cache/
 __pycache__/
+tools/social/out/
