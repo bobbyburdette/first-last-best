@@ -320,22 +320,29 @@ function loadSetlist(d){if(!setlistData.has(d))setlistData.set(d,fetch(`/show/${
 const titleKey=t=>t.toLowerCase().replace(/\bsaint\b/g,'st').replace(/\bthe\b|\band\b/g,'').replace(/[^a-z0-9]/g,'').replace(/ing/g,'in').replace(/s$/,'');
 let songKeys=null;
 function songForTitle(t){if(!songKeys){songKeys=new Map();songs.filter(s=>s.kind!=='sequence').forEach(s=>[s.name,...(s.aliases||[])].forEach(n=>songKeys.set(titleKey(n),s)))}return songKeys.get(titleKey(t))}
-function setlistHTML(sl,e){
+function setlistHTML(sl,e,pos){
  const marks=new Map();e.picks.forEach(x=>(x.s.kind==='sequence'?x.s.components:[x.s.name]).forEach(n=>{const k=titleKey(n);marks.set(k,[...(marks.get(k)||[]),x.k])}));
  let n=0;
- const rows=sl.sets.map(([set,list])=>(set?`<li class="sl-set">${escapeHTML(set)}</li>`:'')+list.map(([name,i,seg])=>{
-  const song=songForTitle(name),ks=[...new Set(marks.get(titleKey(name))||[])],ok=i>=0&&sl.id,time=ok?(sl.tracks[i]?.[2]||'').replace(/^0(\d:)/,'$1'):'';n++;
+ const tapeOf=i=>sl.tracks[i]?.[3]||0,setTape=list=>{const c=[0,0];list.forEach(r=>{if(r[1]>=0)c[tapeOf(r[1])]++});return c[1]>c[0]?1:0};
+ const tapeNote=sl.tapes&&new Set(sl.sets.map(([,l])=>setTape(l))).size>1;
+ const rows=sl.sets.map(([set,list])=>(set?`<li class="sl-set">${escapeHTML(set)}${tapeNote?`<span class="sl-tape">${escapeHTML(sl.kinds[setTape(list)])}</span>`:''}</li>`:'')+list.map(([name,i,seg])=>{
+  const song=songForTitle(name),ks=[...new Set(marks.get(titleKey(name))||[])],ok=i>=0&&sl.id,time=ok?(sl.tracks[i]?.[2]||'').replace(/^0(\d:)/,'$1'):'';n++;i=ok?pos(i):-1;
   const inner=`<span class="sl-num">${n}</span><span class="sl-name">${escapeHTML(name)}${seg?'<span class="sl-seg" aria-label="segues into"> &gt;</span>':''}</span>${ks.map(k=>`<span class="tally ${k}">${k}</span>`).join('')}<span class="sl-time">${escapeHTML(time)}</span>`;
   return `<li class="sl-row${ks.length?' has-mark':''}${ok?'':' is-missing'}" data-i="${i}">${ok?`<button type="button" class="sl-play" data-sl="${i}" aria-label="Play ${escapeHTML(name)} from this show">${inner}</button>`:`<span class="sl-play" title="Not on this tape">${inner}</span>`}${song?`<a class="sl-song" href="${songPath(song)}" data-sl-song="${escapeHTML(song.name)}" aria-label="${escapeHTML(song.name)}: first, last and best">${icon('next')}</a>`:'<span class="sl-song" aria-hidden="true"></span>'}</li>`}).join('')).join('');
- const credit=[sl.full&&'Setlist: <a href="https://www.setlists.net/" target="_blank" rel="noopener">The SetList Program</a>',sl.id&&`Tape: <a href="https://archive.org/details/${encodeURIComponent(sl.id)}" target="_blank" rel="noopener">Internet Archive</a>`].filter(Boolean).join(' · ');
+ const credit=[sl.full&&'Setlist: <a href="https://www.setlists.net/" target="_blank" rel="noopener">The SetList Program</a>',sl.id&&(sl.tapes||[sl.id]).map((id,k,a)=>`<a href="https://archive.org/details/${encodeURIComponent(id)}" target="_blank" rel="noopener">${a.length>1?escapeHTML(sl.kinds[k]):'Tape'}</a>`).join(' + ')+' on Internet Archive'].filter(Boolean).join(' · ');
  return `<div class="sl-paper"><h3 class="sl-title">Setlist</h3>${sl.id?'<p class="sl-hint">Tap a song to play it from this tape.</p>':''}<ol class="sl-list">${rows}</ol>${credit?`<p class="sl-credit">${credit}</p>`:''}</div>`;
 }
 async function fillSetlist(e){
  const el=$('#setlist');if(!el)return;
  const sl=await loadSetlist(e.d);if(!el.isConnected)return;
  if(!sl?.sets?.length){el.remove();return}
- const tracks=sl.id?sl.tracks.map(([f,t,l])=>({url:`https://archive.org/download/${sl.id}/${encodeURIComponent(f)}`,title:t,duration:l||null})):[];
- el.innerHTML=setlistHTML(sl,e);el._tracks=tracks;
+ const url=([f,,,k])=>`https://archive.org/download/${encodeURIComponent(sl.tapes?sl.tapes[k||0]:sl.id)}/${encodeURIComponent(f)}`;
+ let tracks=[],pos=i=>i;
+ if(sl.id&&sl.tapes){ // two tapes: play the songs in setlist order, each from the tape that has it
+  const order=[...new Set(sl.sets.flatMap(([,l])=>l.map(r=>r[1]).filter(i=>i>=0)))],at=new Map(order.map((i,k)=>[i,k]));
+  tracks=order.map(i=>({url:url(sl.tracks[i]),title:sl.tracks[i][1],duration:sl.tracks[i][2]||null}));pos=i=>at.get(i);
+ }else if(sl.id)tracks=sl.tracks.map(t=>({url:url(t),title:t[1],duration:t[2]||null}));
+ el.innerHTML=setlistHTML(sl,e,pos);el._tracks=tracks;
  const p={date:e.d,venueName:e.v,venue:e.c?`${e.v} - ${e.c}`:e.v,identifier:sl.id,recording:`https://archive.org/details/${sl.id}`};
  el.querySelectorAll('[data-sl]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];playShow({name:e.v,show:p},'show',Number(b.dataset.sl),tracks)});
  const full=$('#show-play-full');if(full&&sl.id)full.onclick=()=>{queue=[];playHistory=[];playShow({name:e.v,show:p},'show',0,tracks)};

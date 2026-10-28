@@ -361,6 +361,7 @@ a.song-button{text-decoration:none;color:inherit}
 .sl-row.is-playing{background:#f8c53755}
 .sl-row.is-playing .sl-num{color:#c4243a;font-weight:700}
 .sl-set{margin:14px 0 2px 6px;font:400 26px 'Journal',cursive;color:#c4243a}.sl-set:first-child{margin-top:4px}
+.sl-tape{margin-left:10px;font:600 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#6b5f4f;vertical-align:middle}
 .sl-row.is-missing .sl-name{color:#8a7d6b}.sl-row.is-missing .sl-play{cursor:default}
 .sl-credit{margin:12px 0 0;font:500 11px var(--mono);color:#6b5f4f}.sl-credit a{color:inherit}
 @media (max-width:650px){.sl-paper{padding:22px 12px 14px}.sl-name{font-size:22px}.sl-play{gap:8px;padding:0 4px}}

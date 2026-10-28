@@ -19,11 +19,12 @@ LISTENED = flb.ROOT / 'tools' / 'listened.json'  # tape choices made by ear: "so
 
 def show_track(sl, names):
     keys = {title_key(n) for n in names}
-    hits = [r[1] for _, rows in sl['sets'] for r in rows if r[1] >= 0 and title_key(r[0]) in keys]
+    hits = [r[1] for _, rows in sl['sets'] for r in rows
+            if r[1] >= 0 and len(sl['tracks'][r[1]]) == 3 and title_key(r[0]) in keys]  # main tape only
     if not hits:
         return None
     i = max(hits, key=lambda i: flb.secs(sl['tracks'][i][2]))
-    f, title, length = sl['tracks'][i]
+    f, title, length = sl['tracks'][i][:3]
     return {'name': f, 'title': title, 'length': flb.mmss(flb.secs(length))}
 
 

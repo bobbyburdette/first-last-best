@@ -166,6 +166,38 @@ def better_tape(date, sets, ident, tracks, rows):
     return best
 
 
+def tape_label(ident):
+    kind = flb.SOURCE_NAMES[flb.source_class(ident)] if flb.source_class(ident) != flb.UNKNOWN else 'Tape'
+    return kind + (' · Charlie Miller' if flb.is_miller(ident) else '')
+
+
+def fill_gaps(date, ident, tracks, rows):
+    """When the main tape is partial (often a one-set Miller transfer), play the missing songs from the best
+    other tape of the same show that has them. Returns (tracks, tape ids) or None."""
+    missing = [r for _, rs in rows for r in rs if r[1] < 0]
+    if len(missing) < 2:
+        return None
+    wanted = [['', [r[0] for r in missing]]]
+    best = None
+    for u in sorted(flb.uploads_for_date(date), key=flb.rank_key)[:6]:
+        alt = u['identifier']
+        if alt == ident or flb.risky_source(alt):
+            continue
+        alt_tracks = tape_tracks(alt)
+        found = match(wanted, alt_tracks)[0][1] if alt_tracks else []
+        hits = sum(f[1] >= 0 for f in found)
+        if hits >= 2 and (not best or hits > best[2]):
+            best = (alt, alt_tracks, hits, found)
+    if not best:
+        return None
+    alt, alt_tracks, _, found = best
+    offset = len(tracks)
+    for r, f in zip(missing, found):
+        if f[1] >= 0:
+            r[1], r[2] = offset + f[1], f[2]
+    return tracks + [[f, t, l, 1] for f, t, l in alt_tracks], [ident, alt]
+
+
 def tape_only(tracks):
     rows = [[SEGUE.sub('', t).strip(), i, int(bool(SEGUE.search(t)))] for i, (_, t, _) in enumerate(tracks)
             if not NON_SONG.match(SEGUE.sub('', t).strip())]
@@ -196,7 +228,13 @@ def main():
         else:
             stats['none'] += 1
             continue
-        data[date] = {'id': ident if tracks else None, 'tracks': tracks, 'sets': rows, 'full': bool(sets)}
+        entry = {'id': ident if tracks else None, 'tracks': tracks, 'sets': rows, 'full': bool(sets)}
+        filled = fill_gaps(date, ident, tracks, rows) if sets and tracks else None
+        if filled:
+            entry['tracks'], ids = filled
+            entry['tapes'], entry['kinds'] = ids, [tape_label(i) for i in ids]
+            stats['two_tapes'] = stats.get('two_tapes', 0) + 1
+        data[date] = entry
         if n % 100 == 0:
             print(f'{n}/{len(shows)} {stats}', flush=True)
     OUT.parent.mkdir(exist_ok=True)
