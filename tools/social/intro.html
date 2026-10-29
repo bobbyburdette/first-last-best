@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Launch images</title>
+<style>
+/* Launch intro post (1080x1350) and Facebook cover (1640x624). Open with #intro or #cover. */
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-700.woff2') format('woff2');font-weight:700}
+@font-face{font-family:'DM Sans';src:url('fonts/dmsans.woff2') format('woff2');font-weight:500}
+@font-face{font-family:'Dot';src:url('/fonts/vt323.woff2') format('woff2')}
+@font-face{font-family:'Journal';src:url('/fonts/journal.woff2') format('woff2')}
+:root{--ink:#2a2f7a;--blue:#4a82ff;--red:#f5222d;--cream:#f7f1e1;--muted:#b8bcc2;--rainbow:linear-gradient(90deg,#f5222d,#ff8a00,#f8c537,#3bb273,#4a82ff,#8b4dd8)}
+*{box-sizing:border-box}
+body{margin:0;background:#000;color:var(--cream);font-family:'DM Sans',sans-serif}
+.rainbow{position:absolute;inset:auto 0 0;height:16px;background:var(--rainbow)}
+.h{margin:0;font:700 84px/1 'Fraunces',serif;letter-spacing:-1px}
+.h .f{color:var(--blue)}.h .b{color:var(--red)}
+.strip{position:relative;display:flex;align-items:stretch;border-radius:8px;overflow:hidden;color:var(--ink);font-family:'Dot',monospace;text-transform:uppercase;
+ background:repeating-linear-gradient(135deg,#0000 0 9px,#9cc3e633 9px 10px),linear-gradient(180deg,#eef6fb,#f6eef4)}
+.strip::before{content:'';position:absolute;inset:0 0 auto;height:10px;background:var(--rainbow)}
+.strip .tag{flex:0 0 200px;display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;letter-spacing:.06em}
+.strip.first .tag{background:var(--blue)}.strip.last .tag{background:var(--cream);color:#141414;border-right:3px dashed #8aa3c2}.strip.best .tag{background:var(--red)}
+.strip .info{flex:1;min-width:0;padding:20px 26px 14px}
+.strip .when{font-size:44px;line-height:1}
+.strip .where{font-size:30px;line-height:1.1;margin-top:4px}
+.song{font:400 80px/1 'Journal',cursive;color:var(--cream)}
+
+/* Intro post */
+#intro{position:relative;width:1080px;height:1350px;padding:56px 72px 0;display:none;flex-direction:column;gap:24px;overflow:hidden}
+#intro .logo{width:440px}
+#intro .lede{margin:0;font:500 34px/1.35 'DM Sans',sans-serif;color:var(--muted);max-width:32ch}
+#intro .eg{display:flex;flex-direction:column;gap:12px}
+#intro .eg .label{font:400 34px 'Dot',monospace;letter-spacing:.08em;color:var(--muted)}
+#intro .daily{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:48px}
+#intro .daily p{margin:0;font:400 38px/1.2 'Dot',monospace;letter-spacing:.06em}
+#intro .daily b{display:block;font-weight:400;color:var(--red)}
+#intro .daily .url{font-size:44px;color:var(--cream)}
+
+/* Facebook cover: mobile crops the sides, so the essentials sit in the middle 1250px */
+#cover{position:relative;width:1640px;height:624px;padding:0 195px;display:none;align-items:center;gap:56px;overflow:hidden}
+#cover .logo{width:600px;flex:0 0 auto}
+#cover .right{display:flex;flex-direction:column;gap:18px;min-width:0}
+#cover .h{font-size:68px;line-height:1.02}
+#cover p{margin:0;font:500 30px/1.35 'DM Sans',sans-serif;color:var(--muted)}
+#cover .daily{font:400 32px 'Dot',monospace;letter-spacing:.08em;color:var(--red)}
+body.intro #intro{display:flex}body.cover #cover{display:flex}
+</style>
+</head>
+<body>
+<section id="intro">
+  <img class="logo" src="/logo-tight.webp" alt="First Last Best">
+  <h1 class="h"><span class="f">The First.</span> The Last. <span class="b">The Best.</span></h1>
+  <p class="lede">Every Grateful Dead song's first live version, its last, and the fan favorite. Free tapes, straight from the Internet Archive.</p>
+  <div class="eg">
+    <span class="label">FOR EXAMPLE:</span>
+    <span class="song">Dark Star</span>
+    <div class="strip first"><span class="tag">FIRST</span><div class="info"><div class="when">WED DEC 13 1967</div><div class="where">SHRINE AUDITORIUM · LOS ANGELES, CA</div></div></div>
+    <div class="strip last"><span class="tag">LAST</span><div class="info"><div class="when">WED MAR 30 1994</div><div class="where">THE OMNI · ATLANTA, GA</div></div></div>
+    <div class="strip best"><span class="tag">BEST</span><div class="info"><div class="when">SUN AUG 27 1972</div><div class="where">VENETA, OR · 512 VOTES</div></div></div>
+  </div>
+  <div class="daily"><p><b>EVERY DAY HERE:</b>THIS DAY IN DEAD HISTORY</p><p class="url">FIRSTLASTBEST.COM</p></div>
+  <div class="rainbow"></div>
+</section>
+<section id="cover">
+  <img class="logo" src="/logo-tight.webp" alt="First Last Best">
+  <div class="right">
+    <h1 class="h"><span class="f">The First.</span><br>The Last.<br><span class="b">The Best.</span></h1>
+    <p>Every Grateful Dead song's first, last and best live version.</p>
+    <span class="daily">THIS DAY IN DEAD HISTORY · DAILY</span>
+  </div>
+  <div class="rainbow"></div>
+</section>
+<script>document.body.className = location.hash.slice(1) || 'intro';</script>
+</body>
+</html>
