@@ -153,8 +153,12 @@ def event_ld(d, v, c):
     loc = {'@type': 'Place', 'name': v}
     if c:
         loc['address'] = {'@type': 'PostalAddress', 'addressLocality': c}
-    return {'@type': 'MusicEvent', 'name': f'Grateful Dead at {v}', 'startDate': d, 'location': loc,
-            'performer': {'@type': 'MusicGroup', 'name': 'Grateful Dead'}}
+    band = {'@type': 'MusicGroup', 'name': 'Grateful Dead', 'url': 'https://www.dead.net/'}
+    # Past concerts: no ticket offers (inventing one would be false data); Google lists that as a non-critical warning.
+    return {'@type': 'MusicEvent', 'name': f'Grateful Dead at {v}', 'startDate': d, 'endDate': d,
+            'eventStatus': 'https://schema.org/EventScheduled',
+            'eventAttendanceMode': 'https://schema.org/OfflineEventAttendanceMode',
+            'location': loc, 'performer': band, 'organizer': band, 'image': f'{SITE}/og-image.jpg'}
 
 
 def setlist_html(sl, song_by_key):
