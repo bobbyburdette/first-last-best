@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Cover options</title>
+<style>
+/* Facebook cover options, 1640x624. Open with #a, #b or #c; add ?preview to see where the profile photo lands. */
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-700.woff2') format('woff2');font-weight:700}
+@font-face{font-family:'DM Sans';src:url('fonts/dmsans.woff2') format('woff2');font-weight:500}
+@font-face{font-family:'Dot';src:url('/fonts/vt323.woff2') format('woff2')}
+@font-face{font-family:'Journal';src:url('/fonts/journal.woff2') format('woff2')}
+:root{--blue:#4a82ff;--red:#f5222d;--cream:#f7f1e1}
+*{box-sizing:border-box}
+html,body{margin:0;width:1640px;height:624px;overflow:hidden;background:#000}
+section{position:absolute;inset:0;display:none;overflow:hidden}
+canvas{position:absolute;inset:0}
+.logo{position:absolute;filter:drop-shadow(0 8px 18px #0009)}
+.h{margin:0;font:700 64px/1.02 'Fraunces',serif;color:var(--cream)}.h .f{color:var(--blue)}.h .b{color:var(--red)}
+.rainbow{position:absolute;inset:auto 0 0;height:14px;background:linear-gradient(90deg,#f5222d,#ff8a00,#f8c537,#3bb273,#4a82ff,#8b4dd8)}
+/* A: tie-dye, big centered logo above the profile photo */
+#a .logo{width:820px;left:410px;top:22px}
+/* B: tape wall */
+#b .wall{position:absolute;inset:-20px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px 14px;padding:0 10px;transform:rotate(-3deg)}
+#b .spine{position:relative;height:56px;border-radius:4px;background:#1c1c1e;box-shadow:inset 0 0 0 2px #333,0 3px 0 #000a;display:flex;align-items:center;padding:7px 9px}
+#b .paper{flex:1;height:100%;border-radius:2px;display:flex;align-items:center;padding:0 12px;gap:10px;font:400 26px 'Journal',cursive;color:#3a2c22;white-space:nowrap;overflow:hidden}
+#b .paper b{font-weight:400;color:#8a1f1f}
+#b .shade{position:absolute;inset:0;background:radial-gradient(ellipse 45% 70% at 50% 46%,#000d 0 45%,#0000 75%)}
+#b .logo{width:760px;left:440px;top:44px}
+/* C: sunburst rays from the profile photo */
+#c .logo{width:470px;left:150px;top:150px}
+#c .side{position:absolute;right:130px;top:150px;width:470px;display:flex;flex-direction:column;gap:14px}
+#c .side p{margin:0;font:400 28px 'Dot',monospace;letter-spacing:.08em;color:var(--cream)}
+.preview{display:none;position:absolute;left:670px;top:430px;width:300px;height:300px;border-radius:50%;border:6px solid #fff;background:#000 url('/logo-tight.webp') center/82% no-repeat;box-shadow:0 0 0 3px #0003}
+body.show-preview .preview{display:block}
+</style></head>
+<body>
+<section id="a"><canvas id="dye" width="1640" height="624"></canvas><img class="logo" src="/logo-tight.webp" alt=""></section>
+<section id="b"><div class="wall" id="wall"></div><div class="shade"></div><img class="logo" src="/logo-tight.webp" alt=""><div class="rainbow"></div></section>
+<section id="c"><canvas id="burst" width="1640" height="624"></canvas><img class="logo" src="/logo-tight.webp" alt="">
+ <div class="side"><h1 class="h"><span class="f">The First.</span><br>The Last.<br><span class="b">The Best.</span></h1><p>THIS DAY IN DEAD HISTORY · DAILY</p></div></section>
+<div class="preview"></div>
+<script>
+const TAPES=[["1977-05-08", "Barton Hall, Cornell University"], ["1972-08-27", "Old Renaissance Faire Grounds"], ["1974-08-06", "Roosevelt Stadium"], ["1974-06-26", "Providence Civic Center"], ["1977-05-22", "The Sportatorium"], ["1977-09-03", "Raceway Park"], ["1975-08-13", "Great American Music Hall"], ["1971-08-06", "Hollywood Palladium"], ["1977-02-26", "Swing Auditorium"], ["1970-05-02", "Harpur College"], ["1985-06-30", "Merriweather Post Pavilion"], ["1973-12-19", "Curtis Hixon Convention Hall"], ["1981-03-14", "Hartford Civic Center"], ["1979-01-11", "Nassau Coliseum"], ["1974-05-19", "Portland Memorial Coliseum"], ["1978-04-24", "Horton Field House - Illinois State University"], ["1978-02-03", "Dane County Coliseum"], ["1978-10-21", "Winterland Arena"], ["1990-03-24", "Knickerbocker Arena"], ["1977-05-09", "War Memorial"], ["1977-03-20", "Winterland Arena"], ["1978-04-16", "Huntington Civic Center"], ["1978-01-22", "McArthur Court, U of Oregon"], ["1977-10-07", "University of New Mexico"], ["1974-06-18", "Freedom Hall"], ["1989-07-19", "Alpine Valley Music Theatre"], ["1972-09-27", "Stanley Theatre"], ["1972-04-08", "Wembley Empire Pool"], ["1989-07-07", "JFK Stadium"], ["1995-07-09", "Soldier Field"], ["1979-12-26", "Oakland Auditorium"], ["1977-10-29", "Evans Field House, Northern Illinois University"], ["1972-04-26", "Jahrhunderthalle"], ["1977-05-17", "Memorial Coliseum (University Of Alabama)"], ["1974-06-23", "Jai-Alai Fronton"], ["1978-02-05", "Uni Dome, U of Northern Iowa"], ["1976-10-09", "Oakland-Alameda County Coliseum Stadium"], ["1978-04-12", "Cameron Indoor Stadium"], ["1968-10-12", "Avalon Ballroom"], ["1976-06-09", "Boston Music Hall"]];
+const id=location.hash.slice(1)||'a';document.getElementById(id).style.display='block';
+if(location.search.includes('preview'))document.body.classList.add('show-preview');
+const PAL=[[245,34,45],[255,138,0],[248,197,55],[59,178,115],[74,130,255],[139,77,216]];
+function mix(a,b,t){return a.map((v,i)=>v+(b[i]-v)*t)}
+function pal(v){v=((v%6)+6)%6;const i=Math.floor(v),t=v-i,s=t*t*(3-2*t);return mix(PAL[i],PAL[(i+1)%6],s)}
+let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const G=[];for(let i=0;i<512;i++)G.push(rnd()*2*Math.PI);
+function noise(x,y){const xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi,f=t=>t*t*(3-2*t);
+ const g=(i,j)=>{const a=G[((i*73856093)^(j*19349663))&511];return Math.cos(a)*(x-i)+Math.sin(a)*(y-j)};
+ const a=g(xi,yi),b=g(xi+1,yi),c=g(xi,yi+1),d=g(xi+1,yi+1);return a+(b-a)*f(xf)+(c-a)*f(yf)+(a-b-c+d)*f(xf)*f(yf)}
+if(id==='a'){ // spiral tie-dye centered behind the profile photo
+ const c=document.getElementById('dye'),x=c.getContext('2d'),im=x.createImageData(1640,624),cx=820,cy=560;
+ for(let py=0;py<624;py++)for(let px=0;px<1640;px++){const dx=px-cx,dy=(py-cy)*1.15,r=Math.hypot(dx,dy),a=Math.atan2(dy,dx);
+  const n=noise(px/60,py/60)*0.9+noise(px/18,py/18)*0.25;let v=a/(2*Math.PI)*6+r*0.0105+n;
+  const crinkle=0.78+0.22*Math.abs(Math.sin(v*Math.PI*1.0+noise(px/9,py/9)*1.5));
+  const white=Math.max(0,1-Math.abs(((v%1)+1)%1-0.5)*9)*0.35;let [R,Gc,B]=pal(v).map(c=>c*crinkle);
+  R+=(255-R)*white;Gc+=(255-Gc)*white;B+=(255-B)*white;const k=(py*1640+px)*4;im.data[k]=R;im.data[k+1]=Gc;im.data[k+2]=B;im.data[k+3]=255}
+ x.putImageData(im,0,0)}
+if(id==='b'){ // wall of cassette spines labeled with the top-voted shows
+ const papers=['#fffdf2','#e9f0da','#f7e0e0','#f8edc7'],w=document.getElementById('wall');let html='';
+ for(let i=0;i<44;i++){const [d,v]=TAPES[i%TAPES.length],[y,m,dd]=d.split('-');html+='<div class="spine"><div class="paper" style="background:'+papers[i%4]+';transform:rotate('+((rnd()-.5)*1.4).toFixed(2)+'deg)"><b>'+(+m)+'.'+(+dd)+'.'+y.slice(2)+'</b> '+v+'</div></div>'}
+ w.innerHTML=html}
+if(id==='c'){ // rays radiating from where the profile photo sits
+ const c=document.getElementById('burst'),x=c.getContext('2d'),cx=820,cy=580,N=36;x.fillStyle='#0b0b0d';x.fillRect(0,0,1640,624);
+ for(let i=0;i<N;i++){const a0=i/N*2*Math.PI,a1=(i+0.5)/N*2*Math.PI,[R,Gc,B]=PAL[i%6];x.beginPath();x.moveTo(cx,cy);x.arc(cx,cy,1900,a0,a1);x.closePath();x.fillStyle='rgb('+R+','+Gc+','+B+')';x.fill()}
+ const g=x.createRadialGradient(cx,cy,120,cx,cy,1100);g.addColorStop(0,'#0000');g.addColorStop(.45,'#0006');g.addColorStop(1,'#000e');x.fillStyle=g;x.fillRect(0,0,1640,624);
+ const s=x.createLinearGradient(0,0,1640,0);s.addColorStop(0,'#000c');s.addColorStop(.36,'#0000');s.addColorStop(.64,'#0000');s.addColorStop(1,'#000c');x.fillStyle=s;x.fillRect(0,0,1640,624)}
+</script></body></html>
