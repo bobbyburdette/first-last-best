@@ -16,13 +16,20 @@ canvas{position:absolute;inset:0}
 .rainbow{position:absolute;inset:auto 0 0;height:14px;background:linear-gradient(90deg,#f5222d,#ff8a00,#f8c537,#3bb273,#4a82ff,#8b4dd8)}
 /* A: tie-dye, big centered logo above the profile photo */
 #a .logo{width:820px;left:410px;top:22px}
-/* B: tape wall */
-#b .wall{position:absolute;inset:-20px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px 14px;padding:0 10px;transform:rotate(-3deg)}
-#b .spine{position:relative;height:56px;border-radius:4px;background:#1c1c1e;box-shadow:inset 0 0 0 2px #333,0 3px 0 #000a;display:flex;align-items:center;padding:7px 9px}
-#b .paper{flex:1;height:100%;border-radius:2px;display:flex;align-items:center;padding:0 12px;gap:10px;font:400 26px 'Journal',cursive;color:#3a2c22;white-space:nowrap;overflow:hidden}
-#b .paper b{font-weight:400;color:#8a1f1f}
-#b .shade{position:absolute;inset:0;background:radial-gradient(ellipse 45% 70% at 50% 46%,#000d 0 45%,#0000 75%)}
-#b .logo{width:760px;left:440px;top:44px}
+/* B: tape wall, built from the site's photographed cassette shell (cassette-spine.webp) */
+#b{background:#0d0c0b}
+#b .wall{position:absolute;left:6px;right:-70px;top:-30px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px 8px;transform:rotate(-2.2deg)}
+#b .tape{position:relative;aspect-ratio:7/1;container-type:inline-size;border-radius:3px;
+ background:url('/cassette-spine.webp') 50% 49.05%/101.8% 310.2% no-repeat;box-shadow:0 6px 10px #000c,0 1px 0 #ffffff14}
+#b .label{position:absolute;inset:8% 2%;display:flex;align-items:center;gap:2.2cqw;padding:0 2.4cqw;overflow:hidden;isolation:isolate;
+ box-shadow:inset 0 0 7px #786b3626;border:1px solid #80765b50;font:400 6.4cqw/1 'Journal',cursive;-webkit-text-stroke:.035em currentColor;white-space:nowrap}
+#b .label::before{content:'';position:absolute;inset:0;background:url('/cassette-spine.webp') center/160% 580%;mix-blend-mode:multiply;opacity:.46;z-index:-1}
+#b .label b{font-weight:400}
+#b .label .ico{flex:0 0 7cqw;height:7cqw;margin-left:auto;background:url('/tape-doodles.webp') 0 50%/300% 100% no-repeat;mix-blend-mode:multiply;opacity:.8}
+#b .label .ico.s{background-position:50% 50%}#b .label .ico.l{background-position:100% 50%}
+#b .light{position:absolute;inset:0;background:radial-gradient(ellipse 80% 120% at 50% -10%,#ffffff12,#0000 55%),radial-gradient(ellipse 120% 90% at 50% 50%,#0000 50%,#000b 100%)}
+#b .shade{position:absolute;inset:0;background:radial-gradient(ellipse 30% 46% at 50% 30%,#000b 0 35%,#0000 80%)}
+#b .logo{width:700px;left:470px;top:40px}
 /* C: sunburst rays from the profile photo */
 #c .logo{width:470px;left:150px;top:150px}
 #c .side{position:absolute;right:130px;top:150px;width:470px;display:flex;flex-direction:column;gap:14px}
@@ -32,7 +39,7 @@ body.show-preview .preview{display:block}
 </style></head>
 <body>
 <section id="a"><canvas id="dye" width="1640" height="624"></canvas><img class="logo" src="/logo-tight.webp" alt=""></section>
-<section id="b"><div class="wall" id="wall"></div><div class="shade"></div><img class="logo" src="/logo-tight.webp" alt=""><div class="rainbow"></div></section>
+<section id="b"><div class="wall" id="wall"></div><div class="light"></div><div class="shade"></div><img class="logo" src="/logo-tight.webp" alt=""></section>
 <section id="c"><canvas id="burst" width="1640" height="624"></canvas><img class="logo" src="/logo-tight.webp" alt="">
  <div class="side"><h1 class="h"><span class="f">The First.</span><br>The Last.<br><span class="b">The Best.</span></h1><p>THIS DAY IN DEAD HISTORY · DAILY</p></div></section>
 <div class="preview"></div>
@@ -56,10 +63,14 @@ if(id==='a'){ // spiral tie-dye centered behind the profile photo
   const white=Math.max(0,1-Math.abs(((v%1)+1)%1-0.5)*9)*0.35;let [R,Gc,B]=pal(v).map(c=>c*crinkle);
   R+=(255-R)*white;Gc+=(255-Gc)*white;B+=(255-B)*white;const k=(py*1640+px)*4;im.data[k]=R;im.data[k+1]=Gc;im.data[k+2]=B;im.data[k+3]=255}
  x.putImageData(im,0,0)}
-if(id==='b'){ // wall of cassette spines labeled with the top-voted shows
- const papers=['#fffdf2','#e9f0da','#f7e0e0','#f8edc7'],w=document.getElementById('wall');let html='';
- for(let i=0;i<44;i++){const [d,v]=TAPES[i%TAPES.length],[y,m,dd]=d.split('-');html+='<div class="spine"><div class="paper" style="background:'+papers[i%4]+';transform:rotate('+((rnd()-.5)*1.4).toFixed(2)+'deg)"><b>'+(+m)+'.'+(+dd)+'.'+y.slice(2)+'</b> '+v+'</div></div>'}
- w.innerHTML=html}
+if(id==='b'){ // a shoebox of tapes, each labeled with one of the top-voted shows
+ const papers=['#fffdf2','#f4ecd8','#e9f0da','#f7e0e0','#f8edc7','#fdfaf0'],inks=['#1d2a6b','#22201e','#2c3f8f','#1b1b1b'];
+ const short=v=>v.split(/ - |, |\(/)[0].trim();let html='';
+ for(let i=0;i<33;i++){const [d,v]=TAPES[i%TAPES.length],[y,m,dd]=d.split('-'),ink=inks[Math.floor(rnd()*inks.length)],red=rnd()<.25;
+  const ico=rnd()<.4?'<i class="ico '+['','s','l'][Math.floor(rnd()*3)]+'"></i>':'';
+  html+='<div class="tape" style="transform:translate('+((rnd()-.5)*14).toFixed(1)+'px,0) rotate('+((rnd()-.5)*1.2).toFixed(2)+'deg)"><div class="label" style="background-color:'+papers[Math.floor(rnd()*papers.length)]+';color:'+ink+'">'
+   +'<b style="color:'+(red?'#a3201f':ink)+'">'+(+m)+'.'+(+dd)+'.'+y.slice(2)+'</b><span>'+short(v)+'</span>'+ico+'</div></div>'}
+ document.getElementById('wall').innerHTML=html}
 if(id==='c'){ // rays radiating from where the profile photo sits
  const c=document.getElementById('burst'),x=c.getContext('2d'),cx=820,cy=580,N=36;x.fillStyle='#0b0b0d';x.fillRect(0,0,1640,624);
  for(let i=0;i<N;i++){const a0=i/N*2*Math.PI,a1=(i+0.5)/N*2*Math.PI,[R,Gc,B]=PAL[i%6];x.beginPath();x.moveTo(cx,cy);x.arc(cx,cy,1900,a0,a1);x.closePath();x.fillStyle='rgb('+R+','+Gc+','+B+')';x.fill()}
