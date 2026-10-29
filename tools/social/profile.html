@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Profile picture</title>
+<style>
+/* 720x720 profile picture; Facebook and Instagram crop it to a circle, so the logo sits inside the inner 80% */
+html,body{margin:0;width:720px;height:720px;background:#000;overflow:hidden}
+.c{width:720px;height:720px;display:grid;place-items:center;border-radius:50%;
+ background:radial-gradient(circle,#000 0 330px,#0000 331px),conic-gradient(#f5222d,#ff8a00,#f8c537,#3bb273,#4a82ff,#8b4dd8,#f5222d)}
+img{width:600px}
+</style></head>
+<body><div class="c"><img src="/logo-tight.webp" alt=""></div></body></html>
