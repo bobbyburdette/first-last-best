@@ -110,7 +110,9 @@ audio.addEventListener('waiting',()=>{$('#player-status').textContent='Buffering
 audio.addEventListener('error',()=>{$('#player-status').textContent='Tape unavailable. Try “Open recording”.';queue=[];playHistory=[]});
 audio.addEventListener('ended',advanceTape);
 $('#sort').addEventListener('change',()=>{renderList();$('#songs').scrollTop=0});
-$('#search').addEventListener('input',renderList);$('#search').addEventListener('keydown',e=>{if(e.key!=='Enter')return;const sh=showMatches();if(filtered().length)selectSong(filtered()[0].name);else if(sh?.length)showShow(sh[0].d);else return;$('#detail h2').setAttribute('tabindex','-1');$('#detail h2').focus()});
+$('#search').addEventListener('input',renderList);
+// Count what kind of search people run (song, full date, month-day, year, state or place), never what they typed.
+let searchTimer=0,lastSearch='';$('#search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{const q=$('#search').value.trim();if(q.length<2)return;const pq=parseShowQuery(q),kind=pq?Object.keys(pq)[0]:'song';if(kind===lastSearch)return;lastSearch=kind;track('search/'+kind,'Search: '+kind)},1500)});$('#search').addEventListener('keydown',e=>{if(e.key!=='Enter')return;const sh=showMatches();if(filtered().length)selectSong(filtered()[0].name);else if(sh?.length)showShow(sh[0].d);else return;$('#detail h2').setAttribute('tabindex','-1');$('#detail h2').focus()});
 function routeFromURL(initial){
  let p=location.pathname,h='';try{h=decodeURIComponent(location.hash.slice(1))}catch{}
  if(h){const s=songs.find(x=>x.name===h),np=h==='this-day'?DAY_PATH:h.startsWith('show-')?showPath(h.slice(5)):s?songPath(s):null;if(np){history.replaceState(null,'',np);p=np}}
