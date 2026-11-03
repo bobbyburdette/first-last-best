@@ -31,7 +31,7 @@ def changed_urls(since):
     for f in out.split():
         if f == 'index.html':
             urls.add('/')
-        elif re.fullmatch(r'(song|show|this-day)/.*index\.html', f):
+        elif re.fullmatch(r'(song|show|day|this-day)/.*index\.html', f):
             urls.add('/' + f[:-len('index.html')])
     return sorted(urls)
 
