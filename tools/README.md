@@ -12,6 +12,7 @@ Scripts that maintain `songs.json`, `shows.json` and `tapes.json`. Python 3, sta
 | `build_pages.py` | Writes a crawlable page for every song (`/song/<slug>/`) and show (`/show/<date>/`), plus `sitemap.xml` and `404.html`, from `index.html`. Run after any change to `index.html`, `app.js`, `style.css`, `songs.json` or `shows.json`. `--check` reports stale pages. |
 | `align_picks.py` | Moves First/Last/Best cards to their show's main tape when it sounds as good or better (same performance, cleaner recording). Skips tapes kept after a listen (`listened.json`). |
 | `social/make_posts.js` | Makes daily "This day in Dead history" posts for Facebook and Instagram: a 1080×1350 card image and caption per day, plus `posts.csv`, in `tools/social/out/`. `node tools/social/make_posts.js --start 2026-11-01 --days 30` (needs Playwright). |
+| `smoke_test.js` | Clicks through the whole site in a headless phone browser (songs, days, shows, setlists, search, old links, no-JavaScript pages) and fails on any broken check, page error or missing file. `node tools/smoke_test.js`. Run it before every push to `main`. |
 | `indexnow.py` | After a change is live, tells Bing and other IndexNow engines which pages changed. |
 
 Every script is a dry run unless you pass `--apply` (except `build_tapes.py`, `check_audio.py` and `build_pages.py`, which are safe to run). Writing a data file also bumps its `?v=` cache-busting number in `app.js` and `index.html`.
