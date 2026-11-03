@@ -208,6 +208,39 @@ def show_page(show, prev, nxt, same_venue, sl, song_by_key):
             'data': sl}
 
 
+def day_page(md, shows, songs):
+    """One page per calendar day: every show played on that date in any year, and the songs first played,
+    last played or at their best on it."""
+    day = datetime.date(2024, int(md[:2]), int(md[3:]))  # 2024 is a leap year, so Feb 29 gets a page
+    name = f'{day:%B} {day.day}'
+    on = [s for s in shows if s['d'][5:] == md]
+    picks = sorted(((song, k, (song.get(k) or {})['date']) for song in songs for k in ('first', 'last', 'best')
+                    if ((song.get(k) or {}).get('date') or '')[5:] == md), key=lambda x: (x[2], x[0]['name']))
+    parts = [f'<div class="seo-summary"><p class="song-kicker">DEAD HISTORY</p><h2>{esc(name)}</h2>']
+    if on:
+        parts.append(f'<p>The Grateful Dead played {len(on)} {"show" if len(on) == 1 else "shows"} on {name}, '
+                     f'from {on[0]["d"][:4]} to {on[-1]["d"][:4]}. '
+                     + ('Every one is' if all(x.get('id') for x in on) else f'{sum(bool(x.get("id")) for x in on)} are')
+                     + ' free to stream from the Internet Archive.</p>'
+                     '<h3>Shows on this date</h3><ul>'
+                     + ''.join(f'<li>{show_link(s["d"], s["d"][:4])}: {esc(where(s["v"], s["c"]))}</li>' for s in on) + '</ul>')
+    else:
+        parts.append(f'<p>The Grateful Dead never played a show on {name} that survives on tape.</p>')
+    if picks:
+        parts.append('<h3>First, Last and Best on this date</h3><ul>'
+                     + ''.join(f'<li><a href="{song_url(song)}">{esc(song["name"])}</a>: {KIND[k]}, {d[:4]}</li>' for song, k, d in picks)
+                     + '</ul>')
+    prev, nxt = day - datetime.timedelta(days=1), day + datetime.timedelta(days=1)
+    parts.append(f'<p><a href="/day/{prev:%m-%d}/">{prev:%B} {prev.day}</a> · <a href="/day/{nxt:%m-%d}/">{nxt:%B} {nxt.day}</a></p></div>')
+    years = f' ({on[0]["d"][:4]}–{on[-1]["d"][:4]})' if len(on) > 1 else ''
+    description = (f'Every Grateful Dead show played on {name}{years}, with setlists you can play song by song'
+                   + (', plus the songs first played, last played or at their best on this date.' if picks else '.'))
+    return {'path': f'/day/{md}/', 'title': f'Grateful Dead on {name}: Every Show & Setlist | First Last Best',
+            'description': description, 'body': ''.join(parts),
+            'ld': {'@context': 'https://schema.org', '@type': 'WebPage', 'name': f'Grateful Dead on {name}',
+                   'url': f'{SITE}/day/{md}/', 'description': description}}
+
+
 # ---------- template ----------
 
 def song_list_html(songs):
@@ -276,6 +309,8 @@ def main():
         same = [x for x in by_venue[s['vk']] if x is not s]
         pages.append(show_page(s, shows[i - 1] if i else None, shows[i + 1] if i + 1 < len(shows) else None, same,
                                setlists.get(s['d']), song_by_key))
+    d0 = datetime.date(2024, 1, 1)
+    pages += [day_page(f'{d0 + datetime.timedelta(days=i):%m-%d}', shows, songs) for i in range(366)]
     pages.append({'path': '/this-day/', 'title': 'This Day in Grateful Dead History | First Last Best',
                   'description': 'Grateful Dead songs first played, last played or at their best on this date, plus every show played on this day.',
                   'body': '<div class="seo-summary"><p class="song-kicker">THIS DAY IN DEAD HISTORY</p><h2>This day in Dead history</h2>'
@@ -298,7 +333,7 @@ def main():
                                          + ''.join(f'  <url><loc>{SITE}{u}</loc></url>\n' for u in urls) + '</urlset>\n')
 
     stale_dirs = []
-    for d in ('song', 'show'):
+    for d in ('song', 'show', 'day'):
         root = flb.ROOT / d
         if root.exists():
             stale_dirs += [x for x in root.iterdir() if x / 'index.html' not in expected]

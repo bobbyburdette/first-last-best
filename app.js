@@ -8,6 +8,7 @@ const compactDate=d=>d?Number(d.slice(5,7))+'.'+Number(d.slice(8,10))+'.'+d.slic
 const normalizeSearch=s=>s.toLowerCase().replace(/[^a-z0-9]/g,'');
 /* Real page addresses (tools/build_pages.py writes a crawlable page for each) */
 const slug=n=>n.toLowerCase().replace(/&/g,' and ').replace(/['’.]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''),songPath=s=>`/song/${slug(s.name)}/`,showPath=d=>`/show/${d}/`,DAY_PATH='/this-day/';
+const mdOf=d=>String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'),dayPath=md=>`/day/${md}/`,dayDate=md=>new Date(2024,Number(md.slice(0,2))-1,Number(md.slice(3))); // 2024 is a leap year, so Feb 29 works
 const tracksFor=p=>p?.tracks?.length?p.tracks:p?.audio?[{url:p.audio,title:p.track||'',duration:p.duration}]:[];
 const playable=p=>tracksFor(p).length>0;
 const labels={first:'First documented',last:'Last documented',best:'HeadyVersion community favorite'};
@@ -113,9 +114,10 @@ $('#search').addEventListener('input',renderList);$('#search').addEventListener(
 function routeFromURL(initial){
  let p=location.pathname,h='';try{h=decodeURIComponent(location.hash.slice(1))}catch{}
  if(h){const s=songs.find(x=>x.name===h),np=h==='this-day'?DAY_PATH:h.startsWith('show-')?showPath(h.slice(5)):s?songPath(s):null;if(np){history.replaceState(null,'',np);p=np}}
- const m=p.match(/^\/(song|show)\/([^/]+)\/?$/),random=()=>songs[Math.floor(Math.random()*songs.length)].name;
- if(initial&&(p===DAY_PATH||m?.[1]==='show')){selectSong(random(),false);selected=null}
+ const m=p.match(/^\/(song|show|day)\/([^/]+)\/?$/),random=()=>songs[Math.floor(Math.random()*songs.length)].name;
+ if(initial&&(p===DAY_PATH||m?.[1]==='show'||m?.[1]==='day')){selectSong(random(),false);selected=null}
  if(p===DAY_PATH)return showThisDay(new Date(),false);
+ if(m?.[1]==='day'&&/^\d\d-\d\d$/.test(m[2]))return showThisDay(dayDate(m[2]),false);
  if(m?.[1]==='show')return openShow(m[2],false).then(ok=>{if(!ok)history.replaceState(null,'','/')});
  const s=m?.[1]==='song'&&songs.find(x=>slug(x.name)===m[2]);
  if(s)return selectSong(s.name,false);
@@ -170,8 +172,8 @@ function dayGroups(found){
  return [...g.values()].map(x=>({...x,items:x.items.sort((a,b)=>a.ki-b.ki||a.s.name.localeCompare(b.s.name))}))
   .sort((a,b)=>Math.abs(a.off)-Math.abs(b.off)||a.off-b.off||a.date.localeCompare(b.date));
 }
-let dayYear=new Date().getFullYear();
-const yearsAgoLabel=d=>{const n=dayYear-Number(d.slice(0,4));return n>0?`${n} ${n===1?'year':'years'} ago today`:'Today'};
+let dayYear=new Date().getFullYear(),dayIsToday=true;
+const yearsAgoLabel=d=>{const n=dayYear-Number(d.slice(0,4));return n>0?`${n} ${n===1?'year':'years'} ago${dayIsToday?' today':''}`:'Today'};
 function nextUpHTML(next,empty){
  const when=next.date.toLocaleDateString('en-US',{month:'long',day:'numeric'});
  const head=next.off===1?`Tomorrow, ${when}`:`Next up: ${when}, in ${next.off} days`;
@@ -219,19 +221,25 @@ function leaveThisDay(){
  if(dayPushed){dayPushed=false;history.back();return}
  backToSongs();
 }
-function showThisDay(now=new Date(),push=true){track('this-day','This day');
+function showThisDay(now=new Date(),push=true){
  if(!songs.length)return;
- if(push&&location.pathname!==DAY_PATH){history.pushState(null,'',DAY_PATH);dayPushed=true}
+ const md=mdOf(now),today=mdOf(new Date()),path=md===today?DAY_PATH:dayPath(md);track(md===today?'this-day':'day/'+md,md===today?'This day':'Day '+md);
+ if(push==='replace')history.replaceState(null,'',path);else if(push&&location.pathname!==path){history.pushState(null,'',path);dayPushed=true}
  if(selected)dayReturn=selected;
- dayYear=now.getFullYear();const {found,next}=dayEntries(now),groups=dayGroups(found);
+ dayYear=new Date().getFullYear();dayIsToday=md===today;const {found,next}=dayEntries(now),groups=dayGroups(found);
  const pretty=now.toLocaleDateString('en-US',{month:'long',day:'numeric'});
  const meta=found.length?'Songs first played, last played, or picked as fan favorite on this date, in any year.':`No First, Last, or Best versions fall on ${pretty}.${next?.off===1?' Check back tomorrow.':''}`;
  selected=null;renderList();
  const d=$('#detail');
- d.innerHTML=`<div class="song-top"><div><p class="song-kicker">THIS DAY IN DEAD HISTORY</p><h2>${escapeHTML(pretty)}</h2>${found.length?'':`<p class="song-meta">${meta}</p>`}</div><button type="button" class="day-back" id="day-back">${backLabel()}</button></div>${found.length?`<section class="day-flb"><h3 class="day-section-title">First, Last &amp; Best</h3><p class="day-shows-sub">${meta}</p>${groups.map(dayGroupHTML).join('')}</section>`:''}${next&&(!found.length||next.off===1)?nextUpHTML(next,!found.length):''}<p class="caveat">Matches use month and day only, from any year. “First” and “Last” are documented dates; “Best” is the HeadyVersion community favorite.</p>`;
+ const step=k=>{const x=new Date(now);x.setDate(x.getDate()+k);return x},label=x=>x.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+ d.innerHTML=`<div class="song-top"><div><p class="song-kicker">${dayIsToday?'TODAY IN DEAD HISTORY':'DEAD HISTORY'}</p><h2>${escapeHTML(pretty)}</h2>${found.length?'':`<p class="song-meta">${meta}</p>`}</div><button type="button" class="day-back" id="day-back">${backLabel()}</button></div>
+ <nav class="day-nav" aria-label="Pick a day"><button type="button" class="day-step" data-day-step="-1" aria-label="Previous day, ${escapeHTML(label(step(-1)))}">${icon('next')}<span>${escapeHTML(label(step(-1)))}</span></button>${dayIsToday?'':'<button type="button" class="day-today" id="day-today">Today</button>'}<label class="day-pick">${icon('search')}<span>Pick a day</span><input type="date" id="day-pick" value="2024-${md}" aria-label="Pick a day"></label><button type="button" class="day-step next" data-day-step="1" aria-label="Next day, ${escapeHTML(label(step(1)))}"><span>${escapeHTML(label(step(1)))}</span>${icon('next')}</button></nav>${found.length?`<section class="day-flb"><h3 class="day-section-title">First, Last &amp; Best</h3><p class="day-shows-sub">${meta}</p>${groups.map(dayGroupHTML).join('')}</section>`:''}${next&&(!found.length||next.off===1)?nextUpHTML(next,!found.length):''}<p class="caveat">Matches use month and day only, from any year. “First” and “Last” are documented dates; “Best” is the HeadyVersion community favorite.</p>`;
  $('#day-back').onclick=leaveThisDay;document.body.classList.add('is-day');
+ d.querySelectorAll('[data-day-step]').forEach(b=>b.onclick=()=>showThisDay(step(Number(b.dataset.dayStep)),'replace'));
+ $('#day-pick').onchange=e=>{const v=e.target.value;if(/^\d{4}-\d\d-\d\d$/.test(v))showThisDay(dayDate(v.slice(5)),'replace')};
+ const td=$('#day-today');if(td)td.onclick=()=>showThisDay(new Date(),'replace');
  if(matchMedia('(min-width:651px)').matches){$('#day-shows-box').innerHTML='';d.querySelector(':scope>.caveat').insertAdjacentHTML('beforebegin','<section class="day-shows day-shows-inline" id="day-shows"></section>')}else $('#day-shows-box').innerHTML='<section class="day-shows" id="day-shows"></section>';
- fillDayShows($('#day-shows'),String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0'));
+ fillDayShows($('#day-shows'),md);
  const entry=v=>{const [gi,i]=v.split(':').map(Number);return groups[gi].items[i]};
  d.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlay);queue=[];playHistory=[];play(e.s,e.k)});
  d.querySelectorAll('[data-day-play-show]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlayShow);queue=[];playHistory=[];playShow(e.s,e.k)});
