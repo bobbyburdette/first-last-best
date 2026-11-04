@@ -174,7 +174,7 @@ function dayGroups(found){
  return [...g.values()].map(x=>({...x,items:x.items.sort((a,b)=>a.ki-b.ki||a.s.name.localeCompare(b.s.name))}))
   .sort((a,b)=>Math.abs(a.off)-Math.abs(b.off)||a.off-b.off||a.date.localeCompare(b.date));
 }
-let dayYear=new Date().getFullYear(),dayIsToday=true;
+let dayYear=new Date().getFullYear(),dayIsToday=true,dayMd=null;
 const yearsAgoLabel=d=>{const n=dayYear-Number(d.slice(0,4));return n>0?`${n} ${n===1?'year':'years'} ago${dayIsToday?' today':''}`:'Today'};
 function nextUpHTML(next,empty){
  const when=next.date.toLocaleDateString('en-US',{month:'long',day:'numeric'});
@@ -207,6 +207,15 @@ function dayShowsHTML(list){
  const yrs=list.length>1?`${list[0].d.slice(0,4)} to ${list[list.length-1].d.slice(0,4)}`:list[0].d.slice(0,4);
  return `<h3 class="day-section-title">Shows on this day</h3><p class="day-shows-sub">${list.length} ${list.length===1?'show':'shows'} in the Dead’s touring history, ${yrs}.</p><ul class="day-show-list">${list.map((e,i)=>`<li class="day-show${i>=cap?' day-show-extra':''}" ${i>=cap?'hidden':''}><button type="button" class="day-show-info" data-show-open="${e.d}"><span class="day-show-year">${e.d.slice(0,4)}${pipsOn(e.d)}</span><span class="day-show-venue">${escapeHTML(e.v)}</span><span class="day-show-city">${escapeHTML([e.c,yearsAgoLabel(e.d)].filter(Boolean).join(' · '))}</span></button><button type="button" class="day-show-play" data-show-play="${i}">${icon('play')} Play Full Show</button></li>`).join('')}</ul>${extra>0?`<button type="button" class="day-more" data-shows-more aria-expanded="false">Show ${extra} more</button>`:''}<p class="caveat">The list comes from Internet Archive’s Grateful Dead collection, so shows with no surviving recording are not listed.</p>`;
 }
+/* Songs played on this date in any year (/day/MM-DD/played.json from tools/build_pages.py); tap one to open its song page */
+async function fillDayPlayed(md){
+ let list=null;try{const r=await fetch(`/day/${md}/played.json`);if(r.ok)list=await r.json()}catch{}
+ const d=$('#detail'),cav=d?.querySelector(':scope>.caveat');if(!list?.length||!cav||!document.body.classList.contains('is-day')||dayMd!==md||d.querySelector("#day-played"))return;
+ const SHOW=18,chip=([n,ys],i)=>`<button type="button" class="dp-chip" data-song="${escapeHTML(n)}"${i>=SHOW?' hidden':''} title="${escapeHTML(ys.join(', '))}"><span>${escapeHTML(n)}</span><b>${ys.length>1?'×'+ys.length:ys[0]}</b></button>`;
+ cav.insertAdjacentHTML('beforebegin',`<section class="day-played" id="day-played"><h3 class="day-section-title">Songs played on this day</h3><p class="day-shows-sub">Every song with a page here that they played on this date, most often first.</p><div class="dp-chips">${list.map(chip).join('')}</div>${list.length>SHOW?`<button type="button" class="dp-more" id="dp-more">Show all ${list.length}</button>`:''}</section>`);
+ const m=$('#dp-more');if(m)m.onclick=()=>{d.querySelectorAll('.dp-chip[hidden]').forEach(c=>c.hidden=false);m.remove()};
+ d.querySelectorAll('.dp-chip').forEach(b=>b.onclick=()=>{const n=b.dataset.song;history.pushState(null,'',songPath({name:n}));selectSong(n,false);window.scrollTo(0,0)});
+}
 async function fillDayShows(el,md){
  const all=await loadShows(),list=all.filter(e=>e.d.slice(5)===md);
  if(!el.isConnected||!list.length)return;
@@ -228,7 +237,7 @@ function showThisDay(now=new Date(),push=true){
  const md=mdOf(now),today=mdOf(new Date()),path=md===today?DAY_PATH:dayPath(md);track(md===today?'this-day':'day/'+md,md===today?'This day':'Day '+md);
  if(push==='replace')history.replaceState(null,'',path);else if(push&&location.pathname!==path){history.pushState(null,'',path);dayPushed=true}
  if(selected)dayReturn=selected;
- dayYear=new Date().getFullYear();dayIsToday=md===today;const {found,next}=dayEntries(now),groups=dayGroups(found);
+ dayYear=new Date().getFullYear();dayIsToday=md===today;dayMd=md;const {found,next}=dayEntries(now),groups=dayGroups(found);
  const pretty=now.toLocaleDateString('en-US',{month:'long',day:'numeric'});
  const meta=found.length?'Songs first played, last played, or picked as fan favorite on this date, in any year.':`No First, Last, or Best versions fall on ${pretty}.${next?.off===1?' Check back tomorrow.':''}`;
  selected=null;renderList();
@@ -242,7 +251,7 @@ function showThisDay(now=new Date(),push=true){
  $('#day-pick').onchange=e=>{const v=e.target.value;if(/^\d{4}-\d\d-\d\d$/.test(v))showThisDay(dayDate(v.slice(5)),'replace')};
  const td=$('#day-today');if(td)td.onclick=()=>showThisDay(new Date(),'replace');
  if(matchMedia('(min-width:651px)').matches){$('#day-shows-box').innerHTML='';d.querySelector(':scope>.caveat').insertAdjacentHTML('beforebegin','<section class="day-shows day-shows-inline" id="day-shows"></section>')}else $('#day-shows-box').innerHTML='<section class="day-shows" id="day-shows"></section>';
- fillDayShows($('#day-shows'),md);
+ fillDayShows($('#day-shows'),md);fillDayPlayed(md);
  const entry=v=>{const [gi,i]=v.split(':').map(Number);return groups[gi].items[i]};
  d.querySelectorAll('[data-day-play]').forEach(b=>b.onclick=()=>{const e=entry(b.dataset.dayPlay);queue=[];playHistory=[];play(e.s,e.k)});
  d.querySelectorAll('[data-day-play-show]').forEach(b=>b.onclick=()=>openShow(entry(b.dataset.dayPlayShow).p.date,true,true));
@@ -321,7 +330,7 @@ function showShow(d,push=true,autoplay=false){
  d0.querySelectorAll('.show-chip').forEach(b=>b.onclick=()=>showShow(b.dataset.show));
  fillSetlist(e).then(()=>{ // "Play Full Show" elsewhere lands here and starts the show; a song name starts that song
   if(!autoplay)return;
-  const row=typeof autoplay==='string'&&[...document.querySelectorAll('#setlist .sl-row')].find(r=>songForTitle(r.querySelector('.sl-name')?.firstChild?.textContent||'')?.name===autoplay);
+  const row=typeof autoplay==='string'?[...document.querySelectorAll('#setlist .sl-row')].find(r=>songForTitle(r.querySelector('.sl-name')?.firstChild?.textContent||'')?.name===autoplay):null;
   (row?.querySelector('button.sl-play')||$('#show-play-full'))?.click();
  });
  if(push)d0.scrollIntoView({behavior:'smooth',block:'start'});
@@ -332,7 +341,8 @@ async function fillPlays(s){
  const el=$('#plays');if(!el||s.kind==='sequence')return;
  let data=null;try{const r=await fetch(songPath(s)+'plays.json');if(r.ok)data=await r.json()}catch{}
  if(!el.isConnected||selected!==s||!data?.plays?.length)return;
- const plays=data.plays,byYear=new Map();plays.forEach(([d,t])=>{const y=d.slice(0,4);if(!byYear.has(y))byYear.set(y,[]);byYear.get(y).push([d,t])});
+ const plays=data.plays,byYear=new Map();plays.forEach(p=>{const y=p[0].slice(0,4);if(!byYear.has(y))byYear.set(y,[]);byYear.get(y).push(p)});
+ const long=plays.reduce((a,p)=>(p[2]||0)>(a?.[2]||0)?p:a,null),mmss=x=>`${Math.floor(x/60)}:${String(x%60).padStart(2,'0')}`,BUST=100;
  const years=[];for(let y=1965;y<=1995;y++)years.push(String(y));
  const max=Math.max(...[...byYear.values()].map(v=>v.length)),peak=[...byYear].sort((a,b)=>b[1].length-a[1].length)[0];
  let gap=[0,'',''];for(let i=1;i<plays.length;i++){const g=(new Date(plays[i][0])-new Date(plays[i-1][0]))/864e5;if(g>gap[0])gap=[g,plays[i-1][0],plays[i][0]]}
@@ -341,15 +351,16 @@ async function fillPlays(s){
  const span=g=>g>=730?`${Math.round(g/365)} years`:g>=60?`${Math.round(g/30)} months`:`${Math.round(g)} days`;
  const facts=[`<b>${plays.length}</b> ${plays.length===1?'show':'shows'}`,`Peak: <b>${peak[0]}</b> (${peak[1].length})`,
   gap[0]>=180?`Longest break: <b>${span(gap[0])}</b>, ${compactDate(gap[1])} to ${compactDate(gap[2])}`:'',
+  long?.[2]?`Longest tape track: <button type="button" class="plays-long" data-d="${long[0]}"><b>${mmss(long[2])}</b>, ${compactDate(long[0])}</button>`:'',
   data.next?.[0]?`Most often followed by <b>${escapeHTML(data.next[0][0])}</b> (${data.next[0][1]})`:''].filter(Boolean);
  el.innerHTML=`<h3 class="plays-title">Every time they played it</h3><p class="plays-facts">${facts.map(f=>`<span>${f}</span>`).join('')}</p>
  <div class="plays-chart" role="list">${years.map(y=>{const n=byYear.get(y)?.length||0,ks=Object.keys(markYear).filter(k=>markYear[k]===y);
   return `<button type="button" class="pc-bar${n?'':' is-empty'}" data-year="${y}" role="listitem" ${n?'':'disabled'} aria-label="${y}: ${n} ${n===1?'show':'shows'}" style="--h:${n?Math.max(6,n/max*100):0}%">${ks.map(k=>`<i class="pc-mark ${k}"></i>`).join('')}<span class="pc-col"></span>${y.endsWith('5')||y.endsWith('0')?`<span class="pc-year">'${y.slice(2)}</span>`:''}</button>`}).join('')}</div>
- <div class="plays-years">${[...byYear].map(([y,ds])=>`<details class="py" data-year="${y}"><summary><span class="py-year">${y}</span><span class="py-n">${ds.length} ${ds.length===1?'show':'shows'}</span>${Object.keys(markYear).filter(k=>markYear[k]===y).map(k=>`<span class="tally ${k}">${k}</span>`).join('')}</summary><div class="py-chips">${ds.map(([d,t])=>`<button type="button" class="py-chip${t?'':' no-tape'}${mark[d]?' is-'+mark[d][0]:''}" data-d="${d}" aria-label="${escapeHTML(date(d))}${t?'':', no tape of this song'}">${compactDate(d)}</button>`).join('')}</div></details>`).join('')}</div>
- <p class="caveat">From the setlists on this site. Tap a date to hear that night's version. Dimmed dates have no tape of the song.</p>`;
+ <div class="plays-years">${[...byYear].map(([y,ds])=>`<details class="py" data-year="${y}"><summary><span class="py-year">${y}</span><span class="py-n">${ds.length} ${ds.length===1?'show':'shows'}</span>${Object.keys(markYear).filter(k=>markYear[k]===y).map(k=>`<span class="tally ${k}">${k}</span>`).join('')}</summary><div class="py-chips">${ds.map(([d,t,,g])=>`<button type="button" class="py-chip${t?'':' no-tape'}${mark[d]?' is-'+mark[d][0]:''}${g>=BUST?' is-bust':''}" data-d="${d}" aria-label="${escapeHTML(date(d))}${g>=BUST?`, bustout after ${g} shows`:''}${t?'':', no tape of this song'}"${g>=BUST?` title="Bustout: first time in ${g} shows"`:''}>${compactDate(d)}${g>=BUST?'<span class="py-bust">BUSTOUT</span>':''}</button>`).join('')}</div></details>`).join('')}</div>
+ <p class="caveat">From the setlists on this site. Tap a date to hear that night's version. Dimmed dates have no tape of the song. A bustout is the first time in 100+ shows. Track times include any tuning or crowd on the tape.</p>`;
  el.hidden=false;
  el.querySelectorAll('.pc-bar[data-year]').forEach(b=>b.onclick=()=>{const det=el.querySelector(`details[data-year="${b.dataset.year}"]`);if(!det)return;det.open=true;det.scrollIntoView({behavior:'smooth',block:'nearest'})});
- el.querySelectorAll('.py-chip').forEach(b=>b.onclick=()=>openShow(b.dataset.d,true,s.name));
+ el.querySelectorAll('.py-chip,.plays-long').forEach(b=>b.onclick=()=>openShow(b.dataset.d,true,s.name));
 }
 
 /* Playable setlist: sets from The SetList Program matched to the show's tape (tools/fetch_setlists.py),

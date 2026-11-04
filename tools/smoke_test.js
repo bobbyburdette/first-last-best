@@ -43,9 +43,15 @@ server.listen(0, async () => {
     await p.goBack(); await wait(); check('back from this day', (await h2()) === 'Bertha');
 
     await go('/day/10-31/'); check('day page', (await h2()) === 'October 31' && (await p.locator('.day-show').count()) > 5);
+    await p.waitForSelector('#day-played'); check('songs played on this day', (await p.locator('.dp-chip:visible').count()) === 18 && (await p.locator('#dp-more').count()) === 1);
     await p.click('[data-day-step="1"]'); await wait(); check('next day', at() === '/day/11-01/');
     await p.fill('#day-pick', '2024-02-29'); await p.dispatchEvent('#day-pick', 'change'); await wait();
     check('pick a day (Feb 29)', at() === '/day/02-29/' && (await h2()) === 'February 29');
+
+
+    await go('/song/dark-star/'); await p.waitForSelector('#plays:not([hidden])');
+    check('every time they played it', (await p.locator('.py').count()) > 10 && (await p.locator('.py-chip.is-bust').count()) > 0);
+    await p.click('.plays-long'); await wait(1200); check('longest tape track opens its show', at() === '/show/1973-12-06/');
 
     await go('/show/1977-05-08/');
     check('show page', (await p.locator('.tk-a-venue').textContent()).includes('Barton Hall'));

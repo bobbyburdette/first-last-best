@@ -102,19 +102,39 @@ def show_link(d, text=None):
     return f'<a href="{show_url(d)}">{esc(text or long_date(d))}</a>'
 
 
+def track_secs(sl, rows, i, keys):
+    """Length of the song's tape track, only when that track holds this song alone (not shared with a segue)."""
+    idx = rows[i][1]
+    if idx < 0 or not sl.get('id') or idx >= len(sl.get('tracks', [])):
+        return 0
+    if i + 1 < len(rows) and rows[i + 1][1] == -1:
+        return 0
+    tr = sl['tracks'][idx]
+    if title_key(tr[1]) not in keys or sum(title_key(r[0]) in keys for r in rows) > 1:  # a sandwich's track holds more
+        return 0
+    try:
+        parts = [int(float(x)) for x in str(tr[2]).split(':')]
+    except (ValueError, IndexError):
+        return 0
+    return sum(v * 60 ** n for n, v in enumerate(reversed(parts)))
+
+
 def song_plays(song, setlists):
-    """Every show in the setlist data where the song was played: [[date, on tape (1/0)], ...], plus the songs
-    that most often came next. Sequences are left out (their parts have their own pages)."""
+    """Every show in the setlist data where the song was played: [[date, on tape (1/0), track seconds (0 if
+    unknown), shows since the last time (0 the first time)], ...], plus the songs that most often came next.
+    Sequences are left out (their parts have their own pages)."""
     if song.get('kind') == 'sequence':
         return None
     keys = {title_key(n) for n in [song['name'], *song.get('aliases', [])]}
-    plays, after = [], {}
-    for date, sl in sorted(setlists.items()):
+    plays, after, last = [], {}, None
+    for n, (date, sl) in enumerate(sorted(setlists.items())):
         rows = [r for _, rs in sl['sets'] for r in rs]
         hit = next((i for i, r in enumerate(rows) if title_key(r[0]) in keys), None)
         if hit is None:
             continue
-        plays.append([date, int(rows[hit][1] >= 0 and bool(sl.get('id')))])
+        plays.append([date, int(rows[hit][1] >= 0 and bool(sl.get('id'))), track_secs(sl, rows, hit, keys),
+                      0 if last is None else n - last])
+        last = n
         if hit + 1 < len(rows) and title_key(rows[hit + 1][0]) not in keys:
             after[rows[hit + 1][0]] = after.get(rows[hit + 1][0], 0) + 1
     if not plays:
@@ -122,9 +142,24 @@ def song_plays(song, setlists):
     return {'plays': plays, 'next': sorted(after.items(), key=lambda x: -x[1])[:3]}
 
 
+def day_played(setlists, songs):
+    """For each MM-DD: the songs with a page that were played on that date in any year, most often first."""
+    by_key = {}
+    for s in songs:
+        if s.get('kind') != 'sequence':
+            for n in [s['name'], *s.get('aliases', [])]:
+                by_key.setdefault(title_key(n), s['name'])
+    out = {}
+    for date, sl in setlists.items():
+        seen = {by_key[k] for _, rs in sl['sets'] for r in rs if (k := title_key(r[0])) in by_key}
+        for name in seen:
+            out.setdefault(date[5:], {}).setdefault(name, []).append(date[:4])
+    return {md: sorted(([n, sorted(ys)] for n, ys in v.items()), key=lambda x: (-len(x[1]), x[0])) for md, v in out.items()}
+
+
 def plays_html(name, data):
     by_year = {}
-    for d, _ in data['plays']:
+    for d, *_ in data['plays']:
         by_year.setdefault(d[:4], []).append(d)
     top = max(by_year.items(), key=lambda kv: len(kv[1]))
     n = len(data['plays'])
@@ -242,7 +277,7 @@ def show_page(show, prev, nxt, same_venue, sl, song_by_key):
             'files': {'setlist.json': sl} if sl else {}}
 
 
-def day_page(md, shows, songs):
+def day_page(md, shows, songs, played=()):
     """One page per calendar day: every show played on that date in any year, and the songs first played,
     last played or at their best on it."""
     day = datetime.date(2024, int(md[:2]), int(md[3:]))  # 2024 is a leap year, so Feb 29 gets a page
@@ -264,13 +299,17 @@ def day_page(md, shows, songs):
         parts.append('<h3>First, Last and Best on this date</h3><ul>'
                      + ''.join(f'<li><a href="{song_url(song)}">{esc(song["name"])}</a>: {KIND[k]}, {d[:4]}</li>' for song, k, d in picks)
                      + '</ul>')
+    if played:
+        by_name = {s['name']: s for s in songs}
+        parts.append('<h3>Songs played on this date</h3><p>'
+                     + ', '.join(f'<a href="{song_url(by_name[n])}">{esc(n)}</a> ({", ".join(ys)})' for n, ys in played) + '</p>')
     prev, nxt = day - datetime.timedelta(days=1), day + datetime.timedelta(days=1)
     parts.append(f'<p><a href="/day/{prev:%m-%d}/">{prev:%B} {prev.day}</a> · <a href="/day/{nxt:%m-%d}/">{nxt:%B} {nxt.day}</a></p></div>')
     years = f' ({on[0]["d"][:4]}–{on[-1]["d"][:4]})' if len(on) > 1 else ''
     description = (f'Every Grateful Dead show played on {name}{years}, with setlists you can play song by song'
                    + (', plus the songs first played, last played or at their best on this date.' if picks else '.'))
     return {'path': f'/day/{md}/', 'title': f'Grateful Dead on {name}: Every Show & Setlist | First Last Best',
-            'description': description, 'body': ''.join(parts),
+            'description': description, 'body': ''.join(parts), 'files': {'played.json': list(played)},
             'ld': {'@context': 'https://schema.org', '@type': 'WebPage', 'name': f'Grateful Dead on {name}',
                    'url': f'{SITE}/day/{md}/', 'description': description}}
 
@@ -344,7 +383,8 @@ def main():
         pages.append(show_page(s, shows[i - 1] if i else None, shows[i + 1] if i + 1 < len(shows) else None, same,
                                setlists.get(s['d']), song_by_key))
     d0 = datetime.date(2024, 1, 1)
-    pages += [day_page(f'{d0 + datetime.timedelta(days=i):%m-%d}', shows, songs) for i in range(366)]
+    played = day_played(setlists, songs)
+    pages += [day_page(md, shows, songs, played.get(md, [])) for md in (f'{d0 + datetime.timedelta(days=i):%m-%d}' for i in range(366))]
     pages.append({'path': '/this-day/', 'title': 'This Day in Grateful Dead History | First Last Best',
                   'description': 'Grateful Dead songs first played, last played or at their best on this date, plus every show played on this day.',
                   'body': '<div class="seo-summary"><p class="song-kicker">THIS DAY IN DEAD HISTORY</p><h2>This day in Dead history</h2>'

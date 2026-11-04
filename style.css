@@ -405,3 +405,15 @@ a.song-button{text-decoration:none;color:inherit}
 .py-chip.no-tape{opacity:.45}
 .py-chip.is-first{border-color:var(--accent-1);color:var(--accent-1)}.py-chip.is-best{border-color:var(--accent-2);color:var(--accent-2)}.py-chip.is-last{border-color:var(--accent-3)}
 @media (max-width:650px){.plays-chart{gap:2px;height:110px}.pc-mark{width:6px;height:6px}}
+/* Song pages: longest track and bustouts; day pages: songs played on this day */
+.plays-long{padding:0;border:0;background:none;color:inherit;font:inherit;cursor:pointer;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+@media (hover:hover){.plays-long:hover{text-decoration-color:currentColor}}
+.py-chip.is-bust{display:inline-flex;align-items:center;gap:6px;border-style:dashed;border-color:var(--text)}
+.py-bust{padding:1px 4px;border-radius:2px;background:var(--text);color:var(--panel);font:600 9px/1.3 var(--mono);letter-spacing:.06em}
+.day-played{margin-top:30px}
+.dp-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.dp-chip{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 10px;border:1px solid var(--line);border-radius:3px;background:none;color:var(--text);font:500 14px var(--body,inherit);cursor:pointer}
+.dp-chip b{font:500 12px var(--mono);color:var(--muted)}
+@media (hover:hover){.dp-chip:hover{border-color:var(--text)}}
+.dp-more{margin-top:10px;padding:8px 0;border:0;background:none;color:var(--muted);font:500 13px var(--mono);text-decoration:underline;cursor:pointer}
+.dp-chip[hidden]{display:none}
