@@ -200,7 +200,7 @@ function dayGroupHTML(g,gi){
  return `<section class="day-group">${stripHTML(g)}${nPlay>1?`<div class="day-group-head"><button type="button" class="day-play-all" data-day-all="${gi}">${icon('play')} Play all ${nPlay}</button></div>`:''}${g.items.map((e,i)=>dayTapeHTML(e,gi,i)).join('')}${extra>0?`<button type="button" class="day-more" data-day-more="${gi}" aria-expanded="false">Show ${extra} more</button>`:''}</section>`;
 }
 let showsData=null;
-async function loadShows(){if(showsData)return showsData;try{const r=await fetch('/shows.json?v=4');if(!r.ok)throw Error('shows unavailable');showsData=await r.json()}catch{return []}return showsData}
+async function loadShows(){if(showsData)return showsData;try{const r=await fetch('/shows.json?v=5');if(!r.ok)throw Error('shows unavailable');showsData=await r.json()}catch{return []}return showsData}
 function pipsOn(d){const t={first:0,last:0,best:0};songs.forEach(s=>['first','last','best'].forEach(k=>{if(s[k]?.date===d)t[k]++}));const ks=Object.keys(t).filter(k=>t[k]);return ks.length?`<span class="show-pips" aria-label="${ks.map(k=>t[k]+' '+k).join(', ')}">${ks.map(k=>`<i class="pip ${k}">${t[k]}</i>`).join('')}</span>`:''}
 function dayShowsHTML(list){
  const cap=list.length<=8?list.length:6,extra=list.length-cap;
