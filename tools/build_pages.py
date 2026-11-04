@@ -78,12 +78,17 @@ def venue_key(v, c):
 
 # ---------- data ----------
 
+def is_longest(song, k):
+    """The third card of a song without enough HeadyVersion votes is its longest tape, never called Best."""
+    return k == 'best' and (song.get('best') or {}).get('sourceType') == 'longest'
+
+
 def build_shows(songs):
     by_date = {s['d']: {**s, 'picks': []} for s in flb.load_shows()}
     for song in songs:
         for k in ('first', 'last', 'best'):
             p = song.get(k) or {}
-            if not p.get('date'):
+            if not p.get('date') or is_longest(song, k):
                 continue
             if p['date'] not in by_date:
                 v, c = place(p)
@@ -139,6 +144,11 @@ def song_plays(song, setlists):
             after[rows[hit + 1][0]] = after.get(rows[hit + 1][0], 0) + 1
     if not plays:
         return None
+    # Drop track lengths far past the song's usual length: those tracks hold something else too
+    lens = sorted(p[2] for p in plays if p[2])
+    for p in plays:
+        if lens and p[2] > 1.8 * lens[len(lens) // 2]:
+            p[2] = 0
     return {'plays': plays, 'next': sorted(after.items(), key=lambda x: -x[1])[:3]}
 
 
@@ -189,7 +199,12 @@ def song_page(song, plays=None):
         desc.append(f'last played {short_date(l["date"])}')
     else:
         lines.append(('Last time played', 'There is no verified date for the last live performance.'))
-    if b.get('date'):
+    if b.get('date') and is_longest(song, 'best'):
+        v, c = place(b)
+        lines.append(('Longest version', f'There aren’t enough HeadyVersion votes yet to name a fan favorite. '
+                      f'The longest version on tape is {show_link(b["date"])} at {esc(where(v, c))} ({esc(b.get("duration", ""))}).'))
+        desc.append(f'longest version from {short_date(b["date"])}')
+    elif b.get('date'):
         v, c = place(b)
         votes = f', with {b["votes"]} votes' if b.get('votes') else ''
         when = f' (as of {dt(b["checkedAt"]):%B %Y})' if b.get('checkedAt') else ''
@@ -201,6 +216,11 @@ def song_page(song, plays=None):
                 f'{show_link(r["date"], short_date(r["date"]))} ({r["votes"]} votes)' for r in runners) + '.'
         lines.append(('Best version', text))
         desc.append(f'fan-favorite version from {short_date(b["date"])}')
+    cr = song.get('credits') or {}
+    if cr.get('writers'):
+        rel = cr.get('release', '')
+        lines.insert(0, ('Who wrote it', f'{esc(name)} was written by {esc(cr["writers"].replace(" / ", ", "))}.'
+                         + (f' It was first released on {esc(rel)}.' if rel else '')))
     years = [p['date'][:4] for p in (f, l) if p.get('date')]
     count = (f' It appears in {song["count"]} concert listings in The SetList Program, '
              f'{years[0]} to {years[-1]}.') if song.get('count') and len(years) == 2 else ''
@@ -211,6 +231,9 @@ def song_page(song, plays=None):
     description = f'{name} by the Grateful Dead: ' + ', '.join(desc) + '. Stream all three free.'
     ld = {'@context': 'https://schema.org', '@type': 'MusicComposition', 'name': name,
           'url': SITE + song_url(song), 'description': description}
+    if cr.get('writers'):
+        ld['composer'] = [{'@type': 'Person', 'name': w.strip()} for w in cr['writers'].split('/')
+                          if w.strip() and w.strip() not in ('Traditional', 'Grateful Dead')]
     if f.get('date'):
         v, c = place(f)
         ld['firstPerformance'] = event_ld(f['date'], v, c)
@@ -284,7 +307,7 @@ def day_page(md, shows, songs, played=()):
     name = f'{day:%B} {day.day}'
     on = [s for s in shows if s['d'][5:] == md]
     picks = sorted(((song, k, (song.get(k) or {})['date']) for song in songs for k in ('first', 'last', 'best')
-                    if ((song.get(k) or {}).get('date') or '')[5:] == md), key=lambda x: (x[2], x[0]['name']))
+                    if ((song.get(k) or {}).get('date') or '')[5:] == md and not is_longest(song, k)), key=lambda x: (x[2], x[0]['name']))
     parts = [f'<div class="seo-summary"><p class="song-kicker">DEAD HISTORY</p><h2>{esc(name)}</h2>']
     if on:
         parts.append(f'<p>The Grateful Dead played {len(on)} {"show" if len(on) == 1 else "shows"} on {name}, '

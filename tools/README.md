@@ -9,6 +9,8 @@ Scripts that maintain `songs.json`, `shows.json` and `tapes.json`. Python 3, sta
 | `build_tapes.py` | Rebuilds `tapes.json` (tape notes on the cards) from archive.org metadata. |
 | `check_audio.py` | Confirms every audio file still plays. |
 | `fetch_setlists.py` | Builds `data/setlists.json`: each show's sets from The SetList Program matched to the tracks on its archive.org tape (switching to a better-labeled tape of the same show when needed). Slow the first time; cached after. Run `build_pages.py` after. |
+| `add_songs.py` | Adds the songs listed in it to `songs.json`: First and Last from The SetList Program (every spelling of the title), Best from HeadyVersion when the #1 has at least 5 votes, otherwise the longest single-song track on tape, labeled Longest. `--apply` writes. |
+| `fetch_credits.py` | Adds who wrote each song and its first release from the Grateful Dead Family Discography (deaddisc.com). Only exact title matches; lists songs it couldn't match. `--apply` writes. |
 | `build_pages.py` | Writes a crawlable page for every song (`/song/<slug>/`) and show (`/show/<date>/`), plus `sitemap.xml` and `404.html`, from `index.html`. Run after any change to `index.html`, `app.js`, `style.css`, `songs.json` or `shows.json`. `--check` reports stale pages. |
 | `align_picks.py` | Moves First/Last/Best cards to their show's main tape when it sounds as good or better (same performance, cleaner recording). Skips tapes kept after a listen (`listened.json`). |
 | `social/make_posts.js` | Makes daily "This day in Dead history" posts for Facebook and Instagram: a 1080×1350 card image and caption per day, plus `posts.csv`, in `tools/social/out/`. `node tools/social/make_posts.js --start 2026-11-01 --days 30` (needs Playwright). |

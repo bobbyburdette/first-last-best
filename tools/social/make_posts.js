@@ -29,7 +29,7 @@ function pick(day) {
   const hits = [];
   for (const s of songs) for (const k of ['first', 'last', 'best']) {
     const p = s[k];
-    if (p?.date && md(p.date) === md(day)) hits.push({ s, k, p });
+    if (p?.date && md(p.date) === md(day) && !(k === 'best' && p.sourceType === 'longest')) hits.push({ s, k, p });
   }
   // Lead with the strongest story: famous songs first (Rolling Stone rank), Bests with real vote counts ahead.
   const score = h => (h.s.rank ?? 140) - (h.k === 'best' ? Math.min(40, (h.p.votes || 0) / 4) : 0) + RANK[h.k] * 3;
