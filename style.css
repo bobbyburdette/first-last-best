@@ -422,3 +422,5 @@ a.song-button{text-decoration:none;color:inherit}
 .song-credits span{padding:0 5px}.song-credits a{color:var(--muted)}.song-credits .ui-icon{width:12px;height:12px;vertical-align:-1px}
 .song-credits .nw{white-space:nowrap;padding:0}
 .song-meta .meta-group{padding:0;white-space:nowrap}
+.song-links{display:flex;flex-wrap:wrap;gap:4px 22px;margin:2px 0 0;font-size:14px;line-height:1.7;color:var(--muted)}
+.song-links a{color:inherit}
