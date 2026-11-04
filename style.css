@@ -420,3 +420,4 @@ a.song-button{text-decoration:none;color:inherit}
 @media (min-width:651px){#search::placeholder{font-size:14px}}
 .song-credits{margin:6px 0 0;font-size:14px;line-height:1.6;color:var(--muted)}
 .song-credits span{padding:0 5px}.song-credits a{color:var(--muted)}.song-credits .ui-icon{width:12px;height:12px;vertical-align:-1px}
+.song-credits .nw{white-space:nowrap;padding:0}

@@ -144,11 +144,6 @@ def song_plays(song, setlists):
             after[rows[hit + 1][0]] = after.get(rows[hit + 1][0], 0) + 1
     if not plays:
         return None
-    # Drop track lengths far past the song's usual length: those tracks hold something else too
-    lens = sorted(p[2] for p in plays if p[2])
-    for p in plays:
-        if lens and p[2] > 1.8 * lens[len(lens) // 2]:
-            p[2] = 0
     return {'plays': plays, 'next': sorted(after.items(), key=lambda x: -x[1])[:3]}
 
 

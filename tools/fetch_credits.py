@@ -19,9 +19,15 @@ DD = 'https://www.deaddisc.com/'
 ROW = re.compile(r'<a href="(songs/[^"]+\.htm)"><img[^>]*></a>\s*([^<]+?)\s*<br>', re.I)
 # Titles deaddisc files under another name: our name -> theirs
 SAME = {'Help on the Way': 'Help On The Way', 'Slipknot!': 'Slipknot', "Walkin' Blues": 'Walkin Blues',
-        'The Mighty Quinn': 'Quinn The Eskimo', 'Tons Of Steel': 'Tons Of Steel', 'King Bee': "I'm A King Bee",
+        'Tons Of Steel': 'Tons Of Steel', 'King Bee': "I'm A King Bee",
         'Satisfaction': "(I Can't Get No) Satisfaction", 'Casey Jones': 'Casey Jones (Grateful Dead song)',
-        'Mississippi Half-Step': 'Mississippi Half-Step Uptown Toodeloo'}
+        'Mississippi Half-Step': 'Mississippi Half-Step Uptown Toodeloo',
+        'The Mighty Quinn': 'The Mighty Quinn (Quinn The Eskimo)', 'Day Job': 'Keep Your Day Job',
+        'Let The Good Times Roll': 'Good Times (aka Let The Good Times Roll)', "It's A Man's World": "It's A Man's, Man's, Man's World"}
+
+
+# Spelling slips on deaddisc pages
+FIX = {'Jerr Garcia': 'Jerry Garcia', 'Athur Neville': 'Arthur Neville', 'John Barlow': 'John Perry Barlow'}
 
 
 def cached(name, url):
@@ -64,6 +70,9 @@ def parse(page):
                 album = re.sub(r',\s*Grateful Dead$', '', m.group(1).strip())
                 release = f'{album}, {m.group(2)}'
                 break
+    for typo, name in FIX.items():
+        writers = re.sub(rf'\b{re.escape(typo)}(?=\s*(/|$))', name, writers)
+    writers = re.sub(r'\s*/\s*\?\s*$', '', writers)  # an unknown co-writer listed as "?"
     return writers.strip(' .:'), release
 
 
