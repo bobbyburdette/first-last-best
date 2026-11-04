@@ -426,3 +426,8 @@ a.song-button{text-decoration:none;color:inherit}
 .song-links a{color:inherit}
 .history-jump{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:none;color:inherit;font:inherit;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
 .history-jump[hidden]{display:none}.history-jump .ui-icon{transform:rotate(90deg)}
+.song-links a{display:inline-flex;align-items:center;gap:4px}
+.history-jump{gap:2px}.song-links .ui-icon{flex-shrink:0}
+.song-links .ui-icon{margin:0;width:18px;height:18px;flex-basis:18px}
+.history-jump .ui-icon{margin-left:-2px}
+.song-links a{gap:1px}
