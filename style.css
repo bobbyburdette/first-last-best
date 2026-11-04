@@ -377,3 +377,31 @@ a.song-button{text-decoration:none;color:inherit}
 @media (hover:hover){.day-step:hover,.day-pick:hover{border-color:var(--text)}}
 .day-pick:focus-within{outline:2px solid var(--accent-1);outline-offset:2px}
 @media (max-width:650px){.day-nav{display:grid;grid-template-columns:1fr 1fr}.day-nav:has(.day-today){grid-template-columns:1fr auto 1fr}.day-pick{grid-column:1/-1;order:-1}.day-today{border-color:var(--line);color:var(--text)}}
+/* Every time they played it (song page) */
+.plays{margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+.plays-title{margin:0;font:600 26px/1.2 var(--display)}
+.plays-facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:8px 0 18px;font-size:14px;color:var(--muted)}
+.plays-facts b{color:var(--text);font-weight:600}
+.plays-chart{display:grid;grid-template-columns:repeat(31,1fr);align-items:end;gap:3px;height:130px;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.pc-bar{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:0;background:none;border:0;cursor:pointer;color:inherit}
+.pc-col{display:block;width:100%;height:var(--h);min-height:0;border-radius:2px 2px 0 0;background:var(--accent-1);opacity:.85}
+.pc-bar:hover .pc-col,.pc-bar:focus-visible .pc-col{opacity:1;background:var(--text)}
+.pc-bar.is-empty{cursor:default}.pc-bar.is-empty .pc-col{height:2px;background:var(--line);opacity:1}
+.pc-year{position:absolute;bottom:-20px;font:500 10px var(--mono);color:var(--muted)}
+.pc-mark{display:block;width:8px;height:8px;margin-bottom:3px;border-radius:50%;background:var(--accent-2)}
+.pc-mark.first{background:var(--accent-1);box-shadow:0 0 0 2px var(--panel)}.pc-mark.last{background:var(--accent-3)}
+.plays-years{display:flex;flex-direction:column}
+.py{border-bottom:1px solid var(--line)}
+.py summary{display:flex;align-items:center;gap:10px;min-height:46px;cursor:pointer;list-style:none}
+.py summary::-webkit-details-marker{display:none}
+.py summary::after{content:'+';margin-left:auto;font:400 20px var(--mono);color:var(--muted)}
+.py[open] summary::after{content:'–'}
+.py-year{font:600 18px var(--display)}
+.py-n{font-size:13px;color:var(--muted)}
+.py summary .tally{font-size:10px;padding:2px 6px}
+.py-chips{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 14px}
+.py-chip{min-height:36px;padding:0 10px;border:1px solid var(--line);border-radius:3px;background:none;color:var(--text);font:500 13px var(--mono);cursor:pointer}
+@media (hover:hover){.py-chip:hover{border-color:var(--text)}}
+.py-chip.no-tape{opacity:.45}
+.py-chip.is-first{border-color:var(--accent-1);color:var(--accent-1)}.py-chip.is-best{border-color:var(--accent-2);color:var(--accent-2)}.py-chip.is-last{border-color:var(--accent-3)}
+@media (max-width:650px){.plays-chart{gap:2px;height:110px}.pc-mark{width:6px;height:6px}}
