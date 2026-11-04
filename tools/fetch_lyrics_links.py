@@ -22,7 +22,7 @@ EXTRA = {'Let It Grow': '/song/weather-report-suite-part-ii-let-it-grow',
          'Mississippi Half-Step': '/song/mississippi-half-step-uptown-toodleloo', 'Mr. Charlie': '/song/mister-charlie',
          "Just Like Tom Thumb's Blues": '/song/just-tom-thumb-blues', 'Day Job': '/song/keep-your-day-job',
          'Two Souls In Communion': '/song/stranger-two-souls-communion', 'China Doll': '/song/china-doll',
-         'Cosmic Charlie': '/song/cosmic-charlie', 'Stuck Inside Of Mobile': '/song/stuck-inside-mobile-memphis-blues-again'}
+         'Cosmic Charlie': '/song/cosmic-charley', 'Stuck Inside Of Mobile': '/song/stuck-inside-mobile-memphis-blues-again'}
 LYRICS = re.compile(r'field--name-field-lyrics\s.*?<div class="field__item">(.*?)</div>', re.S)
 
 
