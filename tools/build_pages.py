@@ -216,6 +216,8 @@ def song_page(song, plays=None):
         rel = cr.get('release', '')
         lines.insert(0, ('Who wrote it', f'{esc(name)} was written by {esc(cr["writers"].replace(" / ", ", "))}.'
                          + (f' It was first released on {esc(rel)}.' if rel else '')))
+    if song.get('lyrics'):
+        lines.append(('Lyrics', f'Read the lyrics to {esc(name)} on <a href="{esc(song["lyrics"])}">dead.net</a>, the band’s official site.'))
     years = [p['date'][:4] for p in (f, l) if p.get('date')]
     count = (f' It appears in {song["count"]} concert listings in The SetList Program, '
              f'{years[0]} to {years[-1]}.') if song.get('count') and len(years) == 2 else ''

@@ -70,7 +70,7 @@ server.listen(0, async () => {
     await p.fill('#search', 'pittsburgh'); await wait(600); check('search by city', (await p.locator('.show-button').count()) > 5);
 
     await go('/song/slipknot/'); check('song with a Longest card', (await h2()) === 'Slipknot!' && (await p.textContent('.tape.best .tape-band-title')).includes('The Longest'));
-    await go('/song/bertha/'); check('song credits', (await p.textContent('.song-credits')).includes('Robert Hunter'));
+    await go('/song/bertha/'); check('song credits and lyrics link', (await p.textContent('.song-credits')).includes('Robert Hunter') && (await p.getAttribute('a[aria-label="Lyrics on dead.net"]', 'href')) === 'https://www.dead.net/song/bertha');
 
     await go('/#Bertha'); check('old #song link', at() === '/song/bertha/');
     await go('/#show-1989-07-07'); check('old #show link', at() === '/show/1989-07-07/');
