@@ -51,6 +51,8 @@ server.listen(0, async () => {
 
     await go('/song/dark-star/'); await p.waitForSelector('#plays:not([hidden])');
     check('every time they played it', (await p.locator('.py').count()) > 10 && (await p.locator('.py-chip.is-bust').count()) > 0);
+    await p.click('#history-jump'); await wait(800);
+    check('History jumps to every time they played it', await p.evaluate(() => Math.abs(document.querySelector('#plays').getBoundingClientRect().top) < 120));
     await p.click('.plays-long'); await wait(1200); check('longest tape track opens its show', at() === '/show/1973-12-06/');
 
     await go('/show/1977-05-08/');

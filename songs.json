@@ -19634,5 +19634,59 @@
       "source": "https://www.deaddisc.com/songs/Cold_Jordan.htm"
     },
     "lyrics": "https://www.dead.net/song/cold-jordan"
+  },
+  {
+    "name": "The Rub",
+    "aliases": [
+      "Ain't It Crazy",
+      "Ain't It Crazy (The Rub)"
+    ],
+    "history": "https://www.setlists.net/?search=true&songs=The+Rub&songs_exact=true",
+    "count": 13,
+    "first": {
+      "date": "1968-10-09",
+      "venue": "The Matrix - San Francisco, CA",
+      "source": "https://www.setlists.net/?show_id=0340",
+      "unavailable": true,
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-10-09",
+      "showId": "gd-1968-10-09"
+    },
+    "last": {
+      "date": "1971-12-01",
+      "venue": "Boston Music Hall - Boston, MA",
+      "source": "https://www.setlists.net/?show_id=2350",
+      "audio": "https://archive.org/download/gd71-12-01.aud.minches-vernon.24765.sbeok.shnf/gd1971-12-01d1t007.mp3",
+      "track": "The Rub",
+      "duration": "03:52",
+      "combined": false,
+      "identifier": "gd71-12-01.aud.minches-vernon.24765.sbeok.shnf",
+      "recording": "https://archive.org/details/gd71-12-01.aud.minches-vernon.24765.sbeok.shnf",
+      "rating": 3.17,
+      "reviews": 14,
+      "showId": "gd-1971-12-01"
+    },
+    "best": {
+      "date": "1970-05-15",
+      "venue": "Fillmore East - New York City, NY",
+      "source": "https://www.setlists.net/?show_id=0589",
+      "sourceType": "longest",
+      "note": "Longest version on tape (06:14). Not enough HeadyVersion votes yet to name a fan favorite.",
+      "audio": "https://archive.org/download/gd70-05-15.early-late.sbd.97.sbeok.shnf/gd70-5-15D1T03.mp3",
+      "track": "The Rub",
+      "duration": "06:14",
+      "combined": false,
+      "identifier": "gd70-05-15.early-late.sbd.97.sbeok.shnf",
+      "recording": "https://archive.org/details/gd70-05-15.early-late.sbd.97.sbeok.shnf",
+      "venueName": "Fillmore East",
+      "city": "New York City, NY",
+      "showId": "gd-1970-05-15"
+    },
+    "rank": null,
+    "credits": {
+      "writers": "Traditional / Lightnin' Hopkins",
+      "release": "Ladies and Gentlemen ... The Grateful Dead, 2000",
+      "source": "https://www.deaddisc.com/songs/Rub.htm"
+    },
+    "lyrics": "https://www.dead.net/song/aint-it-crazy-rub"
   }
 ]

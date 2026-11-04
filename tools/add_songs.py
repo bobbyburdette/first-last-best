@@ -99,6 +99,7 @@ NEW = [
     ('She Belongs To Me', [], '/song/240/grateful-dead/she-belongs-to-me/'),
     ("It's A Man's World", [], '/song/138/grateful-dead/its-a-mans-world/'),
     ('Cold Jordan', [], '/song/56/grateful-dead/cold-jordan/'),
+    ('The Rub', ["Ain't It Crazy", "Ain't It Crazy (The Rub)"], None),
 ]
 # Hand-picked HeadyVersion categories that cover more than this one song are left out on purpose (U.S. Blues
 # includes Wave That Flag; Baba O'Riley and Tomorrow Never Knows share one category), so those use Longest.
