@@ -30,6 +30,7 @@ NEW = [
     ('All Along The Watchtower', [], '/song/333/grateful-dead/all-along-the-watchtower/'),
     ('Slipknot!', ['Slipknot'], None),
     ('My Brother Esau', ['Brother Esau'], None),
+    ('Wang Dang Doodle', [], '/song/288/grateful-dead/wang-dang-doodle/'),
     ('Long Way To Go Home', [], None),
     ("Gimme Some Lovin'", ['Gimme Some Loving'], '/song/100/grateful-dead/gimme-some-lovin/'),
     ('Picasso Moon', [], '/song/334/grateful-dead/picasso-moon/'),

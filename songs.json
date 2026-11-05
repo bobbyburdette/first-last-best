@@ -19688,5 +19688,92 @@
       "source": "https://www.deaddisc.com/songs/Rub.htm"
     },
     "lyrics": "https://www.dead.net/song/aint-it-crazy-rub"
+  },
+  {
+    "name": "Wang Dang Doodle",
+    "history": "https://www.setlists.net/?search=true&songs=Wang+Dang+Doodle&songs_exact=true",
+    "count": 95,
+    "first": {
+      "date": "1983-08-26",
+      "venue": "Portland Memorial Coliseum - Portland, OR",
+      "source": "https://www.setlists.net/?show_id=1479",
+      "audio": "https://archive.org/download/gd1983-08-26.148833.fob.nak700.severson.miller.clugston.flac2496/gd83-08-26%20s2t09%20Wang%20Dang%20Doodle.mp3",
+      "track": "Wang Dang Doodle >",
+      "duration": "05:32",
+      "combined": true,
+      "identifier": "gd1983-08-26.148833.fob.nak700.severson.miller.clugston.flac2496",
+      "recording": "https://archive.org/details/gd1983-08-26.148833.fob.nak700.severson.miller.clugston.flac2496",
+      "rating": 3,
+      "reviews": 1,
+      "showId": "gd-1983-08-26"
+    },
+    "last": {
+      "date": "1995-07-08",
+      "venue": "Soldier Field - Chicago, IL",
+      "source": "https://www.setlists.net/?show_id=2347",
+      "audio": "https://archive.org/download/gd1995-07-08.sbd.miller.114363.flac16/gd95-07-08d1t04.mp3",
+      "track": "Wang Dang Doodle",
+      "duration": "07:10",
+      "combined": false,
+      "identifier": "gd1995-07-08.sbd.miller.114363.flac16",
+      "recording": "https://archive.org/details/gd1995-07-08.sbd.miller.114363.flac16",
+      "rating": 3.64,
+      "reviews": 14,
+      "showId": "gd-1995-07-08"
+    },
+    "best": {
+      "date": "1983-09-02",
+      "venue": "Boise Pavillion - Boise, ID",
+      "source": "https://headyversion.com/song/288/grateful-dead/wang-dang-doodle/",
+      "sourceType": "headyversion",
+      "votes": 46,
+      "checkedAt": "2026-11-05",
+      "category": "Wang Dang Doodle",
+      "sourceShow": "https://headyversion.com/show/404/archive/",
+      "ties": [],
+      "audio": "https://archive.org/download/gd83-09-02.sbd.unk.2174.sbeok.shnf/gd83-09-02d1t01.mp3",
+      "track": "Wang Dang Doodle ->",
+      "duration": "06:19",
+      "combined": true,
+      "identifier": "gd83-09-02.sbd.unk.2174.sbeok.shnf",
+      "recording": "https://archive.org/details/gd83-09-02.sbd.unk.2174.sbeok.shnf",
+      "venueName": "Boise Pavillion",
+      "city": "Boise, ID",
+      "showId": "gd-1983-09-02",
+      "runnersUp": [
+        {
+          "date": "1989-07-02",
+          "venue": "Sullivan Stadium Foxboro, MA",
+          "votes": 31,
+          "headyHref": "https://headyversion.com/show/641/archive/",
+          "audio": "https://archive.org/download/gd1989-07-02.138287.sbd.miller.flac24/04WangDangDoodle.mp3",
+          "track": "04 Wang Dang Doodle",
+          "duration": "08:12",
+          "combined": false,
+          "identifier": "gd1989-07-02.138287.sbd.miller.flac24",
+          "recording": "https://archive.org/details/gd1989-07-02.138287.sbd.miller.flac24"
+        },
+        {
+          "date": "1990-07-08",
+          "venue": "Three Rivers Stadium Pittsburgh, PA",
+          "votes": 20,
+          "headyHref": "https://headyversion.com/show/474/archive/",
+          "audio": "https://archive.org/download/gd1990-07-08.141773.sbd.miller.flac2496/19WangDangDoodle.mp3",
+          "track": "19 Wang Dang Doodle",
+          "duration": "05:17",
+          "combined": false,
+          "identifier": "gd1990-07-08.141773.sbd.miller.flac2496",
+          "recording": "https://archive.org/details/gd1990-07-08.141773.sbd.miller.flac2496"
+        }
+      ],
+      "runnersUpCheckedAt": "2026-11-05"
+    },
+    "rank": null,
+    "credits": {
+      "writers": "Willie Dixon",
+      "release": "View From The Vault, 2000",
+      "source": "https://www.deaddisc.com/songs/Wang_Dang_Doodle.htm"
+    },
+    "lyrics": "https://www.dead.net/song/wang-dang-doodle"
   }
 ]
