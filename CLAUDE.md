@@ -6,3 +6,4 @@ Static site on GitHub Pages (deploys from `main`, custom domain firstlastbest.co
 - Asset paths in `index.html` and data fetches in `app.js` must stay root-absolute (`/app.js`, `/songs.json`) because pages live in subfolders.
 - Before pushing to `main`, run `node tools/smoke_test.js` (needs Playwright) and fix anything it flags.
 - Data tools and the refresh routine are documented in `tools/README.md`.
+- After shipping a data change, refresh the private archive repo (bobbyburdette/first-last-best-archive): `python3 tools/build_archive.py <its clone>`, then commit and push it. Never publish it as is; the public copy is `--public`.

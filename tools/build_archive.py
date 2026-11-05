@@ -273,24 +273,23 @@ def write(rows, out, public):
 def snapshots(out):
     """Raw copies of what we pulled from each source, so the tables can be rebuilt if a source disappears.
     Dead.net pages are reduced to title, writers and URL (their lyrics are not kept)."""
-    snap = out / 'snapshots'
-    if snap.exists():
-        shutil.rmtree(snap)
+    snap = out / 'snapshots'  # added to, never cleared: a later session's cache may hold only part of it
     for name in ('history', 'deaddisc', 'meta', 'uploads'):
         src = flb.CACHE / name
         if src.exists():
-            shutil.copytree(src, snap / {'history': 'setlistprogram-song-history', 'deaddisc': 'deaddisc',
+            shutil.copytree(src, dirs_exist_ok=True, dst=snap / {'history': 'setlistprogram-song-history', 'deaddisc': 'deaddisc',
                                          'meta': 'archive-metadata', 'uploads': 'archive-uploads-by-date'}[name])
-    pages = []
+    keep = snap / 'deadnet' / 'song-pages.json'
+    pages = {p['path']: p for p in (json.loads(keep.read_text()) if keep.exists() else [])}
     for f in sorted((flb.CACHE / 'deadnet').glob('_song_*.html')):
         t = f.read_text()
         field = lambda n: (re.search(rf'field--name-field-{n}\s.*?field__item">(.*?)</div>', t, re.S) or [None, ''])[1].strip()
         title = (re.search(r'<title>([^|<]*)', t) or [None, ''])[1].strip()
-        pages.append({'path': '/' + f.stem.lstrip('_').replace('_', '/', 1).replace('_', '-'), 'title': title,
-                      'lyrics_by': field('lyrics-by'), 'music_by': field('music-by'),
-                      'has_lyrics': bool(re.search(r'field--name-field-lyrics\s', t))})
-    (snap / 'deadnet').mkdir(parents=True, exist_ok=True)
-    (snap / 'deadnet' / 'song-pages.json').write_text(json.dumps(pages, indent=1, ensure_ascii=False))
+        path = '/' + f.stem.lstrip('_').replace('_', '/', 1).replace('_', '-')
+        pages[path] = {'path': path, 'title': title, 'lyrics_by': field('lyrics-by'), 'music_by': field('music-by'),
+                       'has_lyrics': bool(re.search(r'field--name-field-lyrics\s', t))}
+    keep.parent.mkdir(parents=True, exist_ok=True)
+    keep.write_text(json.dumps(sorted(pages.values(), key=lambda p: p['path']), indent=1, ensure_ascii=False))
     for f in ('songs.json', 'shows.json', 'tapes.json', 'data/setlists.json'):
         shutil.copy(flb.ROOT / f, snap / ('site-' + Path(f).name))
 

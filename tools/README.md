@@ -29,6 +29,7 @@ python3 tools/upgrade_tapes.py --apply
 python3 tools/build_tapes.py
 python3 tools/check_audio.py
 python3 tools/build_pages.py
+python3 tools/build_archive.py ../first-last-best-archive   # then commit and push that repo
 # commit, push, wait for the site to update, then:
 python3 tools/indexnow.py
 ```
