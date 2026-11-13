@@ -53,10 +53,10 @@ async function play(s,k,part=0,tracksOverride=null,showMeta=null,perfOverride=nu
   $('#now-date').textContent=date(p.date)+(tracks.length>1?` · ${part+1}/${tracks.length}: ${tracks[part].title}`:p.duration?' · '+p.duration:'');
  }
  $('#player-status').textContent='Loading tape…';$('#recording-link').hidden=!p.recording;$('#recording-link').href=p.recording||'';
- audio.src=tracks[part].url;
+ retryState=0;audio.src=tracks[part].url;
  syncTrackNav();
  try{await audio.play();if(token===playToken)$('#player-status').textContent=''}
- catch(e){if(token!==playToken)return;$('#player-status').textContent=e.name==='NotAllowedError'?'Tap Play on the player to continue.':'Tape didn’t load. Hit play again: that usually does it.';if(e.name!=='NotAllowedError'){queue=[];playHistory=[]}}
+ catch(e){if(token!==playToken)return;if(e.name!=='NotAllowedError'&&retryTape())return;$('#player-status').textContent=e.name==='NotAllowedError'?'Tap Play on the player to continue.':'Tape didn’t load. Hit play again: that usually does it.';if(e.name!=='NotAllowedError'){queue=[];playHistory=[]}}
 }
 function advanceTape(){
  if(playing&&playing.part+1<playing.tracks.length){play(playing.s,playing.k,playing.part+1,playing.tracks,playing.show);return}
@@ -110,11 +110,24 @@ async function playShow(s,k,startAt=0,known=null){
  play(s,k,startAt,tracks,{venue});
 }
 /* A tape stuck buffering usually starts again with pause and play; say so after 12 seconds */
+/* archive.org tapes often fail or stall once and then play fine, so the player quietly retries one time
+   (reloading at the same spot) before asking the listener to hit play */
+let retryState=0; // 0 not tried yet, 1 retrying, 2 already retried this track
+function retryTape(){
+ if(retryState===1)return true;if(retryState===2||!playing)return false;
+ retryState=1;const tok=playToken,src=audio.src,at=audio.currentTime||0;$('#player-status').textContent='Reconnecting to the tape…';
+ setTimeout(async()=>{if(tok!==playToken)return;
+  if(at)audio.addEventListener('loadedmetadata',()=>{try{audio.currentTime=at}catch{}},{once:true});
+  audio.src=src;
+  try{await audio.play();if(tok===playToken)$('#player-status').textContent=''}
+  catch{if(tok===playToken)$('#player-status').textContent='Tape didn’t load. Hit play again: that usually does it.'}
+  finally{if(tok===playToken)retryState=2}},1500);
+ return true}
 let stallTimer=0;const clearStall=()=>clearTimeout(stallTimer);
 audio.addEventListener('playing',()=>{clearStall();$('#player-status').textContent=''});
-audio.addEventListener('waiting',()=>{$('#player-status').textContent='Buffering…';clearStall();stallTimer=setTimeout(()=>{if(!audio.paused&&audio.readyState<3)$('#player-status').textContent='Still buffering. Hit pause, then play again: that usually does it.'},12000)});
+audio.addEventListener('waiting',()=>{$('#player-status').textContent='Buffering…';clearStall();stallTimer=setTimeout(()=>{if(!audio.paused&&audio.readyState<3&&!retryTape())$('#player-status').textContent='Still buffering. Hit pause, then play again: that usually does it.'},12000)});
 audio.addEventListener('pause',clearStall);audio.addEventListener('emptied',clearStall);
-audio.addEventListener('error',()=>{$('#player-status').textContent='Tape didn’t load. Hit play again: that usually does it.';queue=[];playHistory=[]});
+audio.addEventListener('error',()=>{if(retryTape())return;$('#player-status').textContent='Tape didn’t load. Hit play again: that usually does it.';queue=[];playHistory=[]});
 audio.addEventListener('ended',advanceTape);
 $('#sort').addEventListener('change',()=>{renderList();$('#songs').scrollTop=0});
 $('#search').addEventListener('input',renderList);
