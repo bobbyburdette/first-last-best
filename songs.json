@@ -4785,7 +4785,10 @@
       "release": "Europe '72, 1972",
       "source": "https://www.deaddisc.com/songs/It_Hurts_Me_Too.htm"
     },
-    "lyrics": "https://www.dead.net/song/it-hurts-me-too"
+    "lyrics": "https://www.dead.net/song/it-hurts-me-too",
+    "aliases": [
+      "Hurts Me Too"
+    ]
   },
   {
     "name": "It Must Have Been The Roses",
@@ -12165,6 +12168,7 @@
   {
     "name": "Caution (Do Not Stop On The Tracks)",
     "aliases": [
+      "Caution",
       "Caution (Do Not Stop On Tracks)",
       "Do Not Stop On Tracks"
     ],
@@ -14147,7 +14151,7 @@
     "lyrics": "https://www.dead.net/song/my-brother-esau"
   },
   {
-    "name": "Long Way To Go Home",
+    "name": "Way To Go Home",
     "history": "https://www.setlists.net/?search=true&songs=Long+Way+To+Go+Home&songs_exact=true",
     "count": 91,
     "first": {
@@ -14188,7 +14192,10 @@
       "city": "Noblesville, IN",
       "showId": "gd-1994-07-21"
     },
-    "rank": null
+    "rank": null,
+    "aliases": [
+      "Long Way To Go Home"
+    ]
   },
   {
     "name": "Gimme Some Lovin'",
@@ -17939,7 +17946,10 @@
     "credits": {
       "writers": "Charlie Monroe",
       "source": "https://www.deaddisc.com/songs/Rosalie_McFall.htm"
-    }
+    },
+    "aliases": [
+      "Rosa Lee McFall"
+    ]
   },
   {
     "name": "Built To Last",
@@ -18985,7 +18995,10 @@
       "writers": "Jimmy Reed / M. Reed",
       "release": "Dick's Picks, Vol. 26, 2002",
       "source": "https://www.deaddisc.com/songs/Its_A_Sin.htm"
-    }
+    },
+    "aliases": [
+      "I Know It's A Sin"
+    ]
   },
   {
     "name": "Revolution",
@@ -19633,7 +19646,10 @@
       "release": "Dick's Picks, Vol. 8, 1997",
       "source": "https://www.deaddisc.com/songs/Cold_Jordan.htm"
     },
-    "lyrics": "https://www.dead.net/song/cold-jordan"
+    "lyrics": "https://www.dead.net/song/cold-jordan",
+    "aliases": [
+      "Jordan"
+    ]
   },
   {
     "name": "The Rub",
