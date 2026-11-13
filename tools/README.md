@@ -13,6 +13,8 @@ Scripts that maintain `songs.json`, `shows.json` and `tapes.json`. Python 3, sta
 | `fetch_credits.py` | Adds who wrote each song and its first release from the Grateful Dead Family Discography (deaddisc.com). Only exact title matches; lists songs it couldn't match. `--apply` writes. |
 | `fetch_lyrics_links.py` | Links each song to its lyrics on dead.net (the band's official site), only when that page actually shows lyrics. Lyrics are never copied onto this site. `--apply` writes. |
 | `build_archive.py` | Writes the archive: every show, setlist, performance, tape and pick as CSV tables plus one SQLite database, with the source of every fact. `python3 tools/build_archive.py OUT_DIR` for the private copy (vote counts and raw source snapshots), `--public` for the shareable one. See the archive's own README. |
+| `jerrybase.py` | Reads the JerryBase files kept in the archive repo (`incoming/jerrybase/`: the "Events by year" CSVs plus `categories.csv`). Public Grateful Dead concerts only, soundchecks left out. Run alone it reports where JerryBase and the site disagree. |
+| `merge_jerrybase.py` | Makes JerryBase the setlist source for every show it lists (matched again to the same tape tracks) and adds public concerts the site lacks. Run it after `fetch_setlists.py`, which would otherwise put The SetList Program's setlists back. Never changes First/Last picks. `--apply` writes. |
 | `build_pages.py` | Writes a crawlable page for every song (`/song/<slug>/`) and show (`/show/<date>/`), plus `sitemap.xml` and `404.html`, from `index.html`. Run after any change to `index.html`, `app.js`, `style.css`, `songs.json` or `shows.json`. `--check` reports stale pages. |
 | `align_picks.py` | Moves First/Last/Best cards to their show's main tape when it sounds as good or better (same performance, cleaner recording). Skips tapes kept after a listen (`listened.json`). |
 | `social/make_posts.js` | Makes daily "This day in Dead history" posts for Facebook and Instagram: a 1080×1350 card image and caption per day, plus `posts.csv`, in `tools/social/out/`. `node tools/social/make_posts.js --start 2026-11-01 --days 30` (needs Playwright). |
@@ -28,6 +30,7 @@ python3 tools/refresh_runnersup.py --apply
 python3 tools/upgrade_tapes.py --apply
 python3 tools/build_tapes.py
 python3 tools/check_audio.py
+python3 tools/merge_jerrybase.py ../first-last-best-archive --apply   # after any fetch_setlists.py run
 python3 tools/build_pages.py
 python3 tools/build_archive.py ../first-last-best-archive   # then commit and push that repo
 # commit, push, wait for the site to update, then:
