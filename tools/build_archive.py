@@ -47,7 +47,8 @@ SOURCES = [
     ('flb', 'First Last Best', 'https://firstlastbest.com/',
      'Our own work: tape matching, Longest picks, corrections.', ''),
     ('jerrybase', 'JerryBase', 'https://jerrybase.com/',
-     'Not used yet. Data to be supplied by JerryBase by agreement.', 'Never scrape JerryBase (owner\'s request).'),
+     'Setlists (sets, order, segues) and the full list of public concerts.',
+     'Downloaded by hand plus one light page pull the owner OK\'d. Credit and link JerryBase on every show that uses it.'),
 ]
 
 COLUMNS = {
@@ -209,7 +210,7 @@ def build(public):
         sl = setlists.get(s['d']) or {}
         rows['shows'].append({'date': s['d'], 'venue': s['v'], 'city': city, 'state_or_country': st,
                               'main_tape': s.get('id') or '',
-                              'setlist_source': ('setlistprogram' if sl.get('full') else 'tape') if sl.get('sets') else '',
+                              'setlist_source': (sl.get('source') or ('setlistprogram' if sl.get('full') else 'tape')) if sl.get('sets') else '',
                               'site_url': f'https://firstlastbest.com/show/{s["d"]}/'})
         tape(s.get('id'), s['d'], 'show')
     for p in rows['picks']:
@@ -228,7 +229,7 @@ def build(public):
                     'song_id': by_key.get(title_key(title), ''), 'segue_into_next': int(bool(segue)) if tr else '',
                     'tape': ident or '', 'track_file': tr[0] if tr else '', 'track_title': tr[1] if tr else '',
                     'track_seconds': secs(tr[2]) if tr else '',
-                    'source_id': 'setlistprogram' if sl.get('full') else 'tape'})
+                    'source_id': sl.get('source') or ('setlistprogram' if sl.get('full') else 'tape')})
                 if ident:
                     tape(ident, date, 'setlist')
     rows['tapes'] = [{**t, 'used_for': ', '.join(sorted(t['used_for']))} for t in sorted(tapes.values(), key=lambda t: (t['date'], t['identifier']))]

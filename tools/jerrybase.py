@@ -43,11 +43,21 @@ def parse_songs(text):
     return sets
 
 
+def label_shows(events):
+    """Two or more shows on one date (early and late shows): prefix each one's sets so they read apart."""
+    events = [e for e in events if e]
+    if len(events) < 2:
+        return events[0] if events else []
+    names = ['Early show', 'Late show'] if len(events) == 2 else [f'Show {i + 1}' for i in range(len(events))]
+    return [[f'{n}: {l}' if l and l not in ('Show', 'Known Songs', 'Partial Show') else n, rows]
+            for n, sets in zip(names, events) for l, rows in sets]
+
+
 def load(archive):
     inc = Path(archive) / 'incoming' / 'jerrybase'
     cats = collections.defaultdict(set)
     for c in csv.DictReader(open(inc / 'categories.csv', encoding='utf-8')):
-        cats[(c['date'], c['band'], c['venue'])].add((c['category'], c['show_id']))
+        cats[(c['date'], c['band'], c['venue'])].add((c['category'], c.get('event_url') or ''))
     shows = {}
     for f in sorted(inc.glob('events-*.csv')):
         for r in csv.DictReader(open(f, encoding='utf-8-sig')):
@@ -60,10 +70,11 @@ def load(archive):
             sets = [(l, rows) for l, rows in parse_songs(r['Songs'])] if r['Songs'].strip() else []
             live = [(l, [x for x in rows if not UNKNOWN.match(x[0])]) for l, rows in sets if not NOT_LIVE.search(l)]
             show = shows.setdefault(date, {'date': date, 'venue': r['Venue'], 'sets': [], 'partial': False,
-                                           'jerrybase_ids': sorted({i for _, i in got if i})})
+                                           'jerrybase_urls': sorted({u for _, u in got if u})})
             if show['venue'] != r['Venue']:
                 show['venue'] += ' / ' + r['Venue']
-            show['sets'] += [[l, rows] for l, rows in live if rows]
+            show.setdefault('events', []).append([[l, rows] for l, rows in live if rows])
+            show['sets'] = label_shows(show['events'])
             show['partial'] = show['partial'] or any(l.startswith('Partial') or l == 'Known Songs' for l, _ in sets)
     return shows
 

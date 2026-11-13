@@ -144,6 +144,13 @@ def song_plays(song, setlists):
             after[rows[hit + 1][0]] = after.get(rows[hit + 1][0], 0) + 1
     if not plays:
         return None
+    # Until a person settles where sources disagree, the song's First and Last stay in its history too
+    have = {p[0] for p in plays}
+    for k in ('first', 'last'):
+        pk = song.get(k) or {}
+        if pk.get('date') and pk['date'] not in have:
+            plays.append([pk['date'], int(bool(pk.get('audio'))), 0, 0])
+    plays.sort()
     return {'plays': plays, 'next': sorted(after.items(), key=lambda x: -x[1])[:3]}
 
 
@@ -285,10 +292,14 @@ def show_page(show, prev, nxt, same_venue, sl, song_by_key):
         opener = ', '.join(played[:3])
         description = (f'Grateful Dead setlist for {long_date(d)} at {where(v, c)}, opening with {opener}. '
                        + (f'Best versions: {", ".join([(s.get("short") or s["name"]) for s, k in picks if k == "best"][:3])}. ' if any(k == 'best' for _, k in picks) else '')
-                       + 'Play every song free from the tape.')
+                       + ('Play every song free from the tape.' if show.get('id') else 'No tape of this show is known to survive.'))
+    elif not show.get('id'):
+        description = f'The Grateful Dead played {where(v, c)} on {long_date(d)}. No setlist or tape of this show is known.'
+    credit = {'jerrybase': f'<p>Setlist from <a href="{esc(((sl or {}).get("jerrybase") or ["https://jerrybase.com/"])[0])}">JerryBase</a>.</p>',
+              'setlistprogram': '<p>Setlist from <a href="https://www.setlists.net/">The SetList Program</a>.</p>'}.get((sl or {}).get('source'), '')
     body = (f'<div class="seo-summary"><p class="song-kicker">GRATEFUL DEAD CONCERT</p><h2>{esc(long_date(d))}</h2>'
             f'<p>The Grateful Dead played {esc(where(v, c))} on {dt(d):%A}, {esc(long_date(d))}.</p>'
-            f'{setlist_html(sl, song_by_key) if played else ""}{part}{rec}{also}<p>{nav}</p></div>')
+            f'{setlist_html(sl, song_by_key) + credit if played else ""}{part}{rec}{also}<p>{nav}</p></div>')
     ld = {'@context': 'https://schema.org', **event_ld(d, v, c), 'url': SITE + show_url(d), 'description': description}
     if played:
         ld['workPerformed'] = [{'@type': 'MusicComposition', 'name': t} for t in dict.fromkeys(played)]
