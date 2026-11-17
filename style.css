@@ -433,17 +433,9 @@ a.song-button{text-decoration:none;color:inherit}
 .song-links a{gap:1px}
 .day-show-play.no-tape{color:var(--muted);border-color:var(--line);font-weight:500}.day-show-play.no-tape:hover{background:transparent}
 .day-show-play.no-tape{border:0;padding:0;min-height:0;font:500 13px var(--mono);color:var(--muted)}
-/* Post-it on a cassette: the documented first/last show that has no tape */
-.postit{position:relative;align-self:flex-end;width:min(78%,300px);margin:-26px 6px 14px 0;padding:14px 14px 12px;display:flex;flex-direction:column;gap:2px;
- background:linear-gradient(180deg,#fff3a6,#f9e27d);color:#3a3020;transform:rotate(2.2deg);box-shadow:0 6px 12px #0000002e,0 1px 0 #e7cf62 inset;font-family:'Journal',cursive;z-index:1}
-.postit::before{content:'';position:absolute;top:-9px;left:50%;width:64px;height:18px;margin-left:-32px;background:#f7f1e1b8;transform:rotate(-4deg);box-shadow:0 1px 2px #0002}
-.pi-kick{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#7a6527}
-.pi-date{font-size:30px;line-height:1;color:#b3261e}
-.pi-venue{font-size:19px;line-height:1.15}
-.pi-note{font:400 13px/1.4 'DM Sans',sans-serif;color:#4d4230;margin-top:4px}
-.pi-note a{color:inherit}
-@media (prefers-reduced-motion:no-preference){.postit{transition:transform .2s}@media(hover:hover){.postit:hover{transform:rotate(0deg)}}}
-@media (max-width:650px){.postit{margin-top:-12px;padding:12px 12px 10px;width:84%}.pi-date{font-size:25px}.pi-venue{font-size:17px}.pi-note{font-size:12px}}
-.pi-note,.pi-note a{font-size:11px;line-height:1.35}
-.pi-note a{display:block;margin-top:2px;width:max-content}
-@media (max-width:650px){.pi-note,.pi-note a{font-size:11px}}
+/* Margin note under a cassette whose show isn't the documented first/last (that show has no tape) */
+.doc-mark{color:#b3261e;margin-left:.15em}
+.doc-note{align-self:center;width:100%;max-width:560px;display:flex;gap:6px;align-items:baseline;margin:-6px 0 10px;font-family:'Journal',cursive;font-size:18px;line-height:1.25;color:#5a5048}
+.doc-ast{color:#b3261e;font-size:22px;line-height:1}
+.doc-note a{font:400 11px 'DM Sans',sans-serif;color:#6b6050;white-space:nowrap}
+@media (max-width:650px){.doc-note{font-size:16px}}
