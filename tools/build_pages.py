@@ -94,6 +94,12 @@ def build_shows(songs):
                 v, c = place(p)
                 by_date[p['date']] = {'d': p['date'], 'v': v, 'c': c, 'id': p.get('identifier'), 'picks': []}
             by_date[p['date']]['picks'].append((song, k))
+    for song in songs:  # a documented first/last with no tape keeps its show page
+        for k in ('first', 'last'):
+            d = ((song.get(k) or {}).get('documented') or {})
+            if d.get('date') and d['date'] not in by_date:
+                v, c = (d['venue'].rsplit(', ', 2)[0], ', '.join(d['venue'].rsplit(', ', 2)[1:])) if d['venue'].count(',') >= 2 else (d['venue'], '')
+                by_date[d['date']] = {'d': d['date'], 'v': v, 'c': c, 'id': None, 'picks': []}
     shows = sorted(by_date.values(), key=lambda s: s['d'])
     for s in shows:
         s['picks'].sort(key=lambda x: (['first', 'last', 'best'].index(x[1]), x[0]['name']))
@@ -148,8 +154,10 @@ def song_plays(song, setlists):
     have = {p[0] for p in plays}
     for k in ('first', 'last'):
         pk = song.get(k) or {}
-        if pk.get('date') and pk['date'] not in have:
-            plays.append([pk['date'], int(bool(pk.get('audio'))), 0, 0])
+        for d, taped in ((pk.get('date'), bool(pk.get('audio'))), ((pk.get('documented') or {}).get('date'), False)):
+            if d and d not in have:
+                plays.append([d, int(taped), 0, 0])
+                have.add(d)
     plays.sort()
     return {'plays': plays, 'next': sorted(after.items(), key=lambda x: -x[1])[:3]}
 
@@ -187,7 +195,13 @@ def song_page(song, plays=None):
     name = song['name']
     f, l, b = (song.get(k) or {} for k in ('first', 'last', 'best'))
     lines, desc = [], []
-    if f.get('date'):
+    fd = f.get('documented')
+    if fd:
+        v, c = place(f)
+        lines.append(('First time played', f'The Grateful Dead first played {esc(name)} live on {show_link(fd["date"])} at '
+                      f'{esc(fd["venue"])}, per {esc(fd.get("source", "the setlist sources"))}. No tape of that show survives; the '
+                      f'earliest surviving tape is {show_link(f["date"])} at {esc(where(v, c))}.'))
+    elif f.get('date'):
         v, c = place(f)
         lines.append(('First time played', f'The Grateful Dead first played {esc(name)} live on '
                       f'{show_link(f["date"])} at {esc(where(v, c))}.'))
