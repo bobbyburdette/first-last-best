@@ -444,3 +444,6 @@ a.song-button{text-decoration:none;color:inherit}
 .pi-note a{color:inherit}
 @media (prefers-reduced-motion:no-preference){.postit{transition:transform .2s}@media(hover:hover){.postit:hover{transform:rotate(0deg)}}}
 @media (max-width:650px){.postit{margin-top:-12px;padding:12px 12px 10px;width:84%}.pi-date{font-size:25px}.pi-venue{font-size:17px}.pi-note{font-size:12px}}
+.pi-note,.pi-note a{font-size:11px;line-height:1.35}
+.pi-note a{display:block;margin-top:2px;width:max-content}
+@media (max-width:650px){.pi-note,.pi-note a{font-size:11px}}
