@@ -5512,24 +5512,12 @@
     "history": "https://www.setlists.net/?search=true&songs=Mama+Tried&songs_exact=true",
     "count": 297,
     "first": {
-      "date": "1969-06-27",
-      "venue": "Veterans Auditorium - Santa Rosa, CA",
-      "source": "https://jerrybase.com/events/19690627-01",
-      "sourceLabel": "Setlist",
-      "audio": "https://archive.org/download/gd69-06-27.sbd.samaritano.20547.sbeok.shnf/gd1969-06-27d1t02.mp3",
-      "track": "Mama Tried",
-      "duration": "02:49",
-      "combined": false,
-      "identifier": "gd69-06-27.sbd.samaritano.20547.sbeok.shnf",
-      "recording": "https://archive.org/details/gd69-06-27.sbd.samaritano.20547.sbeok.shnf",
-      "showId": "gd-1969-06-27",
-      "documented": {
-        "date": "1969-06-20",
-        "venue": "Fillmore East, New York, NY",
-        "source": "JerryBase",
-        "url": "https://jerrybase.com/events/19690620-01",
-        "note": "No tape survives."
-      }
+      "date": "1969-06-11",
+      "venue": "California Hall - San Francisco, CA",
+      "source": "https://www.setlists.net/?show_id=0453",
+      "unavailable": true,
+      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-06-11",
+      "showId": "gd-1969-06-11"
     },
     "last": {
       "date": "1995-06-25",
@@ -6327,14 +6315,7 @@
       "recording": "https://archive.org/details/gd1973-12-12.sbd.miller.105561.flac16",
       "rating": 4.45,
       "reviews": 12,
-      "showId": "gd-1973-12-12",
-      "documented": {
-        "date": "1973-12-10",
-        "venue": "Charlotte Coliseum, Charlotte, NC",
-        "source": "JerryBase",
-        "url": "https://jerrybase.com/events/19731210-01",
-        "note": "No tape survives."
-      }
+      "showId": "gd-1973-12-12"
     },
     "last": {
       "date": "1995-07-05",
