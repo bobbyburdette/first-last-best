@@ -28,7 +28,7 @@ const rankOf = n => songs.find(x => x.kind !== 'sequence' && [x.name, ...(x.alia
 function pick(day) {
   const hits = [];
   for (const s of songs) for (const k of ['first', 'last', 'best']) {
-    const p = s[k];
+    const p = k !== 'best' && s[k]?.documented ? { ...s[k], date: s[k].documented.date, venue: s[k].documented.venue } : s[k];  // the real show, not a stand-in tape
     if (p?.date && md(p.date) === md(day) && !(k === 'best' && p.sourceType === 'longest')) hits.push({ s, k, p });
   }
   // Lead with the strongest story: famous songs first (Rolling Stone rank), Bests with real vote counts ahead.

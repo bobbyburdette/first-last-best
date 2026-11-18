@@ -2100,12 +2100,24 @@
       "showId": "gd-1966-05-19"
     },
     "last": {
-      "date": "1967-06-08",
-      "venue": "Cafe au Go-Go - New York City, NY",
-      "source": "https://www.setlists.net/?show_id=0183",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1967-06-08",
-      "showId": "gd-1967-06-08"
+      "date": "1967-03-18",
+      "venue": "Winterland Arena - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19670318-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1967-03-18.141400.sbd.dalton.miller.clugston.flac1648/Gd67-03-18T10CreamPuffWar.mp3",
+      "track": "gd67-03-18 t10 Cream Puff War",
+      "duration": "06:10",
+      "combined": false,
+      "identifier": "gd1967-03-18.141400.sbd.dalton.miller.clugston.flac1648",
+      "recording": "https://archive.org/details/gd1967-03-18.141400.sbd.dalton.miller.clugston.flac1648",
+      "showId": "gd-1967-03-18",
+      "documented": {
+        "date": "1967-06-08",
+        "venue": "Cafe au Go-Go, New York City, NY",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0183",
+        "note": "No tape survives."
+      }
     },
     "best": {
       "date": "1966-11-19",
@@ -2168,12 +2180,24 @@
     "history": "https://www.setlists.net/?search=true&songs=Cumberland+Blues&songs_exact=true",
     "count": 216,
     "first": {
-      "date": "1969-11-08",
-      "venue": "Fillmore Auditorium - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0508",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-11-08",
-      "showId": "gd-1969-11-08"
+      "date": "1969-11-15",
+      "venue": "Lanai Theater - Crockett, CA",
+      "source": "https://jerrybase.com/events/19691115-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1969-11-15.141256.sbd.tiedrich.miller.clugston.pitch.corrected.flac1644/Gd69-11-15PcT06CumberlandBlues.mp3",
+      "track": "gd69-11-15 pc t06 Cumberland Blues",
+      "duration": "03:54",
+      "combined": false,
+      "identifier": "gd1969-11-15.141256.sbd.tiedrich.miller.clugston.pitch.corrected.flac1644",
+      "recording": "https://archive.org/details/gd1969-11-15.141256.sbd.tiedrich.miller.clugston.pitch.corrected.flac1644",
+      "showId": "gd-1969-11-15",
+      "documented": {
+        "date": "1969-11-08",
+        "venue": "Fillmore Auditorium, San Francisco, CA",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0508",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-07-09",
@@ -2267,18 +2291,17 @@
       "showId": "gd-1970-02-14"
     },
     "last": {
-      "date": "1981-04-25",
-      "venue": "Berkeley Community Theater - Berkeley, CA",
-      "source": "https://www.setlists.net/?show_id=1315",
-      "audio": "https://archive.org/download/gd1981-04-25.sbd.gems.103640.flac16/gd1981.04.25.GEMS.track02.mp3",
+      "date": "1980-10-30",
+      "venue": "Radio City Music Hall - New York, NY",
+      "source": "https://jerrybase.com/events/19801030-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1980-10-30.139599.sbd.bershaw.flac16/gd1980-10-30.sbd.bershaw.s1t05.mp3",
       "track": "Dark Hollow",
-      "duration": "04:55",
+      "duration": "04:10",
       "combined": false,
-      "identifier": "gd1981-04-25.sbd.gems.103640.flac16",
-      "recording": "https://archive.org/details/gd1981-04-25.sbd.gems.103640.flac16",
-      "rating": 4.7,
-      "reviews": 13,
-      "showId": "gd-1981-04-25"
+      "identifier": "gd1980-10-30.139599.sbd.bershaw.flac16",
+      "recording": "https://archive.org/details/gd1980-10-30.139599.sbd.bershaw.flac16",
+      "showId": "gd-1980-10-30"
     },
     "best": {
       "date": "1971-04-29",
@@ -2351,15 +2374,7 @@
       "combined": true,
       "identifier": "gd1968-01-17.sbd.cotsman.11795.shnf",
       "recording": "https://archive.org/details/gd1968-01-17.sbd.cotsman.11795.shnf",
-      "showId": "gd-1968-01-17",
-      "documented": {
-        "date": "1967-12-13",
-        "venue": "Shrine Auditorium, Los Angeles, CA",
-        "note": "A disputed listing. No tape survives.",
-        "source": "The SetList Program",
-        "url": "https://www.setlists.net/?show_id=0237",
-        "kicker": "First listed"
-      }
+      "showId": "gd-1968-01-17"
     },
     "last": {
       "date": "1994-03-30",
@@ -2616,12 +2631,24 @@
     "history": "https://www.setlists.net/?search=true&songs=Death+Don%27t+Have+No+Mercy&songs_exact=true",
     "count": 49,
     "first": {
-      "date": "1966-01-07",
-      "venue": "The Matrix - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0018",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-01-07",
-      "showId": "gd-1966-01-07"
+      "date": "1966-01-08",
+      "venue": "Fillmore Auditorium - San Francisco, CA",
+      "source": "https://www.setlists.net/",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1966-01-08.sbd.lestatkatt.106505.flac16/gd66-01-08.d1t15.mp3",
+      "track": "Death Don't Have No Mercy",
+      "duration": "09:06",
+      "combined": false,
+      "identifier": "gd1966-01-08.sbd.lestatkatt.106505.flac16",
+      "recording": "https://archive.org/details/gd1966-01-08.sbd.lestatkatt.106505.flac16",
+      "showId": "gd-1966-01-08",
+      "documented": {
+        "date": "1965-12-11",
+        "venue": "Muir Beach Lodge, Muir Beach, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19651211-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1990-04-02",
@@ -2965,18 +2992,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Easy+Wind&songs_exact=true",
     "count": 35,
     "first": {
-      "date": "1969-08-30",
-      "venue": "Family Dog at The Great Highway - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0482",
-      "audio": "https://archive.org/download/gd1969-08-30.123076.sbd.miller.flac16/gd69-08-30d1t04.mp3",
+      "date": "1969-08-21",
+      "venue": "Green Lake Aqua Theater - Seattle, WA",
+      "source": "https://jerrybase.com/events/19690821-02",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd69-08-21.sbd.cotsman.13850.sbeok.shnf/gd69-08-21d1t02.mp3",
       "track": "Easy Wind",
-      "duration": "08:26",
+      "duration": "08:42",
       "combined": false,
-      "identifier": "gd1969-08-30.123076.sbd.miller.flac16",
-      "recording": "https://archive.org/details/gd1969-08-30.123076.sbd.miller.flac16",
-      "rating": 5,
-      "reviews": 2,
-      "showId": "gd-1969-08-30"
+      "identifier": "gd69-08-21.sbd.cotsman.13850.sbeok.shnf",
+      "recording": "https://archive.org/details/gd69-08-21.sbd.cotsman.13850.sbeok.shnf",
+      "showId": "gd-1969-08-21"
     },
     "last": {
       "date": "1971-04-04",
@@ -3053,12 +3079,24 @@
     "history": "https://www.setlists.net/?search=true&songs=El+Paso&songs_exact=true",
     "count": 388,
     "first": {
-      "date": "1969-07-08",
-      "venue": "Rock Pile - Toronto, Canada",
-      "source": "https://www.setlists.net/?show_id=0468",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-07-08",
-      "showId": "gd-1969-07-08"
+      "date": "1970-07-11",
+      "venue": "Fillmore East - New York City, NY",
+      "source": "https://www.setlists.net/",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd70-07-11.aud.cotsman.9379.sbefail.shnf/gd70-07-11d1t06.mp3",
+      "track": "El Paso",
+      "duration": "05:24",
+      "combined": false,
+      "identifier": "gd70-07-11.aud.cotsman.9379.sbefail.shnf",
+      "recording": "https://archive.org/details/gd70-07-11.aud.cotsman.9379.sbefail.shnf",
+      "showId": "gd-1970-07-11",
+      "documented": {
+        "date": "1969-07-08",
+        "venue": "Rock Pile, Toronto, Canada",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0468",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-07-05",
@@ -4454,7 +4492,14 @@
       "recording": "https://archive.org/details/gd69-06-21.early-late.aud-sbd.cotsman.16334.sbeok.shnf",
       "rating": 4.13,
       "reviews": 12,
-      "showId": "gd-1969-06-21"
+      "showId": "gd-1969-06-21",
+      "documented": {
+        "date": "1969-06-20",
+        "venue": "Fillmore East, New York, NY",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19690620-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-03-24",
@@ -4545,7 +4590,14 @@
       "recording": "https://archive.org/details/gd66-02-25.sbd.unknown.1593.sbefail.shnf",
       "rating": 4.86,
       "reviews": 52,
-      "showId": "gd-1966-02-25"
+      "showId": "gd-1966-02-25",
+      "documented": {
+        "date": "1966-01-28",
+        "venue": "Matrix, San Francisco, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19660128-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-07-08",
@@ -5460,12 +5512,24 @@
     "history": "https://www.setlists.net/?search=true&songs=Mama+Tried&songs_exact=true",
     "count": 297,
     "first": {
-      "date": "1969-06-11",
-      "venue": "California Hall - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0453",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-06-11",
-      "showId": "gd-1969-06-11"
+      "date": "1969-06-27",
+      "venue": "Veterans Auditorium - Santa Rosa, CA",
+      "source": "https://jerrybase.com/events/19690627-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd69-06-27.sbd.samaritano.20547.sbeok.shnf/gd1969-06-27d1t02.mp3",
+      "track": "Mama Tried",
+      "duration": "02:49",
+      "combined": false,
+      "identifier": "gd69-06-27.sbd.samaritano.20547.sbeok.shnf",
+      "recording": "https://archive.org/details/gd69-06-27.sbd.samaritano.20547.sbeok.shnf",
+      "showId": "gd-1969-06-27",
+      "documented": {
+        "date": "1969-06-20",
+        "venue": "Fillmore East, New York, NY",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19690620-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-06-25",
@@ -6263,7 +6327,14 @@
       "recording": "https://archive.org/details/gd1973-12-12.sbd.miller.105561.flac16",
       "rating": 4.45,
       "reviews": 12,
-      "showId": "gd-1973-12-12"
+      "showId": "gd-1973-12-12",
+      "documented": {
+        "date": "1973-12-10",
+        "venue": "Charlotte Coliseum, Charlotte, NC",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19731210-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-07-05",
@@ -7354,12 +7425,24 @@
     "history": "https://www.setlists.net/?search=true&songs=St.+Stephen&songs_exact=true",
     "count": 158,
     "first": {
-      "date": "1968-06-07",
+      "date": "1968-06-08",
       "venue": "Carousel Ballroom - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0299",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-06-07",
-      "showId": "gd-1968-06-07"
+      "source": "https://www.setlists.net/",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1968-06-08.158612.remaster.disk4.danielfutureanimation02.flac1644/01-St.%20Stephen.mp3",
+      "track": "St. Stephen",
+      "duration": "453.07",
+      "combined": false,
+      "identifier": "gd1968-06-08.158612.remaster.disk4.danielfutureanimation02.flac1644",
+      "recording": "https://archive.org/details/gd1968-06-08.158612.remaster.disk4.danielfutureanimation02.flac1644",
+      "showId": "gd-1968-06-08",
+      "documented": {
+        "date": "1968-06-07",
+        "venue": "Carousel Ballroom, San Francisco, CA",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0299",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1983-10-31",
@@ -8621,7 +8704,14 @@
       "recording": "https://archive.org/details/gd70-07-30.sbd.cotsman.17077.sbeok.shnf",
       "rating": 4,
       "reviews": 12,
-      "showId": "gd-1970-07-30"
+      "showId": "gd-1970-07-30",
+      "documented": {
+        "date": "1970-07-28",
+        "venue": "Matrix, San Francisco, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19700728-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1992-06-28",
@@ -8797,7 +8887,14 @@
       "recording": "https://archive.org/details/gd1970-08-18.142416.aud.knudsen.gems.flac1648",
       "rating": 4.75,
       "reviews": 4,
-      "showId": "gd-1970-08-18"
+      "showId": "gd-1970-08-18",
+      "documented": {
+        "date": "1970-08-17",
+        "venue": "Fillmore West, San Francisco, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19700817-02",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-07-06",
@@ -8888,7 +8985,14 @@
       "recording": "https://archive.org/details/gd1967-08-05.176008.sbd.flegel.miller.flac1648",
       "rating": 5,
       "reviews": 1,
-      "showId": "gd-1967-08-05"
+      "showId": "gd-1967-08-05",
+      "documented": {
+        "date": "1967-06-01",
+        "venue": "Tompkins Square Park, New York, NY",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19670601-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-06-19",
@@ -9144,18 +9248,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Uncle+John%27s+Band&songs_exact=true",
     "count": 326,
     "first": {
-      "date": "1969-12-04",
-      "venue": "Fillmore West - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0511",
-      "audio": "https://archive.org/download/gd1969-12-04.141723.sbd.fowler.sirmick.flac1644/gd1969-12-04t15.mp3",
-      "track": "Uncle John's Band",
-      "duration": "06:27",
+      "date": "1969-11-01",
+      "venue": "Family Dog at the Great Highway - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19691101-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd69-11-01.sbd.cotsman.6298.sbeok.shnf/gd69-11-01d2t07.mp3",
+      "track": "Uncle John's Band Jam",
+      "duration": "01:55",
       "combined": false,
-      "identifier": "gd1969-12-04.141723.sbd.fowler.sirmick.flac1644",
-      "recording": "https://archive.org/details/gd1969-12-04.141723.sbd.fowler.sirmick.flac1644",
-      "rating": 4.67,
-      "reviews": 4,
-      "showId": "gd-1969-12-04"
+      "identifier": "gd69-11-01.sbd.cotsman.6298.sbeok.shnf",
+      "recording": "https://archive.org/details/gd69-11-01.sbd.cotsman.6298.sbeok.shnf",
+      "showId": "gd-1969-11-01"
     },
     "last": {
       "date": "1995-06-28",
@@ -9246,7 +9349,14 @@
       "recording": "https://archive.org/details/gd1966-03-12.sbd.bershaw.9516.shnf",
       "rating": 4,
       "reviews": 7,
-      "showId": "gd-1966-03-12"
+      "showId": "gd-1966-03-12",
+      "documented": {
+        "date": "1966-01-28",
+        "venue": "Matrix, San Francisco, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19660128-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1970-10-31",
@@ -9834,7 +9944,14 @@
       "recording": "https://archive.org/details/gd1966-03-12.sbd.bershaw.9516.shnf",
       "rating": 4,
       "reviews": 7,
-      "showId": "gd-1966-03-12"
+      "showId": "gd-1966-03-12",
+      "documented": {
+        "date": "1966-02-06",
+        "venue": "Valley Unitarian Universalist Church, North Hills, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19660206-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1994-10-03",
@@ -10985,12 +11102,24 @@
       "showId": "gd-1969-01-24"
     },
     "last": {
-      "date": "1969-10-26",
-      "venue": "Winterland Arena - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0503",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-10-26",
-      "showId": "gd-1969-10-26"
+      "date": "1969-09-29",
+      "venue": "Cafe au Go-Go - New York City, NY",
+      "source": "https://jerrybase.com/events/19690929-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd69-09-29.aud.early.hollister.79.sbeok.shnf/gd69-09-29t01.mp3",
+      "track": "Doin' That Rag",
+      "duration": "07:55",
+      "combined": false,
+      "identifier": "gd69-09-29.aud.early.hollister.79.sbeok.shnf",
+      "recording": "https://archive.org/details/gd69-09-29.aud.early.hollister.79.sbeok.shnf",
+      "showId": "gd-1969-09-29",
+      "documented": {
+        "date": "1969-10-26",
+        "venue": "Winterland Arena, San Francisco, CA",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0503",
+        "note": "No tape survives."
+      }
     },
     "best": {
       "date": "1969-02-28",
@@ -11240,7 +11369,14 @@
       "recording": "https://archive.org/details/gd1966-07-03.139751.sbd.miller.clugston.flac1648",
       "rating": 4.33,
       "reviews": 4,
-      "showId": "gd-1966-07-03"
+      "showId": "gd-1966-07-03",
+      "documented": {
+        "date": "1966-05-29",
+        "venue": "California Hall, San Francisco, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19660529-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1987-04-06",
@@ -11848,12 +11984,24 @@
     "history": "https://www.setlists.net/?search=true&songs=Midnight+Hour&songs_exact=true",
     "count": 43,
     "first": {
-      "date": "1966-01-07",
-      "venue": "The Matrix - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0018",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-01-07",
-      "showId": "gd-1966-01-07"
+      "date": "1966-03-12",
+      "venue": "Danish Center - Los Angeles, CA",
+      "source": "https://www.setlists.net/",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1966-03-12.sbd.bershaw.9516.shnf/acid5t12.mp3",
+      "track": "Midnight Hour",
+      "duration": "11:06",
+      "combined": false,
+      "identifier": "gd1966-03-12.sbd.bershaw.9516.shnf",
+      "recording": "https://archive.org/details/gd1966-03-12.sbd.bershaw.9516.shnf",
+      "showId": "gd-1966-03-12",
+      "documented": {
+        "date": "1965-12-18",
+        "venue": "The Big Beat Club, Palo Alto, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19651218-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1994-10-17",
@@ -12017,16 +12165,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Me+And+Bobby+McGee&songs_exact=true",
     "count": 118,
     "first": {
-      "date": "1970-11-29",
-      "venue": "Club Agora - Columbus, OH",
-      "source": "https://www.setlists.net/?show_id=0660",
-      "audio": "https://archive.org/download/gd1970-11-29.179348.sbd.cassidy.minches.miller.retrack.flac2496/12%20Me%20And%20Bobby%20McGee.mp3",
+      "date": "1970-11-13",
+      "venue": "46th Street Rock Palace - Brooklyn, NY",
+      "source": "https://jerrybase.com/events/19701113-02",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1970-11-13.179402.sbd.cassidy.minches.miller.flac2496/08%20Me%20And%20Bobby%20McGee.mp3",
       "track": "Me And Bobby McGee",
-      "duration": "06:11",
+      "duration": "04:58",
       "combined": false,
-      "identifier": "gd1970-11-29.179348.sbd.cassidy.minches.miller.retrack.flac2496",
-      "recording": "https://archive.org/details/gd1970-11-29.179348.sbd.cassidy.minches.miller.retrack.flac2496",
-      "showId": "gd-1970-11-29"
+      "identifier": "gd1970-11-13.179402.sbd.cassidy.minches.miller.flac2496",
+      "recording": "https://archive.org/details/gd1970-11-13.179402.sbd.cassidy.minches.miller.flac2496",
+      "showId": "gd-1970-11-13"
     },
     "last": {
       "date": "1981-12-31",
@@ -12120,12 +12269,24 @@
       "showId": "gd-1966-05-19"
     },
     "last": {
-      "date": "1972-05-25",
-      "venue": "The Strand Lyceum - London, England",
-      "source": "https://www.setlists.net/?show_id=0782",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1972-05-25",
-      "showId": "gd-1972-05-25"
+      "date": "1972-05-23",
+      "venue": "Strand Lyceum - London, England",
+      "source": "https://jerrybase.com/events/19720523-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1972-05-23.sbd.jackson.smith-GEMS.97816.flac16/gd1972-05-23.GEMS.d2t03.mp3",
+      "track": "Sittin' On Top of the World",
+      "duration": "03:26",
+      "combined": false,
+      "identifier": "gd1972-05-23.sbd.jackson.smith-GEMS.97816.flac16",
+      "recording": "https://archive.org/details/gd1972-05-23.sbd.jackson.smith-GEMS.97816.flac16",
+      "showId": "gd-1972-05-23",
+      "documented": {
+        "date": "1972-05-25",
+        "venue": "The Strand Lyceum, London, England",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0782",
+        "note": "No tape survives."
+      }
     },
     "best": {
       "date": "1971-10-21",
@@ -12296,12 +12457,24 @@
       "showId": "gd-1967-01-27"
     },
     "last": {
-      "date": "1969-05-09",
-      "venue": "Hall Of Flowers, County Fairgrounds - San Mateo, CA",
-      "source": "https://www.setlists.net/?show_id=0439",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-05-09",
-      "showId": "gd-1969-05-09"
+      "date": "1969-06-08",
+      "venue": "Fillmore West - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19690608-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1969-06-08.123986.sbd.miller.flac16/gd69-06-08d1t04.mp3",
+      "track": "New Potato Caboose",
+      "duration": "14:04",
+      "combined": false,
+      "identifier": "gd1969-06-08.123986.sbd.miller.flac16",
+      "recording": "https://archive.org/details/gd1969-06-08.123986.sbd.miller.flac16",
+      "showId": "gd-1969-06-08",
+      "documented": {
+        "date": "1969-07-08",
+        "venue": "Rock Pile, Toronto, Canada",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19690708-01",
+        "note": "No tape survives."
+      }
     },
     "best": {
       "date": "1968-08-24",
@@ -12360,20 +12533,44 @@
     "history": "https://www.setlists.net/?search=true&songs=Born+Cross-Eyed&songs_exact=true",
     "count": 12,
     "first": {
-      "date": "1967-06-08",
-      "venue": "Cafe au Go-Go - New York City, NY",
-      "source": "https://www.setlists.net/?show_id=0183",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1967-06-08",
-      "showId": "gd-1967-06-08"
+      "date": "1968-01-17",
+      "venue": "Carousel Ballroom - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19680117-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1968-01-17.sbd.cotsman.11795.shnf/gd68-01-17d1t08.mp3",
+      "track": "Born Cross Eyed ->",
+      "duration": "02:30",
+      "combined": true,
+      "identifier": "gd1968-01-17.sbd.cotsman.11795.shnf",
+      "recording": "https://archive.org/details/gd1968-01-17.sbd.cotsman.11795.shnf",
+      "showId": "gd-1968-01-17",
+      "documented": {
+        "date": "1967-06-08",
+        "venue": "Cafe au Go-Go, New York City, NY",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0183",
+        "note": "No tape survives."
+      }
     },
     "last": {
-      "date": "1968-04-03",
-      "venue": "Winterland Arena - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0274",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-04-03",
-      "showId": "gd-1968-04-03"
+      "date": "1968-03-30",
+      "venue": "Carousel Ballroom - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19680330-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1968-03-30.sbd.miller.108994.flac16/gd68-03-30d1t07.mp3",
+      "track": "Born Cross Eyed ->",
+      "duration": "05:12",
+      "combined": true,
+      "identifier": "gd1968-03-30.sbd.miller.108994.flac16",
+      "recording": "https://archive.org/details/gd1968-03-30.sbd.miller.108994.flac16",
+      "showId": "gd-1968-03-30",
+      "documented": {
+        "date": "1968-06-01",
+        "venue": "Carousel Ballroom, San Francisco, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19680601-01",
+        "note": "No tape survives."
+      }
     },
     "best": {
       "date": "1968-02-14",
@@ -12447,7 +12644,14 @@
       "recording": "https://archive.org/details/gd1966-07-16.sbd.miller.89555.sbeok.flac16",
       "rating": 4.74,
       "reviews": 22,
-      "showId": "gd-1966-07-16"
+      "showId": "gd-1966-07-16",
+      "documented": {
+        "date": "1966-04-22",
+        "venue": "Longshoreman's Hall, San Francisco, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19660422-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-06-28",
@@ -12515,12 +12719,24 @@
     "history": "https://www.setlists.net/?search=true&songs=Baby+Blue&songs_exact=true",
     "count": 148,
     "first": {
-      "date": "1966-01-07",
-      "venue": "The Matrix - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0018",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-01-07",
-      "showId": "gd-1966-01-07"
+      "date": "1966-05-19",
+      "venue": "Avalon Ballroom - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19660519-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1966-05-19.sbd.miller.106828.flac16/gd66-05-19d1t15.mp3",
+      "track": "It's All Over Now, Baby Blue",
+      "duration": "05:03",
+      "combined": false,
+      "identifier": "gd1966-05-19.sbd.miller.106828.flac16",
+      "recording": "https://archive.org/details/gd1966-05-19.sbd.miller.106828.flac16",
+      "showId": "gd-1966-05-19",
+      "documented": {
+        "date": "1966-01-07",
+        "venue": "The Matrix, San Francisco, CA",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0018",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-02-19",
@@ -13254,18 +13470,17 @@
       "showId": "gd-1976-06-03"
     },
     "last": {
-      "date": "1993-05-22",
-      "venue": "Shoreline Amphitheatre - Mountain View, CA",
-      "source": "https://www.setlists.net/?show_id=2166",
-      "audio": "https://archive.org/download/gd93-05-22.sbd.miller.11665.sbeok.shnf/gd1993.05.22d1t06.mp3",
-      "track": "Supplication",
-      "duration": "05:20",
-      "combined": false,
-      "identifier": "gd93-05-22.sbd.miller.11665.sbeok.shnf",
-      "recording": "https://archive.org/details/gd93-05-22.sbd.miller.11665.sbeok.shnf",
-      "rating": 3.5,
-      "reviews": 4,
-      "showId": "gd-1993-05-22"
+      "date": "1995-06-21",
+      "venue": "Knickerbocker Arena - Albany, NY",
+      "source": "https://jerrybase.com/events/19950621-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1995-06-21.141512.OTS.AKG.Ackerman.Miller.Noel.t-flac.1648/gd95-06-21.s2t06.mp3",
+      "track": "Supplication Jam ->",
+      "duration": "10:47",
+      "combined": true,
+      "identifier": "gd1995-06-21.141512.OTS.AKG.Ackerman.Miller.Noel.t-flac.1648",
+      "recording": "https://archive.org/details/gd1995-06-21.141512.OTS.AKG.Ackerman.Miller.Noel.t-flac.1648",
+      "showId": "gd-1995-06-21"
     },
     "best": {
       "date": "1976-09-24",
@@ -14173,12 +14388,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Long+Way+To+Go+Home&songs_exact=true",
     "count": 91,
     "first": {
-      "date": "1992-02-24",
+      "date": "1992-02-23",
       "venue": "Oakland Coliseum Arena - Oakland, CA",
-      "source": "https://www.setlists.net/?show_id=2083",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1992-02-24",
-      "showId": "gd-1992-02-24"
+      "source": "https://jerrybase.com/events/19920223-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1992-02-23.149829.sbd.miller.flac2496/06%20Way%20To%20Go%20Home.mp3",
+      "track": "Way To Go Home",
+      "duration": "06:27",
+      "combined": false,
+      "identifier": "gd1992-02-23.149829.sbd.miller.flac2496",
+      "recording": "https://archive.org/details/gd1992-02-23.149829.sbd.miller.flac2496",
+      "showId": "gd-1992-02-23"
     },
     "last": {
       "date": "1995-06-28",
@@ -14832,12 +15052,17 @@
     "history": "https://www.setlists.net/?search=true&songs=The+Race+Is+On&songs_exact=true",
     "count": 58,
     "first": {
-      "date": "1969-06-11",
-      "venue": "California Hall - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0453",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-06-11",
-      "showId": "gd-1969-06-11"
+      "date": "1969-12-31",
+      "venue": "Boston Tea Party - Boston, MA",
+      "source": "https://jerrybase.com/events/19691231-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1969-12-31.sbd.miller.95420.sbeok.flac16/gd69-12-31d3t04.mp3",
+      "track": "The Race Is On",
+      "duration": "03:37",
+      "combined": false,
+      "identifier": "gd1969-12-31.sbd.miller.95420.sbeok.flac16",
+      "recording": "https://archive.org/details/gd1969-12-31.sbd.miller.95420.sbeok.flac16",
+      "showId": "gd-1969-12-31"
     },
     "last": {
       "date": "1995-05-20",
@@ -15756,12 +15981,24 @@
     "history": "https://www.setlists.net/?search=true&songs=On+The+Road+Again&songs_exact=true",
     "count": 42,
     "first": {
-      "date": "1966-01-07",
-      "venue": "The Matrix - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0018",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-01-07",
-      "showId": "gd-1966-01-07"
+      "date": "1966-02-25",
+      "venue": "Ivar Theater - Los Angeles, CA",
+      "source": "https://www.setlists.net/",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd66-02-25.sbd.unknown.1593.sbefail.shnf/gd66-02-25d1t01.mp3",
+      "track": "She's On The Road Again",
+      "duration": "02:47",
+      "combined": false,
+      "identifier": "gd66-02-25.sbd.unknown.1593.sbefail.shnf",
+      "recording": "https://archive.org/details/gd66-02-25.sbd.unknown.1593.sbefail.shnf",
+      "showId": "gd-1966-02-25",
+      "documented": {
+        "date": "1966-01-07",
+        "venue": "The Matrix, San Francisco, CA",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0018",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1984-10-12",
@@ -15837,18 +16074,17 @@
     "history": "https://www.setlists.net/?search=true&songs=The+Same+Thing&songs_exact=true",
     "count": 44,
     "first": {
-      "date": "1966-11-19",
+      "date": "1966-11-18",
       "venue": "Fillmore Auditorium - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0104",
-      "audio": "https://archive.org/download/gd1966-11-19.sbd.miller.94106.sbeok.flac16/gd66-11-19d1t07.mp3",
+      "source": "https://jerrybase.com/events/19661118-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1966-11-18.169871.sbd.flegel.ciaffa.miller.flac2444/01%20The%20Same%20Thing.mp3",
       "track": "The Same Thing",
-      "duration": "10:44",
+      "duration": "08:58",
       "combined": false,
-      "identifier": "gd1966-11-19.sbd.miller.94106.sbeok.flac16",
-      "recording": "https://archive.org/details/gd1966-11-19.sbd.miller.94106.sbeok.flac16",
-      "rating": 4.78,
-      "reviews": 20,
-      "showId": "gd-1966-11-19"
+      "identifier": "gd1966-11-18.169871.sbd.flegel.ciaffa.miller.flac2444",
+      "recording": "https://archive.org/details/gd1966-11-18.169871.sbd.flegel.ciaffa.miller.flac2444",
+      "showId": "gd-1966-11-18"
     },
     "last": {
       "date": "1995-07-05",
@@ -17303,18 +17539,17 @@
       "showId": "gd-1971-11-14"
     },
     "last": {
-      "date": "1972-09-16",
-      "venue": "Boston Music Hall - Boston, MA",
-      "source": "https://www.setlists.net/?show_id=0799",
-      "audio": "https://archive.org/download/gd72-09-16.sbd.cotsman.9247.sbeok.shnf/gd72-09-16d1t05.mp3",
+      "date": "1972-09-26",
+      "venue": "Stanley Theatre - Jersey City, NJ",
+      "source": "https://jerrybase.com/events/19720926-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd72-09-26.sbd.unknown.156.sbeok.shnf/gd72-09-26d2t04.mp3",
       "track": "You Win Again",
-      "duration": "03:58",
+      "duration": "04:57",
       "combined": false,
-      "identifier": "gd72-09-16.sbd.cotsman.9247.sbeok.shnf",
-      "recording": "https://archive.org/details/gd72-09-16.sbd.cotsman.9247.sbeok.shnf",
-      "rating": 3,
-      "reviews": 3,
-      "showId": "gd-1972-09-16"
+      "identifier": "gd72-09-26.sbd.unknown.156.sbeok.shnf",
+      "recording": "https://archive.org/details/gd72-09-26.sbd.unknown.156.sbeok.shnf",
+      "showId": "gd-1972-09-26"
     },
     "best": {
       "date": "1972-04-14",
@@ -18467,18 +18702,17 @@
       "showId": "gd-1969-12-19"
     },
     "last": {
-      "date": "1981-10-11",
-      "venue": "Club Melk Weg - Amsterdam, Netherlands",
-      "source": "https://www.setlists.net/?show_id=1362",
-      "audio": "https://archive.org/download/gd81-10-11.aud.stevens.7917.sbeok.shnf/gd81-10-11t03.mp3",
+      "date": "1980-12-31",
+      "venue": "Oakland Auditorium Arena - Oakland, CA",
+      "source": "https://jerrybase.com/events/19801231-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1980-12-31.mtx.tobin.105029.flac16/gd1980-12-31d1t08.mp3",
       "track": "I've Been All Around This World",
-      "duration": "04:05",
+      "duration": "06:22",
       "combined": false,
-      "identifier": "gd81-10-11.aud.stevens.7917.sbeok.shnf",
-      "recording": "https://archive.org/details/gd81-10-11.aud.stevens.7917.sbeok.shnf",
-      "rating": 5,
-      "reviews": 3,
-      "showId": "gd-1981-10-11"
+      "identifier": "gd1980-12-31.mtx.tobin.105029.flac16",
+      "recording": "https://archive.org/details/gd1980-12-31.mtx.tobin.105029.flac16",
+      "showId": "gd-1980-12-31"
     },
     "best": {
       "date": "1980-12-31",
@@ -18682,18 +18916,24 @@
     "history": "https://www.setlists.net/?search=true&songs=Nobody%27s+Fault+But+Mine&songs_exact=true",
     "count": 15,
     "first": {
-      "date": "1966-07-17",
+      "date": "1966-07-16",
       "venue": "Fillmore Auditorium - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0065",
-      "audio": "https://archive.org/download/gd1966-07-17.13959.serafin-marmar-sbefix-4458.flac16/gd66-07-17d1t06.mp3",
+      "source": "https://jerrybase.com/events/19660716-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1966-07-16.sbd.miller.89555.sbeok.flac16/gd66-07-16d1t07.mp3",
       "track": "Nobody's Fault But Mine",
-      "duration": "04:06",
+      "duration": "04:12",
       "combined": false,
-      "identifier": "gd1966-07-17.13959.serafin-marmar-sbefix-4458.flac16",
-      "recording": "https://archive.org/details/gd1966-07-17.13959.serafin-marmar-sbefix-4458.flac16",
-      "rating": 4.2,
-      "reviews": 6,
-      "showId": "gd-1966-07-17"
+      "identifier": "gd1966-07-16.sbd.miller.89555.sbeok.flac16",
+      "recording": "https://archive.org/details/gd1966-07-16.sbd.miller.89555.sbeok.flac16",
+      "showId": "gd-1966-07-16",
+      "documented": {
+        "date": "1966-07-03",
+        "venue": "Fillmore Auditorium, San Francisco, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19660703-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1994-12-19",
@@ -18971,12 +19211,24 @@
     "history": "https://www.setlists.net/?search=true&songs=It%27s+A+Sin&songs_exact=true",
     "count": 13,
     "first": {
-      "date": "1966-01-07",
-      "venue": "The Matrix - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0018",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-01-07",
-      "showId": "gd-1966-01-07"
+      "date": "1966-03-12",
+      "venue": "Danish Center - Los Angeles, CA",
+      "source": "https://www.setlists.net/",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1966-03-12.sbd.bershaw.9516.shnf/acid5t06.mp3",
+      "track": "It's A Sin",
+      "duration": "04:47",
+      "combined": false,
+      "identifier": "gd1966-03-12.sbd.bershaw.9516.shnf",
+      "recording": "https://archive.org/details/gd1966-03-12.sbd.bershaw.9516.shnf",
+      "showId": "gd-1966-03-12",
+      "documented": {
+        "date": "1966-01-07",
+        "venue": "The Matrix, San Francisco, CA",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0018",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1974-06-18",
@@ -19430,12 +19682,24 @@
     "history": "https://www.setlists.net/?search=true&songs=She+Belongs+To+Me&songs_exact=true",
     "count": 10,
     "first": {
-      "date": "1966-01-07",
-      "venue": "The Matrix - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0018",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-01-07",
-      "showId": "gd-1966-01-07"
+      "date": "1985-04-04",
+      "venue": "Providence Civic Center - Providence, RI",
+      "source": "https://jerrybase.com/events/19850404-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1985-04-04.149449.sbd.miller.clugston.flac16/gd85-04-04%20s1t05%20She%20Belongs%20To%20Me.mp3",
+      "track": "She Belongs To Me",
+      "duration": "07:23",
+      "combined": false,
+      "identifier": "gd1985-04-04.149449.sbd.miller.clugston.flac16",
+      "recording": "https://archive.org/details/gd1985-04-04.149449.sbd.miller.clugston.flac16",
+      "showId": "gd-1985-04-04",
+      "documented": {
+        "date": "1966-01-07",
+        "venue": "The Matrix, San Francisco, CA",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0018",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1985-11-21",
@@ -19530,12 +19794,24 @@
       "showId": "gd-1970-04-09"
     },
     "last": {
-      "date": "1970-09-18",
-      "venue": "Fillmore East - New York City, NY",
-      "source": "https://www.setlists.net/?show_id=0623",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1970-09-18",
-      "showId": "gd-1970-09-18"
+      "date": "1970-08-18",
+      "venue": "Fillmore West - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19700818-02",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1970-08-18.142416.aud.knudsen.gems.flac1648/21MansWorld.mp3",
+      "track": "Man's World",
+      "duration": "12:09",
+      "combined": false,
+      "identifier": "gd1970-08-18.142416.aud.knudsen.gems.flac1648",
+      "recording": "https://archive.org/details/gd1970-08-18.142416.aud.knudsen.gems.flac1648",
+      "showId": "gd-1970-08-18",
+      "documented": {
+        "date": "1970-11-12",
+        "venue": "46th Street Rock Palace, Brooklyn, NY",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19701112-02",
+        "note": "No tape survives."
+      }
     },
     "best": {
       "date": "1970-05-02",
@@ -19596,12 +19872,24 @@
     "history": "https://www.setlists.net/?search=true&songs=Cold+Jordan&songs_exact=true",
     "count": 12,
     "first": {
-      "date": "1969-06-20",
-      "venue": "Fillmore East - New York City, NY",
-      "source": "https://www.setlists.net/?show_id=0457",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-06-20",
-      "showId": "gd-1969-06-20"
+      "date": "1970-05-01",
+      "venue": "Alfred College - Alfred, NY",
+      "source": "https://jerrybase.com/events/19700501-02",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1970-05-01.sbd.miller.95683.sbeok.flac16/gd70-05-01d1t11.mp3",
+      "track": "Cold Jordan",
+      "duration": "02:37",
+      "combined": false,
+      "identifier": "gd1970-05-01.sbd.miller.95683.sbeok.flac16",
+      "recording": "https://archive.org/details/gd1970-05-01.sbd.miller.95683.sbeok.flac16",
+      "showId": "gd-1970-05-01",
+      "documented": {
+        "date": "1969-06-20",
+        "venue": "Fillmore East, New York City, NY",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0457",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1970-12-27",
@@ -19678,12 +19966,24 @@
     "history": "https://www.setlists.net/?search=true&songs=The+Rub&songs_exact=true",
     "count": 13,
     "first": {
-      "date": "1968-10-09",
-      "venue": "The Matrix - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0340",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-10-09",
-      "showId": "gd-1968-10-09"
+      "date": "1970-05-15",
+      "venue": "Fillmore East (Late Show) - New York, NY",
+      "source": "https://jerrybase.com/events/19700515-02",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd70-05-15.early-late.sbd.97.sbeok.shnf/gd70-5-15D1T03.mp3",
+      "track": "The Rub",
+      "duration": "06:14",
+      "combined": false,
+      "identifier": "gd70-05-15.early-late.sbd.97.sbeok.shnf",
+      "recording": "https://archive.org/details/gd70-05-15.early-late.sbd.97.sbeok.shnf",
+      "showId": "gd-1970-05-15",
+      "documented": {
+        "date": "1970-04-18",
+        "venue": "Family Dog On The Great Highway, San Francisco, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19700418-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1971-12-01",

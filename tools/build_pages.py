@@ -78,6 +78,16 @@ def venue_key(v, c):
 
 # ---------- data ----------
 
+def pick_on(song, k):
+    """The pick as it happened: a documented first/last (no tape) counts on its own date."""
+    p = song.get(k) or {}
+    d = p.get('documented') if k != 'best' else None
+    if not d:
+        return p
+    parts = d['venue'].split(', ')
+    return {'date': d['date'], 'venue': ', '.join(parts[:-2]) + ' - ' + ', '.join(parts[-2:]) if len(parts) >= 3 else d['venue']}
+
+
 def is_longest(song, k):
     """The third card of a song without enough HeadyVersion votes is its longest tape, never called Best."""
     return k == 'best' and (song.get('best') or {}).get('sourceType') == 'longest'
@@ -87,7 +97,7 @@ def build_shows(songs):
     by_date = {s['d']: {**s, 'picks': []} for s in flb.load_shows()}
     for song in songs:
         for k in ('first', 'last', 'best'):
-            p = song.get(k) or {}
+            p = pick_on(song, k)
             if not p.get('date') or is_longest(song, k):
                 continue
             if p['date'] not in by_date:
@@ -197,6 +207,7 @@ def song_page(song, plays=None):
     lines, desc = [], []
     fd = f.get('documented')
     if fd:
+        desc.append(f'first played {short_date(fd["date"])} at {fd["venue"].split(", ")[0]}')
         v, c = place(f)
         lines.append(('First time played', f'The Grateful Dead first played {esc(name)} live on {show_link(fd["date"])} at '
                       f'{esc(fd["venue"])}, per {esc(fd.get("source", "the setlist sources"))}. No tape of that show survives; the '
@@ -208,7 +219,14 @@ def song_page(song, plays=None):
         desc.append(f'first played {short_date(f["date"])} at {v}')
     else:
         lines.append(('First time played', 'There is no verified date for the first live performance.'))
-    if l.get('date'):
+    ld_ = l.get('documented')
+    if ld_:
+        v, c = place(l)
+        lines.append(('Last time played', f'The last time they played it was {show_link(ld_["date"])} at {esc(ld_["venue"])}, '
+                      f'per {esc(ld_.get("source", "the setlist sources"))}. No tape of that show survives; the latest '
+                      f'surviving tape is {show_link(l["date"])} at {esc(where(v, c))}.'))
+        desc.append(f'last played {short_date(ld_["date"])}')
+    elif l.get('date'):
         v, c = place(l)
         lines.append(('Last time played', f'The last time they played it was {show_link(l["date"])} '
                       f'at {esc(where(v, c))}.'))
@@ -328,8 +346,8 @@ def day_page(md, shows, songs, played=()):
     day = datetime.date(2024, int(md[:2]), int(md[3:]))  # 2024 is a leap year, so Feb 29 gets a page
     name = f'{day:%B} {day.day}'
     on = [s for s in shows if s['d'][5:] == md]
-    picks = sorted(((song, k, (song.get(k) or {})['date']) for song in songs for k in ('first', 'last', 'best')
-                    if ((song.get(k) or {}).get('date') or '')[5:] == md and not is_longest(song, k)), key=lambda x: (x[2], x[0]['name']))
+    picks = sorted(((song, k, pick_on(song, k)['date']) for song in songs for k in ('first', 'last', 'best')
+                    if (pick_on(song, k).get('date') or '')[5:] == md and not is_longest(song, k)), key=lambda x: (x[2], x[0]['name']))
     parts = [f'<div class="seo-summary"><p class="song-kicker">DEAD HISTORY</p><h2>{esc(name)}</h2>']
     if on:
         parts.append(f'<p>The Grateful Dead played {len(on)} {"show" if len(on) == 1 else "shows"} on {name}, '
