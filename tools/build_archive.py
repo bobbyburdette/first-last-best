@@ -61,7 +61,7 @@ COLUMNS = {
                      'tape', 'track_file', 'track_title', 'track_seconds', 'source_id'],
     'tapes': ['identifier', 'date', 'recording_type', 'details', 'archive_url', 'used_for'],
     'picks': ['song_id', 'pick', 'date', 'venue', 'tape', 'track_title', 'duration', 'votes', 'votes_checked',
-              'note', 'source_id', 'source_url'],
+              'note', 'source_id', 'source_url', 'documented_date', 'documented_venue', 'documented_source'],
 }
 PUBLIC_DROP = {'picks': {'votes', 'votes_checked'}}
 KIND_SOURCE = {'first': 'setlistprogram', 'last': 'setlistprogram'}
@@ -151,7 +151,9 @@ DOCS = {
               'track_title': 'Track title.', 'duration': 'Track length.',
               'votes': 'HeadyVersion votes (private copy only).', 'votes_checked': 'Date the votes were read (private copy only).',
               'note': 'Notes, e.g. why a date was chosen.', 'source_id': 'Where the pick came from.',
-              'source_url': 'The exact page.'},
+              'source_url': 'The exact page.',
+              'documented_date': 'When the show the song was really first/last played at has no tape: its date (`date` is then the nearest show with a tape).',
+              'documented_venue': 'That show\'s venue.', 'documented_source': 'Where that date comes from.'},
 }
 
 
@@ -192,7 +194,10 @@ def build(public):
                 'votes': p.get('votes', '') if not longest else '',
                 'votes_checked': (p.get('checkedAt') or (s.get('best') or {}).get('runnersUpCheckedAt', '')) if src == 'headyversion' else '',
                 'note': p.get('note', ''), 'source_id': src,
-                'source_url': p.get('source') or p.get('headyHref') or ''})
+                'source_url': p.get('source') or p.get('headyHref') or '',
+                'documented_date': (p.get('documented') or {}).get('date', ''),
+                'documented_venue': (p.get('documented') or {}).get('venue', ''),
+                'documented_source': (p.get('documented') or {}).get('url', '')})
 
     tapes = {}
 
