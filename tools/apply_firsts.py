@@ -49,6 +49,18 @@ def taped_dates(keys, setlists):
     return out
 
 
+def other_tape(date, names):
+    """The best upload of that date that has the song, when the site's setlist tape doesn't."""
+    for u in sorted(flb.uploads_for_date(date), key=flb.rank_key):
+        ident = u['identifier']
+        if flb.risky_source(ident):
+            continue
+        tr = flb.find_track(ident, names)
+        if tr:
+            return ident, [tr['name'], tr['title'], tr['length']], {'source': 'archive'}
+    return None
+
+
 def pick_from_tape(date, tape, shows):
     ident, tr, e = tape
     s = shows.get(date) or {}
@@ -78,8 +90,8 @@ def main():
         taped = taped_dates(keys, setlists)
         for slot in ('first', 'last'):
             cur = song.get(slot) or {}
-            if not cur.get('date'):
-                continue
+            if not cur.get('date') or cur.get('locked'):
+                continue  # 'locked': set by hand (see its note); never recomputed
             item = items.get(f"{flb.norm_title(song['name'])}-{slot}")
             choice = (decisions.get(item['id']) or {}).get('choice') if item else None
             if item and choice in (None, 'look'):
@@ -94,6 +106,10 @@ def main():
                 label, url = source_of(cur)
                 doc = {'date': cur['date'], 'venue': cur.get('venue', '').replace(' - ', ', '), 'source': label, 'url': url}
             d = doc['date']
+            if d not in taped and not (cur.get('date') == d and cur.get('audio')):
+                found = other_tape(d, flb.song_names(song))  # a tape of that show the site doesn't play by default
+                if found:
+                    taped[d] = found
             if d in taped or (cur.get('date') == d and cur.get('audio')):
                 new = cur if cur.get('date') == d and cur.get('audio') else pick_from_tape(d, taped[d], shows)
                 new = {k: v for k, v in new.items() if k != 'documented'}

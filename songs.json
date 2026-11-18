@@ -1178,12 +1178,24 @@
     "history": "https://www.setlists.net/?search=true&songs=Brown-Eyed+Women&songs_exact=true",
     "count": 342,
     "first": {
-      "date": "1971-08-23",
-      "venue": "Auditorium Theater - Chicago, IL",
-      "source": "https://www.setlists.net/?show_id=0725",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1971-08-23",
-      "showId": "gd-1971-08-23"
+      "date": "1971-10-19",
+      "venue": "Northrop Auditorium, U. Of Minn. - Minneapolis, MN",
+      "source": "https://jerrybase.com/events/19711019-03",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1971-10-19.sbd.miller.114351.flac16/gd71-10-19d1t11.mp3",
+      "track": "Brown Eyed Women",
+      "duration": "04:56",
+      "combined": false,
+      "identifier": "gd1971-10-19.sbd.miller.114351.flac16",
+      "recording": "https://archive.org/details/gd1971-10-19.sbd.miller.114351.flac16",
+      "showId": "gd-1971-10-19",
+      "documented": {
+        "date": "1971-08-24",
+        "venue": "Auditorium Theatre, Chicago, IL",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19710824-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-07-06",
@@ -1352,12 +1364,24 @@
     "history": "https://www.setlists.net/?search=true&songs=Casey+Jones&songs_exact=true",
     "count": 296,
     "first": {
-      "date": "1969-05-23",
-      "venue": "Seminole Indian Village - Hollywood, FL",
-      "source": "https://www.setlists.net/?show_id=0443",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-05-23",
-      "showId": "gd-1969-05-23"
+      "date": "1969-06-22",
+      "venue": "Central Park - NYC, NY",
+      "source": "https://jerrybase.com/events/19690622-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd69-06-22.aud.hanno.8836.sbefail.shnf/gd69-06-22d1t02.mp3",
+      "track": "Casey Jones",
+      "duration": "07:57",
+      "combined": false,
+      "identifier": "gd69-06-22.aud.hanno.8836.sbefail.shnf",
+      "recording": "https://archive.org/details/gd69-06-22.aud.hanno.8836.sbefail.shnf",
+      "showId": "gd-1969-06-22",
+      "documented": {
+        "date": "1969-05-23",
+        "venue": "Seminole Indian Village, Hollywood, FL",
+        "source": "The SetList Program",
+        "url": "https://www.setlists.net/?show_id=0443",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1993-03-27",
@@ -5512,12 +5536,24 @@
     "history": "https://www.setlists.net/?search=true&songs=Mama+Tried&songs_exact=true",
     "count": 297,
     "first": {
-      "date": "1969-06-11",
-      "venue": "California Hall - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0453",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-06-11",
-      "showId": "gd-1969-06-11"
+      "date": "1969-06-27",
+      "venue": "Veterans Auditorium - Santa Rosa, CA",
+      "source": "https://jerrybase.com/events/19690627-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd69-06-27.sbd.samaritano.20547.sbeok.shnf/gd1969-06-27d1t02.mp3",
+      "track": "Mama Tried",
+      "duration": "02:49",
+      "combined": false,
+      "identifier": "gd69-06-27.sbd.samaritano.20547.sbeok.shnf",
+      "recording": "https://archive.org/details/gd69-06-27.sbd.samaritano.20547.sbeok.shnf",
+      "showId": "gd-1969-06-27",
+      "documented": {
+        "date": "1969-06-20",
+        "venue": "Fillmore East, New York, NY",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19690620-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-06-25",
@@ -5776,18 +5812,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Morning+Dew&songs_exact=true",
     "count": 257,
     "first": {
-      "date": "1967-01-14",
-      "venue": "Polo Field, Golden Gate Park - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0129",
-      "audio": "https://archive.org/download/gd67-01-14.sbd.vernon.9108.sbeok.shnf/gd67-01-14d1t01.mp3",
-      "track": "Morning Dew",
-      "duration": "09:11",
+      "date": "1967-03-18",
+      "venue": "Winterland Arena - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19670318-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1967-03-18.141400.sbd.dalton.miller.clugston.flac1648/Gd67-03-18T05MorningDew.mp3",
+      "track": "gd67-03-18 t05 Morning Dew",
+      "duration": "05:14",
       "combined": false,
-      "identifier": "gd67-01-14.sbd.vernon.9108.sbeok.shnf",
-      "recording": "https://archive.org/details/gd67-01-14.sbd.vernon.9108.sbeok.shnf",
-      "rating": 4.05,
-      "reviews": 44,
-      "showId": "gd-1967-01-14"
+      "identifier": "gd1967-03-18.141400.sbd.dalton.miller.clugston.flac1648",
+      "recording": "https://archive.org/details/gd1967-03-18.141400.sbd.dalton.miller.clugston.flac1648",
+      "showId": "gd-1967-03-18"
     },
     "last": {
       "date": "1995-06-21",
@@ -6128,12 +6163,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Not+Fade+Away&songs_exact=true",
     "count": 530,
     "first": {
-      "date": "1968-06-19",
-      "venue": "Carousel Ballroom - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0306",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1968-06-19",
-      "showId": "gd-1968-06-19"
+      "date": "1969-02-19",
+      "venue": "Fillmore West - San Francisco, CA",
+      "source": "https://www.setlists.net/",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd69-02-19.sbd.cotsman.4511.sbeok.shnf/gd68-06-19d1t02.mp3",
+      "track": "Not Fade Away",
+      "duration": "04:09",
+      "combined": false,
+      "identifier": "gd69-02-19.sbd.cotsman.4511.sbeok.shnf",
+      "recording": "https://archive.org/details/gd69-02-19.sbd.cotsman.4511.sbeok.shnf",
+      "showId": "gd-1969-02-19"
     },
     "last": {
       "date": "1995-07-05",
@@ -6315,7 +6355,14 @@
       "recording": "https://archive.org/details/gd1973-12-12.sbd.miller.105561.flac16",
       "rating": 4.45,
       "reviews": 12,
-      "showId": "gd-1973-12-12"
+      "showId": "gd-1973-12-12",
+      "documented": {
+        "date": "1973-12-10",
+        "venue": "Charlotte Coliseum, Charlotte, NC",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19731210-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-07-05",
@@ -8061,15 +8108,19 @@
       "showId": "gd-1968-01-17"
     },
     "last": {
-      "date": "1970-04-26",
-      "venue": "Sound Storm Festival, York Farm - Poynette, WI",
-      "venueName": "Sound Storm Festival, York Farm",
-      "city": "Poynette, WI",
-      "source": "https://www.dead.net/show/april-26-1970",
-      "sourceLabel": "Show page",
-      "note": "Last known performance of The Eleven, at the Sound Storm Festival. The setlist is incomplete and its order is uncertain.",
-      "unavailable": true,
-      "showId": "gd-1970-04-26"
+      "date": "1970-04-25",
+      "venue": "Mammoth Gardens - Denver, CO",
+      "source": "https://jerrybase.com/events/19700425-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd70-04-24.aud.hanno.19531.sbeok.shnf/gd70-04-24d2t06.mp3",
+      "track": "The Eleven",
+      "duration": "12:51",
+      "combined": false,
+      "identifier": "gd70-04-24.aud.hanno.19531.sbeok.shnf",
+      "recording": "https://archive.org/details/gd70-04-24.aud.hanno.19531.sbeok.shnf",
+      "showId": "gd-1970-04-25",
+      "locked": true,
+      "note": "This tape circulates labeled 4/24/70. JerryBase dates the music to 4/25/70, when the power was cut during the show."
     },
     "best": {
       "date": "1968-10-12",
@@ -10460,7 +10511,14 @@
       "recording": "https://archive.org/details/gd71-05-29.aud.cotsman.19153.sbeok.shnf",
       "rating": 3.6,
       "reviews": 11,
-      "showId": "gd-1971-05-29"
+      "showId": "gd-1971-05-29",
+      "documented": {
+        "date": "1966-01-28",
+        "venue": "Matrix, San Francisco, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19660128-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-07-09",
@@ -10625,12 +10683,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Johnny+B.+Goode&songs_exact=true",
     "count": 279,
     "first": {
-      "date": "1969-09-07",
-      "venue": "Family Dog at The Great Highway - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0485",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1969-09-07",
-      "showId": "gd-1969-09-07"
+      "date": "1971-01-22",
+      "venue": "Lane Community College - Eugene, OR",
+      "source": "https://jerrybase.com/events/19710122-02",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd71-01-22.sbd.cotsman.12592.sbeok.shnf/gd71-01-22d1t10.mp3",
+      "track": "Johnny B. Goode",
+      "duration": "03:12",
+      "combined": false,
+      "identifier": "gd71-01-22.sbd.cotsman.12592.sbeok.shnf",
+      "recording": "https://archive.org/details/gd71-01-22.sbd.cotsman.12592.sbeok.shnf",
+      "showId": "gd-1971-01-22"
     },
     "last": {
       "date": "1995-04-05",
@@ -11528,18 +11591,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Knockin%27+On+Heaven%27s+Door&songs_exact=true",
     "count": 77,
     "first": {
-      "date": "1978-11-17",
-      "venue": "Loyola College - Chicago, IL",
-      "source": "https://www.setlists.net/?show_id=1115",
-      "audio": "https://archive.org/download/gd78-11-17.acoustic.sbd.dodd.7687.sbeok.shnf/BobWeirBand11-17-78t06.mp3",
+      "date": "1987-07-06",
+      "venue": "Civic Arena - Pittsburgh, PA",
+      "source": "https://jerrybase.com/events/19870706-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1987-07-06.142086.sbd.miller.flac2496/20KnockinOnHeavensDoor.mp3",
       "track": "Knockin' On Heaven's Door",
-      "duration": "08:15",
+      "duration": "09:02",
       "combined": false,
-      "identifier": "gd78-11-17.acoustic.sbd.dodd.7687.sbeok.shnf",
-      "recording": "https://archive.org/details/gd78-11-17.acoustic.sbd.dodd.7687.sbeok.shnf",
-      "rating": 4.87,
-      "reviews": 33,
-      "showId": "gd-1978-11-17"
+      "identifier": "gd1987-07-06.142086.sbd.miller.flac2496",
+      "recording": "https://archive.org/details/gd1987-07-06.142086.sbd.miller.flac2496",
+      "showId": "gd-1987-07-06"
     },
     "last": {
       "date": "1994-07-23",
@@ -12159,18 +12221,17 @@
       "showId": "gd-1970-11-13"
     },
     "last": {
-      "date": "1981-12-31",
-      "venue": "Oakland Auditorium Arena - Oakland, CA",
-      "source": "https://www.setlists.net/?show_id=1382",
-      "audio": "https://archive.org/download/gd1981-12-31.143570.sbd.healy.walker.scotton.miller.clugston.flac1648/Gd81-12-31S0t05MeBobbyMcgee.mp3",
-      "track": "gd81-12-31 s0t05 Me & Bobby McGee",
-      "duration": "04:39",
+      "date": "1974-10-16",
+      "venue": "Winterland Arena - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19741016-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1974-10-16.sbd.patched.eaton-miller.90145.sbeok.flac16/gd74-10-16d1t08.mp3",
+      "track": "Me And Bobby McGee",
+      "duration": "05:22",
       "combined": false,
-      "identifier": "gd1981-12-31.143570.sbd.healy.walker.scotton.miller.clugston.flac1648",
-      "recording": "https://archive.org/details/gd1981-12-31.143570.sbd.healy.walker.scotton.miller.clugston.flac1648",
-      "rating": 5,
-      "reviews": 1,
-      "showId": "gd-1981-12-31"
+      "identifier": "gd1974-10-16.sbd.patched.eaton-miller.90145.sbeok.flac16",
+      "recording": "https://archive.org/details/gd1974-10-16.sbd.patched.eaton-miller.90145.sbeok.flac16",
+      "showId": "gd-1974-10-16"
     },
     "best": {
       "date": "1974-07-19",
@@ -12801,18 +12862,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Stuck+Inside+Of+Mobile&songs_exact=true",
     "count": 75,
     "first": {
-      "date": "1987-07-04",
-      "venue": "Sullivan Stadium - Foxboro, MA",
-      "source": "https://www.setlists.net/?show_id=1732",
-      "audio": "https://archive.org/download/gd1987-07-04.sbd.miller.101650.flac16/gd87-07-04d3t08.mp3",
+      "date": "1988-03-17",
+      "venue": "Henry J. Kaiser Convention Center - Oakland, CA",
+      "source": "https://jerrybase.com/events/19880317-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1988-03-17.sbd.miller.91156.sbeok.flac16/gd88-03-17d1t06.mp3",
       "track": "Stuck Inside Of Mobile With The Memphis Blues Again",
-      "duration": "06:54",
+      "duration": "10:31",
       "combined": false,
-      "identifier": "gd1987-07-04.sbd.miller.101650.flac16",
-      "recording": "https://archive.org/details/gd1987-07-04.sbd.miller.101650.flac16",
-      "rating": 3.64,
-      "reviews": 15,
-      "showId": "gd-1987-07-04"
+      "identifier": "gd1988-03-17.sbd.miller.91156.sbeok.flac16",
+      "recording": "https://archive.org/details/gd1988-03-17.sbd.miller.91156.sbeok.flac16",
+      "showId": "gd-1988-03-17"
     },
     "last": {
       "date": "1995-04-02",
@@ -13907,12 +13967,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Walkin%27+Blues&songs_exact=true",
     "count": 141,
     "first": {
-      "date": "1966-10-07",
-      "venue": "Winterland Arena - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0088",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1966-10-07",
-      "showId": "gd-1966-10-07"
+      "date": "1982-05-28",
+      "venue": "Moscone Convention Center - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19820528-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd82-05-28.sbd.skinner.11362.sbeok.shnf/gd82-05-28d2t06.mp3",
+      "track": "Walkin' Blues",
+      "duration": "07:03",
+      "combined": false,
+      "identifier": "gd82-05-28.sbd.skinner.11362.sbeok.shnf",
+      "recording": "https://archive.org/details/gd82-05-28.sbd.skinner.11362.sbeok.shnf",
+      "showId": "gd-1982-05-28"
     },
     "last": {
       "date": "1995-07-02",
@@ -13986,18 +14051,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Queen+Jane+Approximately&songs_exact=true",
     "count": 129,
     "first": {
-      "date": "1987-07-04",
-      "venue": "Sullivan Stadium - Foxboro, MA",
-      "source": "https://www.setlists.net/?show_id=1732",
-      "audio": "https://archive.org/download/gd1987-07-04.sbd.miller.101650.flac16/gd87-07-04d3t09.mp3",
+      "date": "1987-09-08",
+      "venue": "Providence Civic Center - Providence, RI",
+      "source": "https://jerrybase.com/events/19870908-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd87-09-08.sbd.miller.20994.sbeok.shnf/gd87-09-08d1t04.mp3",
       "track": "Queen Jane Approximately",
-      "duration": "06:41",
+      "duration": "05:41",
       "combined": false,
-      "identifier": "gd1987-07-04.sbd.miller.101650.flac16",
-      "recording": "https://archive.org/details/gd1987-07-04.sbd.miller.101650.flac16",
-      "rating": 3.64,
-      "reviews": 15,
-      "showId": "gd-1987-07-04"
+      "identifier": "gd87-09-08.sbd.miller.20994.sbeok.shnf",
+      "recording": "https://archive.org/details/gd87-09-08.sbd.miller.20994.sbeok.shnf",
+      "showId": "gd-1987-09-08"
     },
     "last": {
       "date": "1995-07-08",
@@ -14254,18 +14318,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Slipknot%21&songs_exact=true",
     "count": 111,
     "first": {
-      "date": "1974-06-20",
-      "venue": "The Omni - Atlanta, GA",
-      "source": "https://www.setlists.net/?show_id=0920",
-      "audio": "https://archive.org/download/gd74-06-20.sbd.clugston.2179.sbeok.shnf/gd74-6-20d2t06.mp3",
-      "track": "Slipknot!",
-      "duration": "04:26",
-      "combined": false,
-      "identifier": "gd74-06-20.sbd.clugston.2179.sbeok.shnf",
-      "recording": "https://archive.org/details/gd74-06-20.sbd.clugston.2179.sbeok.shnf",
-      "rating": 4.5,
-      "reviews": 43,
-      "showId": "gd-1974-06-20"
+      "date": "1975-06-17",
+      "venue": "Winterland Arena - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19750617-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1975-06-17.145779.sbd.pcm.dalton.miller.noel.flac16/gd75-06-17s1t09.mp3",
+      "track": "Slipknot! ->",
+      "duration": "09:10",
+      "combined": true,
+      "identifier": "gd1975-06-17.145779.sbd.pcm.dalton.miller.noel.flac16",
+      "recording": "https://archive.org/details/gd1975-06-17.145779.sbd.pcm.dalton.miller.noel.flac16",
+      "showId": "gd-1975-06-17"
     },
     "last": {
       "date": "1995-06-22",
@@ -16141,18 +16204,17 @@
     "history": "https://www.setlists.net/?search=true&songs=The+Weight&songs_exact=true",
     "count": 42,
     "first": {
-      "date": "1970-05-14",
-      "venue": "Merramac Community College - Kirkwood, MO",
-      "source": "https://www.setlists.net/?show_id=0587",
-      "audio": "https://archive.org/download/gd1970-05-14.sbd.warner-evans.28716.sbeok.flac16/gd70-05-14d2t08.mp3",
-      "track": "The Weight//",
-      "duration": "00:20",
+      "date": "1990-03-28",
+      "venue": "Nassau Coliseum - Uniondale, NY",
+      "source": "https://jerrybase.com/events/19900328-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1990-03-28.sbd.miller.87643.sbeok.flac16/gd90-03-28d2t04.mp3",
+      "track": "The Weight",
+      "duration": "05:59",
       "combined": false,
-      "identifier": "gd1970-05-14.sbd.warner-evans.28716.sbeok.flac16",
-      "recording": "https://archive.org/details/gd1970-05-14.sbd.warner-evans.28716.sbeok.flac16",
-      "rating": 4.17,
-      "reviews": 14,
-      "showId": "gd-1970-05-14"
+      "identifier": "gd1990-03-28.sbd.miller.87643.sbeok.flac16",
+      "recording": "https://archive.org/details/gd1990-03-28.sbd.miller.87643.sbeok.flac16",
+      "showId": "gd-1990-03-28"
     },
     "last": {
       "date": "1995-03-23",
@@ -16313,18 +16375,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Maggie%27s+Farm&songs_exact=true",
     "count": 43,
     "first": {
-      "date": "1987-07-19",
-      "venue": "Autzen Stadium (University Of Oregon) - Eugene, OR",
-      "source": "https://www.setlists.net/?show_id=1738",
-      "audio": "https://archive.org/download/gd1987-07-19.sbd-set3.unknown.97492.shnf/gdbd87-07-19t01.mp3",
+      "date": "1987-09-19",
+      "venue": "Madison Square Garden - New York, NY",
+      "source": "https://jerrybase.com/events/19870919-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1987-09-19.137405.sbd.miller.flac24/16MaggiesFarm.mp3",
       "track": "Maggie's Farm",
-      "duration": "04:16",
+      "duration": "06:57",
       "combined": false,
-      "identifier": "gd1987-07-19.sbd-set3.unknown.97492.shnf",
-      "recording": "https://archive.org/details/gd1987-07-19.sbd-set3.unknown.97492.shnf",
-      "rating": 5,
-      "reviews": 2,
-      "showId": "gd-1987-07-19"
+      "identifier": "gd1987-09-19.137405.sbd.miller.flac24",
+      "recording": "https://archive.org/details/gd1987-09-19.137405.sbd.miller.flac24",
+      "showId": "gd-1987-09-19"
     },
     "last": {
       "date": "1995-04-05",
@@ -19105,18 +19166,24 @@
     "history": "https://www.setlists.net/?search=true&songs=Gloria&songs_exact=true",
     "count": 15,
     "first": {
-      "date": "1979-04-16",
-      "venue": "Studio Rehersal - Unknown City, Unknown State",
-      "source": "https://www.setlists.net/?show_id=1154",
-      "audio": "https://archive.org/download/gd1979-04-16.sbd-greider.ladner.4163.shnf/gd1979-04-16d3t01.mp3",
+      "date": "1981-10-16",
+      "venue": "Club Melk Weg - Amsterdam, Netherlands",
+      "source": "https://jerrybase.com/events/19811016-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1981-10-16.sbd.miller.110351.flac16/gd81-10-16d2t06.mp3",
       "track": "Gloria ->",
-      "duration": "04:04",
+      "duration": "07:22",
       "combined": true,
-      "identifier": "gd1979-04-16.sbd-greider.ladner.4163.shnf",
-      "recording": "https://archive.org/details/gd1979-04-16.sbd-greider.ladner.4163.shnf",
-      "rating": 3.83,
-      "reviews": 7,
-      "showId": "gd-1979-04-16"
+      "identifier": "gd1981-10-16.sbd.miller.110351.flac16",
+      "recording": "https://archive.org/details/gd1981-10-16.sbd.miller.110351.flac16",
+      "showId": "gd-1981-10-16",
+      "documented": {
+        "date": "1967-03-25",
+        "venue": "Avalon Ballroom, San Francisco, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19670325-01",
+        "note": "No tape survives."
+      }
     },
     "last": {
       "date": "1995-06-30",
@@ -19343,12 +19410,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Baba+O%27Riley&songs_exact=true",
     "count": 13,
     "first": {
-      "date": "1970-01-29",
-      "venue": "The Wharehouse - New Orleans, LA",
-      "source": "https://www.setlists.net/?show_id=0538",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1970-01-29",
-      "showId": "gd-1970-01-29"
+      "date": "1992-05-19",
+      "venue": "Cal Expo - Sacramento, CA",
+      "source": "https://jerrybase.com/events/19920519-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1992-05-19.sbd.miller.92286.sbeok.flac16/gd92-05-19d3t07.mp3",
+      "track": "Baba O'Riley ->",
+      "duration": "03:14",
+      "combined": true,
+      "identifier": "gd1992-05-19.sbd.miller.92286.sbeok.flac16",
+      "recording": "https://archive.org/details/gd1992-05-19.sbd.miller.92286.sbeok.flac16",
+      "showId": "gd-1992-05-19"
     },
     "last": {
       "date": "1994-11-29",
@@ -19466,12 +19538,17 @@
       "showId": "gd-1966-05-19"
     },
     "last": {
-      "date": "1970-12-27",
-      "venue": "KPPC Studios - Pasadena, CA",
-      "source": "https://www.setlists.net/?show_id=0671",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1970-12-27",
-      "showId": "gd-1970-12-27"
+      "date": "1970-09-19",
+      "venue": "Fillmore East - New York, NY",
+      "source": "https://www.setlists.net/",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1970-09-19.150347.acoustic.aud.flac16/03%20-%20Silver%20Threads%20and%20Golden%20Needles.mp3",
+      "track": "03 - Silver Threads and Golden Needles",
+      "duration": "03:57",
+      "combined": false,
+      "identifier": "gd1970-09-19.150347.acoustic.aud.flac16",
+      "recording": "https://archive.org/details/gd1970-09-19.150347.acoustic.aud.flac16",
+      "showId": "gd-1970-09-19"
     },
     "best": {
       "date": "1970-05-14",
@@ -19873,12 +19950,17 @@
       }
     },
     "last": {
-      "date": "1970-12-27",
-      "venue": "KPPC Studios - Pasadena, CA",
-      "source": "https://www.setlists.net/?show_id=0671",
-      "unavailable": true,
-      "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1970-12-27",
-      "showId": "gd-1970-12-27"
+      "date": "1970-09-19",
+      "venue": "Fillmore East - New York, NY",
+      "source": "https://www.setlists.net/",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd70-09-19.aud-toner-weinberg.warner.25473.sbeok.flacf/gd70-09-19d1t01.mp3",
+      "track": "Cold Jordan >",
+      "duration": "02:33",
+      "combined": true,
+      "identifier": "gd70-09-19.aud-toner-weinberg.warner.25473.sbeok.flacf",
+      "recording": "https://archive.org/details/gd70-09-19.aud-toner-weinberg.warner.25473.sbeok.flacf",
+      "showId": "gd-1970-09-19"
     },
     "best": {
       "date": "1970-05-15",
