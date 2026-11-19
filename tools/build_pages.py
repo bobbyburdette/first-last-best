@@ -257,9 +257,9 @@ def song_page(song, plays=None):
                          + (f' It was first released on {esc(rel)}.' if rel else '')))
     if song.get('lyrics'):
         lines.append(('Lyrics', f'Read the lyrics to {esc(name)} on <a href="{esc(song["lyrics"])}">dead.net</a>, the band’s official site.'))
-    years = [p['date'][:4] for p in (f, l) if p.get('date')]
-    count = (f' It appears in {song["count"]} concert listings in The SetList Program, '
-             f'{years[0]} to {years[-1]}.') if song.get('count') and len(years) == 2 else ''
+    n = len(plays['plays']) if plays else 0
+    count = (f' In the setlists on this site, they played it {n} {"time" if n == 1 else "times"}, '
+             f'{plays["plays"][0][0][:4]} to {plays["plays"][-1][0][:4]}.') if n else ''
     body = (f'<div class="seo-summary"><p class="song-kicker">THE GRATEFUL DEAD</p><h2>{esc(name)}</h2>'
             f'<p>The first, last and best live versions of {esc(name)} by the Grateful Dead, '
             f'with free recordings from the Internet Archive.{count}</p>'
@@ -428,19 +428,35 @@ def main():
     args = ap.parse_args()
 
     songs = flb.load_songs()
+    setlists = json.loads(SETLISTS.read_text()) if SETLISTS.exists() else {}
+    plays_by = {s['name']: song_plays(s, setlists) for s in songs}
+    # The play count the site shows is our own history count (the shows in "Every time they played it")
+    stale = [s for s in songs if s.get('kind') != 'sequence'
+             and s.get('played') != (len(plays_by[s['name']]['plays']) if plays_by[s['name']] else None)]
+    if stale and not args.check:
+        for s in stale:
+            n = len(plays_by[s['name']]['plays']) if plays_by[s['name']] else None
+            if n is None:
+                s.pop('played', None)
+            else:
+                s['played'] = n
+        flb.save_songs(songs)
+        flb.bump_data_version('songs.json')
+        print(f'Updated the play count of {len(stale)} songs in songs.json.')
+    elif stale:
+        print(f'{len(stale)} songs have a stale play count in songs.json.')
     template = TEMPLATE.read_text()
     template = sub(template, NAV, '<nav id="songs" aria-label="Song collection">' + song_list_html(songs) + '</nav>')
     if not re.search(r'<section class="song-detail" id="detail" aria-live="polite">.*?</section></div>', template, re.S):
         raise SystemExit('template: #detail section not found')
 
     shows = build_shows(songs)
-    setlists = json.loads(SETLISTS.read_text()) if SETLISTS.exists() else {}
     song_by_key = {title_key(n): s for s in songs if s.get('kind') != 'sequence' for n in [s['name'], *s.get('aliases', [])]}
     by_venue = {}
     for s in shows:
         by_venue.setdefault(s['vk'], []).append(s)
 
-    pages = [song_page(s, song_plays(s, setlists)) for s in songs]
+    pages = [song_page(s, plays_by[s['name']]) for s in songs]
     for i, s in enumerate(shows):
         same = [x for x in by_venue[s['vk']] if x is not s]
         pages.append(show_page(s, shows[i - 1] if i else None, shows[i + 1] if i + 1 < len(shows) else None, same,

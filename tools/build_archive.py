@@ -55,7 +55,7 @@ COLUMNS = {
     'sources': ['source_id', 'name', 'url', 'provides', 'terms'],
     'shows': ['date', 'venue', 'city', 'state_or_country', 'main_tape', 'setlist_source', 'site_url'],
     'songs': ['song_id', 'name', 'kind', 'writers', 'first_release', 'credits_source_url', 'lyrics_url',
-              'setlist_program_count', 'setlist_program_url', 'rolling_stone_rank', 'site_url'],
+              'times_played', 'setlist_program_count', 'setlist_program_url', 'rolling_stone_rank', 'site_url'],
     'song_aliases': ['song_id', 'alias'],
     'performances': ['date', 'set_name', 'position', 'title_as_listed', 'song_id', 'segue_into_next',
                      'tape', 'track_file', 'track_title', 'track_seconds', 'source_id'],
@@ -131,6 +131,7 @@ DOCS = {
     'songs': {'song_id': 'Stable id (URL slug).', 'name': 'Song title.', 'kind': 'song or sequence (e.g. Help > Slip > Frank).',
               'writers': 'Songwriters, " / " separated.', 'first_release': 'First release, "Album, Year".',
               'credits_source_url': 'Page the credits came from.', 'lyrics_url': 'Lyrics on dead.net, when it has them.',
+              'times_played': 'Shows in this archive\'s setlists where the song was played (the count the site shows).',
               'setlist_program_count': 'Shows The SetList Program lists the song at.',
               'setlist_program_url': 'That list.', 'rolling_stone_rank': 'Rank in Rolling Stone\'s 100 best, if listed.',
               'site_url': 'Song page on firstlastbest.com.'},
@@ -171,7 +172,7 @@ def build(public):
         rows['songs'].append({
             'song_id': sid, 'name': s['name'], 'kind': s.get('kind') or 'song', 'writers': cr.get('writers', ''),
             'first_release': cr.get('release', ''), 'credits_source_url': cr.get('source', ''),
-            'lyrics_url': s.get('lyrics', ''), 'setlist_program_count': s.get('count') or '',
+            'lyrics_url': s.get('lyrics', ''), 'times_played': s.get('played') or '', 'setlist_program_count': s.get('count') or '',
             'setlist_program_url': s.get('history', ''), 'rolling_stone_rank': s.get('rank') or '',
             'site_url': f'https://firstlastbest.com/song/{sid}/'})
         for a in s.get('aliases', []):

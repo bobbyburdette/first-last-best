@@ -80,15 +80,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 93,
-    "liveRank": 83,
-    "liveCount": 143,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Go To Heaven, 1980",
       "source": "https://www.deaddisc.com/songs/Alabama_Getaway.htm"
     },
-    "lyrics": "https://www.dead.net/song/alabama-getaway"
+    "lyrics": "https://www.dead.net/song/alabama-getaway",
+    "played": 143
   },
   {
     "name": "Alligator",
@@ -176,7 +174,8 @@
       "release": "Anthem Of The Sun, 1968",
       "source": "https://www.deaddisc.com/songs/Alligator.htm"
     },
-    "lyrics": "https://www.dead.net/song/alligator"
+    "lyrics": "https://www.dead.net/song/alligator",
+    "played": 72
   },
   {
     "name": "Althea",
@@ -259,15 +258,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 29,
-    "liveRank": 52,
-    "liveCount": 273,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Go To Heaven, 1980",
       "source": "https://www.deaddisc.com/songs/Althea.htm"
     },
-    "lyrics": "https://www.dead.net/song/althea"
+    "lyrics": "https://www.dead.net/song/althea",
+    "played": 275
   },
   {
     "name": "And We Bid You Goodnight",
@@ -362,7 +359,8 @@
       "release": "Live/Dead, 1969",
       "source": "https://www.deaddisc.com/songs/And_We_Bid_You_Good_Night.htm"
     },
-    "lyrics": "https://www.dead.net/song/and-we-bid-you-goodnight"
+    "lyrics": "https://www.dead.net/song/and-we-bid-you-goodnight",
+    "played": 71
   },
   {
     "name": "Attics Of My Life",
@@ -448,7 +446,8 @@
       "release": "American Beauty, 1970",
       "source": "https://www.deaddisc.com/songs/Attics_Of_My_Life.htm"
     },
-    "lyrics": "https://www.dead.net/song/attics-my-life"
+    "lyrics": "https://www.dead.net/song/attics-my-life",
+    "played": 51
   },
   {
     "name": "Believe It Or Not",
@@ -536,7 +535,8 @@
       "release": "So Many Roads (1965-1995), 1999",
       "source": "https://www.deaddisc.com/songs/Believe_It_Or_Not.htm"
     },
-    "lyrics": "https://www.dead.net/song/believe-it-or-not"
+    "lyrics": "https://www.dead.net/song/believe-it-or-not",
+    "played": 8
   },
   {
     "name": "Bertha",
@@ -621,15 +621,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 24,
-    "liveRank": 18,
-    "liveCount": 401,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Grateful Dead (Skull & Roses), 1971",
       "source": "https://www.deaddisc.com/songs/Bertha.htm"
     },
-    "lyrics": "https://www.dead.net/song/bertha"
+    "lyrics": "https://www.dead.net/song/bertha",
+    "played": 403
   },
   {
     "name": "Bird Song",
@@ -712,14 +710,12 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 26,
-    "liveRank": 45,
-    "liveCount": 301,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "source": "https://www.deaddisc.com/songs/Bird_Song.htm"
     },
-    "lyrics": "https://www.dead.net/song/bird-song"
+    "lyrics": "https://www.dead.net/song/bird-song",
+    "played": 306
   },
   {
     "name": "Black Muddy River",
@@ -806,7 +802,8 @@
       "writers": "Jerry Garcia / Robert Hunter",
       "source": "https://www.deaddisc.com/songs/Black_Muddy_River.htm"
     },
-    "lyrics": "https://www.dead.net/song/black-muddy-river"
+    "lyrics": "https://www.dead.net/song/black-muddy-river",
+    "played": 67
   },
   {
     "name": "Black Peter",
@@ -889,15 +886,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 35,
-    "liveRank": 26,
-    "liveCount": 357,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Workingman's Dead, 1970",
       "source": "https://www.deaddisc.com/songs/Black_Peter.htm"
     },
-    "lyrics": "https://www.dead.net/song/black-peter"
+    "lyrics": "https://www.dead.net/song/black-peter",
+    "played": 355
   },
   {
     "name": "Black Throated Wind",
@@ -980,15 +975,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 78,
-    "liveRank": 78,
-    "liveCount": 158,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / John Perry Barlow",
       "release": "Steal Your Face, 1976",
       "source": "https://www.deaddisc.com/songs/Black_Throated_Wind.htm"
     },
-    "lyrics": "https://www.dead.net/song/black-throated-wind"
+    "lyrics": "https://www.dead.net/song/black-throated-wind",
+    "played": 159
   },
   {
     "name": "Box Of Rain",
@@ -1073,15 +1066,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 2,
-    "liveRank": 75,
-    "liveCount": 163,
-    "liveApproximate": false,
     "credits": {
       "writers": "Phil Lesh / Robert Hunter",
       "release": "American Beauty, 1970",
       "source": "https://www.deaddisc.com/songs/Box_Of_Rain.htm"
     },
-    "lyrics": "https://www.dead.net/song/box-rain"
+    "lyrics": "https://www.dead.net/song/box-rain",
+    "played": 163
   },
   {
     "name": "Brokedown Palace",
@@ -1164,14 +1155,12 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 14,
-    "liveRank": 67,
-    "liveCount": 219,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "source": "https://www.deaddisc.com/songs/Brokedown_Palace.htm"
     },
-    "lyrics": "https://www.dead.net/song/brokedown-palace"
+    "lyrics": "https://www.dead.net/song/brokedown-palace",
+    "played": 218
   },
   {
     "name": "Brown-Eyed Women",
@@ -1260,15 +1249,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 30,
-    "liveRank": 29,
-    "liveCount": 346,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Europe '72, 1972",
       "source": "https://www.deaddisc.com/songs/Brown_Eyed_Women.htm"
     },
-    "lyrics": "https://www.dead.net/song/brown-eyed-women"
+    "lyrics": "https://www.dead.net/song/brown-eyed-women",
+    "played": 352
   },
   {
     "name": "Candyman",
@@ -1349,15 +1336,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 46,
-    "liveRank": 49,
-    "liveCount": 276,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "American Beauty, 1970",
       "source": "https://www.deaddisc.com/songs/Candyman.htm"
     },
-    "lyrics": "https://www.dead.net/song/candyman"
+    "lyrics": "https://www.dead.net/song/candyman",
+    "played": 288
   },
   {
     "name": "Casey Jones",
@@ -1446,15 +1431,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 31,
-    "liveRank": 36,
-    "liveCount": 325,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Workingman's Dead, 1970",
       "source": "https://www.deaddisc.com/songs/Casey_Jones.htm"
     },
-    "lyrics": "https://www.dead.net/song/casey-jones"
+    "lyrics": "https://www.dead.net/song/casey-jones",
+    "played": 334
   },
   {
     "name": "Cassidy",
@@ -1537,15 +1520,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 37,
-    "liveRank": 32,
-    "liveCount": 339,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / John Perry Barlow",
       "release": "Reckoning, 1981",
       "source": "https://www.deaddisc.com/songs/Cassidy.htm"
     },
-    "lyrics": "https://www.dead.net/song/cassidy"
+    "lyrics": "https://www.dead.net/song/cassidy",
+    "played": 339
   },
   {
     "name": "China Cat Sunflower",
@@ -1634,15 +1615,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 7,
-    "liveRank": 4,
-    "liveCount": 572,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Aoxomoxoa, 1969",
       "source": "https://www.deaddisc.com/songs/China_Cat_Sunflower.htm"
     },
-    "lyrics": "https://www.dead.net/song/china-cat-sunflower"
+    "lyrics": "https://www.dead.net/song/china-cat-sunflower",
+    "played": 580
   },
   {
     "name": "China Cat Sunflower → I Know You Rider",
@@ -1826,14 +1805,12 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 36,
-    "liveRank": 94,
-    "liveCount": 115,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Grateful Dead From The Mars Hotel, 1974",
       "source": "https://www.deaddisc.com/songs/China_Doll.htm"
-    }
+    },
+    "played": 117
   },
   {
     "name": "Cold Rain And Snow",
@@ -1916,15 +1893,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 62,
-    "liveRank": 56,
-    "liveCount": 257,
-    "liveApproximate": false,
     "credits": {
       "writers": "Traditional",
       "release": "The Grateful Dead, 1967",
       "source": "https://www.deaddisc.com/songs/Cold_Rain_And_Snow.htm"
     },
-    "lyrics": "https://www.dead.net/song/cold-rain-and-snow"
+    "lyrics": "https://www.dead.net/song/cold-rain-and-snow",
+    "played": 265
   },
   {
     "name": "Comes A Time",
@@ -2012,7 +1987,8 @@
       "release": "Hundred Year Hall, 1995",
       "source": "https://www.deaddisc.com/songs/Comes_A_Time.htm"
     },
-    "lyrics": "https://www.dead.net/song/comes-time"
+    "lyrics": "https://www.dead.net/song/comes-time",
+    "played": 68
   },
   {
     "name": "Crazy Fingers",
@@ -2095,15 +2071,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 79,
-    "liveRank": 82,
-    "liveCount": 145,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Blues For Allah, 1975",
       "source": "https://www.deaddisc.com/songs/Crazy_Fingers.htm"
     },
-    "lyrics": "https://www.dead.net/song/crazy-fingers"
+    "lyrics": "https://www.dead.net/song/crazy-fingers",
+    "played": 145
   },
   {
     "name": "Cream Puff War",
@@ -2197,7 +2171,8 @@
       "release": "The Grateful Dead, 1967",
       "source": "https://www.deaddisc.com/songs/Cream_Puff_War.htm"
     },
-    "lyrics": "https://www.dead.net/song/cream-puff-war"
+    "lyrics": "https://www.dead.net/song/cream-puff-war",
+    "played": 12
   },
   {
     "name": "Cumberland Blues",
@@ -2286,15 +2261,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 39,
-    "liveRank": 60,
-    "liveCount": 235,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter / Phil Lesh",
       "release": "Workingman's Dead, 1970",
       "source": "https://www.deaddisc.com/songs/Cumberland_Blues.htm"
     },
-    "lyrics": "https://www.dead.net/song/cumberland-blues"
+    "lyrics": "https://www.dead.net/song/cumberland-blues",
+    "played": 236
   },
   {
     "name": "Dark Hollow",
@@ -2381,7 +2354,8 @@
       "release": "(Bear's Choice), 1973",
       "source": "https://www.deaddisc.com/songs/Dark_Hollow.htm"
     },
-    "lyrics": "https://www.dead.net/song/dark-hollow"
+    "lyrics": "https://www.dead.net/song/dark-hollow",
+    "played": 36
   },
   {
     "name": "Dark Star",
@@ -2463,15 +2437,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 12,
-    "liveRank": 57,
-    "liveCount": 255,
-    "liveApproximate": false,
     "credits": {
       "writers": "Grateful Dead / Robert Hunter",
       "release": "Dark Star / Born Cross-Eyed, 1968",
       "source": "https://www.deaddisc.com/songs/Dark_Star.htm"
     },
-    "lyrics": "https://www.dead.net/song/dark-star"
+    "lyrics": "https://www.dead.net/song/dark-star",
+    "played": 250
   },
   {
     "name": "Days Between",
@@ -2559,7 +2531,8 @@
       "release": "So Many Roads (1965-1995), 1999",
       "source": "https://www.deaddisc.com/songs/Days_Between.htm"
     },
-    "lyrics": "https://www.dead.net/song/days-between"
+    "lyrics": "https://www.dead.net/song/days-between",
+    "played": 41
   },
   {
     "name": "Deal",
@@ -2640,15 +2613,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 47,
-    "liveRank": 15,
-    "liveCount": 429,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Dead Set, 1981",
       "source": "https://www.deaddisc.com/songs/Deal.htm"
     },
-    "lyrics": "https://www.dead.net/song/deal"
+    "lyrics": "https://www.dead.net/song/deal",
+    "played": 431
   },
   {
     "name": "Death Don't Have No Mercy",
@@ -2742,7 +2713,8 @@
       "release": "Live/Dead, 1969",
       "source": "https://www.deaddisc.com/songs/Death_Dont_Have_No_Mercy.htm"
     },
-    "lyrics": "https://www.dead.net/song/death-dont-have-no-mercy"
+    "lyrics": "https://www.dead.net/song/death-dont-have-no-mercy",
+    "played": 55
   },
   {
     "name": "Dire Wolf",
@@ -2823,15 +2795,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 40,
-    "liveRank": 63,
-    "liveCount": 229,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Workingman's Dead, 1970",
       "source": "https://www.deaddisc.com/songs/Dire_Wolf.htm"
     },
-    "lyrics": "https://www.dead.net/song/dire-wolf"
+    "lyrics": "https://www.dead.net/song/dire-wolf",
+    "played": 238
   },
   {
     "name": "Don't Ease Me In",
@@ -2914,14 +2884,12 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 100,
-    "liveRank": 38,
-    "liveCount": 322,
-    "liveApproximate": false,
     "credits": {
       "writers": "Traditional",
       "source": "https://www.deaddisc.com/songs/Dont_Ease_Me_In.htm"
     },
-    "lyrics": "https://www.dead.net/song/dont-ease-me"
+    "lyrics": "https://www.dead.net/song/dont-ease-me",
+    "played": 325
   },
   {
     "name": "Drums → Space",
@@ -3096,7 +3064,8 @@
       "release": "Workingman's Dead, 1970",
       "source": "https://www.deaddisc.com/songs/Easy_Wind.htm"
     },
-    "lyrics": "https://www.dead.net/song/easy-wind"
+    "lyrics": "https://www.dead.net/song/easy-wind",
+    "played": 49
   },
   {
     "name": "El Paso",
@@ -3185,15 +3154,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 83,
-    "liveRank": 21,
-    "liveCount": 396,
-    "liveApproximate": false,
     "credits": {
       "writers": "Marty Robbins",
       "release": "Steal Your Face, 1976",
       "source": "https://www.deaddisc.com/songs/El_Paso.htm"
     },
-    "lyrics": "https://www.dead.net/song/el-paso"
+    "lyrics": "https://www.dead.net/song/el-paso",
+    "played": 398
   },
   {
     "name": "Estimated Prophet",
@@ -3276,15 +3243,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 18,
-    "liveRank": 22,
-    "liveCount": 390,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / John Perry Barlow",
       "release": "Terrapin Station, 1977",
       "source": "https://www.deaddisc.com/songs/Estimated_Prophet.htm"
     },
-    "lyrics": "https://www.dead.net/song/estimated-prophet"
+    "lyrics": "https://www.dead.net/song/estimated-prophet",
+    "played": 393
   },
   {
     "name": "Eyes Of The World",
@@ -3367,15 +3332,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 9,
-    "liveRank": 23,
-    "liveCount": 382,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Wake Of The Flood, 1973",
       "source": "https://www.deaddisc.com/songs/Eyes_Of_The_World.htm"
     },
-    "lyrics": "https://www.dead.net/song/eyes-world"
+    "lyrics": "https://www.dead.net/song/eyes-world",
+    "played": 380
   },
   {
     "name": "Feel Like A Stranger",
@@ -3456,15 +3419,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 69,
-    "liveRank": 69,
-    "liveCount": 208,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / John Perry Barlow",
       "release": "Go To Heaven, 1980",
       "source": "https://www.deaddisc.com/songs/Feel_Like_A_Stranger.htm"
     },
-    "lyrics": "https://www.dead.net/song/feel-stranger"
+    "lyrics": "https://www.dead.net/song/feel-stranger",
+    "played": 209
   },
   {
     "name": "Fire On The Mountain",
@@ -3551,15 +3512,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 21,
-    "liveRank": 58,
-    "liveCount": 254,
-    "liveApproximate": false,
     "credits": {
       "writers": "Mickey Hart / Robert Hunter",
       "release": "Shakedown Street, 1978",
       "source": "https://www.deaddisc.com/songs/Fire_On_The_Mountain.htm"
     },
-    "lyrics": "https://www.dead.net/song/fire-mountain"
+    "lyrics": "https://www.dead.net/song/fire-mountain",
+    "played": 255
   },
   {
     "name": "Franklin's Tower",
@@ -3646,15 +3605,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 11,
-    "liveRank": 66,
-    "liveCount": 222,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Bill Kreutzmann / Robert Hunter",
       "release": "Blues For Allah, 1975",
       "source": "https://www.deaddisc.com/songs/Franklins_Tower.htm"
     },
-    "lyrics": "https://www.dead.net/song/franklins-tower"
+    "lyrics": "https://www.dead.net/song/franklins-tower",
+    "played": 224
   },
   {
     "name": "Friend Of The Devil",
@@ -3737,15 +3694,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 19,
-    "liveRank": 41,
-    "liveCount": 314,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter / John Dawson",
       "release": "American Beauty, 1970",
       "source": "https://www.deaddisc.com/songs/Friend_Of_The_Devil.htm"
     },
-    "lyrics": "https://www.dead.net/song/friend-devil"
+    "lyrics": "https://www.dead.net/song/friend-devil",
+    "played": 311
   },
   {
     "name": "Goin' Down The Road Feeling Bad",
@@ -3829,15 +3784,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 50,
-    "liveRank": 43,
-    "liveCount": 302,
-    "liveApproximate": false,
     "credits": {
       "writers": "Traditional",
       "release": "Grateful Dead (Skull & Roses), 1971",
       "source": "https://www.deaddisc.com/songs/Goin_Down_The_Road_Feeling_Bad.htm"
     },
-    "lyrics": "https://www.dead.net/song/goin-down-road-feeling-bad"
+    "lyrics": "https://www.dead.net/song/goin-down-road-feeling-bad",
+    "played": 305
   },
   {
     "name": "Good Lovin'",
@@ -3920,15 +3873,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 74,
-    "liveRank": 10,
-    "liveCount": 447,
-    "liveApproximate": false,
     "credits": {
       "writers": "Arthur Resnick / Rudy Clark",
       "release": "Shakedown Street, 1978",
       "source": "https://www.deaddisc.com/songs/Good_Lovin.htm"
     },
-    "lyrics": "https://www.dead.net/song/good-lovin"
+    "lyrics": "https://www.dead.net/song/good-lovin",
+    "played": 448
   },
   {
     "name": "Greatest Story Ever Told",
@@ -4011,15 +3962,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 97,
-    "liveRank": 47,
-    "liveCount": 283,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / Robert Hunter",
       "release": "Dead Set, 1981",
       "source": "https://www.deaddisc.com/songs/Greatest_Story_Ever_Told.htm"
     },
-    "lyrics": "https://www.dead.net/song/greatest-story-ever-told"
+    "lyrics": "https://www.dead.net/song/greatest-story-ever-told",
+    "played": 285
   },
   {
     "name": "He's Gone",
@@ -4102,15 +4051,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 43,
-    "liveRank": 34,
-    "liveCount": 330,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Europe '72, 1972",
       "source": "https://www.deaddisc.com/songs/Hes_Gone.htm"
     },
-    "lyrics": "https://www.dead.net/song/hes-gone"
+    "lyrics": "https://www.dead.net/song/hes-gone",
+    "played": 331
   },
   {
     "name": "Hell In A Bucket",
@@ -4193,15 +4140,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 68,
-    "liveRank": 68,
-    "liveCount": 217,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / John Perry Barlow / Brent Mydland",
       "release": "In The Dark, 1987",
       "source": "https://www.deaddisc.com/songs/Hell_In_A_Bucket.htm"
     },
-    "lyrics": "https://www.dead.net/song/hell-bucket"
+    "lyrics": "https://www.dead.net/song/hell-bucket",
+    "played": 217
   },
   {
     "name": "Help On The Way",
@@ -4288,15 +4233,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 10,
-    "liveRank": 96,
-    "liveCount": 111,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Blues For Allah, 1975",
       "source": "https://www.deaddisc.com/songs/Help_On_The_Way.htm"
     },
-    "lyrics": "https://www.dead.net/song/help-way"
+    "lyrics": "https://www.dead.net/song/help-way",
+    "played": 111
   },
   {
     "name": "Help on the Way → Slipknot! → Franklin’s Tower",
@@ -4498,7 +4441,8 @@
       "release": "Wake Of The Flood, 1973",
       "source": "https://www.deaddisc.com/songs/Here_Comes_Sunshine.htm"
     },
-    "lyrics": "https://www.dead.net/song/here-comes-sunshine"
+    "lyrics": "https://www.dead.net/song/here-comes-sunshine",
+    "played": 65
   },
   {
     "name": "High Time",
@@ -4588,15 +4532,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 52,
-    "liveRank": 85,
-    "liveCount": 137,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Workingman's Dead, 1970",
       "source": "https://www.deaddisc.com/songs/High_Time.htm"
     },
-    "lyrics": "https://www.dead.net/song/high-time"
+    "lyrics": "https://www.dead.net/song/high-time",
+    "played": 139
   },
   {
     "name": "I Know You Rider",
@@ -4692,15 +4634,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 8,
-    "liveRank": 5,
-    "liveCount": 570,
-    "liveApproximate": false,
     "credits": {
       "writers": "Traditional",
       "release": "Europe '72, 1972",
       "source": "https://www.deaddisc.com/songs/I_Know_You_Rider.htm"
     },
-    "lyrics": "https://www.dead.net/song/i-know-you-rider"
+    "lyrics": "https://www.dead.net/song/i-know-you-rider",
+    "played": 574
   },
   {
     "name": "I Need A Miracle",
@@ -4783,15 +4723,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 101,
-    "liveRank": 53,
-    "liveCount": 272,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / John Perry Barlow",
       "release": "Shakedown Street, 1978",
       "source": "https://www.deaddisc.com/songs/I_Need_A_Miracle.htm"
     },
-    "lyrics": "https://www.dead.net/song/i-need-miracle"
+    "lyrics": "https://www.dead.net/song/i-need-miracle",
+    "played": 270
   },
   {
     "name": "It Hurts Me Too",
@@ -4882,7 +4820,8 @@
     "lyrics": "https://www.dead.net/song/it-hurts-me-too",
     "aliases": [
       "Hurts Me Too"
-    ]
+    ],
+    "played": 62
   },
   {
     "name": "It Must Have Been The Roses",
@@ -4965,15 +4904,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 72,
-    "liveRank": 77,
-    "liveCount": 159,
-    "liveApproximate": false,
     "credits": {
       "writers": "Robert Hunter",
       "release": "Steal Your Face, 1976",
       "source": "https://www.deaddisc.com/songs/It_Must_Have_Been_The_Roses.htm"
     },
-    "lyrics": "https://www.dead.net/song/it-must-have-been-roses"
+    "lyrics": "https://www.dead.net/song/it-must-have-been-roses",
+    "played": 164
   },
   {
     "name": "Jack Straw",
@@ -5056,15 +4993,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 16,
-    "liveRank": 9,
-    "liveCount": 477,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / Robert Hunter",
       "release": "Europe '72, 1972",
       "source": "https://www.deaddisc.com/songs/Jack_Straw.htm"
     },
-    "lyrics": "https://www.dead.net/song/jack-straw"
+    "lyrics": "https://www.dead.net/song/jack-straw",
+    "played": 483
   },
   {
     "name": "Let It Grow",
@@ -5145,15 +5080,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 63,
-    "liveRank": 62,
-    "liveCount": 233,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / John Perry Barlow",
       "release": "Wake Of The Flood, 1973",
       "source": "https://www.deaddisc.com/songs/Let_It_Grow.htm"
     },
-    "lyrics": "https://www.dead.net/song/weather-report-suite-part-ii-let-it-grow"
+    "lyrics": "https://www.dead.net/song/weather-report-suite-part-ii-let-it-grow",
+    "played": 280
   },
   {
     "name": "Looks Like Rain",
@@ -5236,15 +5169,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 64,
-    "liveRank": 17,
-    "liveCount": 415,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / John Perry Barlow",
       "release": "Without A Net, 1990",
       "source": "https://www.deaddisc.com/songs/Looks_Like_Rain.htm"
     },
-    "lyrics": "https://www.dead.net/song/looks-rain"
+    "lyrics": "https://www.dead.net/song/looks-rain",
+    "played": 422
   },
   {
     "name": "Loose Lucy",
@@ -5341,7 +5272,8 @@
       "release": "Grateful Dead From The Mars Hotel, 1974",
       "source": "https://www.deaddisc.com/songs/Loose_Lucy.htm"
     },
-    "lyrics": "https://www.dead.net/song/loose-lucy"
+    "lyrics": "https://www.dead.net/song/loose-lucy",
+    "played": 98
   },
   {
     "name": "Loser",
@@ -5424,15 +5356,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 51,
-    "liveRank": 27,
-    "liveCount": 353,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Dead Set, 1981",
       "source": "https://www.deaddisc.com/songs/Loser.htm"
     },
-    "lyrics": "https://www.dead.net/song/loser"
+    "lyrics": "https://www.dead.net/song/loser",
+    "played": 357
   },
   {
     "name": "Lost Sailor → Saint of Circumstance",
@@ -5618,14 +5548,12 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 77,
-    "liveRank": 42,
-    "liveCount": 307,
-    "liveApproximate": false,
     "credits": {
       "writers": "Merle Haggard",
       "release": "Grateful Dead (Skull & Roses), 1971",
       "source": "https://www.deaddisc.com/songs/Mama_Tried.htm"
-    }
+    },
+    "played": 311
   },
   {
     "name": "Me And My Uncle",
@@ -5708,15 +5636,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 81,
-    "liveRank": 1,
-    "liveCount": 635,
-    "liveApproximate": false,
     "credits": {
       "writers": "John Phillips",
       "release": "Grateful Dead (Skull & Roses), 1971",
       "source": "https://www.deaddisc.com/songs/Me_And_My_Uncle.htm"
     },
-    "lyrics": "https://www.dead.net/song/me-and-my-uncle"
+    "lyrics": "https://www.dead.net/song/me-and-my-uncle",
+    "played": 644
   },
   {
     "name": "Mississippi Half-Step",
@@ -5797,15 +5723,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 53,
-    "liveRank": 59,
-    "liveCount": 236,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Wake Of The Flood, 1973",
       "source": "https://www.deaddisc.com/songs/Mississippi_Half-Step_Uptown_Toodeloo.htm"
     },
-    "lyrics": "https://www.dead.net/song/mississippi-half-step-uptown-toodleloo"
+    "lyrics": "https://www.dead.net/song/mississippi-half-step-uptown-toodleloo",
+    "played": 236
   },
   {
     "name": "Morning Dew",
@@ -5887,14 +5811,12 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 4,
-    "liveRank": 46,
-    "liveCount": 288,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bonnie Dobson",
       "source": "https://www.deaddisc.com/songs/Morning_Dew.htm"
     },
-    "lyrics": "https://www.dead.net/song/morning-dew"
+    "lyrics": "https://www.dead.net/song/morning-dew",
+    "played": 286
   },
   {
     "name": "Mountains Of The Moon",
@@ -5982,7 +5904,8 @@
       "release": "Aoxomoxoa, 1969",
       "source": "https://www.deaddisc.com/songs/Mountains_Of_The_Moon.htm"
     },
-    "lyrics": "https://www.dead.net/song/mountains-moon"
+    "lyrics": "https://www.dead.net/song/mountains-moon",
+    "played": 15
   },
   {
     "name": "Mr. Charlie",
@@ -6070,7 +5993,8 @@
       "release": "Europe '72, 1972",
       "source": "https://www.deaddisc.com/songs/Mr_Charlie.htm"
     },
-    "lyrics": "https://www.dead.net/song/mister-charlie"
+    "lyrics": "https://www.dead.net/song/mister-charlie",
+    "played": 52
   },
   {
     "name": "New Speedway Boogie",
@@ -6156,7 +6080,8 @@
       "release": "Workingman's Dead, 1970",
       "source": "https://www.deaddisc.com/songs/New_Speedway_Boogie.htm"
     },
-    "lyrics": "https://www.dead.net/song/new-speedway-boogie"
+    "lyrics": "https://www.dead.net/song/new-speedway-boogie",
+    "played": 58
   },
   {
     "name": "Not Fade Away",
@@ -6238,15 +6163,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 57,
-    "liveRank": 6,
-    "liveCount": 561,
-    "liveApproximate": false,
     "credits": {
       "writers": "Norman Petty / Buddy Holly",
       "release": "Grateful Dead (Skull & Roses), 1971",
       "source": "https://www.deaddisc.com/songs/Not_Fade_Away.htm"
     },
-    "lyrics": "https://www.dead.net/song/not-fade-away"
+    "lyrics": "https://www.dead.net/song/not-fade-away",
+    "played": 559
   },
   {
     "name": "One More Saturday Night",
@@ -6329,15 +6252,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 54,
-    "liveRank": 33,
-    "liveCount": 338,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir",
       "release": "Europe '72, 1972",
       "source": "https://www.deaddisc.com/songs/One_More_Saturday_Night.htm"
     },
-    "lyrics": "https://www.dead.net/song/one-more-saturday-night"
+    "lyrics": "https://www.dead.net/song/one-more-saturday-night",
+    "played": 345
   },
   {
     "name": "Peggy-O",
@@ -6427,15 +6348,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 55,
-    "liveRank": 54,
-    "liveCount": 265,
-    "liveApproximate": false,
     "credits": {
       "writers": "Traditional",
       "release": "Dick's Picks, Vol. 15, 1999",
       "source": "https://www.deaddisc.com/songs/Peggy-O.htm"
     },
-    "lyrics": "https://www.dead.net/song/peggy-o"
+    "lyrics": "https://www.dead.net/song/peggy-o",
+    "played": 264
   },
   {
     "name": "Playin' In The Band",
@@ -6521,15 +6440,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 15,
-    "liveRank": 2,
-    "liveCount": 635,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / Robert Hunter",
       "release": "Grateful Dead (Skull & Roses), 1971",
       "source": "https://www.deaddisc.com/songs/Playing_In_The_Band.htm"
     },
-    "lyrics": "https://www.dead.net/song/playing-band"
+    "lyrics": "https://www.dead.net/song/playing-band",
+    "played": 598
   },
   {
     "name": "Ramble On Rose",
@@ -6612,15 +6529,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 33,
-    "liveRank": 39,
-    "liveCount": 318,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Europe '72, 1972",
       "source": "https://www.deaddisc.com/songs/Ramble_On_Rose.htm"
     },
-    "lyrics": "https://www.dead.net/song/ramble-rose"
+    "lyrics": "https://www.dead.net/song/ramble-rose",
+    "played": 319
   },
   {
     "name": "Ripple",
@@ -6708,7 +6623,8 @@
       "release": "American Beauty, 1970",
       "source": "https://www.deaddisc.com/songs/Ripple.htm"
     },
-    "lyrics": "https://www.dead.net/song/ripple"
+    "lyrics": "https://www.dead.net/song/ripple",
+    "played": 44
   },
   {
     "name": "Row Jimmy",
@@ -6791,15 +6707,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 42,
-    "liveRank": 51,
-    "liveCount": 274,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Wake Of The Flood, 1973",
       "source": "https://www.deaddisc.com/songs/Row_Jimmy.htm"
     },
-    "lyrics": "https://www.dead.net/song/row-jimmy"
+    "lyrics": "https://www.dead.net/song/row-jimmy",
+    "played": 278
   },
   {
     "name": "Saint Of Circumstance",
@@ -6888,15 +6802,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 88,
-    "liveRank": 65,
-    "liveCount": 224,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / John Perry Barlow",
       "release": "Go To Heaven, 1980",
       "source": "https://www.deaddisc.com/songs/Saint_Of_Circumstance.htm"
     },
-    "lyrics": "https://www.dead.net/song/saint-circumstance"
+    "lyrics": "https://www.dead.net/song/saint-circumstance",
+    "played": 226
   },
   {
     "name": "Samson And Delilah",
@@ -6979,15 +6891,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 66,
-    "liveRank": 24,
-    "liveCount": 365,
-    "liveApproximate": false,
     "credits": {
       "writers": "Traditional",
       "release": "Terrapin Station, 1977",
       "source": "https://www.deaddisc.com/songs/Samson_And_Delilah.htm"
     },
-    "lyrics": "https://www.dead.net/song/samson-and-delilah"
+    "lyrics": "https://www.dead.net/song/samson-and-delilah",
+    "played": 367
   },
   {
     "name": "Scarlet Begonias",
@@ -7074,15 +6984,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 1,
-    "liveRank": 40,
-    "liveCount": 317,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Grateful Dead From The Mars Hotel, 1974",
       "source": "https://www.deaddisc.com/songs/Scarlet_Begonias.htm"
     },
-    "lyrics": "https://www.dead.net/song/scarlet-begonias"
+    "lyrics": "https://www.dead.net/song/scarlet-begonias",
+    "played": 317
   },
   {
     "name": "Scarlet Begonias → Fire on the Mountain",
@@ -7258,15 +7166,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 27,
-    "liveRank": 74,
-    "liveCount": 164,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Shakedown Street, 1978",
       "source": "https://www.deaddisc.com/songs/Shakedown_Street.htm"
     },
-    "lyrics": "https://www.dead.net/song/shakedown-street"
+    "lyrics": "https://www.dead.net/song/shakedown-street",
+    "played": 164
   },
   {
     "name": "Ship Of Fools",
@@ -7349,15 +7255,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 38,
-    "liveRank": 64,
-    "liveCount": 225,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Grateful Dead From The Mars Hotel, 1974",
       "source": "https://www.deaddisc.com/songs/Ship_Of_Fools.htm"
     },
-    "lyrics": "https://www.dead.net/song/ship-fools"
+    "lyrics": "https://www.dead.net/song/ship-fools",
+    "played": 227
   },
   {
     "name": "So Many Roads",
@@ -7443,7 +7347,8 @@
       "release": "So Many Roads (1965-1995), 1999",
       "source": "https://www.deaddisc.com/songs/So_Many_Roads.htm"
     },
-    "lyrics": "https://www.dead.net/song/so-many-roads"
+    "lyrics": "https://www.dead.net/song/so-many-roads",
+    "played": 55
   },
   {
     "name": "St. Stephen",
@@ -7533,15 +7438,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 13,
-    "liveRank": 71,
-    "liveCount": 190,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Phil Lesh / Robert Hunter",
       "release": "Aoxomoxoa, 1969",
       "source": "https://www.deaddisc.com/songs/Saint_Stephen.htm"
     },
-    "lyrics": "https://www.dead.net/song/saint-stephen"
+    "lyrics": "https://www.dead.net/song/saint-stephen",
+    "played": 180
   },
   {
     "name": "Standing On The Moon",
@@ -7629,7 +7532,8 @@
       "release": "Built To Last, 1989",
       "source": "https://www.deaddisc.com/songs/Standing_On_The_Moon.htm"
     },
-    "lyrics": "https://www.dead.net/song/standing-moon"
+    "lyrics": "https://www.dead.net/song/standing-moon",
+    "played": 76
   },
   {
     "name": "Stella Blue",
@@ -7712,15 +7616,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 20,
-    "liveRank": 35,
-    "liveCount": 329,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Wake Of The Flood, 1973",
       "source": "https://www.deaddisc.com/songs/Stella_Blue.htm"
     },
-    "lyrics": "https://www.dead.net/song/stella-blue"
+    "lyrics": "https://www.dead.net/song/stella-blue",
+    "played": 331
   },
   {
     "name": "Sugar Magnolia",
@@ -7806,15 +7708,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 17,
-    "liveRank": 3,
-    "liveCount": 602,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / Robert Hunter",
       "release": "American Beauty, 1970",
       "source": "https://www.deaddisc.com/songs/Sugar_Magnolia.htm"
     },
-    "lyrics": "https://www.dead.net/song/sugar-magnolia"
+    "lyrics": "https://www.dead.net/song/sugar-magnolia",
+    "played": 609
   },
   {
     "name": "Sugaree",
@@ -7897,15 +7797,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 32,
-    "liveRank": 25,
-    "liveCount": 364,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Steal Your Face, 1976",
       "source": "https://www.deaddisc.com/songs/Sugaree.htm"
     },
-    "lyrics": "https://www.dead.net/song/sugaree"
+    "lyrics": "https://www.dead.net/song/sugaree",
+    "played": 366
   },
   {
     "name": "Tennessee Jed",
@@ -7988,15 +7886,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 49,
-    "liveRank": 13,
-    "liveCount": 435,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Europe '72, 1972",
       "source": "https://www.deaddisc.com/songs/Tennessee_Jed.htm"
     },
-    "lyrics": "https://www.dead.net/song/tennessee-jed"
+    "lyrics": "https://www.dead.net/song/tennessee-jed",
+    "played": 437
   },
   {
     "name": "Terrapin Station",
@@ -8079,15 +7975,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 5,
-    "liveRank": 44,
-    "liveCount": 302,
-    "liveApproximate": false,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Terrapin Station, 1977",
       "source": "https://www.deaddisc.com/songs/Terrapin_Station.htm"
     },
-    "lyrics": "https://www.dead.net/song/terrapin-station"
+    "lyrics": "https://www.dead.net/song/terrapin-station",
+    "played": 304
   },
   {
     "name": "The Eleven",
@@ -8176,7 +8070,8 @@
       "release": "Live/Dead, 1969",
       "source": "https://www.deaddisc.com/songs/Eleven.htm"
     },
-    "lyrics": "https://www.dead.net/song/eleven"
+    "lyrics": "https://www.dead.net/song/eleven",
+    "played": 104
   },
   {
     "name": "The Music Never Stopped",
@@ -8259,15 +8154,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 61,
-    "liveRank": 61,
-    "liveCount": 235,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir / John Perry Barlow",
       "release": "Blues For Allah, 1975",
       "source": "https://www.deaddisc.com/songs/Music_Never_Stopped.htm"
     },
-    "lyrics": "https://www.dead.net/song/music-never-stopped"
+    "lyrics": "https://www.dead.net/song/music-never-stopped",
+    "played": 235
   },
   {
     "name": "The Other One",
@@ -8355,15 +8248,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 22,
-    "liveRank": 8,
-    "liveCount": 495,
-    "liveApproximate": false,
     "credits": {
       "writers": "Bob Weir",
       "release": "Anthem Of The Sun, 1968",
       "source": "https://www.deaddisc.com/songs/Other_One.htm"
     },
-    "lyrics": "https://www.dead.net/song/other-one"
+    "lyrics": "https://www.dead.net/song/other-one",
+    "played": 633
   },
   {
     "name": "The Wheel",
@@ -8446,15 +8337,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 44,
-    "liveRank": 55,
-    "liveCount": 258,
-    "liveApproximate": true,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter / Bill Kreutzmann",
       "release": "Dozin' At The Knick, 1996",
       "source": "https://www.deaddisc.com/songs/Wheel.htm"
     },
-    "lyrics": "https://www.dead.net/song/wheel"
+    "lyrics": "https://www.dead.net/song/wheel",
+    "played": 259
   },
   {
     "name": "They Love Each Other",
@@ -8542,7 +8431,8 @@
       "release": "Dick's Picks, Vol. 6, 1996",
       "source": "https://www.deaddisc.com/songs/They_Love_Each_Other.htm"
     },
-    "lyrics": "https://www.dead.net/song/they-love-each-other"
+    "lyrics": "https://www.dead.net/song/they-love-each-other",
+    "played": 228
   },
   {
     "name": "Throwing Stones",
@@ -8630,7 +8520,8 @@
       "release": "In The Dark, 1987",
       "source": "https://www.deaddisc.com/songs/Throwing_Stones.htm"
     },
-    "lyrics": "https://www.dead.net/song/throwing-stones"
+    "lyrics": "https://www.dead.net/song/throwing-stones",
+    "played": 267
   },
   {
     "name": "Till The Morning Comes",
@@ -8718,7 +8609,8 @@
       "release": "American Beauty, 1970",
       "source": "https://www.deaddisc.com/songs/Till_The_Morning_Comes.htm"
     },
-    "lyrics": "https://www.dead.net/song/till-morning-comes"
+    "lyrics": "https://www.dead.net/song/till-morning-comes",
+    "played": 7
   },
   {
     "name": "To Lay Me Down",
@@ -8813,7 +8705,8 @@
       "release": "Reckoning, 1981",
       "source": "https://www.deaddisc.com/songs/To_Lay_Me_Down.htm"
     },
-    "lyrics": "https://www.dead.net/song/lay-me-down"
+    "lyrics": "https://www.dead.net/song/lay-me-down",
+    "played": 68
   },
   {
     "name": "Touch Of Grey",
@@ -8901,7 +8794,8 @@
       "release": "In The Dark, 1987",
       "source": "https://www.deaddisc.com/songs/Touch_Of_Grey.htm"
     },
-    "lyrics": "https://www.dead.net/song/touch-grey"
+    "lyrics": "https://www.dead.net/song/touch-grey",
+    "played": 209
   },
   {
     "name": "Truckin'",
@@ -8991,15 +8885,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 25,
-    "liveRank": 7,
-    "liveCount": 530,
-    "liveApproximate": true,
     "credits": {
       "writers": "Jerry Garcia / Bob Weir / Phil Lesh / Robert Hunter",
       "release": "American Beauty, 1970",
       "source": "https://www.deaddisc.com/songs/Truckin.htm"
     },
-    "lyrics": "https://www.dead.net/song/truckin"
+    "lyrics": "https://www.dead.net/song/truckin",
+    "played": 536
   },
   {
     "name": "Turn On Your Love Light",
@@ -9087,14 +8979,12 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 65,
-    "liveRank": 28,
-    "liveCount": 350,
-    "liveApproximate": true,
     "credits": {
       "writers": "Joseph Scott / Deadric Malone",
       "source": "https://www.deaddisc.com/songs/Turn_On_Your_Lovelight.htm"
     },
-    "lyrics": "https://www.dead.net/song/turn-your-love-light"
+    "lyrics": "https://www.dead.net/song/turn-your-love-light",
+    "played": 379
   },
   {
     "name": "U.S. Blues",
@@ -9177,15 +9067,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 59,
-    "liveRank": 37,
-    "liveCount": 324,
-    "liveApproximate": true,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Grateful Dead From The Mars Hotel, 1974",
       "source": "https://www.deaddisc.com/songs/US_Blues.htm"
     },
-    "lyrics": "https://www.dead.net/song/u-s-blues"
+    "lyrics": "https://www.dead.net/song/u-s-blues",
+    "played": 325
   },
   {
     "name": "Unbroken Chain",
@@ -9273,7 +9161,8 @@
       "release": "Grateful Dead From The Mars Hotel, 1974",
       "source": "https://www.deaddisc.com/songs/Unbroken_Chain.htm"
     },
-    "lyrics": "https://www.dead.net/song/unbroken-chain"
+    "lyrics": "https://www.dead.net/song/unbroken-chain",
+    "played": 10
   },
   {
     "name": "Uncle John's Band",
@@ -9355,15 +9244,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 6,
-    "liveRank": 31,
-    "liveCount": 341,
-    "liveApproximate": true,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Workingman's Dead, 1970",
       "source": "https://www.deaddisc.com/songs/Uncle_Johns_Band.htm"
     },
-    "lyrics": "https://www.dead.net/song/uncle-johns-band"
+    "lyrics": "https://www.dead.net/song/uncle-johns-band",
+    "played": 344
   },
   {
     "name": "Viola Lee Blues",
@@ -9458,7 +9345,8 @@
       "release": "The Grateful Dead, 1967",
       "source": "https://www.deaddisc.com/songs/Viola_Lee_Blues.htm"
     },
-    "lyrics": "https://www.dead.net/song/viola-lee-blues"
+    "lyrics": "https://www.dead.net/song/viola-lee-blues",
+    "played": 49
   },
   {
     "name": "Weather Report Suite",
@@ -9515,7 +9403,8 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 85,
-    "researchPending": true
+    "researchPending": true,
+    "played": 1
   },
   {
     "name": "West L.A. Fadeaway",
@@ -9603,7 +9492,8 @@
       "release": "In The Dark, 1987",
       "source": "https://www.deaddisc.com/songs/West_LA_Fadeaway.htm"
     },
-    "lyrics": "https://www.dead.net/song/west-l-fadeaway"
+    "lyrics": "https://www.dead.net/song/west-l-fadeaway",
+    "played": 142
   },
   {
     "name": "Wharf Rat",
@@ -9686,15 +9576,13 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 23,
-    "liveRank": 20,
-    "liveCount": 397,
-    "liveApproximate": true,
     "credits": {
       "writers": "Jerry Garcia / Robert Hunter",
       "release": "Grateful Dead (Skull & Roses), 1971",
       "source": "https://www.deaddisc.com/songs/Wharf_Rat.htm"
     },
-    "lyrics": "https://www.dead.net/song/wharf-rat"
+    "lyrics": "https://www.dead.net/song/wharf-rat",
+    "played": 400
   },
   {
     "name": "Mexicali Blues",
@@ -9782,7 +9670,8 @@
       "release": "Skeletons From The Closet, 1974",
       "source": "https://www.deaddisc.com/songs/Mexicali_Blues.htm"
     },
-    "lyrics": "https://www.dead.net/song/mexicali-blues"
+    "lyrics": "https://www.dead.net/song/mexicali-blues",
+    "played": 442
   },
   {
     "name": "Dupree's Diamond Blues",
@@ -9870,7 +9759,8 @@
       "release": "Aoxomoxoa, 1969",
       "source": "https://www.deaddisc.com/songs/Duprees_Diamond_Blues.htm"
     },
-    "lyrics": "https://www.dead.net/song/duprees-diamond-blues"
+    "lyrics": "https://www.dead.net/song/duprees-diamond-blues",
+    "played": 81
   },
   {
     "name": "Big River",
@@ -9958,7 +9848,8 @@
       "release": "Steal Your Face, 1976",
       "source": "https://www.deaddisc.com/songs/Big_River.htm"
     },
-    "lyrics": "https://www.dead.net/song/big-river"
+    "lyrics": "https://www.dead.net/song/big-river",
+    "played": 400
   },
   {
     "name": "Beat It On Down The Line",
@@ -10053,7 +9944,8 @@
       "release": "The Grateful Dead, 1967",
       "source": "https://www.deaddisc.com/songs/Beat_It_On_Down_The_Line.htm"
     },
-    "lyrics": "https://www.dead.net/song/beat-it-down-line"
+    "lyrics": "https://www.dead.net/song/beat-it-down-line",
+    "played": 347
   },
   {
     "name": "Jack-A-Roe",
@@ -10141,7 +10033,8 @@
       "release": "Reckoning, 1981",
       "source": "https://www.deaddisc.com/songs/Jack-A-Roe.htm"
     },
-    "lyrics": "https://www.dead.net/song/jack-roe"
+    "lyrics": "https://www.dead.net/song/jack-roe",
+    "played": 122
   },
   {
     "name": "Big Railroad Blues",
@@ -10229,7 +10122,8 @@
       "release": "Grateful Dead (Skull & Roses), 1971",
       "source": "https://www.deaddisc.com/songs/Big_Railroad_Blues.htm"
     },
-    "lyrics": "https://www.dead.net/song/big-railroad-blues"
+    "lyrics": "https://www.dead.net/song/big-railroad-blues",
+    "played": 178
   },
   {
     "name": "Might As Well",
@@ -10317,7 +10211,8 @@
       "release": "Dick's Picks, Vol. 33, 2004",
       "source": "https://www.deaddisc.com/songs/Might_As_Well.htm"
     },
-    "lyrics": "https://www.dead.net/song/might-well"
+    "lyrics": "https://www.dead.net/song/might-well",
+    "played": 111
   },
   {
     "name": "Hard To Handle",
@@ -10405,7 +10300,8 @@
       "release": "History Of The Grateful Dead, Vol. 1 (Bear's Choice), 1973",
       "source": "https://www.deaddisc.com/songs/Hard_To_Handle.htm"
     },
-    "lyrics": "https://www.dead.net/song/hard-handle"
+    "lyrics": "https://www.dead.net/song/hard-handle",
+    "played": 126
   },
   {
     "name": "Around And Around",
@@ -10493,7 +10389,8 @@
       "release": "Steal Your Face, 1976",
       "source": "https://www.deaddisc.com/songs/Around_And_Around.htm"
     },
-    "lyrics": "https://www.dead.net/song/around-and-around"
+    "lyrics": "https://www.dead.net/song/around-and-around",
+    "played": 421
   },
   {
     "name": "Promised Land",
@@ -10588,7 +10485,8 @@
       "release": "Steal Your Face, 1976",
       "source": "https://www.deaddisc.com/songs/Promised_Land.htm"
     },
-    "lyrics": "https://www.dead.net/song/promised-land"
+    "lyrics": "https://www.dead.net/song/promised-land",
+    "played": 435
   },
   {
     "name": "Man Smart, Woman Smarter",
@@ -10676,7 +10574,8 @@
       "release": "Weir Here: The Best Of Bob Weir, 2004",
       "source": "https://www.deaddisc.com/songs/Man_Smart.htm"
     },
-    "lyrics": "https://www.dead.net/song/man-smart-woman-smarter"
+    "lyrics": "https://www.dead.net/song/man-smart-woman-smarter",
+    "played": 201
   },
   {
     "name": "Johnny B. Goode",
@@ -10770,7 +10669,8 @@
       "release": "Grateful Dead (Skull & Roses), 1971",
       "source": "https://www.deaddisc.com/songs/Johnny_B_Goode.htm"
     },
-    "lyrics": "https://www.dead.net/song/johnny-b-goode"
+    "lyrics": "https://www.dead.net/song/johnny-b-goode",
+    "played": 290
   },
   {
     "name": "Mission In The Rain",
@@ -10858,7 +10758,8 @@
       "release": "Grateful Dead Download Vol. 4: 6/18/76, 2005",
       "source": "https://www.deaddisc.com/songs/Mission_In_The_Rain.htm"
     },
-    "lyrics": "https://www.dead.net/song/mission-rain"
+    "lyrics": "https://www.dead.net/song/mission-rain",
+    "played": 5
   },
   {
     "name": "When I Paint My Masterpiece",
@@ -10946,7 +10847,8 @@
       "release": "Dozin' At The Knick, 1996",
       "source": "https://www.deaddisc.com/songs/When_I_Paint_My_Masterpiece.htm"
     },
-    "lyrics": "https://www.dead.net/song/when-i-paint-my-masterpiece"
+    "lyrics": "https://www.dead.net/song/when-i-paint-my-masterpiece",
+    "played": 145
   },
   {
     "name": "Operator",
@@ -11034,7 +10936,8 @@
       "release": "American Beauty, 1970",
       "source": "https://www.deaddisc.com/songs/Operator.htm"
     },
-    "lyrics": "https://www.dead.net/song/operator"
+    "lyrics": "https://www.dead.net/song/operator",
+    "played": 4
   },
   {
     "name": "Cosmic Charlie",
@@ -11122,7 +11025,8 @@
       "release": "Aoxomoxoa, 1969",
       "source": "https://www.deaddisc.com/songs/Cosmic_Charlie.htm"
     },
-    "lyrics": "https://www.dead.net/song/cosmic-charley"
+    "lyrics": "https://www.dead.net/song/cosmic-charley",
+    "played": 44
   },
   {
     "name": "Doin' That Rag",
@@ -11219,7 +11123,8 @@
       "release": "Aoxomoxoa, 1969",
       "source": "https://www.deaddisc.com/songs/Doin_That_Rag.htm"
     },
-    "lyrics": "https://www.dead.net/song/doin-rag"
+    "lyrics": "https://www.dead.net/song/doin-rag",
+    "played": 45
   },
   {
     "name": "Deep Elem Blues",
@@ -11307,7 +11212,8 @@
       "release": "Reckoning, 1981",
       "source": "https://www.deaddisc.com/songs/Deep_Elem_Blues.htm"
     },
-    "lyrics": "https://www.dead.net/song/deep-elem-blues"
+    "lyrics": "https://www.dead.net/song/deep-elem-blues",
+    "played": 54
   },
   {
     "name": "Stagger Lee",
@@ -11391,7 +11297,8 @@
       "release": "Shakedown Street, 1978",
       "source": "https://www.deaddisc.com/songs/Stagger_Lee.htm"
     },
-    "lyrics": "https://www.dead.net/song/stagger-lee"
+    "lyrics": "https://www.dead.net/song/stagger-lee",
+    "played": 148
   },
   {
     "name": "Dancing In The Street",
@@ -11490,7 +11397,8 @@
       "release": "Terrapin Station, 1977",
       "source": "https://www.deaddisc.com/songs/Dancing_In_The_Street.htm"
     },
-    "lyrics": "https://www.dead.net/song/dancin-streets"
+    "lyrics": "https://www.dead.net/song/dancin-streets",
+    "played": 140
   },
   {
     "name": "New Minglewood Blues",
@@ -11581,7 +11489,8 @@
       "release": "The Grateful Dead, 1967",
       "source": "https://www.deaddisc.com/songs/New_Minglewood_Blues.htm"
     },
-    "lyrics": "https://www.dead.net/song/new-minglewood-blues"
+    "lyrics": "https://www.dead.net/song/new-minglewood-blues",
+    "played": 444
   },
   {
     "name": "Knockin' On Heaven's Door",
@@ -11671,7 +11580,8 @@
       "release": "Dylan And The Dead, 1988",
       "source": "https://www.deaddisc.com/songs/Knockin_On_Heavens_Door.htm"
     },
-    "lyrics": "https://www.dead.net/song/knockin-heavens-door"
+    "lyrics": "https://www.dead.net/song/knockin-heavens-door",
+    "played": 72
   },
   {
     "name": "Corrina",
@@ -11757,7 +11667,8 @@
       "release": "Road Trips: Vol 2, Number 4: Cal Expo 1993, 2009",
       "source": "https://www.deaddisc.com/songs/Corrina.htm"
     },
-    "lyrics": "https://www.dead.net/song/corrina"
+    "lyrics": "https://www.dead.net/song/corrina",
+    "played": 77
   },
   {
     "name": "Victim Or The Crime",
@@ -11843,7 +11754,8 @@
       "release": "Built To Last, 1989",
       "source": "https://www.deaddisc.com/songs/Victim_Or_The_Crime.htm"
     },
-    "lyrics": "https://www.dead.net/song/victim-or-crime"
+    "lyrics": "https://www.dead.net/song/victim-or-crime",
+    "played": 97
   },
   {
     "name": "Foolish Heart",
@@ -11931,7 +11843,8 @@
       "release": "Built To Last, 1989",
       "source": "https://www.deaddisc.com/songs/Foolish_Heart.htm"
     },
-    "lyrics": "https://www.dead.net/song/foolish-heart"
+    "lyrics": "https://www.dead.net/song/foolish-heart",
+    "played": 87
   },
   {
     "name": "It's All Over Now",
@@ -12017,7 +11930,8 @@
       "release": "Dick's Picks, Vol. 18, 2000",
       "source": "https://www.deaddisc.com/songs/Its_All_Over_Now.htm"
     },
-    "lyrics": "https://www.dead.net/song/its-all-over-now"
+    "lyrics": "https://www.dead.net/song/its-all-over-now",
+    "played": 162
   },
   {
     "name": "Midnight Hour",
@@ -12109,7 +12023,8 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": null,
-    "lyrics": "https://www.dead.net/song/midnight-hour"
+    "lyrics": "https://www.dead.net/song/midnight-hour",
+    "played": 63
   },
   {
     "name": "Iko Iko",
@@ -12198,7 +12113,8 @@
       "release": "Dick's Picks, Vol. 9, 1997",
       "source": "https://www.deaddisc.com/songs/Iko_Iko.htm"
     },
-    "lyrics": "https://www.dead.net/song/iko-iko"
+    "lyrics": "https://www.dead.net/song/iko-iko",
+    "played": 185
   },
   {
     "name": "Me And Bobby McGee",
@@ -12287,7 +12203,8 @@
       "release": "Grateful Dead (Skull & Roses), 1971",
       "source": "https://www.deaddisc.com/songs/Me_And_Bobby_McGee.htm"
     },
-    "lyrics": "https://www.dead.net/song/me-and-bobby-mcgee"
+    "lyrics": "https://www.dead.net/song/me-and-bobby-mcgee",
+    "played": 126
   },
   {
     "name": "Sittin' On Top Of The World",
@@ -12384,7 +12301,8 @@
       "release": "The Grateful Dead, 1967",
       "source": "https://www.deaddisc.com/songs/Sittin_On_Top_Of_The_World.htm"
     },
-    "lyrics": "https://www.dead.net/song/sittin-top-world"
+    "lyrics": "https://www.dead.net/song/sittin-top-world",
+    "played": 46
   },
   {
     "name": "Caution (Do Not Stop On The Tracks)",
@@ -12478,7 +12396,8 @@
       "release": "Anthem Of The Sun, 1968",
       "source": "https://www.deaddisc.com/songs/Caution_Do_Not_Stop_On_Tracks.htm"
     },
-    "lyrics": "https://www.dead.net/song/caution-do-not-stop-tracks"
+    "lyrics": "https://www.dead.net/song/caution-do-not-stop-tracks",
+    "played": 71
   },
   {
     "name": "New Potato Caboose",
@@ -12568,7 +12487,8 @@
       "release": "Anthem Of The Sun, 1968",
       "source": "https://www.deaddisc.com/songs/New_Potato_Caboose.htm"
     },
-    "lyrics": "https://www.dead.net/song/new-potato-caboose"
+    "lyrics": "https://www.dead.net/song/new-potato-caboose",
+    "played": 36
   },
   {
     "name": "Born Cross-Eyed",
@@ -12668,7 +12588,8 @@
       "release": "Anthem Of The Sun, 1968",
       "source": "https://www.deaddisc.com/songs/Born_Cross-Eyed.htm"
     },
-    "lyrics": "https://www.dead.net/song/born-cross-eyed"
+    "lyrics": "https://www.dead.net/song/born-cross-eyed",
+    "played": 16
   },
   {
     "name": "Good Morning Little Schoolgirl",
@@ -12754,7 +12675,8 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": null,
-    "lyrics": "https://www.dead.net/song/good-morning-little-schoolgirl"
+    "lyrics": "https://www.dead.net/song/good-morning-little-schoolgirl",
+    "played": 91
   },
   {
     "name": "It's All Over Now, Baby Blue",
@@ -12851,7 +12773,8 @@
       "release": "Dick's Picks, Vol. 9, 1997",
       "source": "https://www.deaddisc.com/songs/Its_All_Over_Now_Baby_Blue.htm"
     },
-    "lyrics": "https://www.dead.net/song/its-all-over-now-baby-blue"
+    "lyrics": "https://www.dead.net/song/its-all-over-now-baby-blue",
+    "played": 146
   },
   {
     "name": "Stuck Inside Of Mobile",
@@ -12941,7 +12864,8 @@
       "writers": "Bob Dylan",
       "release": "Nightfall Of Diamonds, 2001",
       "source": "https://www.deaddisc.com/songs/Stuck_Inside_Of_Mobile.htm"
-    }
+    },
+    "played": 70
   },
   {
     "name": "Just Like Tom Thumb's Blues",
@@ -13030,7 +12954,8 @@
       "release": "Terrapin Station (Limited Edition), 1997",
       "source": "https://www.deaddisc.com/songs/Just_Like_Tom_Thumbs_Blues.htm"
     },
-    "lyrics": "https://www.dead.net/song/just-tom-thumb-blues"
+    "lyrics": "https://www.dead.net/song/just-tom-thumb-blues",
+    "played": 58
   },
   {
     "name": "Werewolves Of London",
@@ -13121,7 +13046,8 @@
       "release": "Dick's Picks, Vol. 25, 2002",
       "source": "https://www.deaddisc.com/songs/Werewolves_Of_London.htm"
     },
-    "lyrics": "https://www.dead.net/song/werewolves-london"
+    "lyrics": "https://www.dead.net/song/werewolves-london",
+    "played": 12
   },
   {
     "name": "Hey Pocky Way",
@@ -13209,7 +13135,8 @@
       "release": "So Many Roads (1965-1995), 1999",
       "source": "https://www.deaddisc.com/songs/Hey_Pocky_Way.htm"
     },
-    "lyrics": "https://www.dead.net/song/hey-pocky-way"
+    "lyrics": "https://www.dead.net/song/hey-pocky-way",
+    "played": 25
   },
   {
     "name": "Passenger",
@@ -13295,7 +13222,8 @@
       "release": "Terrapin Station, 1977",
       "source": "https://www.deaddisc.com/songs/Passenger.htm"
     },
-    "lyrics": "https://www.dead.net/song/passenger"
+    "lyrics": "https://www.dead.net/song/passenger",
+    "played": 99
   },
   {
     "name": "Lazy Lightnin’ → Supplication",
@@ -13490,7 +13418,8 @@
       "release": "Dick's Picks, Vol. 3, 1995",
       "source": "https://www.deaddisc.com/songs/Lazy_Lightnin.htm"
     },
-    "lyrics": "https://www.dead.net/song/lazy-lightning"
+    "lyrics": "https://www.dead.net/song/lazy-lightning",
+    "played": 111
   },
   {
     "name": "Supplication",
@@ -13583,7 +13512,8 @@
       "release": "Dick's Picks, Vol. 3, 1995",
       "source": "https://www.deaddisc.com/songs/Supplication.htm"
     },
-    "lyrics": "https://www.dead.net/song/supplication"
+    "lyrics": "https://www.dead.net/song/supplication",
+    "played": 125
   },
   {
     "name": "Lost Sailor",
@@ -13677,7 +13607,8 @@
       "release": "Go To Heaven, 1980",
       "source": "https://www.deaddisc.com/songs/Lost_Sailor.htm"
     },
-    "lyrics": "https://www.dead.net/song/lost-sailor"
+    "lyrics": "https://www.dead.net/song/lost-sailor",
+    "played": 148
   },
   {
     "name": "Blow Away",
@@ -13762,7 +13693,8 @@
       "release": "Built To Last, 1989",
       "source": "https://www.deaddisc.com/songs/Blow_Away.htm"
     },
-    "lyrics": "https://www.dead.net/song/blow-away"
+    "lyrics": "https://www.dead.net/song/blow-away",
+    "played": 23
   },
   {
     "name": "That's It for the Other One",
@@ -13957,7 +13889,8 @@
       "release": "Dead Set, 1981",
       "source": "https://www.deaddisc.com/songs/Little_Red_Rooster.htm"
     },
-    "lyrics": "https://www.dead.net/song/little-red-rooster"
+    "lyrics": "https://www.dead.net/song/little-red-rooster",
+    "played": 274
   },
   {
     "name": "Walkin' Blues",
@@ -14044,7 +13977,8 @@
       "release": "Without A Net, 1990",
       "source": "https://www.deaddisc.com/songs/Walkin_Blues.htm"
     },
-    "lyrics": "https://www.dead.net/song/walkin-blues"
+    "lyrics": "https://www.dead.net/song/walkin-blues",
+    "played": 141
   },
   {
     "name": "Queen Jane Approximately",
@@ -14130,7 +14064,8 @@
       "release": "Dylan And The Dead, Dylan And The Dead, 1988",
       "source": "https://www.deaddisc.com/songs/Queen_Jane_Approximately.htm"
     },
-    "lyrics": "https://www.dead.net/song/queen-jane-approximately"
+    "lyrics": "https://www.dead.net/song/queen-jane-approximately",
+    "played": 126
   },
   {
     "name": "C.C. Rider",
@@ -14221,7 +14156,8 @@
       "release": "Dick's Picks, Vol. 5, 1996",
       "source": "https://www.deaddisc.com/songs/C_C_Rider.htm"
     },
-    "lyrics": "https://www.dead.net/song/c-c-rider"
+    "lyrics": "https://www.dead.net/song/c-c-rider",
+    "played": 128
   },
   {
     "name": "All Along The Watchtower",
@@ -14308,7 +14244,8 @@
       "release": "Dylan And The Dead, 1988",
       "source": "https://www.deaddisc.com/songs/All_Along_The_Watchtower.htm"
     },
-    "lyrics": "https://www.dead.net/song/all-along-watchtower"
+    "lyrics": "https://www.dead.net/song/all-along-watchtower",
+    "played": 118
   },
   {
     "name": "Slipknot!",
@@ -14366,7 +14303,8 @@
       "release": "Blues For Allah, 1975",
       "source": "https://www.deaddisc.com/songs/Slipknot.htm"
     },
-    "lyrics": "https://www.dead.net/song/slipknot"
+    "lyrics": "https://www.dead.net/song/slipknot",
+    "played": 110
   },
   {
     "name": "My Brother Esau",
@@ -14425,7 +14363,8 @@
       "release": "Touch Of Grey / My Brother Esau, Grateful Dead, 1987, 9606",
       "source": "https://www.deaddisc.com/songs/My_Brother_Esau.htm"
     },
-    "lyrics": "https://www.dead.net/song/my-brother-esau"
+    "lyrics": "https://www.dead.net/song/my-brother-esau",
+    "played": 105
   },
   {
     "name": "Way To Go Home",
@@ -14477,7 +14416,8 @@
     "rank": null,
     "aliases": [
       "Long Way To Go Home"
-    ]
+    ],
+    "played": 92
   },
   {
     "name": "Gimme Some Lovin'",
@@ -14567,7 +14507,8 @@
       "release": "Downhill from Here (video/DVD), 1997",
       "source": "https://www.deaddisc.com/songs/Gimme_Some_Lovin.htm"
     },
-    "lyrics": "https://www.dead.net/song/gimme-some-lovin"
+    "lyrics": "https://www.dead.net/song/gimme-some-lovin",
+    "played": 87
   },
   {
     "name": "Picasso Moon",
@@ -14654,7 +14595,8 @@
       "release": "Built To Last, 1989",
       "source": "https://www.deaddisc.com/songs/Picasso_Moon.htm"
     },
-    "lyrics": "https://www.dead.net/song/picasso-moon"
+    "lyrics": "https://www.dead.net/song/picasso-moon",
+    "played": 77
   },
   {
     "name": "Next Time You See Me",
@@ -14741,7 +14683,8 @@
       "release": "Hundred Year Hall, 1995",
       "source": "https://www.deaddisc.com/songs/Next_Time_You_See_Me.htm"
     },
-    "lyrics": "https://www.dead.net/song/next-time-you-see-me"
+    "lyrics": "https://www.dead.net/song/next-time-you-see-me",
+    "played": 83
   },
   {
     "name": "Far From Me",
@@ -14827,7 +14770,8 @@
       "writers": "Brent Mydland",
       "source": "https://www.deaddisc.com/songs/Far_From_Me.htm"
     },
-    "lyrics": "https://www.dead.net/song/far-me"
+    "lyrics": "https://www.dead.net/song/far-me",
+    "played": 75
   },
   {
     "name": "Big Boss Man",
@@ -14914,7 +14858,8 @@
       "release": "Grateful Dead (Skull & Roses), 1971",
       "source": "https://www.deaddisc.com/songs/Big_Boss_Man.htm"
     },
-    "lyrics": "https://www.dead.net/song/big-boss-man"
+    "lyrics": "https://www.dead.net/song/big-boss-man",
+    "played": 82
   },
   {
     "name": "Lazy River Road",
@@ -14999,7 +14944,8 @@
       "release": "So Many Roads (1965-1995), 1999",
       "source": "https://www.deaddisc.com/songs/Lazy_River_Road.htm"
     },
-    "lyrics": "https://www.dead.net/song/lazy-river-road"
+    "lyrics": "https://www.dead.net/song/lazy-river-road",
+    "played": 65
   },
   {
     "name": "Smokestack Lightning",
@@ -15089,7 +15035,8 @@
       "release": "History Of The Grateful Dead, Vol. 1 (Bear's Choice), 1973",
       "source": "https://www.deaddisc.com/songs/Smokestack_Lightnin.htm"
     },
-    "lyrics": "https://www.dead.net/song/smokestack-lightning"
+    "lyrics": "https://www.dead.net/song/smokestack-lightning",
+    "played": 65
   },
   {
     "name": "The Race Is On",
@@ -15173,7 +15120,8 @@
       "release": "Reckoning, 1981",
       "source": "https://www.deaddisc.com/songs/Race_Is_On.htm"
     },
-    "lyrics": "https://www.dead.net/song/race"
+    "lyrics": "https://www.dead.net/song/race",
+    "played": 63
   },
   {
     "name": "When Push Comes To Shove",
@@ -15258,7 +15206,8 @@
       "release": "In The Dark, 1987",
       "source": "https://www.deaddisc.com/songs/When_Push_Comes_To_Shove.htm"
     },
-    "lyrics": "https://www.dead.net/song/when-push-comes-shove"
+    "lyrics": "https://www.dead.net/song/when-push-comes-shove",
+    "played": 60
   },
   {
     "name": "Dear Mr. Fantasy",
@@ -15348,7 +15297,8 @@
       "release": "Without A Net, 1990",
       "source": "https://www.deaddisc.com/songs/Dear_Mr_Fantasy.htm"
     },
-    "lyrics": "https://www.dead.net/song/dear-mr-fantasy"
+    "lyrics": "https://www.dead.net/song/dear-mr-fantasy",
+    "played": 58
   },
   {
     "name": "The Mighty Quinn",
@@ -15406,7 +15356,8 @@
       "release": "Dick's Picks, Vol. 17, 2000",
       "source": "https://www.deaddisc.com/songs/Mighty_Quinn.htm"
     },
-    "lyrics": "https://www.dead.net/song/mighty-quinn-quinn-eskimo"
+    "lyrics": "https://www.dead.net/song/mighty-quinn-quinn-eskimo",
+    "played": 59
   },
   {
     "name": "Desolation Row",
@@ -15489,7 +15440,8 @@
       "release": "Postcards Of The Hanging, 2002",
       "source": "https://www.deaddisc.com/songs/Desolation_Row.htm"
     },
-    "lyrics": "https://www.dead.net/song/desolation-row"
+    "lyrics": "https://www.dead.net/song/desolation-row",
+    "played": 58
   },
   {
     "name": "Day Job",
@@ -15581,7 +15533,8 @@
       "release": "Dick's Picks, Vol. 6, 1996",
       "source": "https://www.deaddisc.com/songs/Keep_Your_Day_Job.htm"
     },
-    "lyrics": "https://www.dead.net/song/keep-your-day-job"
+    "lyrics": "https://www.dead.net/song/keep-your-day-job",
+    "played": 57
   },
   {
     "name": "Liberty",
@@ -15666,7 +15619,8 @@
       "release": "So Many Roads (1965-1995), 1999",
       "source": "https://www.deaddisc.com/songs/Liberty.htm"
     },
-    "lyrics": "https://www.dead.net/song/liberty"
+    "lyrics": "https://www.dead.net/song/liberty",
+    "played": 56
   },
   {
     "name": "Spoonful",
@@ -15753,7 +15707,8 @@
       "release": "Dick's Picks, Vol. 21, 2001",
       "source": "https://www.deaddisc.com/songs/Spoonful.htm"
     },
-    "lyrics": "https://www.dead.net/song/spoonful"
+    "lyrics": "https://www.dead.net/song/spoonful",
+    "played": 53
   },
   {
     "name": "The Last Time",
@@ -15844,7 +15799,8 @@
       "release": "Spring 1990 (box set), 2012",
       "source": "https://www.deaddisc.com/songs/Last_Time.htm"
     },
-    "lyrics": "https://www.dead.net/song/last-time"
+    "lyrics": "https://www.dead.net/song/last-time",
+    "played": 70
   },
   {
     "name": "Easy To Love You",
@@ -15931,7 +15887,8 @@
       "release": "Go To Heaven, 1980",
       "source": "https://www.deaddisc.com/songs/Easy_To_Love_You.htm"
     },
-    "lyrics": "https://www.dead.net/song/easy-love-you"
+    "lyrics": "https://www.dead.net/song/easy-love-you",
+    "played": 46
   },
   {
     "name": "Let The Good Times Roll",
@@ -16018,7 +15975,8 @@
       "release": "Downhill from Here, 1997",
       "source": "https://www.deaddisc.com/songs/Good_Times.htm"
     },
-    "lyrics": "https://www.dead.net/song/let-good-times-roll"
+    "lyrics": "https://www.dead.net/song/let-good-times-roll",
+    "played": 47
   },
   {
     "name": "On The Road Again",
@@ -16111,7 +16069,8 @@
       "release": "Reckoning, 1981",
       "source": "https://www.deaddisc.com/songs/On_The_Road_Again.htm"
     },
-    "lyrics": "https://www.dead.net/song/road-again"
+    "lyrics": "https://www.dead.net/song/road-again",
+    "played": 45
   },
   {
     "name": "The Same Thing",
@@ -16197,7 +16156,8 @@
       "release": "So Many Roads (1965-1995), 1999",
       "source": "https://www.deaddisc.com/songs/Same_Thing.htm"
     },
-    "lyrics": "https://www.dead.net/song/same-thing"
+    "lyrics": "https://www.dead.net/song/same-thing",
+    "played": 46
   },
   {
     "name": "The Weight",
@@ -16282,7 +16242,8 @@
       "writers": "Robbie Robertson",
       "source": "https://www.deaddisc.com/songs/Weight.htm"
     },
-    "lyrics": "https://www.dead.net/song/weight"
+    "lyrics": "https://www.dead.net/song/weight",
+    "played": 41
   },
   {
     "name": "Easy Answers",
@@ -16368,7 +16329,8 @@
       "writers": "Robert Hunter / Bob Bralove / Bob Weir / Vince Welnick / Rob Wasserman",
       "source": "https://www.deaddisc.com/songs/Easy_Answers.htm"
     },
-    "lyrics": "https://www.dead.net/song/easy-answers"
+    "lyrics": "https://www.dead.net/song/easy-answers",
+    "played": 44
   },
   {
     "name": "Maggie's Farm",
@@ -16459,7 +16421,8 @@
       "release": "View From The Vault II, 2001",
       "source": "https://www.deaddisc.com/songs/Maggies_Farm.htm"
     },
-    "lyrics": "https://www.dead.net/song/maggies-farm"
+    "lyrics": "https://www.dead.net/song/maggies-farm",
+    "played": 40
   },
   {
     "name": "Eternity",
@@ -16544,7 +16507,8 @@
       "release": "So Many Roads (1965-1995), 1999",
       "source": "https://www.deaddisc.com/songs/Eternity.htm"
     },
-    "lyrics": "https://www.dead.net/song/eternity"
+    "lyrics": "https://www.dead.net/song/eternity",
+    "played": 44
   },
   {
     "name": "Good Time Blues",
@@ -16594,7 +16558,8 @@
       "city": "Portland, ME",
       "showId": "gd-1986-03-28"
     },
-    "rank": null
+    "rank": null,
+    "played": 42
   },
   {
     "name": "Sing Me Back Home",
@@ -16681,7 +16646,8 @@
       "release": "So Many Roads (1965-1995), 1999",
       "source": "https://www.deaddisc.com/songs/Sing_Me_Back_Home.htm"
     },
-    "lyrics": "https://www.dead.net/song/sing-me-back-home"
+    "lyrics": "https://www.dead.net/song/sing-me-back-home",
+    "played": 41
   },
   {
     "name": "Samba In The Rain",
@@ -16767,7 +16733,8 @@
       "writers": "Vince Welnick / Robert Hunter",
       "source": "https://www.deaddisc.com/songs/Samba_In_The_Rain.htm"
     },
-    "lyrics": "https://www.dead.net/song/samba-rain"
+    "lyrics": "https://www.dead.net/song/samba-rain",
+    "played": 38
   },
   {
     "name": "Monkey And The Engineer",
@@ -16857,7 +16824,8 @@
       "release": "Reckoning, 1981",
       "source": "https://www.deaddisc.com/songs/Monkey_And_The_Engineer.htm"
     },
-    "lyrics": "https://www.dead.net/song/monkey-and-engineer"
+    "lyrics": "https://www.dead.net/song/monkey-and-engineer",
+    "played": 45
   },
   {
     "name": "I Fought The Law",
@@ -16919,7 +16887,8 @@
       "release": "30 Trips Around The Sun Box Set, 2015",
       "source": "https://www.deaddisc.com/songs/I_Fought_The_Law.htm"
     },
-    "lyrics": "https://www.dead.net/song/i-fought-law"
+    "lyrics": "https://www.dead.net/song/i-fought-law",
+    "played": 36
   },
   {
     "name": "I Will Take You Home",
@@ -16975,7 +16944,8 @@
       "release": "Built To Last, 1989",
       "source": "https://www.deaddisc.com/songs/I_Will_Take_You_Home.htm"
     },
-    "lyrics": "https://www.dead.net/song/i-will-take-you-home"
+    "lyrics": "https://www.dead.net/song/i-will-take-you-home",
+    "played": 35
   },
   {
     "name": "Broken Arrow",
@@ -17060,7 +17030,8 @@
       "release": "Road Trips: Vol 2, No. 4: Cal Expo 1993 Bonus CD, 2009",
       "source": "https://www.deaddisc.com/songs/Broken_Arrow.htm"
     },
-    "lyrics": "https://www.dead.net/song/broken-arrow"
+    "lyrics": "https://www.dead.net/song/broken-arrow",
+    "played": 35
   },
   {
     "name": "Satisfaction",
@@ -17150,7 +17121,8 @@
       "release": "Dave's Picks Vol 20: Boulder, 12/9/81, 2016",
       "source": "https://www.deaddisc.com/songs/I_Cant_Get_No_Satisfaction.htm"
     },
-    "lyrics": "https://www.dead.net/song/i-cant-get-no-satisfaction"
+    "lyrics": "https://www.dead.net/song/i-cant-get-no-satisfaction",
+    "played": 31
   },
   {
     "name": "Sunrise",
@@ -17237,7 +17209,8 @@
       "release": "Terrapin Station, 1977",
       "source": "https://www.deaddisc.com/songs/Sunrise.htm"
     },
-    "lyrics": "https://www.dead.net/song/sunrise"
+    "lyrics": "https://www.dead.net/song/sunrise",
+    "played": 31
   },
   {
     "name": "Tons Of Steel",
@@ -17296,7 +17269,8 @@
       "release": "In The Dark, 1987",
       "source": "https://www.deaddisc.com/songs/Tons_Of_Steel.htm"
     },
-    "lyrics": "https://www.dead.net/song/tons-steel"
+    "lyrics": "https://www.dead.net/song/tons-steel",
+    "played": 30
   },
   {
     "name": "Chinatown Shuffle",
@@ -17383,7 +17357,8 @@
       "release": "So Many Roads (1965-1995), 1999",
       "source": "https://www.deaddisc.com/songs/Chinatown_Shuffle.htm"
     },
-    "lyrics": "https://www.dead.net/song/chinatown-shuffle"
+    "lyrics": "https://www.dead.net/song/chinatown-shuffle",
+    "played": 28
   },
   {
     "name": "From The Heart Of Me",
@@ -17470,7 +17445,8 @@
       "release": "Shakedown Street, 1978",
       "source": "https://www.deaddisc.com/songs/From_The_Heart_Of_Me.htm"
     },
-    "lyrics": "https://www.dead.net/song/heart-me"
+    "lyrics": "https://www.dead.net/song/heart-me",
+    "played": 26
   },
   {
     "name": "King Bee",
@@ -17560,7 +17536,8 @@
       "release": "Fillmore East 2.11.69, 1997",
       "source": "https://www.deaddisc.com/songs/Im_A_King_Bee.htm"
     },
-    "lyrics": "https://www.dead.net/song/im-king-bee"
+    "lyrics": "https://www.dead.net/song/im-king-bee",
+    "played": 43
   },
   {
     "name": "You Win Again",
@@ -17646,7 +17623,8 @@
       "release": "Europe '72, 1972",
       "source": "https://www.deaddisc.com/songs/You_Win_Again.htm"
     },
-    "lyrics": "https://www.dead.net/song/you-win-again"
+    "lyrics": "https://www.dead.net/song/you-win-again",
+    "played": 25
   },
   {
     "name": "We Can Run",
@@ -17733,7 +17711,8 @@
       "release": "Built To Last, 1989",
       "source": "https://www.deaddisc.com/songs/We_Can_Run.htm"
     },
-    "lyrics": "https://www.dead.net/song/we-can-run"
+    "lyrics": "https://www.dead.net/song/we-can-run",
+    "played": 22
   },
   {
     "name": "Just A Little Light",
@@ -17820,7 +17799,8 @@
       "release": "Built To Last, 1989",
       "source": "https://www.deaddisc.com/songs/Just_A_Little_Light.htm"
     },
-    "lyrics": "https://www.dead.net/song/just-little-light"
+    "lyrics": "https://www.dead.net/song/just-little-light",
+    "played": 21
   },
   {
     "name": "Wave To The Wind",
@@ -17906,7 +17886,8 @@
       "writers": "Phil Lesh / Robert Hunter",
       "source": "https://www.deaddisc.com/songs/Wave_To_The_Wind.htm"
     },
-    "lyrics": "https://www.dead.net/song/wave-wind"
+    "lyrics": "https://www.dead.net/song/wave-wind",
+    "played": 21
   },
   {
     "name": "Rain",
@@ -17992,7 +17973,8 @@
       "writers": "John Lennon / Paul McCartney",
       "source": "https://www.deaddisc.com/songs/Rain_2.htm"
     },
-    "lyrics": "https://www.dead.net/song/rain"
+    "lyrics": "https://www.dead.net/song/rain",
+    "played": 20
   },
   {
     "name": "Oh Babe, It Ain't No Lie",
@@ -18069,7 +18051,8 @@
       "writers": "Traditional / Elizabeth Cotten",
       "source": "https://www.deaddisc.com/songs/Oh_Babe_It_Aint_No_Lie.htm"
     },
-    "lyrics": "https://www.dead.net/song/oh-babe-it-aint-no-lie"
+    "lyrics": "https://www.dead.net/song/oh-babe-it-aint-no-lie",
+    "played": 19
   },
   {
     "name": "Lucy In The Sky With Diamonds",
@@ -18156,7 +18139,8 @@
       "release": "Enjoying The Ride, 2025",
       "source": "https://www.deaddisc.com/songs/Lucy_In_The_Sky.htm"
     },
-    "lyrics": "https://www.dead.net/song/lucy-sky-diamonds"
+    "lyrics": "https://www.dead.net/song/lucy-sky-diamonds",
+    "played": 19
   },
   {
     "name": "Rosalie McFall",
@@ -18244,7 +18228,8 @@
     },
     "aliases": [
       "Rosa Lee McFall"
-    ]
+    ],
+    "played": 21
   },
   {
     "name": "Built To Last",
@@ -18331,7 +18316,8 @@
       "release": "Built To Last, 1989",
       "source": "https://www.deaddisc.com/songs/Built_To_Last.htm"
     },
-    "lyrics": "https://www.dead.net/song/built-last"
+    "lyrics": "https://www.dead.net/song/built-last",
+    "played": 18
   },
   {
     "name": "He Was A Friend Of Mine",
@@ -18417,7 +18403,8 @@
       "writers": "Mark Spoelstra",
       "source": "https://www.deaddisc.com/songs/He_Was_A_Friend_Of_Mine.htm"
     },
-    "lyrics": "https://www.dead.net/song/he-was-friend-mine"
+    "lyrics": "https://www.dead.net/song/he-was-friend-mine",
+    "played": 26
   },
   {
     "name": "Mason's Children",
@@ -18504,7 +18491,8 @@
       "release": "Dick's Picks, Vol. 4, 1996",
       "source": "https://www.deaddisc.com/songs/Masons_Children.htm"
     },
-    "lyrics": "https://www.dead.net/song/masons-children"
+    "lyrics": "https://www.dead.net/song/masons-children",
+    "played": 19
   },
   {
     "name": "Funiculi Funicula",
@@ -18634,7 +18622,8 @@
       "release": "Beyond Description, 2004",
       "source": "https://www.deaddisc.com/songs/Heaven_Help_The_Fool.htm"
     },
-    "lyrics": "https://www.dead.net/song/heaven-help-fool"
+    "lyrics": "https://www.dead.net/song/heaven-help-fool",
+    "played": 17
   },
   {
     "name": "If The Shoe Fits",
@@ -18720,7 +18709,8 @@
       "writers": "Phil Lesh / Andrew Charles",
       "source": "https://www.deaddisc.com/songs/If_The_Shoe_Fits.htm"
     },
-    "lyrics": "https://www.dead.net/song/if-shoe-fits"
+    "lyrics": "https://www.dead.net/song/if-shoe-fits",
+    "played": 17
   },
   {
     "name": "Been All Around This World",
@@ -18777,7 +18767,8 @@
       "writers": "Traditional",
       "source": "https://www.deaddisc.com/songs/Ive_Been_All_Around_This_World.htm"
     },
-    "lyrics": "https://www.dead.net/song/ive-been-all-around-world"
+    "lyrics": "https://www.dead.net/song/ive-been-all-around-world",
+    "played": 23
   },
   {
     "name": "Don't Need Love",
@@ -18864,7 +18855,8 @@
       "release": "30 Trips Around The Sun Box Set, 2015",
       "source": "https://www.deaddisc.com/songs/Dont_Need_Love.htm"
     },
-    "lyrics": "https://www.dead.net/song/dont-need-love"
+    "lyrics": "https://www.dead.net/song/dont-need-love",
+    "played": 16
   },
   {
     "name": "That Would Be Something",
@@ -18951,7 +18943,8 @@
       "release": "Dick's Picks, Vol. 17, 2000",
       "source": "https://www.deaddisc.com/songs/That_Would_Be_Something.htm"
     },
-    "lyrics": "https://www.dead.net/song/would-be-something"
+    "lyrics": "https://www.dead.net/song/would-be-something",
+    "played": 17
   },
   {
     "name": "Nobody's Fault But Mine",
@@ -19044,7 +19037,8 @@
       "release": "Dick's Picks, Vol. 1, 1993",
       "source": "https://www.deaddisc.com/songs/Nobodys_Fault_But_Mine.htm"
     },
-    "lyrics": "https://www.dead.net/song/nobodys-fault-mine"
+    "lyrics": "https://www.dead.net/song/nobodys-fault-mine",
+    "played": 45
   },
   {
     "name": "Wave That Flag",
@@ -19100,7 +19094,8 @@
       "release": "Beyond Description, 2004",
       "source": "https://www.deaddisc.com/songs/Wave_That_Flag.htm"
     },
-    "lyrics": "https://www.dead.net/song/wave-flag"
+    "lyrics": "https://www.dead.net/song/wave-flag",
+    "played": 15
   },
   {
     "name": "You Ain't Woman Enough",
@@ -19159,7 +19154,8 @@
       "release": "Dave's Picks Vol 16, 2015",
       "source": "https://www.deaddisc.com/songs/You_Aint_Woman_Enough.htm"
     },
-    "lyrics": "https://www.dead.net/song/you-aint-woman-enough"
+    "lyrics": "https://www.dead.net/song/you-aint-woman-enough",
+    "played": 17
   },
   {
     "name": "Gloria",
@@ -19252,7 +19248,8 @@
       "release": "Dick's Picks, Vol. 21, 2001",
       "source": "https://www.deaddisc.com/songs/Gloria.htm"
     },
-    "lyrics": "https://www.dead.net/song/gloria"
+    "lyrics": "https://www.dead.net/song/gloria",
+    "played": 18
   },
   {
     "name": "It's A Sin",
@@ -19316,7 +19313,8 @@
     },
     "aliases": [
       "I Know It's A Sin"
-    ]
+    ],
+    "played": 14
   },
   {
     "name": "Revolution",
@@ -19403,7 +19401,8 @@
       "release": "Terrapin Station (Limited Edition), 1997",
       "source": "https://www.deaddisc.com/songs/Revolution.htm"
     },
-    "lyrics": "https://www.dead.net/song/revolution"
+    "lyrics": "https://www.dead.net/song/revolution",
+    "played": 12
   },
   {
     "name": "Baba O'Riley",
@@ -19458,7 +19457,8 @@
       "release": "Dick's Picks, Vol. 27, 2003",
       "source": "https://www.deaddisc.com/songs/Baba_O_Riley.htm"
     },
-    "lyrics": "https://www.dead.net/song/baba-oriley"
+    "lyrics": "https://www.dead.net/song/baba-oriley",
+    "played": 12
   },
   {
     "name": "Tomorrow Never Knows",
@@ -19514,7 +19514,8 @@
       "release": "Dick's Picks, Vol. 27, 2003",
       "source": "https://www.deaddisc.com/songs/Tomorrow_Never_Knows.htm"
     },
-    "lyrics": "https://www.dead.net/song/tomorrow-never-knows"
+    "lyrics": "https://www.dead.net/song/tomorrow-never-knows",
+    "played": 12
   },
   {
     "name": "Silver Threads And Golden Needles",
@@ -19571,7 +19572,8 @@
       "writers": "Dick Reynolds / Jack Rhodes",
       "source": "https://www.deaddisc.com/songs/Silver_Threads.htm"
     },
-    "lyrics": "https://www.dead.net/song/silver-threads-and-golden-needles"
+    "lyrics": "https://www.dead.net/song/silver-threads-and-golden-needles",
+    "played": 18
   },
   {
     "name": "Two Souls In Communion",
@@ -19658,7 +19660,8 @@
       "release": "The Golden Road, 1965-1973, 2001",
       "source": "https://www.deaddisc.com/songs/Stranger.htm"
     },
-    "lyrics": "https://www.dead.net/song/stranger-two-souls-communion"
+    "lyrics": "https://www.dead.net/song/stranger-two-souls-communion",
+    "played": 13
   },
   {
     "name": "Childhood's End",
@@ -19733,7 +19736,8 @@
       "release": "Enjoying The Ride, 2025",
       "source": "https://www.deaddisc.com/songs/Childhoods_End.htm"
     },
-    "lyrics": "https://www.dead.net/song/childhoods-end"
+    "lyrics": "https://www.dead.net/song/childhoods-end",
+    "played": 11
   },
   {
     "name": "She Belongs To Me",
@@ -19831,7 +19835,8 @@
       "release": "Dick's Picks, Vol. 21, 2001",
       "source": "https://www.deaddisc.com/songs/She_Belongs_To_Me.htm"
     },
-    "lyrics": "https://www.dead.net/song/she-belongs-me"
+    "lyrics": "https://www.dead.net/song/she-belongs-me",
+    "played": 10
   },
   {
     "name": "It's A Man's World",
@@ -19923,7 +19928,8 @@
       "writers": "James Brown / Betty Newsome",
       "release": "Dick's Picks, Vol. 8, 1997",
       "source": "https://www.deaddisc.com/songs/Its_A_Mans_Mans_Mans_World.htm"
-    }
+    },
+    "played": 15
   },
   {
     "name": "Cold Jordan",
@@ -20018,7 +20024,8 @@
     "lyrics": "https://www.dead.net/song/cold-jordan",
     "aliases": [
       "Jordan"
-    ]
+    ],
+    "played": 13
   },
   {
     "name": "The Rub",
@@ -20084,7 +20091,8 @@
       "release": "Ladies and Gentlemen ... The Grateful Dead, 2000",
       "source": "https://www.deaddisc.com/songs/Rub.htm"
     },
-    "lyrics": "https://www.dead.net/song/aint-it-crazy-rub"
+    "lyrics": "https://www.dead.net/song/aint-it-crazy-rub",
+    "played": 13
   },
   {
     "name": "Wang Dang Doodle",
@@ -20171,6 +20179,7 @@
       "release": "View From The Vault, 2000",
       "source": "https://www.deaddisc.com/songs/Wang_Dang_Doodle.htm"
     },
-    "lyrics": "https://www.dead.net/song/wang-dang-doodle"
+    "lyrics": "https://www.dead.net/song/wang-dang-doodle",
+    "played": 95
   }
 ]
