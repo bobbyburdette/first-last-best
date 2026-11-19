@@ -79,6 +79,32 @@ def load(archive):
     return shows
 
 
+def not_concerts(archive, dates, public):
+    """{date: reason} for each of `dates` JerryBase doesn't list as a public Grateful Dead concert."""
+    inc = Path(archive) / 'incoming' / 'jerrybase'
+    gd, other = collections.defaultdict(set), collections.defaultdict(set)
+    for c in csv.DictReader(open(inc / 'categories.csv', encoding='utf-8')):
+        if c['band'] == 'Grateful Dead':
+            gd[c['date']].add((c['category'], c['venue']))
+        else:
+            other[c['date']].add(c['band'])
+    out = {}
+    for d in dates:
+        if d in public:
+            continue
+        cats = {c for c, _ in gd[d]}
+        if 'Private' in cats:
+            v = sorted(v for c, v in gd[d] if c == 'Private')[0]
+            out[d] = f'JerryBase lists a private session ({v}), not a public concert.'
+        elif 'Canceled' in cats:
+            out[d] = 'JerryBase lists this show as canceled.'
+        elif other[d]:
+            out[d] = f"JerryBase lists {' and '.join(sorted(other[d]))} on this date, not the Grateful Dead."
+        else:
+            out[d] = 'JerryBase has no Grateful Dead concert on this date.'
+    return out
+
+
 def report(shows):
     ours = {s['d']: s for s in flb.load_shows()}
     songs = flb.load_songs()

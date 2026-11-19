@@ -37,3 +37,11 @@ python3 tools/build_archive.py ../first-last-best-archive   # then commit and pu
 # commit, push, wait for the site to update, then:
 python3 tools/indexnow.py
 ```
+
+## Rulings and what counts
+
+`data/rulings.json` holds decisions made by a person, and `tools/build_pages.py` applies them everywhere: song histories, play counts, First/Last, This Day and show pages. The build stops with an error if a First/Last card disagrees with a song ruling. `apply_firsts.py` never changes a card that has a ruling.
+
+- Without a ruling, JerryBase wins. `merge_jerrybase.py` marks every show JerryBase doesn't list as a public Grateful Dead concert (private sessions, other bands, canceled dates, misdated tapes) with `notConcert`. Those shows stay in the data and the archive, but they aren't counted. A `shows` ruling overrides that (`"counts": true/false`, or `"setlist": "ignore"` for a real show whose tape setlist is wrong).
+- A song that only The SetList Program lists for a show, with no tape of it, is shown as unconfirmed and not counted.
+- `shows.json` carries the result for the site: `x` means not a concert; `xs` means the setlist isn't counted. `songs.json` `played` is the counted history. Both are kept in sync by `build_pages.py`.

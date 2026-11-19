@@ -53,7 +53,7 @@ SOURCES = [
 
 COLUMNS = {
     'sources': ['source_id', 'name', 'url', 'provides', 'terms'],
-    'shows': ['date', 'venue', 'city', 'state_or_country', 'main_tape', 'setlist_source', 'site_url'],
+    'shows': ['date', 'venue', 'city', 'state_or_country', 'main_tape', 'setlist_source', 'not_counted_reason', 'site_url'],
     'songs': ['song_id', 'name', 'kind', 'writers', 'first_release', 'credits_source_url', 'lyrics_url',
               'times_played', 'setlist_program_count', 'setlist_program_url', 'rolling_stone_rank', 'site_url'],
     'song_aliases': ['song_id', 'alias'],
@@ -127,6 +127,7 @@ DOCS = {
     'shows': {'date': 'Show date.', 'venue': 'Venue name.', 'city': 'City.', 'state_or_country': 'US state or country.',
               'main_tape': 'archive.org identifier of the tape the site plays.',
               'setlist_source': 'setlistprogram, or tape when the setlist was read from track titles.',
+              'not_counted_reason': 'Set when the show is kept but not counted as a Grateful Dead concert (JerryBase, or data/rulings.json): why.',
               'site_url': 'Show page on firstlastbest.com.'},
     'songs': {'song_id': 'Stable id (URL slug).', 'name': 'Song title.', 'kind': 'song or sequence (e.g. Help > Slip > Frank).',
               'writers': 'Songwriters, " / " separated.', 'first_release': 'First release, "Album, Year".',
@@ -214,7 +215,7 @@ def build(public):
     for s in shows:
         city, st = split_place(s['c'])
         sl = setlists.get(s['d']) or {}
-        rows['shows'].append({'date': s['d'], 'venue': s['v'], 'city': city, 'state_or_country': st,
+        rows['shows'].append({'date': s['d'], 'venue': s['v'], 'city': city, 'state_or_country': st, 'not_counted_reason': s.get('x', ''),
                               'main_tape': s.get('id') or '',
                               'setlist_source': (sl.get('source') or ('setlistprogram' if sl.get('full') else 'tape')) if sl.get('sets') else '',
                               'site_url': f'https://firstlastbest.com/show/{s["d"]}/'})

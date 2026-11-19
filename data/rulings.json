@@ -1,0 +1,11 @@
+{
+  "about": "Decisions made by a person. tools/build_pages.py applies them everywhere (song histories, play counts, First/Last, This Day, show pages) and stops with an error if a First/Last card disagrees with a song ruling. Default rule without a ruling: JerryBase wins. Shows JerryBase doesn't list as public Grateful Dead concerts are marked by tools/merge_jerrybase.py; a 'shows' ruling here overrides that.",
+  "shows": {
+    "1967-01-01": {"setlist": "ignore", "reason": "The tape filed under this date is an undated studio reel, not the Panhandle show."},
+    "1967-04-01": {"setlist": "ignore", "reason": "The tape filed under this date is a radio program (records by other artists and talk), not this show."},
+    "1978-11-17": {"setlist": "ignore", "reason": "The tape filed under this date is an acoustic set from another night; JerryBase places the band at the Uptown Theatre in Chicago."}
+  },
+  "songs": {
+    "Mama Tried": {"first": "1969-06-20", "reason": "Ruled Nov 17, 2026: the first Grateful Dead performance is 6/20/69 (JerryBase). The 6/11/69 California Hall show was Bobby Ace and the Cards from the Bottom of the Deck."}
+  }
+}

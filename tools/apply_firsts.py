@@ -19,6 +19,7 @@ import json
 from pathlib import Path
 
 import flb
+import rulings
 from fetch_setlists import OUT as SETLISTS, title_key
 
 NO_TAPE = 'No tape survives.'
@@ -38,7 +39,7 @@ def source_of(pick):
 def taped_dates(keys, setlists):
     """{date: (tape id, track)} for every show whose tape has the song."""
     out = {}
-    for date, e in setlists.items():
+    for date, e in rulings.counted_setlists(setlists).items():  # never a show that isn't a concert
         if not e.get('id'):
             continue
         for _, rows in e.get('sets', []):
@@ -90,8 +91,8 @@ def main():
         taped = taped_dates(keys, setlists)
         for slot in ('first', 'last'):
             cur = song.get(slot) or {}
-            if not cur.get('date') or cur.get('locked'):
-                continue  # 'locked': set by hand (see its note); never recomputed
+            if not cur.get('date') or cur.get('locked') or slot in rulings.song_rule(song['name']):
+                continue  # 'locked' or a ruling in data/rulings.json: decided by a person; never recomputed
             item = items.get(f"{flb.norm_title(song['name'])}-{slot}")
             choice = (decisions.get(item['id']) or {}).get('choice') if item else None
             if item and choice in (None, 'look'):

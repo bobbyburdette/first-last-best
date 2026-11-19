@@ -127,6 +127,21 @@ def main():
         stats['added'] += 1
         stats['added_with_tape'] += bool(ident)
 
+    # Shows JerryBase doesn't list as a public Grateful Dead concert stay in the data (and the archive) but are
+    # marked, and the site leaves them out of song histories, counts, First/Last and This Day.
+    have = {s['d'] for s in shows}
+    marks = jerrybase.not_concerts(args.archive, sorted(have | set(setlists)), every)
+    for date, entry in setlists.items():
+        entry.pop('notConcert', None)
+        entry.pop('jbSongs', None)
+        if date in marks:
+            label = (entry.get('id') or '')[2:12].replace('gd', '')
+            entry['notConcert'] = marks[date] + (f' The tape is labeled {label}.' if label[:4].isdigit() and
+                                                 label[:10] != date and 'no Grateful Dead' in marks[date] else '')
+        elif entry.get('source') == 'setlistprogram':
+            # The songs JerryBase lists that night: a SetList Program song outside this list, with no tape, is unconfirmed
+            entry['jbSongs'] = sorted({title_key(n) for _, rows in every[date]['sets'] for n, _ in rows})
+    stats['not_concerts'] = sum('notConcert' in e for e in setlists.values())
     print(stats)
     if kept:
         print('Kept the old setlist (most of JerryBase\'s songs not found on the tape):', kept)
