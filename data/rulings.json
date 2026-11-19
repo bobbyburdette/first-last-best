@@ -1,11 +1,116 @@
 {
   "about": "Decisions made by a person. tools/build_pages.py applies them everywhere (song histories, play counts, First/Last, This Day, show pages) and stops with an error if a First/Last card disagrees with a song ruling. Default rule without a ruling: JerryBase wins. Shows JerryBase doesn't list as public Grateful Dead concerts are marked by tools/merge_jerrybase.py; a 'shows' ruling here overrides that.",
   "shows": {
-    "1967-01-01": {"setlist": "ignore", "reason": "The tape filed under this date is an undated studio reel, not the Panhandle show."},
-    "1967-04-01": {"setlist": "ignore", "reason": "The tape filed under this date is a radio program (records by other artists and talk), not this show."},
-    "1978-11-17": {"setlist": "ignore", "reason": "The tape filed under this date is an acoustic set from another night; JerryBase places the band at the Uptown Theatre in Chicago."}
+    "1967-01-01": {
+      "setlist": "ignore",
+      "reason": "The tape filed under this date is an undated studio reel, not the Panhandle show."
+    },
+    "1967-04-01": {
+      "setlist": "ignore",
+      "reason": "The tape filed under this date is a radio program (records by other artists and talk), not this show."
+    },
+    "1978-11-17": {
+      "setlist": "ignore",
+      "reason": "The tape filed under this date is an acoustic set from another night; JerryBase places the band at the Uptown Theatre in Chicago."
+    },
+    "1966-01-08": {
+      "setlist": "ignore",
+      "reason": "The Fillmore Acid Test tape mixes in music from other events: its Caution is from 2/25/66 (Empire Studios) and its King Bee from 3/19/66 (Carthay Studios), per JerryBase and a detailed archive.org review (Jan 1, 2026). JerryBase lists only the Star-Spangled Banner for 1/8/66."
+    },
+    "1967-01-27": {
+      "setlist": "ignore",
+      "reason": "The tape filed under 1/27/67 is disputed: several archive.org reviewers place it in late 1967 (songs the band didn't play until later, different gear). JerryBase lists the show with no setlist."
+    }
   },
   "songs": {
-    "Mama Tried": {"first": "1969-06-20", "reason": "Ruled Nov 17, 2026: the first Grateful Dead performance is 6/20/69 (JerryBase). The 6/11/69 California Hall show was Bobby Ace and the Cards from the Bottom of the Deck."}
+    "Mama Tried": {
+      "first": "1969-06-20",
+      "reason": "Ruled Nov 17, 2026: the first Grateful Dead performance is 6/20/69 (JerryBase). The 6/11/69 California Hall show was Bobby Ace and the Cards from the Bottom of the Deck."
+    },
+    "Nobody's Fault But Mine": {
+      "jams": [
+        "1970-05-14",
+        "1972-10-02",
+        "1972-10-26",
+        "1972-12-12",
+        "1973-02-24",
+        "1973-03-19",
+        "1973-03-31",
+        "1973-05-20",
+        "1973-06-22",
+        "1973-07-28",
+        "1973-09-20",
+        "1973-09-24",
+        "1973-10-23",
+        "1973-10-27",
+        "1973-11-21",
+        "1973-12-08",
+        "1973-12-10",
+        "1973-12-19",
+        "1974-02-22",
+        "1974-05-12",
+        "1974-05-17",
+        "1974-06-16",
+        "1974-07-21",
+        "1974-07-29",
+        "1977-10-12",
+        "1978-06-04",
+        "1978-07-07",
+        "1978-08-31",
+        "1979-01-05",
+        "1979-05-13",
+        "1979-08-13",
+        "1979-09-02",
+        "1980-10-10",
+        "1981-05-04",
+        "1981-05-16",
+        "1981-12-07",
+        "1982-02-16",
+        "1983-04-26",
+        "1985-09-03",
+        "1991-09-22",
+        "1993-12-12",
+        "1994-12-19"
+      ],
+      "reason": "Ruled Nov 19, 2026: only standalone performances count. JerryBase lists it 42 more times as a jam inside other songs (a segue in and out, usually Truckin' > Nobody's Fault > ...); those are shown on the song page but not counted."
+    },
+    "Caution (Do Not Stop On The Tracks)": {
+      "first": "1966-02-25",
+      "last": "1972-05-11",
+      "jams": [
+        "1974-10-19",
+        "1979-10-27",
+        "1979-12-26",
+        "1980-05-12",
+        "1981-05-06"
+      ],
+      "reason": "Ruled Nov 19, 2026: the Last is 5/11/72. The later JerryBase listings are Caution jams inside other songs; shown, not counted. First stays 2/25/66: the 1/8/66 Acid Test tape's Caution is really from 2/25/66 (JerryBase; archive.org review)."
+    },
+    "Morning Dew": {
+      "first": "1967-03-18",
+      "reason": "Ruled Nov 19, 2026: the 1/27/67 tape that has Morning Dew is disputed (reviewers place it in late 1967), so JerryBase's 3/18/67 stands."
+    },
+    "Born Cross-Eyed": {
+      "first": "1968-01-17",
+      "reason": "Ruled Nov 19, 2026: First is JerryBase's 1/17/68 (on tape). The SetList Program's 6/8/67 (Cafe au Go-Go, no tape) stays on the card as an unconfirmed listing, not counted."
+    },
+    "Casey Jones": {
+      "first": "1969-06-20",
+      "reason": "Ruled Nov 19, 2026: First is JerryBase's 6/20/69 (Fillmore East; the song isn't on the surviving tape, so the card plays 6/22/69). The SetList Program's 5/23/69 (no tape) stays on the card as an unconfirmed listing, not counted."
+    },
+    "Cream Puff War": {
+      "last": "1967-04-28",
+      "reason": "Ruled Nov 19, 2026: Last is JerryBase's 4/28/67 (Stockton Ballroom, no tape, so the card plays 3/18/67). The SetList Program's 6/8/67 (no tape) stays on the card as an unconfirmed listing, not counted."
+    },
+    "Funiculi Funicula": {
+      "first": "1977-05-15",
+      "last": "1988-04-23",
+      "label": "tease",
+      "reason": "Ruled Nov 19, 2026: never played as a full song, so the cards are labeled First tease and Last tease. Teases don't count as plays."
+    },
+    "It's A Man's World": {
+      "last": "1970-11-12",
+      "reason": "Ruled Nov 19, 2026: JerryBase's 11/12/70 stands. The surviving tape of that show doesn't have the song, so the card plays 8/18/70 (the latest tape that does) and notes the real date."
+    }
   }
 }

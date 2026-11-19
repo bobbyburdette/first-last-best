@@ -89,6 +89,13 @@ def pick_on(song, k):
     return {'date': d['date'], 'venue': ', '.join(parts[:-2]) + ' - ' + ', '.join(parts[-2:]) if len(parts) >= 3 else d['venue']}
 
 
+def kind(song, k):
+    """How a pick is described: a song only ever teased gets 'First tease' / 'Last tease'."""
+    if k != 'best' and rulings.song_rule(song['name']).get('label') == 'tease':
+        return f'{k.title()} time teased'
+    return KIND[k]
+
+
 def is_longest(song, k):
     """The third card of a song without enough HeadyVersion votes is its longest tape, never called Best."""
     return k == 'best' and (song.get('best') or {}).get('sourceType') == 'longest'
@@ -153,17 +160,20 @@ def song_plays(song, setlists):
     # Shows that don't count (not a public Grateful Dead concert, or a ruling) are left out entirely; a song only
     # The SetList Program lists, with no tape, is kept as 'u' (unconfirmed) and not counted. JerryBase wins.
     for n, (date, sl) in enumerate(sorted(rulings.counted_setlists(setlists).items())):
-        if (rule.get('first') and date < rule['first']) or (rule.get('last') and date > rule['last']):
-            continue
         rows = [r for _, rs in sl['sets'] for r in rs]
         hit = next((i for i, r in enumerate(rows) if title_key(r[0]) in keys), None)
         if hit is None:
+            continue
+        if date in rule.get('jams', []):  # a ruling: only a jam inside other songs that night; shown, not counted
+            plays.append([date, 0, 0, 0, 'j'])
+            continue
+        if (rule.get('first') and date < rule['first']) or (rule.get('last') and date > rule['last']):
             continue
         if rulings.play_status(sl, rows[hit], title_key(rows[hit][0])):
             plays.append([date, 0, 0, 0, 'u'])
             continue
         plays.append([date, int(rows[hit][1] >= 0 and bool(sl.get('id'))), track_secs(sl, rows, hit, keys),
-                      0 if last is None else n - last])
+                      0 if last is None else n - last] + (['t'] if rule.get('label') == 'tease' else []))
         last = n
         if hit + 1 < len(rows) and title_key(rows[hit + 1][0]) not in keys:
             after[rows[hit + 1][0]] = after.get(rows[hit + 1][0], 0) + 1
@@ -173,6 +183,10 @@ def song_plays(song, setlists):
     have = {p[0] for p in plays}
     for k in ('first', 'last'):
         pk = song.get(k) or {}
+        u = pk.get('unconfirmed') or {}
+        if u.get('date') and u['date'] not in have:
+            plays.append([u['date'], 0, 0, 0, 'u'])
+            have.add(u['date'])
         doc = pk.get('documented') or {}
         for d, taped in ((pk.get('date'), bool(pk.get('audio'))), (doc.get('date'), False)):
             if d and d not in have:
@@ -194,7 +208,8 @@ def day_played(setlists, songs):
     out = {}
     for date, sl in rulings.counted_setlists(setlists).items():
         seen = {by_key[k] for _, rs in sl['sets'] for r in rs
-                if (k := title_key(r[0])) in by_key and not rulings.play_status(sl, r, k)}
+                if (k := title_key(r[0])) in by_key and not rulings.play_status(sl, r, k)
+                and date not in rulings.song_rule(by_key[k]).get('jams', [])}
         for name in seen:
             out.setdefault(date[5:], {}).setdefault(name, []).append(date[:4])
     return {md: sorted(([n, sorted(ys)] for n, ys in v.items()), key=lambda x: (-len(x[1]), x[0])) for md, v in out.items()}
@@ -208,7 +223,13 @@ def plays_html(name, data):
     by_year = {}
     for d, *_ in counted(data):
         by_year.setdefault(d[:4], []).append(d)
-    unconfirmed = [p[0] for p in data['plays'] if len(p) > 4]
+    unconfirmed = [p[0] for p in data['plays'] if len(p) > 4 and p[4] == 'u']
+    jams = [p[0] for p in data['plays'] if len(p) > 4 and p[4] == 'j']
+    teases = [p[0] for p in data['plays'] if len(p) > 4 and p[4] == 't']
+    if teases:
+        return (f'<h3>Every time they teased it</h3><p>{esc(name)} was never played as a full song. The band teased it '
+                f'{len(teases)} times, from {teases[0][:4]} to {teases[-1][:4]}; teases don’t count as plays: '
+                + ', '.join(show_link(d, short_date(d)) for d in teases) + '.</p>')
     if not by_year:
         return ''
     top = max(by_year.items(), key=lambda kv: len(kv[1]))
@@ -221,6 +242,9 @@ def plays_html(name, data):
     if unconfirmed:
         out.append('<p>Unconfirmed, not counted: ' + ', '.join(short_date(d) for d in unconfirmed)
                    + '. Only The SetList Program lists these, and no tape has them.</p>')
+    if jams:
+        out.append(f'<p>Also played as a jam inside other songs {len(jams)} {"time" if len(jams) == 1 else "times"}, not counted: '
+                   + ', '.join(show_link(d, short_date(d)) for d in jams) + '.</p>')
     return ''.join(out)
 
 
@@ -233,7 +257,7 @@ def song_page(song, plays=None):
         desc.append(f'first played {short_date(fd["date"])} at {fd["venue"].split(", ")[0]}')
         v, c = place(f)
         lines.append(('First time played', f'The Grateful Dead first played {esc(name)} live on {show_link(fd["date"])} at '
-                      f'{esc(fd["venue"])}, per {esc(fd.get("source", "the setlist sources"))}. No tape of that show survives; the '
+                      f'{esc(fd["venue"])}, per {esc(fd.get("source", "the setlist sources"))}. No surviving tape of that show has it; the '
                       f'earliest surviving tape is {show_link(f["date"])} at {esc(where(v, c))}.'))
     elif f.get('date'):
         v, c = place(f)
@@ -246,7 +270,7 @@ def song_page(song, plays=None):
     if ld_:
         v, c = place(l)
         lines.append(('Last time played', f'The last time they played it was {show_link(ld_["date"])} at {esc(ld_["venue"])}, '
-                      f'per {esc(ld_.get("source", "the setlist sources"))}. No tape of that show survives; the latest '
+                      f'per {esc(ld_.get("source", "the setlist sources"))}. No surviving tape of that show has it; the latest '
                       f'surviving tape is {show_link(l["date"])} at {esc(where(v, c))}.'))
         desc.append(f'last played {short_date(ld_["date"])}')
     elif l.get('date'):
@@ -256,6 +280,18 @@ def song_page(song, plays=None):
         desc.append(f'last played {short_date(l["date"])}')
     else:
         lines.append(('Last time played', 'There is no verified date for the last live performance.'))
+    for k, (head, word) in {'first': ('First time played', 'earlier'), 'last': ('Last time played', 'later')}.items():
+        u = (song.get(k) or {}).get('unconfirmed')
+        if u:
+            i = next(i for i, (h, _) in enumerate(lines) if h == head)
+            lines[i] = (head, lines[i][1] + f' The SetList Program lists an {word} performance, {short_date(u["date"])} at '
+                        f'{esc(u["venue"])}, but no tape has it and JerryBase doesn’t list it, so it isn’t counted.')
+    if rulings.song_rule(name).get('label') == 'tease':
+        lines = [(h.replace(' time played', ' tease'), x.replace('first played', 'first teased').replace(
+                  'last time they played it', 'last time they teased it') + (' They never played it as a full song, and teases '
+                  'don’t count as plays.' if h.startswith('Last') else '')) if h in ('First time played', 'Last time played') else (h, x)
+                 for h, x in lines]
+        desc = [x.replace('first played', 'first teased').replace('last played', 'last teased') for x in desc]
     if b.get('date') and is_longest(song, 'best'):
         v, c = place(b)
         lines.append(('Longest version', f'There aren’t enough HeadyVersion votes yet to name a fan favorite. '
@@ -328,7 +364,7 @@ def show_page(show, prev, nxt, same_venue, sl, song_by_key):
     d, v, c = show['d'], show['v'], show['c']
     picks = show['picks']
     if picks:
-        items = ''.join(f'<li><a href="{song_url(s)}">{esc(s["name"])}</a>: {KIND[k]}</li>' for s, k in picks)
+        items = ''.join(f'<li><a href="{song_url(s)}">{esc(s["name"])}</a>: {kind(s, k)}</li>' for s, k in picks)
         part = f'<h3>First, Last and Best from this show</h3><ul>{items}</ul>'
         names = [s.get('short') or s['name'] for s, _ in picks]
         tail = names[0] if len(names) == 1 else ', '.join(names[:3]) + (f' and {len(names) - 3} more' if len(names) > 3 else '')
@@ -387,7 +423,7 @@ def day_page(md, shows, songs, played=()):
         parts.append(f'<p>The Grateful Dead never played a show on {name} that survives on tape.</p>')
     if picks:
         parts.append('<h3>First, Last and Best on this date</h3><ul>'
-                     + ''.join(f'<li><a href="{song_url(song)}">{esc(song["name"])}</a>: {KIND[k]}, {d[:4]}</li>' for song, k, d in picks)
+                     + ''.join(f'<li><a href="{song_url(song)}">{esc(song["name"])}</a>: {kind(song, k)}, {d[:4]}</li>' for song, k, d in picks)
                      + '</ul>')
     if played:
         by_name = {s['name']: s for s in songs}
@@ -480,15 +516,19 @@ def main():
         flb.bump_data_version('shows.json')
         print(f'Marked {sum(s["d"] in marks for s in raw_shows)} shows in shows.json as not counted.')
     # The play count the site shows is our own history count (the shows in "Every time they played it")
+    def tally(s):
+        data = plays_by[s['name']] or {'plays': []}
+        t = sum(1 for p in data['plays'] if len(p) > 4 and p[4] == 't')
+        return {'played': len(counted(data)) or None, 'teased': t or None}
     stale = [s for s in songs if s.get('kind') != 'sequence'
-             and s.get('played') != (len(counted(plays_by[s['name']])) or None if plays_by[s['name']] else None)]
+             and any(s.get(k) != v for k, v in tally(s).items())]
     if stale and not args.check:
         for s in stale:
-            n = (len(counted(plays_by[s['name']])) or None) if plays_by[s['name']] else None
-            if n is None:
-                s.pop('played', None)
-            else:
-                s['played'] = n
+            for k, v in tally(s).items():
+                if v is None:
+                    s.pop(k, None)
+                else:
+                    s[k] = v
         flb.save_songs(songs)
         flb.bump_data_version('songs.json')
         print(f'Updated the play count of {len(stale)} songs in songs.json.')
@@ -543,6 +583,9 @@ def main():
         root = flb.ROOT / d
         if root.exists():
             stale_dirs += [x for x in root.iterdir() if x / 'index.html' not in expected]
+            # a page's data file the page no longer has (e.g. a song history that is now empty)
+            stale_dirs += [f for x in root.iterdir() if x / 'index.html' in expected
+                           for f in x.glob('*.json') if f not in expected]
 
     if args.check:
         bad = [p for p, t in expected.items() if not p.exists() or p.read_text() != t]
@@ -552,7 +595,7 @@ def main():
         sys.exit(1 if bad or stale_dirs else 0)
 
     for x in stale_dirs:
-        shutil.rmtree(x)
+        shutil.rmtree(x) if x.is_dir() else x.unlink()
     for p, t in expected.items():
         write(p, t, changed)
     print(f'{len(pages)} pages ({len(songs)} songs, {len(shows)} shows), {len(changed)} files written, '

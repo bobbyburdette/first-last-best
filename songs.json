@@ -1360,12 +1360,19 @@
       "identifier": "gd69-06-22.aud.hanno.8836.sbefail.shnf",
       "recording": "https://archive.org/details/gd69-06-22.aud.hanno.8836.sbefail.shnf",
       "showId": "gd-1969-06-22",
-      "documented": {
+      "unconfirmed": {
         "date": "1969-05-23",
         "venue": "Seminole Indian Village, Hollywood, FL",
         "source": "The SetList Program",
         "url": "https://www.setlists.net/?show_id=0443",
-        "note": "No tape survives."
+        "note": "Listed only by The SetList Program, with no tape. Not counted."
+      },
+      "documented": {
+        "date": "1969-06-20",
+        "venue": "Fillmore East, New York, NY",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19690620-01",
+        "note": "The surviving tape of that show doesn’t have it."
       }
     },
     "last": {
@@ -1899,7 +1906,7 @@
       "source": "https://www.deaddisc.com/songs/Cold_Rain_And_Snow.htm"
     },
     "lyrics": "https://www.dead.net/song/cold-rain-and-snow",
-    "played": 262
+    "played": 261
   },
   {
     "name": "Comes A Time",
@@ -2109,11 +2116,18 @@
       "identifier": "gd1967-03-18.141400.sbd.dalton.miller.clugston.flac1648",
       "recording": "https://archive.org/details/gd1967-03-18.141400.sbd.dalton.miller.clugston.flac1648",
       "showId": "gd-1967-03-18",
-      "documented": {
+      "unconfirmed": {
         "date": "1967-06-08",
         "venue": "Cafe au Go-Go, New York City, NY",
         "source": "The SetList Program",
         "url": "https://www.setlists.net/?show_id=0183",
+        "note": "Listed only by The SetList Program, with no tape. Not counted."
+      },
+      "documented": {
+        "date": "1967-04-28",
+        "venue": "Stockton Ballroom, Stockton, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19670428-01",
         "note": "No tape survives."
       }
     },
@@ -2626,17 +2640,17 @@
     "history": "https://www.setlists.net/?search=true&songs=Death+Don%27t+Have+No+Mercy&songs_exact=true",
     "count": 49,
     "first": {
-      "date": "1966-01-08",
-      "venue": "Fillmore Auditorium - San Francisco, CA",
+      "date": "1966-03-12",
+      "venue": "Danish Center - Los Angeles, CA",
       "source": "https://www.setlists.net/",
       "sourceLabel": "Setlist",
-      "audio": "https://archive.org/download/gd1966-01-08.sbd.lestatkatt.106505.flac16/gd66-01-08.d1t15.mp3",
+      "audio": "https://archive.org/download/gd1966-03-12.sbd.bershaw.9516.shnf/acid5t11.mp3",
       "track": "Death Don't Have No Mercy",
-      "duration": "09:06",
+      "duration": "06:03",
       "combined": false,
-      "identifier": "gd1966-01-08.sbd.lestatkatt.106505.flac16",
-      "recording": "https://archive.org/details/gd1966-01-08.sbd.lestatkatt.106505.flac16",
-      "showId": "gd-1966-01-08",
+      "identifier": "gd1966-03-12.sbd.bershaw.9516.shnf",
+      "recording": "https://archive.org/details/gd1966-03-12.sbd.bershaw.9516.shnf",
+      "showId": "gd-1966-03-12",
       "documented": {
         "date": "1965-12-11",
         "venue": "Muir Beach Lodge, Muir Beach, CA",
@@ -2714,7 +2728,7 @@
       "source": "https://www.deaddisc.com/songs/Death_Dont_Have_No_Mercy.htm"
     },
     "lyrics": "https://www.dead.net/song/death-dont-have-no-mercy",
-    "played": 51
+    "played": 50
   },
   {
     "name": "Dire Wolf",
@@ -5816,7 +5830,7 @@
       "source": "https://www.deaddisc.com/songs/Morning_Dew.htm"
     },
     "lyrics": "https://www.dead.net/song/morning-dew",
-    "played": 284
+    "played": 283
   },
   {
     "name": "Mountains Of The Moon",
@@ -9346,7 +9360,7 @@
       "source": "https://www.deaddisc.com/songs/Viola_Lee_Blues.htm"
     },
     "lyrics": "https://www.dead.net/song/viola-lee-blues",
-    "played": 49
+    "played": 48
   },
   {
     "name": "Weather Report Suite",
@@ -12396,7 +12410,7 @@
       "source": "https://www.deaddisc.com/songs/Caution_Do_Not_Stop_On_Tracks.htm"
     },
     "lyrics": "https://www.dead.net/song/caution-do-not-stop-tracks",
-    "played": 69
+    "played": 62
   },
   {
     "name": "New Potato Caboose",
@@ -12505,12 +12519,12 @@
       "identifier": "gd1968-01-17.sbd.cotsman.11795.shnf",
       "recording": "https://archive.org/details/gd1968-01-17.sbd.cotsman.11795.shnf",
       "showId": "gd-1968-01-17",
-      "documented": {
+      "unconfirmed": {
         "date": "1967-06-08",
         "venue": "Cafe au Go-Go, New York City, NY",
         "source": "The SetList Program",
         "url": "https://www.setlists.net/?show_id=0183",
-        "note": "No tape survives."
+        "note": "Listed only by The SetList Program, with no tape. Not counted."
       }
     },
     "last": {
@@ -12675,7 +12689,7 @@
     },
     "rank": null,
     "lyrics": "https://www.dead.net/song/good-morning-little-schoolgirl",
-    "played": 89
+    "played": 88
   },
   {
     "name": "It's All Over Now, Baby Blue",
@@ -17536,7 +17550,7 @@
       "source": "https://www.deaddisc.com/songs/Im_A_King_Bee.htm"
     },
     "lyrics": "https://www.dead.net/song/im-king-bee",
-    "played": 43
+    "played": 42
   },
   {
     "name": "You Win Again",
@@ -18503,7 +18517,9 @@
       "source": "https://www.setlists.net/?show_id=1014",
       "unavailable": true,
       "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1977-05-15",
-      "showId": "gd-1977-05-15"
+      "showId": "gd-1977-05-15",
+      "label": "The First Tease",
+      "note": "Never played as a full song: this is the first time they teased it. Teases don’t count as plays."
     },
     "last": {
       "date": "1988-04-23",
@@ -18511,14 +18527,16 @@
       "source": "https://www.setlists.net/?show_id=1803",
       "unavailable": true,
       "archiveSearch": "https://archive.org/details/GratefulDead?query=date%3A1988-04-23",
-      "showId": "gd-1988-04-23"
+      "showId": "gd-1988-04-23",
+      "label": "The Last Tease",
+      "note": "Never played as a full song: this is the last time they teased it. Teases don’t count as plays."
     },
     "best": {
       "date": "1987-03-02",
       "venue": "Henry J. Kaiser Convention Center - Oakland, CA",
       "source": "https://www.setlists.net/?show_id=1696",
       "sourceType": "longest",
-      "note": "Longest version on tape (03:13). Not enough HeadyVersion votes yet to name a fan favorite.",
+      "note": "Longest tease on tape (03:13). It was never played as a full song.",
       "audio": "https://archive.org/download/gd1987-03-02.sbd.walker-scotton.miller.82728.sbeok.flac16/gd87-03-02d1t01.mp3",
       "track": "Funiculi Funicula",
       "duration": "03:13",
@@ -18527,7 +18545,8 @@
       "recording": "https://archive.org/details/gd1987-03-02.sbd.walker-scotton.miller.82728.sbeok.flac16",
       "venueName": "Henry J. Kaiser Convention Center",
       "city": "Oakland, CA",
-      "showId": "gd-1987-03-02"
+      "showId": "gd-1987-03-02",
+      "label": "The Longest Tease"
     },
     "rank": null,
     "credits": {
@@ -19037,7 +19056,7 @@
       "source": "https://www.deaddisc.com/songs/Nobodys_Fault_But_Mine.htm"
     },
     "lyrics": "https://www.dead.net/song/nobodys-fault-mine",
-    "played": 45
+    "played": 3
   },
   {
     "name": "Wave That Flag",
