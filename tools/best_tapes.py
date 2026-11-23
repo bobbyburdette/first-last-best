@@ -61,6 +61,21 @@ def info(u):
             'rating': u.get('avg_rating'), 'reviews': u.get('num_reviews') or 0, 'downloads': u.get('downloads') or 0}
 
 
+def fill_gaps(rows, tracks):
+    """A song the matcher missed (the taper titled it differently, e.g. 'Women are Smarter') takes the one unused
+    track between its matched neighbors."""
+    flat = [r for _, rs in rows for r in rs]
+    used = {r[1] for r in flat if r[1] >= 0}
+    for i, r in enumerate(flat):
+        if r[1] >= 0 or not 0 < i < len(flat) - 1:
+            continue
+        a, b = flat[i - 1][1], flat[i + 1][1]
+        if a >= 0 and b == a + 2 and a + 1 not in used and a + 1 < len(tracks):
+            r[1] = a + 1
+            used.add(a + 1)
+    return rows
+
+
 def plan_show(show, entry):
     """(new tape doc, new setlist entry or None, why-not) for one show."""
     cur = show['id']
@@ -80,7 +95,7 @@ def plan_show(show, entry):
             continue  # no streamable MP3s: try the next one
         if entry and entry.get('sets') and not entry.get('tapes'):
             sets = [(l, [[r[0], r[2]] for r in rows]) for l, rows in entry['sets']]
-            rows = apply_jb(sets, tracks)
+            rows = fill_gaps(apply_jb(sets, tracks), tracks)
             old = matched(entry['sets']) if entry.get('id') else 0
             if matched(rows) < old:
                 return {'show': show['d'], 'held': f'tracks line up worse ({matched(rows)} vs {old} songs)',
