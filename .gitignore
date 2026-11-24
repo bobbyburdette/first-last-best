@@ -4,3 +4,6 @@ tools/.cache/
 __pycache__/
 tools/social/out/
 *-posts.zip
+
+# local tool cache (and links to it)
+tools/.cache
