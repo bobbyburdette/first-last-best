@@ -18369,23 +18369,7 @@
       "label": "The Last Tease",
       "note": "Never played as a full song: this is the last time they teased it. Teases don’t count as plays."
     },
-    "best": {
-      "date": "1987-03-02",
-      "venue": "Henry J. Kaiser Convention Center - Oakland, CA",
-      "source": "https://www.setlists.net/?show_id=1696",
-      "sourceType": "longest",
-      "note": "Longest tease on tape (03:13). It was never played as a full song.",
-      "audio": "https://archive.org/download/gd1987-03-02.sbd.walker-scotton.miller.82728.sbeok.flac16/gd87-03-02d1t01.mp3",
-      "track": "Funiculi Funicula",
-      "duration": "03:13",
-      "combined": false,
-      "identifier": "gd1987-03-02.sbd.walker-scotton.miller.82728.sbeok.flac16",
-      "recording": "https://archive.org/details/gd1987-03-02.sbd.walker-scotton.miller.82728.sbeok.flac16",
-      "venueName": "Henry J. Kaiser Convention Center",
-      "city": "Oakland, CA",
-      "showId": "gd-1987-03-02",
-      "label": "The Longest Tease"
-    },
+    "best": null,
     "rank": null,
     "credits": {
       "writers": "Luigi Denza",
