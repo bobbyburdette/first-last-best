@@ -301,7 +301,7 @@ def setlist_html(sl, song_by_key):
     return '<h3>Setlist</h3>' + ''.join(out)
 
 
-def show_page(show, prev, nxt, same_venue, sl, song_by_key):
+def show_page(show, prev, nxt, same_venue, sl, song_by_key, alt=None):
     d, v, c = show['d'], show['v'], show['c']
     picks = show['picks']
     if picks:
@@ -337,7 +337,7 @@ def show_page(show, prev, nxt, same_venue, sl, song_by_key):
         ld['workPerformed'] = [{'@type': 'MusicComposition', 'name': t} for t in dict.fromkeys(played)]
     title = f'Grateful Dead {short_date(d)}{" Setlist" if played else ""} · {where(v, c)}'
     return {'path': show_url(d), 'song_list': False, 'title': title, 'description': description, 'body': body, 'ld': ld,
-            'files': {'setlist.json': sl} if sl else {}}
+            'files': {**({'setlist.json': sl} if sl else {}), **({'tapes.json': alt} if alt else {})}}
 
 
 def day_page(md, shows, songs, played=()):
@@ -456,11 +456,13 @@ def main():
     for s in shows:
         by_venue.setdefault(s['vk'], []).append(s)
 
+    alt_path = flb.ROOT / 'data' / 'alt_tapes.json'  # every tape of a show, for the tape switcher (tools/best_tapes.py)
+    alt = json.loads(alt_path.read_text()) if alt_path.exists() else {}
     pages = [song_page(s, plays_by[s['name']]) for s in songs]
     for i, s in enumerate(shows):
         same = [x for x in by_venue[s['vk']] if x is not s]
         pages.append(show_page(s, shows[i - 1] if i else None, shows[i + 1] if i + 1 < len(shows) else None, same,
-                               setlists.get(s['d']), song_by_key))
+                               setlists.get(s['d']), song_by_key, alt.get(s['d'])))
     d0 = datetime.date(2024, 1, 1)
     played = day_played(setlists, songs)
     pages += [day_page(md, shows, songs, played.get(md, [])) for md in (f'{d0 + datetime.timedelta(days=i):%m-%d}' for i in range(366))]
