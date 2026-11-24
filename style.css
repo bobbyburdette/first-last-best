@@ -465,3 +465,6 @@ a.song-button{text-decoration:none;color:inherit}
 @media (max-width:380px){.tape-band .tape-band-title{font-size:24px}.tb-ico{width:30px;height:30px}}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .tape-band .tape-band-title.is-long{font-size:22px}
+/* the paper's tilt pivots on its top edge, so it doesn't swing sideways when it grows (tape list, setlist loading) */
+.sl-paper{transform-origin:50% 0}
+.tp-btn{min-width:9.6em;text-align:center}
