@@ -59,6 +59,7 @@ async function play(s,k,part=0,tracksOverride=null,showMeta=null,perfOverride=nu
   $('#now-type').textContent=(perfOverride?'Fan favorite':k==='best'&&isLongest(s)?'Longest on tape':nowTypeLabel[k]).toUpperCase();$('#now-title').textContent=s.name;
   $('#now-date').textContent=date(p.date)+(tracks.length>1?` · ${part+1}/${tracks.length}: ${tracks[part].title}`:p.duration?' · '+p.duration:'');
  }
+ {const go=$('#now-go');go.hidden=false;go.textContent=showMeta?'Back to show':'Back to song';go.onclick=()=>showMeta?backToShow(p.date):backToSong(s,k)}
  $('#player-status').textContent='Loading tape…';$('#recording-link').hidden=!p.recording;$('#recording-link').href=p.recording||'';
  retryState=0;audio.src=tracks[part].url;
  syncTrackNav();
@@ -454,7 +455,11 @@ async function fillSetlist(e,openPicker=false){
  el.querySelectorAll('[data-sl-song]').forEach(a=>a.onclick=ev=>{ev.preventDefault();history.pushState(null,'',a.getAttribute('href'));selectSong(a.dataset.slSong,false)});
  markSetlist();
 }
-function markSetlist(){const el=$('#setlist');if(!el?._tracks)return;el.querySelectorAll('.sl-row').forEach(r=>r.classList.toggle('is-playing',playing?.tracks===el._tracks&&Number(r.dataset.i)===playing.part))}
+function markSetlist(){const el=$('#setlist');if(!el?._tracks)return;const now=playing?.tracks?.[playing.part]?.url;el.querySelectorAll('.sl-row').forEach(r=>r.classList.toggle('is-playing',!!now&&el._tracks[Number(r.dataset.i)]?.url===now))}
+/* The player's "Back to show" / "Back to song": reopen what's playing and bring the playing song into view */
+function scrollToPlaying(){let n=0;const t=setInterval(()=>{const r=document.querySelector('#setlist .sl-row.is-playing');if(r||++n>40){clearInterval(t);(r||$('#setlist')||$('#detail'))?.scrollIntoView({behavior:'smooth',block:'center'})}},100)}
+function backToShow(d){Promise.resolve(openShow(d,true)).then(scrollToPlaying)}
+function backToSong(s,k){history.pushState(null,'',songPath(s));selectSong(s.name,false);setTimeout(()=>(document.querySelector(`.tape.${k}`)||$('#detail'))?.scrollIntoView({behavior:'smooth',block:'center'}),150)}
 ['play','loadstart','emptied'].forEach(n=>audio.addEventListener(n,markSetlist));
 async function openShow(d,push,autoplay=false){if(!showIndex){await loadShows();if(!showsData)return false;showIndex=buildShowIndex(showsData)}return showShow(d,push,autoplay)}
 $('#search').addEventListener('focus',()=>{loadShows()},{once:true});

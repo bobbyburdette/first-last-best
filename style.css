@@ -449,3 +449,7 @@ a.song-button{text-decoration:none;color:inherit}
 .tp-pick{font-style:normal;font-size:10px;padding:1px 5px;background:#c4243a;color:#fff;border-radius:2px;text-transform:uppercase;margin-right:6px}.tp-main em{font-style:normal;font-size:10px;padding:1px 5px;border:1px solid #6b5f4f;border-radius:2px;text-transform:uppercase}
 .tp-stars{flex:none;font-weight:700;white-space:nowrap}.tp-stars span{font-weight:500;color:#6b5f4f}.tp-foot{margin:8px 0 0;font-size:10.5px;color:#6b5f4f;line-height:1.5}
 .tp-row:focus-visible,.tp-btn:focus-visible{outline:2px solid #c4243a;outline-offset:2px}
+.now-go{align-self:flex-start;margin-top:2px;padding:0;border:0;background:none;color:var(--text);font:600 12px var(--mono);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.now-go::before{content:'\21A9  ';text-decoration:none;display:inline-block;margin-right:4px}
+.now-go:focus-visible{outline:2px solid var(--accent-1);outline-offset:2px}
+.player.is-idle .now-go{display:none}
