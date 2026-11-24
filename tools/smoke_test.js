@@ -64,7 +64,8 @@ server.listen(0, async () => {
     check('multi-tape setlist', (await p.locator('.sl-src').count()) > 0 && (await p.locator('.sl-row.is-missing').count()) === 0);
 
     await go('/song/dark-star/'); await p.locator('.tape.best [data-play-show]').click(); await wait(1200);
-    check('Play Full Show goes to the show page', at() === '/show/1972-08-27/' && (await p.textContent('#now-type')) === 'FULL SHOW');
+    check('Play Full Show goes to the show page', at() === '/show/1972-08-27/' && (await p.textContent('#now-type')) === 'FULL SHOW · 8.27.72'
+      && (await p.getAttribute('#now-type', 'href')) === '/show/1972-08-27/');
     await p.goBack(); await wait(); check('back from show', (await h2()) === 'Dark Star');
 
     await go('/'); await p.fill('#search', '7/7/89'); await wait(600); await p.press('#search', 'Enter'); await wait();
