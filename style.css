@@ -468,5 +468,5 @@ a.song-button{text-decoration:none;color:inherit}
 /* the paper's tilt pivots on its top edge, so it doesn't swing sideways when it grows (tape list, setlist loading) */
 .sl-paper{transform-origin:50% 0}
 .tp-btn{min-width:9.6em;text-align:center}
-/* desktop: the player lines up with the page's main box (main: 92% wide, max 1500px, centered) */
-@media (min-width:900px){.player{left:50%;width:92%;max-width:1500px;transform:translateX(-50%);padding-left:28px;padding-right:28px;border-left:1px solid var(--line);border-right:1px solid var(--line)}}
+/* desktop: the bar runs edge to edge; its contents line up with the page's main box (main: 92% wide, max 1500px, centered) */
+@media (min-width:900px){.player{padding-left:calc((100% - min(92%, 1500px)) / 2 + 28px);padding-right:calc((100% - min(92%, 1500px)) / 2 + 28px)}}
