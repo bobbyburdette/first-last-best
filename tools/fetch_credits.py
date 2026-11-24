@@ -68,6 +68,8 @@ def parse(page):
             m = re.match(r'(.+?),\s*(?:[A-Za-z]+\s)?(\d{4})$', x)
             if m and not re.search(r'Various Artists|\((video|DVD|USB)\)', x):
                 album = re.sub(r',\s*Grateful Dead$', '', m.group(1).strip())
+                parts = [x.strip() for x in album.split(',')]  # "Dylan And The Dead, Dylan And The Dead": album, then artist
+                album = ', '.join(x for i, x in enumerate(parts) if not i or x != parts[i - 1])
                 release = f'{album}, {m.group(2)}'
                 break
     for typo, name in FIX.items():
