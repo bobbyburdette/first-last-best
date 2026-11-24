@@ -93,18 +93,18 @@
     "history": "https://www.setlists.net/?search=true&songs=Alligator&songs_exact=true",
     "count": 60,
     "first": {
-      "date": "1967-01-27",
-      "venue": "Avalon Ballroom - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0131",
-      "audio": "https://archive.org/download/gd67-01-27.aud.hanno.16744.sbeok.shnf/gd67-01-27t05.mp3",
+      "date": "1967-05-05",
+      "venue": "Fillmore Auditorium - San Francisco, CA",
+      "source": "https://www.setlists.net/",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd67-05-05.sbs.yerys.1595.sbeok.shnf/gd67-05-05d1t05.mp3",
       "track": "Alligator",
-      "duration": "17:34",
+      "duration": "10:52",
       "combined": false,
-      "identifier": "gd67-01-27.aud.hanno.16744.sbeok.shnf",
-      "recording": "https://archive.org/details/gd67-01-27.aud.hanno.16744.sbeok.shnf",
-      "rating": 3.37,
-      "reviews": 47,
-      "showId": "gd-1967-01-27"
+      "identifier": "gd67-05-05.sbs.yerys.1595.sbeok.shnf",
+      "recording": "https://archive.org/details/gd67-05-05.sbs.yerys.1595.sbeok.shnf",
+      "showId": "gd-1967-05-05",
+      "note": "Earliest performance on tape. JerryBase’s first listing is 6/1/67; this 5/5/67 setlist comes from The SetList Program and the tape."
     },
     "last": {
       "date": "1971-04-29",
@@ -175,7 +175,7 @@
       "source": "https://www.deaddisc.com/songs/Alligator.htm"
     },
     "lyrics": "https://www.dead.net/song/alligator",
-    "played": 69
+    "played": 68
   },
   {
     "name": "Althea",
@@ -9314,8 +9314,46 @@
     "name": "Weather Report Suite",
     "history": "https://www.setlists.net/?search=true&songs=Weather+Report+Suite&songs_exact=true",
     "count": null,
-    "first": null,
-    "last": null,
+    "first": {
+      "date": "1973-09-12",
+      "venue": "College Of William & Mary Hall - Williamsburg, VA",
+      "source": "https://jerrybase.com/events/19730912-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd73-09-12.sbd.sly.14010.sbeok.shnf/gd73-09-12d2t04.mp3",
+      "track": "Weather Report Suite Part 1",
+      "duration": "04:34",
+      "combined": false,
+      "identifier": "gd73-09-12.sbd.sly.14010.sbeok.shnf",
+      "recording": "https://archive.org/details/gd73-09-12.sbd.sly.14010.sbeok.shnf",
+      "showId": "gd-1973-09-12",
+      "documented": {
+        "date": "1973-09-08",
+        "venue": "Nassau Coliseum, Uniondale, NY",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19730908-01",
+        "note": "No surviving tape of that show has it."
+      }
+    },
+    "last": {
+      "date": "1974-10-17",
+      "venue": "Winterland Arena - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19741017-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1974-10-17.140588.SBD.Gastwirt.Miller.Noel.t-flac1644/gd74-10-17.s1t14.mp3",
+      "track": "Weather Report Suite Part 1 ->",
+      "duration": "04:30",
+      "combined": true,
+      "identifier": "gd1974-10-17.140588.SBD.Gastwirt.Miller.Noel.t-flac1644",
+      "recording": "https://archive.org/details/gd1974-10-17.140588.SBD.Gastwirt.Miller.Noel.t-flac1644",
+      "showId": "gd-1974-10-17",
+      "documented": {
+        "date": "1974-10-18",
+        "venue": "Winterland Arena, San Francisco, CA",
+        "source": "JerryBase",
+        "url": "https://jerrybase.com/events/19741018-01",
+        "note": "No surviving tape of that show has it."
+      }
+    },
     "best": {
       "date": "1974-06-18",
       "venue": "Freedom Hall Louisville, KY",
@@ -9365,7 +9403,10 @@
       "runnersUpCheckedAt": "2026-10-09"
     },
     "rank": 85,
-    "researchPending": true
+    "aliases": [
+      "Weather Report Suite Part 1"
+    ],
+    "played": 47
   },
   {
     "name": "West L.A. Fadeaway",
@@ -12347,18 +12388,18 @@
     "history": "https://www.setlists.net/?search=true&songs=New+Potato+Caboose&songs_exact=true",
     "count": 27,
     "first": {
-      "date": "1967-01-27",
-      "venue": "Avalon Ballroom - San Francisco, CA",
-      "source": "https://www.setlists.net/?show_id=0131",
-      "audio": "https://archive.org/download/gd1967-01-27.sbd.8762.shnf/gd67-01-27t04.mp3",
+      "date": "1967-05-05",
+      "venue": "Fillmore Auditorium - San Francisco, CA",
+      "source": "https://www.setlists.net/",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd67-05-05.sbs.yerys.1595.sbeok.shnf/gd67-05-05d1t04.mp3",
       "track": "New Potato Caboose",
-      "duration": "16:59",
+      "duration": "10:12",
       "combined": false,
-      "identifier": "gd1967-01-27.sbd.8762.shnf",
-      "recording": "https://archive.org/details/gd1967-01-27.sbd.8762.shnf",
-      "rating": 3,
-      "reviews": 9,
-      "showId": "gd-1967-01-27"
+      "identifier": "gd67-05-05.sbs.yerys.1595.sbeok.shnf",
+      "recording": "https://archive.org/details/gd67-05-05.sbs.yerys.1595.sbeok.shnf",
+      "showId": "gd-1967-05-05",
+      "note": "Earliest performance on tape. JerryBase’s first listing is 8/4/67; this 5/5/67 setlist comes from The SetList Program and the tape."
     },
     "last": {
       "date": "1969-06-08",
@@ -12431,7 +12472,7 @@
       "source": "https://www.deaddisc.com/songs/New_Potato_Caboose.htm"
     },
     "lyrics": "https://www.dead.net/song/new-potato-caboose",
-    "played": 34
+    "played": 33
   },
   {
     "name": "Born Cross-Eyed",
@@ -18857,18 +18898,18 @@
       }
     },
     "last": {
-      "date": "1994-12-19",
-      "venue": "Los Angeles Sports Arena - Los Angeles, CA",
-      "source": "https://www.setlists.net/?show_id=2301",
-      "audio": "https://archive.org/download/gd94-12-19.sbd.vernon.20712.sbeok.shnf/gd94-12-19d2t03.mp3",
-      "track": "Nobody's Fault But Mine >",
-      "duration": "05:31",
-      "combined": true,
-      "identifier": "gd94-12-19.sbd.vernon.20712.sbeok.shnf",
-      "recording": "https://archive.org/details/gd94-12-19.sbd.vernon.20712.sbeok.shnf",
-      "rating": 3.57,
-      "reviews": 22,
-      "showId": "gd-1994-12-19"
+      "date": "1966-11-18",
+      "venue": "Fillmore Auditorium - San Francisco, CA",
+      "source": "https://jerrybase.com/events/19661118-01",
+      "sourceLabel": "Setlist",
+      "audio": "https://archive.org/download/gd1966-11-18.169871.sbd.flegel.ciaffa.miller.flac2444/03%20Nobody's%20Fault%20But%20Mine.mp3",
+      "track": "Nobody's Fault But Mine",
+      "duration": "04:26",
+      "combined": false,
+      "identifier": "gd1966-11-18.169871.sbd.flegel.ciaffa.miller.flac2444",
+      "recording": "https://archive.org/details/gd1966-11-18.169871.sbd.flegel.ciaffa.miller.flac2444",
+      "showId": "gd-1966-11-18",
+      "note": "Last time as a full song. It kept turning up as a jam inside other songs (usually Truckin’) until 1994; those aren’t counted."
     },
     "best": {
       "date": "1973-12-19",

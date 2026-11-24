@@ -72,7 +72,8 @@
         "1993-12-12",
         "1994-12-19"
       ],
-      "reason": "Ruled Nov 19, 2026: only standalone performances count. JerryBase lists it 42 more times as a jam inside other songs (a segue in and out, usually Truckin' > Nobody's Fault > ...); those are shown on the song page but not counted."
+      "reason": "Ruled Nov 19, 2026: only standalone performances count. JerryBase lists it 42 more times as a jam inside other songs (a segue in and out, usually Truckin' > Nobody's Fault > ...); those are shown on the song page but not counted. Ruled Nov 24, 2026: the Last is 11/18/66, the last standalone performance.",
+      "last": "1966-11-18"
     },
     "Caution (Do Not Stop On The Tracks)": {
       "first": "1966-02-25",
@@ -111,6 +112,19 @@
     "It's A Man's World": {
       "last": "1970-11-12",
       "reason": "Ruled Nov 19, 2026: JerryBase's 11/12/70 stands. The surviving tape of that show doesn't have the song, so the card plays 8/18/70 (the latest tape that does) and notes the real date."
+    },
+    "Alligator": {
+      "first": "1967-05-05",
+      "reason": "Ruled Nov 24, 2026: the 1/27/67 tape is disputed, so the First is the earliest performance on tape, 5/5/67 (The SetList Program and the tape). JerryBase’s earliest listing is 6/1/67."
+    },
+    "New Potato Caboose": {
+      "first": "1967-05-05",
+      "reason": "Ruled Nov 24, 2026: the 1/27/67 tape is disputed, so the First is the earliest performance on tape, 5/5/67 (The SetList Program and the tape). JerryBase’s earliest listing is 8/4/67."
+    },
+    "Weather Report Suite": {
+      "first": "1973-09-08",
+      "last": "1974-10-18",
+      "reason": "Ruled Nov 24, 2026: a Weather Report Suite play means Part 1 (JerryBase \"Weather Report Suite Part 1\"). Prelude-only shows (7/21/72, 11/19/72) and Let It Grow on its own don’t count."
     }
   }
 }
