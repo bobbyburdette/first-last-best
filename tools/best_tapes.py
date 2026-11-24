@@ -11,7 +11,8 @@ Each archive.org upload of a date gets a score:
     and popularity (downloads) up to about +0.2.
 A show moves to the top scorer only when it beats the current tape by at least 0.15 and its tracks match the
 setlist at least as well as the current tape's. A First/Last/Best pick moves when the new tape has the song as a
-labeled track within 30% of the current length. Anything else that looks better is listed for a person to hear.
+labeled track within 30% of the current length (never a locked pick or a Longest card, which was chosen
+for its length on that exact tape). Anything else that looks better is listed for a person to hear.
 Monitor mixes and half-aud/half-sbd uploads are never picked; shows played from two tapes are left alone.
 """
 import argparse
@@ -131,8 +132,8 @@ def plan_picks(songs, tape_for):
             continue
         for slot, pick in flb.picks(song):
             cur, d = pick.get('identifier'), pick.get('date')
-            if not (cur and d and pick.get('audio')) or pick.get('locked'):
-                continue
+            if not (cur and d and pick.get('audio')) or pick.get('locked') or pick.get('sourceType') == 'longest':
+                continue  # locked: set by hand; Longest: chosen for its length on that exact tape
             ranks = ranked(d)
             scores = {u['identifier']: s for s, u in ranks}
             want = tape_for.get(d) or (ranks[0][1]['identifier'] if ranks else None)
