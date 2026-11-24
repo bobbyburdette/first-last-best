@@ -156,7 +156,9 @@ function routeFromURL(initial){
  if(p!=='/')history.replaceState(null,'','/');
  selectSong((initial?null:dayReturn||selected)?.name||random(),false);
 }
-window.addEventListener('popstate',()=>routeFromURL(false));window.addEventListener('hashchange',()=>routeFromURL(false));
+window.addEventListener('popstate',()=>routeFromURL(false));
+/* The logo goes home without reloading the page, so whatever is playing keeps playing */
+document.querySelector('a.brand')?.addEventListener('click',e=>{if(e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;e.preventDefault();const q=$('#search');if(q&&q.value){q.value='';renderList()}history.pushState(null,'','/');selectSong(songs[Math.floor(Math.random()*songs.length)].name,false);window.scrollTo(0,0)});window.addEventListener('hashchange',()=>routeFromURL(false));
 Promise.all([fetch('/songs.json?v=63').then(r=>{if(!r.ok)throw Error('Collection unavailable');return r.json()}),fetch('/tapes.json?v=11').then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([data,t])=>{tapes=t||{};songs=data;routeFromURL(true);tracking=true;if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'select_grateful_dead_song',title:'Select a Grateful Dead song',description:'Search the collection and open one song’s first, last and HeadyVersion-favorite performances. Does not start audio.',inputSchema:{type:'object',properties:{name:{type:'string'}},required:['name'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){if(!input||typeof input.name!=='string')throw Error('A song name is required');const s=songs.find(s=>s.name.toLowerCase()===input.name.toLowerCase());if(!s)throw Error('Song not in this collection');$('#search').value='';selectSong(s.name);return {name:s.name,performances:['first','last','best'].map(k=>({type:k,date:s[k]?.date,playable:playable(s[k])}))}}})).catch(()=>{})}catch{}}}).catch(()=>{$('#detail').innerHTML='<h2>The tapes didn’t load.</h2><p>Please reload to try again.</p>';$('#songs').innerHTML='';$('#count').textContent='Collection unavailable'});
 
 const toggle=$('#audio-toggle'),seek=$('#audio-seek'),mute=$('#audio-mute');
