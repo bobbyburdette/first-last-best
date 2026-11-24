@@ -360,7 +360,7 @@ def setlist_html(sl, song_by_key):
     return '<h3>Setlist</h3>' + ''.join(out)
 
 
-def show_page(show, prev, nxt, same_venue, sl, song_by_key):
+def show_page(show, prev, nxt, same_venue, sl, song_by_key, alt=None):
     d, v, c = show['d'], show['v'], show['c']
     picks = show['picks']
     if picks:
@@ -400,7 +400,7 @@ def show_page(show, prev, nxt, same_venue, sl, song_by_key):
         ld['workPerformed'] = [{'@type': 'MusicComposition', 'name': t} for t in dict.fromkeys(played)]
     title = f'Grateful Dead {short_date(d)}{" Setlist" if played else ""} · {where(v, c)}'
     return {'path': show_url(d), 'song_list': False, 'title': title, 'description': description, 'body': body, 'ld': ld,
-            'files': {'setlist.json': sl} if sl else {}}
+            'files': {**({'setlist.json': sl} if sl else {}), **({'tapes.json': alt} if alt else {})}}
 
 
 def day_page(md, shows, songs, played=()):
@@ -546,6 +546,8 @@ def main():
         by_venue.setdefault(s['vk'], []).append(s)
 
     pages = [song_page(s, plays_by[s['name']]) for s in songs]
+    alt_path = flb.ROOT / 'data' / 'alt_tapes.json'  # every tape of a show, for the tape switcher (tools/best_tapes.py)
+    alt = json.loads(alt_path.read_text()) if alt_path.exists() else {}
     real = [s for s in shows if not s.get('x')]  # previous/next show links skip what isn't a concert
     at = {s['d']: i for i, s in enumerate(real)}
     for s in shows:
@@ -553,7 +555,7 @@ def main():
         i = at.get(s['d'], next((k for k, x in enumerate(real) if x['d'] > s['d']), len(real)))
         prev = real[i - 1] if i else None
         nxt = real[i + 1 if s['d'] in at else i] if (i + 1 if s['d'] in at else i) < len(real) else None
-        pages.append(show_page(s, prev, nxt, same, setlists.get(s['d']), song_by_key))
+        pages.append(show_page(s, prev, nxt, same, setlists.get(s['d']), song_by_key, alt.get(s['d'])))
     d0 = datetime.date(2024, 1, 1)
     played = day_played(setlists, songs)
     pages += [day_page(md, shows, songs, played.get(md, [])) for md in (f'{d0 + datetime.timedelta(days=i):%m-%d}' for i in range(366))]

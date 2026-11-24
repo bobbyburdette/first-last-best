@@ -395,11 +395,31 @@ async function fillPlays(s){
    written like the one taped to the stage */
 const tapeCache=new Map(),setlistData=new Map();
 function archiveTracks(id){if(!tapeCache.has(id))tapeCache.set(id,fetch(`https://archive.org/metadata/${encodeURIComponent(id)}`).then(r=>{if(!r.ok)throw Error('bad status');return r.json()}).then(m=>showTracksFromMeta(m,id)).catch(()=>{tapeCache.delete(id);return null}));return tapeCache.get(id)}
+/* Tape switcher: every tape of a show (show/<date>/tapes.json, ranked by listener ratings), and the one a listener
+   picked, remembered per show on this device. The setlist follows the chosen tape. */
+const altData=new Map();
+function loadAlt(d){if(!altData.has(d))altData.set(d,fetch(`/show/${d}/tapes.json`).then(r=>r.ok?r.json():null).catch(()=>null));return altData.get(d)}
+const tapePref={get(d){try{return localStorage.getItem('flb-tape-'+d)}catch{return null}},set(d,id){try{id?localStorage.setItem('flb-tape-'+d,id):localStorage.removeItem('flb-tape-'+d)}catch{}}};
+function rematch(sl,tracks){
+ const keys=tracks.map(t=>titleKey(String(t[1]).replace(/\s*-*>\s*$/,'')));const used=new Set();let pos=0;
+ const sets=sl.sets.map(([set,list])=>[set,list.map(([name,,seg])=>{const k=titleKey(name);let hit=-1;
+  for(let j=pos;j<Math.min(pos+8,keys.length);j++){const t=keys[j];if(!used.has(j)&&(t===k||(k.length>3&&t.length>3&&(t.includes(k)||k.includes(t)))||(k.length>=8&&t.slice(0,8)===k.slice(0,8)))){hit=j;break}}
+  if(hit>=0){used.add(hit);pos=hit+1}return [name,hit,seg]})]);
+ const flat=sets.flatMap(([,l])=>l);flat.forEach((r,i)=>{if(r[1]<0&&i>0&&i<flat.length-1){const x=flat[i-1][1],y=flat[i+1][1];if(x>=0&&y===x+2&&!used.has(x+1)){r[1]=x+1;used.add(x+1)}}});
+ return sets;
+}
+const TAPE_TYPE={sbd:'Soundboard',mtx:'Matrix',aud:'Audience',unk:'Unlabeled'};
+function tapeStars(t){return t[3]?`★ ${Number(t[2]).toFixed(1)} <span>(${t[3]})</span>`:'<span>No ratings yet</span>'}
+function tapePickerHTML(alt,id,open){
+ const cur=alt.find(t=>t[0]===id)||alt[0],mine=id!==alt[0][0],n=alt.reduce((s,t)=>s+t[5],0);
+ return `<div class="tp"><div class="tp-now"><span><b>${TAPE_TYPE[cur[1]]}</b> · ${tapeStars(cur)}<br><span class="tp-meta">${mine?'Your pick':`Our pick of ${n} tapes`}</span></span><button type="button" class="tp-btn" aria-expanded="${open}">${open?'Close':'Change tape'}</button></div>`
+ +(open?`<ol class="tp-list">${alt.map((t,i)=>`<li><button type="button" class="tp-row${t[0]===id?' is-on':''}" data-tape="${escapeHTML(t[0])}" aria-pressed="${t[0]===id}"><span class="tp-radio" aria-hidden="true"></span><span class="tp-main"><b>${TAPE_TYPE[t[1]]}</b>${i===0?'<i class="tp-pick">Our pick</i>':''}${t[6]?'<em>Partial</em>':''}<small>${escapeHTML(t[4]||t[0])}${t[5]>1?` · ${t[5]} versions`:''}</small></span><span class="tp-stars">${tapeStars(t)}</span></button></li>`).join('')}</ol><p class="tp-foot">Ranked by archive.org listener ratings. Your choice plays for this show on this device; the setlist follows the tape you pick.</p>`:'')+'</div>';
+}
 function loadSetlist(d){if(!setlistData.has(d))setlistData.set(d,fetch(`/show/${d}/setlist.json`).then(r=>r.ok?r.json():null).catch(()=>null));return setlistData.get(d)}
 const titleKey=t=>t.toLowerCase().replace(/\bsaint\b/g,'st').replace(/\bthe\b|\band\b/g,'').replace(/[^a-z0-9]/g,'').replace(/ing/g,'in').replace(/s$/,'');
 let songKeys=null;
 function songForTitle(t){if(!songKeys){songKeys=new Map();songs.filter(s=>s.kind!=='sequence').forEach(s=>[s.name,...(s.aliases||[])].forEach(n=>songKeys.set(titleKey(n),s)))}return songKeys.get(titleKey(t))}
-function setlistHTML(sl,e,pos){
+function setlistHTML(sl,e,pos,picker=''){
  const marks=new Map();e.picks.forEach(x=>(x.s.kind==='sequence'?x.s.components:[x.s.name]).forEach(n=>{const k=titleKey(n);marks.set(k,[...(marks.get(k)||[]),x.k])}));
  let n=0;
  const tapeOf=i=>sl.tracks[i]?.[3]||0,setTape=list=>{const c=(sl.tapes||[0]).map(()=>0);list.forEach(r=>{if(r[1]>=0)c[tapeOf(r[1])]++});return c.indexOf(Math.max(...c))};
@@ -410,19 +430,24 @@ function setlistHTML(sl,e,pos){
   return `<li class="sl-row${ks.length?' has-mark':''}${ok||!sl.id?'':' is-missing'}" data-i="${i}">${ok?`<button type="button" class="sl-play" data-sl="${i}" aria-label="Play ${escapeHTML(name)} from this show">${inner}</button>`:`<span class="sl-play" title="Not on this tape">${inner}</span>`}${song?`<a class="sl-song" href="${songPath(song)}" data-sl-song="${escapeHTML(song.name)}" aria-label="${escapeHTML(song.name)}: first, last and best">${icon('next')}</a>`:'<span class="sl-song" aria-hidden="true"></span>'}</li>`}).join('')}).join('');
  const tapeName=k=>{const [kind,who]=sl.kinds[k].split(' · ');return (who?who+' ':'')+kind.toLowerCase()};
  const credit=[sl.source==='jerrybase'?`Setlist: <a href="${escapeHTML(sl.jerrybase?.[0]||'https://jerrybase.com/')}" target="_blank" rel="noopener">JerryBase</a>`:sl.full?'Setlist: <a href="https://www.setlists.net/" target="_blank" rel="noopener">The SetList Program</a>':sl.id?'Setlist: from the tape’s track list':'',sl.id&&(sl.tapes?'Tapes: '+sl.tapes.map((id,k)=>`<a href="https://archive.org/details/${encodeURIComponent(id)}" target="_blank" rel="noopener">${escapeHTML(tapeName(k))}</a>`).join(', '):`Tape: <a href="https://archive.org/details/${encodeURIComponent(sl.id)}" target="_blank" rel="noopener">Internet Archive</a>`)].filter(Boolean).join('<br>');
- return `<div class="sl-paper"><h3 class="sl-title">Setlist</h3>${e.x?`<p class="sl-hint sl-not-concert">Not counted as a Grateful Dead concert. ${escapeHTML(e.x)}</p>`:e.xs?`<p class="sl-hint sl-not-concert">This setlist isn’t counted. ${escapeHTML(e.xs)}</p>`:''}${sl.id?'<p class="sl-hint">Tap a song to play it from this tape.</p>':'<p class="sl-hint">No tape of this show is on the Internet Archive, so there’s nothing to play. The setlist is still worth a look.</p>'}<ol class="sl-list">${rows}</ol>${credit?`<p class="sl-credit">${credit}</p>`:''}</div>`;
+ return `<div class="sl-paper"><h3 class="sl-title">Setlist</h3>${picker}${e.x?`<p class="sl-hint sl-not-concert">Not counted as a Grateful Dead concert. ${escapeHTML(e.x)}</p>`:e.xs?`<p class="sl-hint sl-not-concert">This setlist isn’t counted. ${escapeHTML(e.xs)}</p>`:''}${sl.id?'<p class="sl-hint">Tap a song to play it from this tape.</p>':'<p class="sl-hint">No tape of this show is on the Internet Archive, so there’s nothing to play. The setlist is still worth a look.</p>'}<ol class="sl-list">${rows}</ol>${credit?`<p class="sl-credit">${credit}</p>`:''}</div>`;
 }
-async function fillSetlist(e){
+async function fillSetlist(e,openPicker=false){
  const el=$('#setlist');if(!el)return;
- const sl=await loadSetlist(e.d);if(!el.isConnected)return;
- if(!sl?.sets?.length){el.remove();return}
+ const base=await loadSetlist(e.d),alt=base?.id&&!base.tapes?await loadAlt(e.d):null;if(!el.isConnected)return;
+ if(!base?.sets?.length){el.remove();return}
+ let sl=base;const pref=alt&&tapePref.get(e.d);
+ if(pref&&pref!==base.id&&alt.some(t=>t[0]===pref)){const got=await archiveTracks(pref);if(!el.isConnected)return;
+  if(got?.length){const tracks=got.map(t=>[decodeURIComponent(t.url.split('/').pop()),t.title,t.duration||'']);sl={...base,id:pref,tracks,sets:rematch(base,tracks)}}}
  const url=([f,,,k])=>`https://archive.org/download/${encodeURIComponent(sl.tapes?sl.tapes[k||0]:sl.id)}/${encodeURIComponent(f)}`;
  let tracks=[],pos=i=>i;
  if(sl.id&&sl.tapes){ // two tapes: play the songs in setlist order, each from the tape that has it
   const order=[...new Set(sl.sets.flatMap(([,l])=>l.map(r=>r[1]).filter(i=>i>=0)))],at=new Map(order.map((i,k)=>[i,k]));
   tracks=order.map(i=>({url:url(sl.tracks[i]),title:sl.tracks[i][1],duration:sl.tracks[i][2]||null}));pos=i=>at.get(i);
  }else if(sl.id)tracks=sl.tracks.map(t=>({url:url(t),title:t[1],duration:t[2]||null}));
- el.innerHTML=setlistHTML(sl,e,pos);el._tracks=tracks;
+ el.innerHTML=setlistHTML(sl,e,pos,alt?tapePickerHTML(alt,sl.id,openPicker):'');el._tracks=tracks;
+ const tb=el.querySelector('.tp-btn');if(tb)tb.onclick=()=>fillSetlist(e,!openPicker);
+ el.querySelectorAll('[data-tape]').forEach(b=>b.onclick=()=>{const id=b.dataset.tape;tapePref.set(e.d,id===alt[0][0]?null:id);b.querySelector('small').textContent='Loading this tape…';fillSetlist(e,false).then(()=>el.querySelector('.tp')?.scrollIntoView({block:'nearest'}))});
  const p={date:e.d,venueName:e.v,venue:e.c?`${e.v} - ${e.c}`:e.v,identifier:sl.id,recording:`https://archive.org/details/${sl.id}`};
  el.querySelectorAll('[data-sl]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];playShow({name:e.v,show:p},'show',Number(b.dataset.sl),tracks)});
  const full=$('#show-play-full');if(full&&sl.id)full.onclick=()=>{queue=[];playHistory=[];playShow({name:e.v,show:p},'show',0,tracks)};

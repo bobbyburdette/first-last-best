@@ -33,9 +33,9 @@ TYPE = {flb.SBD: 'sbd', flb.MATRIX: 'mtx', flb.AUD: 'aud', flb.UNKNOWN: 'unk'}
 def uploads(date):
     q = urllib.parse.quote(f'collection:GratefulDead AND date:{date}')
     url = (f'https://archive.org/advancedsearch.php?q={q}&fl[]=identifier&fl[]=avg_rating&fl[]=num_reviews'
-           f'&fl[]=downloads&rows=100&output=json')
+           f'&fl[]=downloads&fl[]=taper&fl[]=transferer&fl[]=source&rows=100&output=json')
     try:
-        return flb._cached_json('uploads-scored', date, url)['response']['docs']
+        return flb._cached_json('uploads-full', date, url)['response']['docs']
     except Exception:
         return []
 
@@ -156,11 +156,73 @@ def plan_picks(songs, tape_for):
     return swaps, held
 
 
+ALT = flb.ROOT / 'data' / 'alt_tapes.json'
+
+
+def text(v):
+    v = ' '.join(v) if isinstance(v, list) else str(v or '')
+    v = re.sub(r'<[^>]+>', ' ', v)
+    return re.sub(r'\s+', ' ', ''.join(c for c in v if c.isascii() and c.isprintable())).strip()
+
+
+def label(u):
+    """Who made the tape, as briefly as the upload says: 'Taped by X', 'Transfer by X', or its source chain."""
+    taper, xfer, src = text(u.get('taper')), text(u.get('transferer')), text(u.get('source'))
+    if taper and not re.match(r'(?i)unknown|n/?a$', taper):
+        return 'Taped by ' + re.split(r'[:;,(]', taper)[0].strip()[:40]
+    if xfer and not re.match(r'(?i)unknown|n/?a$', xfer):
+        x = re.split(r'[;,(]', xfer)[0].strip()[:40]
+        return x if re.search(r'\d', x) else 'Transfer by ' + x
+    src = re.sub(r'(?i)^(set|disc|cd)\s*\d+\s*[:-]?\s*', '', re.split(r'[;>]|-->', src)[0]).strip()
+    src = re.sub(r'^KG (?=\d)', 'AKG ', src)  # a mangled 'AKG' in some old uploads
+    if len(re.sub(r'(?i)\b(sbd|aud|soundboard|audience|matrix|mtx|master|unknown|source|dat|cdr?|pcm|reel)\b|\W', '', src)) < 3:
+        who = [w for w in re.split(r'[._-]', u['identifier'].lower())[1:] if w.isalpha() and len(w) > 3
+               and w not in STOP]
+        return ('via ' + who[0].title()) if who else ''
+    return src[:40]
+
+
+STOP = {'sbeok', 'shnf', 'flac', 'flacf', 'late', 'early', 'show', 'partial', 'remaster', 'master', 'soundboard', 'audience',
+        'matrix', 'fixed', 'retracked', 'sbefail', 'unknown', 'unkn', 'betty', 'board', 'blend', 'patch', 'shure', 'senn',
+        'schoeps', 'neumann', 'akgck', 'nakcm', 'sony', 'binaural', 'stereo', 'mono', 'digital', 'analog', 'composite'}
+
+
+def alt_tapes(date, current):
+    """Every tape of a show for the tape switcher: [[id, type, rating, reviews, label, versions, partial], ...],
+    the site's pick first, then by score; uploads of one recording (same taper or source) are grouped."""
+    groups = {}
+    for s, u in ranked(date):
+        lab = label(u)
+        key = (flb.source_class(u['identifier']), re.sub(r'[^a-z0-9]', '', lab.lower())[:30] or u['identifier'])
+        g = groups.setdefault(key, [s, u, lab, 0])
+        g[3] += 1
+        if u['identifier'] == current:
+            g[0], g[1] = 99, u  # the site's pick represents its group
+    rows = sorted(groups.values(), key=lambda g: -g[0])
+    out = [[u['identifier'], TYPE[flb.source_class(u['identifier'])], round(float(u.get('avg_rating') or 0), 2),
+            int(u.get('num_reviews') or 0), lab, n, int(bool(re.search(r'(?i)(^|[._-])(s|set)\d([._-]|$)|partial', u['identifier'])))]
+           for _, u, lab, n in rows]
+    return out if len(out) > 1 and out[0][0] == current else None
+
+
+def write_alt(shows):
+    todo = [s for s in shows if s.get('id') and not s.get('x')]
+    with ThreadPoolExecutor(8) as pool:
+        lists = list(pool.map(lambda s: alt_tapes(s['d'], s['id']), todo))
+    data = {s['d']: l for s, l in zip(todo, lists) if l}
+    ALT.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n')
+    print(f'Tape switcher: {len(data)} shows with more than one tape -> {ALT.name}')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--apply', action='store_true')
     ap.add_argument('--report', default=str(flb.CACHE / 'best_tapes.json'))
+    ap.add_argument('--alt', action='store_true', help='only rewrite data/alt_tapes.json (the tape switcher lists)')
     args = ap.parse_args()
+    if args.alt:
+        write_alt(flb.load_shows())
+        return
     shows = flb.load_shows()
     setlists = json.loads(SETLISTS.read_text())
     todo = [s for s in shows if s.get('id') and not s.get('x')]
@@ -208,6 +270,7 @@ def main():
     flb.save_songs(songs)
     flb.bump_data_version('shows.json')
     flb.bump_data_version('songs.json')
+    write_alt(shows)
     print('Applied. Run tools/build_tapes.py, tools/check_audio.py and tools/build_pages.py next.')
 
 
