@@ -4,6 +4,7 @@ Scripts that maintain `songs.json`, `shows.json` and `tapes.json`. Python 3, sta
 
 | Script | What it does |
 |---|---|
+| `best_tapes.py` | Plays the best tape of every show: scores each archive.org upload by listener ratings (weighted by how many people rated it), with small nudges for soundboard/matrix, Miller and Betty transfers, and downloads. Switches shows, setlists and First/Last/Best picks only when the winner is clearly better, its tracks line up and it's named for the right day; never moves locked picks or Longest cards. Writes a plan and a listen list. |
 | `upgrade_tapes.py` | Moves picks to a better recording of the same show: Miller soundboard > soundboard > matrix > audience. Never a step down; skips length mismatches, monitor mixes and half-aud/half-sbd tapes and lists them for a listen. `--shows` does the same for Shows on this day. |
 | `refresh_runnersup.py` | Updates Best vote counts and the two runners-up from HeadyVersion. Reports, but doesn't change, songs whose #1 has moved. |
 | `build_tapes.py` | Rebuilds `tapes.json` (tape notes on the cards) from archive.org metadata. |
@@ -28,7 +29,7 @@ Typical refresh:
 
 ```
 python3 tools/refresh_runnersup.py --apply
-python3 tools/upgrade_tapes.py --apply
+python3 tools/best_tapes.py --apply
 python3 tools/build_tapes.py
 python3 tools/check_audio.py
 python3 tools/merge_jerrybase.py ../first-last-best-archive --apply   # after any fetch_setlists.py run
