@@ -53,14 +53,14 @@ async function play(s,k,part=0,tracksOverride=null,showMeta=null,perfOverride=nu
  const p=perfOverride||s[k],tracks=tracksOverride||tracksFor(p);if(!tracks[part])return;if(part===0)track('play/'+s.name+'/'+k,s.name+' · '+k);
  const token=++playToken;$('.player').classList.remove('is-idle');audio.pause();playing={s,k,part,tracks,show:showMeta};
  if(showMeta){
-  $('#now-type').textContent='FULL SHOW';$('#now-title').textContent=showMeta.venue;
-  $('#now-date').textContent=date(p.date)+` · Track ${part+1}/${tracks.length}: ${tracks[part].title}`;
+  nowLink('Full show',p.date,showPath(p.date),()=>backToShow(p.date));$('#now-title').textContent=String(tracks[part].title).replace(/\s*-*>\s*$/,'');
+  $('#now-date').textContent=`${showMeta.venue} · Track ${part+1}/${tracks.length}`;
  }else{
-  $('#now-type').textContent=(perfOverride?'Fan favorite':k==='best'&&isLongest(s)?'Longest on tape':nowTypeLabel[k]).toUpperCase();$('#now-title').textContent=s.name;
-  $('#now-date').textContent=date(p.date)+(tracks.length>1?` · ${part+1}/${tracks.length}: ${tracks[part].title}`:p.duration?' · '+p.duration:'');
+  nowLink(perfOverride?'Fan favorite':p.label||(k==='best'&&isLongest(s)?'The Longest':{first:'The First',last:'The Last',best:'The Best'}[k]),p.date,songPath(s),()=>backToSong(s,k));$('#now-title').textContent=s.name;
+  const where=p.venueName||(p.venue||'').split(' - ')[0];
+  $('#now-date').textContent=[where,tracks.length>1?`${part+1}/${tracks.length}: ${tracks[part].title}`:(p.duration||'').replace(/^0(\d:)/,'$1')].filter(Boolean).join(' · ');
  }
- {const go=$('#now-go');go.hidden=false;go.textContent=showMeta?'Back to show':'Back to song';go.onclick=()=>showMeta?backToShow(p.date):backToSong(s,k)}
- $('#player-status').textContent='Loading tape…';$('#recording-link').hidden=!p.recording;$('#recording-link').href=p.recording||'';
+ $('#player-status').textContent='Loading tape…';
  retryState=0;audio.src=tracks[part].url;
  syncTrackNav();
  try{await audio.play();if(token===playToken)$('#player-status').textContent=''}
@@ -106,8 +106,8 @@ async function playShow(s,k,startAt=0,known=null){
  queue=[];playHistory=[];const token=++playToken;playing=null;
  $('.player').classList.remove('is-idle');audio.pause();audio.removeAttribute('src');audio.load();
  const loc=(p.venue||'').split(' - '),venue=p.venueName||loc[0]||'Unknown venue';
- $('#now-type').textContent='FULL SHOW';$('#now-title').textContent=venue;$('#now-date').textContent=date(p.date)+' · Loading the whole show…';
- $('#player-status').textContent='Loading the whole show…';$('#recording-link').hidden=!p.recording;$('#recording-link').href=p.recording||'';
+ nowLink('Full show',p.date,showPath(p.date),()=>backToShow(p.date));$('#now-title').textContent=venue;$('#now-date').textContent='Loading the whole show…';
+ $('#player-status').textContent='Loading the whole show…';
  syncTrackNav();
  let tracks=null;
  try{
@@ -457,6 +457,8 @@ async function fillSetlist(e,openPicker=false){
 }
 function markSetlist(){const el=$('#setlist');if(!el?._tracks)return;const now=playing?.tracks?.[playing.part]?.url;el.querySelectorAll('.sl-row').forEach(r=>r.classList.toggle('is-playing',!!now&&el._tracks[Number(r.dataset.i)]?.url===now))}
 /* The player's "Back to show" / "Back to song": reopen what's playing and bring the playing song into view */
+/* The player's label ("FULL SHOW · 7.16.76 ›", "THE FIRST · 8.4.79 ›") links back to the show or song that's playing */
+function nowLink(kind,d,href,go){const a=$('#now-type');a.textContent=`${kind} · ${compactDate(d)}`.toUpperCase();a.href=href;a.onclick=e=>{if(e.metaKey||e.ctrlKey||e.shiftKey)return;e.preventDefault();go()};a.setAttribute('aria-label',`Go to ${kind.toLowerCase()==='full show'?'the show':'the song'}: ${a.textContent}`)}
 function scrollToPlaying(){let n=0;const t=setInterval(()=>{const r=document.querySelector('#setlist .sl-row.is-playing');if(r||++n>40){clearInterval(t);(r||$('#setlist')||$('#detail'))?.scrollIntoView({behavior:'smooth',block:'center'})}},100)}
 function backToShow(d){Promise.resolve(openShow(d,true)).then(scrollToPlaying)}
 function backToSong(s,k){history.pushState(null,'',songPath(s));selectSong(s.name,false);setTimeout(()=>(document.querySelector(`.tape.${k}`)||$('#detail'))?.scrollIntoView({behavior:'smooth',block:'center'}),150)}

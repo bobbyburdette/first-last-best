@@ -171,7 +171,7 @@ dialog li{margin:6px 0;font-size:16px;line-height:1.6}
 .side-inner>label{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .player.is-idle{min-height:0;justify-content:center;flex-wrap:nowrap;gap:10px;padding-top:9px;padding-bottom:max(9px,env(safe-area-inset-bottom));border-top:1px solid var(--line);box-shadow:0 -5px 18px #10101024}
 .player.is-idle .now{flex:0 1 auto}
-.player.is-idle .now small,.player.is-idle .now span,.player.is-idle .audio-controls,.player.is-idle #player-status,.player.is-idle #recording-link{display:none}
+.player.is-idle .now small,.player.is-idle #now-type,.player.is-idle .now span,.player.is-idle .audio-controls,.player.is-idle #player-status,.player.is-idle #recording-link{display:none}
 .player.is-idle .now strong{font-size:13px;font-weight:600;color:var(--muted)}
 .player.is-idle .now-art{display:flex;align-items:center;gap:3px;width:102px;height:32px;border:0;font-size:0}
 .idle-art{display:block;width:32px;height:32px;flex:0 0 32px;background:url('tape-doodles.webp') 0 50%/300% 100% no-repeat;filter:invert(1);mix-blend-mode:screen}
@@ -449,7 +449,10 @@ a.song-button{text-decoration:none;color:inherit}
 .tp-pick{font-style:normal;font-size:10px;padding:1px 5px;background:#c4243a;color:#fff;border-radius:2px;text-transform:uppercase;margin-right:6px}.tp-main em{font-style:normal;font-size:10px;padding:1px 5px;border:1px solid #6b5f4f;border-radius:2px;text-transform:uppercase}
 .tp-stars{flex:none;font-weight:700;white-space:nowrap}.tp-stars span{font-weight:500;color:#6b5f4f}.tp-foot{margin:8px 0 0;font-size:10.5px;color:#6b5f4f;line-height:1.5}
 .tp-row:focus-visible,.tp-btn:focus-visible{outline:2px solid #c4243a;outline-offset:2px}
-.now-go{align-self:flex-start;margin-top:2px;padding:0;border:0;background:none;color:var(--text);font:600 12px var(--mono);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
-.now-go::before{content:'\21A9  ';text-decoration:none;display:inline-block;margin-right:4px}
-.now-go:focus-visible{outline:2px solid var(--accent-1);outline-offset:2px}
-.player.is-idle .now-go{display:none}
+#now-type{align-self:flex-start;max-width:100%;font:500 12px var(--mono);letter-spacing:1px;color:var(--accent-1);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#now-type[href]{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;padding-bottom:5px;margin-bottom:-5px}
+#now-type[href]::after{content:'\203A'}
+#now-type[href]:hover{color:var(--text)}
+#now-type:focus-visible{outline:2px solid var(--accent-1);outline-offset:2px}
+.now strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.now-art[data-kind=show]::after{background:url('ticket-doodle.svg') center/88% no-repeat}
