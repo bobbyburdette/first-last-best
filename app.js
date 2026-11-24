@@ -293,7 +293,7 @@ $('#this-day').addEventListener('click',()=>showThisDay());
 /* Find a show: dates and places typed into the song search */
 const STATES={AL:'alabama',AK:'alaska',AZ:'arizona',AR:'arkansas',CA:'california',CO:'colorado',CT:'connecticut',DE:'delaware',DC:'washington dc',FL:'florida',GA:'georgia',HI:'hawaii',ID:'idaho',IL:'illinois',IN:'indiana',IA:'iowa',KS:'kansas',KY:'kentucky',LA:'louisiana',ME:'maine',MD:'maryland',MA:'massachusetts',MI:'michigan',MN:'minnesota',MS:'mississippi',MO:'missouri',MT:'montana',NE:'nebraska',NV:'nevada',NH:'new hampshire',NJ:'new jersey',NM:'new mexico',NY:'new york',NC:'north carolina',ND:'north dakota',OH:'ohio',OK:'oklahoma',OR:'oregon',PA:'pennsylvania',RI:'rhode island',SC:'south carolina',SD:'south dakota',TN:'tennessee',TX:'texas',UT:'utah',VT:'vermont',VA:'virginia',WA:'washington',WV:'west virginia',WI:'wisconsin',WY:'wyoming'};
 const STATE_CODE=Object.fromEntries(Object.entries(STATES).map(([k,v])=>[v.replace(/ /g,''),k]));
-const pad2=n=>String(n).padStart(2,'0'),SHOW_CAP=40;
+const pad2=n=>String(n).padStart(2,'0');
 let showIndex=null;
 function stateOf(c){const t=(c||'').split(',').pop().trim(),u=t.toUpperCase().replace(/\./g,'');return STATES[u]?u:STATE_CODE[normalizeSearch(t)]||(/\bCA$/.test(t)?'CA':'')}
 const VENUE_ALIAS=[[/johnfkennedy/g,'jfk'],[/oaklandalamedacounty|alamedacounty/g,'oakland'],[/henryjkaiser(conventioncenter|auditorium)/g,'kaiser'],[/^(the)/,''],[/(earlyshow|lateshow)$/,'']];
@@ -311,6 +311,7 @@ function parseShowQuery(raw){
  const yr=y=>y.length===4?y:(Number(y)<50?'20':'19')+y;
  if(m=q.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/))return {date:`${m[1]}-${pad2(m[2])}-${pad2(m[3])}`};
  if(m=q.match(/^(\d{1,2})[\/.\-](\d{1,2})(?:[\/.\-](\d{2}|\d{4}))?$/))return m[3]?{date:`${yr(m[3])}-${pad2(m[1])}-${pad2(m[2])}`}:{md:`${pad2(m[1])}-${pad2(m[2])}`};
+ if(m=q.match(/^([a-z]{3,})\.?,?\s+'?(\d{4}|[6-9]\d)$/)){const mo=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'].indexOf(m[1].slice(0,3))+1;if(mo&&(m[2].length===4||Number(m[2])>31))return {ym:`${yr(m[2])}-${pad2(mo)}`}}
  if(m=q.match(/^([a-z]{3,})\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?(?:\s+'?(\d{2}|\d{4}))?$/)){const mo=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'].indexOf(m[1].slice(0,3))+1;if(mo)return m[3]?{date:`${yr(m[3])}-${pad2(mo)}-${pad2(m[2])}`}:{md:`${pad2(mo)}-${pad2(m[2])}`}}
  if(m=q.match(/^(?:19|')(6[5-9]|[789]\d)$/))return {year:'19'+m[1]};
  if(/^[a-z][a-z .'-]*(,\s*[a-z .]+)?$/.test(q)){const n=normalizeSearch(q);if(q.length===2)return STATES[q.toUpperCase()]?{state:q.toUpperCase()}:null;if(STATE_CODE[n])return {state:STATE_CODE[n]};if(n.length>=3)return {place:n}}
@@ -320,11 +321,11 @@ function showMatches(){
  const pq=parseShowQuery($('#search').value);
  if(!pq)return null;
  if(!showIndex){if(!showsData)loadShows().then(()=>{if(showsData&&!showIndex){showIndex=buildShowIndex(showsData);renderList()}});else showIndex=buildShowIndex(showsData);if(!showIndex)return [];}
- return showIndex.filter(e=>pq.date?e.d===pq.date:pq.md?e.d.slice(5)===pq.md:pq.year?e.d.startsWith(pq.year):pq.state?e.st===pq.state:e.hay.includes(pq.place));
+ return showIndex.filter(e=>pq.date?e.d===pq.date:pq.md?e.d.slice(5)===pq.md:pq.year?e.d.startsWith(pq.year):pq.ym?e.d.startsWith(pq.ym):pq.state?e.st===pq.state:e.hay.includes(pq.place));
 }
 function showListHTML(list){
  if(!list?.length)return '';
- return `<p class="list-section">Shows</p>${list.slice(0,SHOW_CAP).map(e=>{const t=tally(e);return `<button class="song-button show-button" data-show="${e.d}"><span class="num">${compactDate(e.d)}</span><span class="song-name">${escapeHTML(e.v)}<small class="live-count">${escapeHTML(e.c)}</small></span>${e.picks.length?`<span class="show-pips" aria-label="${e.picks.length} First, Last, Best or fan favorite">${TALLY.filter(([k])=>t[k]).map(([k])=>`<i class="pip ${k}">${t[k]}</i>`).join('')}</span>`:''}</button>`}).join('')}${list.length>SHOW_CAP?`<p class="empty">${SHOW_CAP} of ${list.length}. Add a year or city to narrow it.</p>`:''}`;
+ return `<p class="list-section">Shows</p>${list.map(e=>{const t=tally(e);return `<button class="song-button show-button" data-show="${e.d}"><span class="num">${compactDate(e.d)}</span><span class="song-name">${escapeHTML(e.v)}<small class="live-count">${escapeHTML(e.c)}</small></span>${e.picks.length?`<span class="show-pips" aria-label="${e.picks.length} First, Last, Best or fan favorite">${TALLY.filter(([k])=>t[k]).map(([k])=>`<i class="pip ${k}">${t[k]}</i>`).join('')}</span>`:''}</button>`}).join('')}`;
 }
 function ticketHTML(e,n,t,has){
  const dt=new Date(e.d+'T12:00:00Z');
