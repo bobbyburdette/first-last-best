@@ -470,3 +470,15 @@ a.song-button{text-decoration:none;color:inherit}
 .tp-btn{min-width:9.6em;text-align:center}
 /* desktop: the bar runs edge to edge; its contents line up with the page's main box (main: 92% wide, max 1500px, centered) */
 @media (min-width:900px){.player{padding-left:calc((100% - min(92%, 1500px)) / 2 + 28px);padding-right:calc((100% - min(92%, 1500px)) / 2 + 28px)}}
+/* Desktop song pages: the cards on the left, "Every time they played it" pinned on the right. Only when the
+   song has a history to show (sequences and songs without one keep the cards full width). */
+@media (min-width:1100px){
+ #detail:has(> .plays:not([hidden])){display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,1fr);column-gap:28px;align-items:start}
+ #detail:has(> .plays:not([hidden]))>.song-top{grid-column:1/-1}
+ #detail:has(> .plays:not([hidden]))>.cards{grid-column:1;grid-row:2;margin-top:24px}
+ #detail:has(> .plays:not([hidden]))>.plays{grid-column:2;grid-row:2 / span 3;position:sticky;top:16px;margin-top:24px;padding:20px 20px 16px;border:1px solid var(--line);border-top:2px solid var(--accent-1);background:#181818;max-height:calc(100vh - var(--player-space,150px) - 32px);overflow:auto}
+ #detail:has(> .plays:not([hidden]))>.caveat{grid-column:1}
+ #detail:has(> .plays:not([hidden])) .plays-title{font-size:24px;margin-top:0}
+ #detail:has(> .plays:not([hidden])) .plays-facts{display:grid;gap:4px}
+ #detail:has(> .plays:not([hidden])) #history-jump{display:none}
+}
