@@ -17,6 +17,7 @@ Monitor mixes and half-aud/half-sbd uploads are never picked; shows played from 
 import argparse
 import json
 import math
+import re
 import urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 
@@ -38,6 +39,20 @@ def uploads(date):
         return []
 
 
+def id_date(ident):
+    """The date in an upload's name (gd1983-04-10..., gd83-04-10...), or None when it has none."""
+    m = re.match(r'gd(?:_\w+?)?(\d{2}|\d{4})-(\d\d)-(\d\d)', ident.lower())
+    if not m:
+        return None
+    y = m.group(1)
+    return f"{'19' + y if len(y) == 2 else y}-{m.group(2)}-{m.group(3)}"
+
+
+def right_day(ident, date):
+    d = id_date(ident)
+    return d is None or d == date
+
+
 def score(u):
     ident = u['identifier']
     n = float(u.get('num_reviews') or 0)
@@ -52,7 +67,7 @@ def score(u):
 
 
 def ranked(date):
-    us = [u for u in uploads(date) if not flb.risky_source(u['identifier'])]
+    us = [u for u in uploads(date) if not flb.risky_source(u['identifier']) and right_day(u['identifier'], date)]
     return sorted(((score(u), u) for u in us), key=lambda x: -x[0])
 
 
@@ -83,7 +98,7 @@ def plan_show(show, entry):
     if not ranks:
         return None
     scores = {u['identifier']: s for s, u in ranks}
-    cur_s = scores.get(cur, 0)
+    cur_s = scores.get(cur, 0) if right_day(cur, show['d']) else -1  # a tape filed under the wrong day always goes
     for s, u in ranks[:4]:
         new = u['identifier']
         if new == cur:
