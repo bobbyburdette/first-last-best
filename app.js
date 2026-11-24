@@ -154,7 +154,7 @@ function routeFromURL(initial){
  selectSong((initial?null:dayReturn||selected)?.name||random(),false);
 }
 window.addEventListener('popstate',()=>routeFromURL(false));window.addEventListener('hashchange',()=>routeFromURL(false));
-Promise.all([fetch('/songs.json?v=57').then(r=>{if(!r.ok)throw Error('Collection unavailable');return r.json()}),fetch('/tapes.json?v=9').then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([data,t])=>{tapes=t||{};songs=data;routeFromURL(true);tracking=true;if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'select_grateful_dead_song',title:'Select a Grateful Dead song',description:'Search the collection and open one song’s first, last and HeadyVersion-favorite performances. Does not start audio.',inputSchema:{type:'object',properties:{name:{type:'string'}},required:['name'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){if(!input||typeof input.name!=='string')throw Error('A song name is required');const s=songs.find(s=>s.name.toLowerCase()===input.name.toLowerCase());if(!s)throw Error('Song not in this collection');$('#search').value='';selectSong(s.name);return {name:s.name,performances:['first','last','best'].map(k=>({type:k,date:s[k]?.date,playable:playable(s[k])}))}}})).catch(()=>{})}catch{}}}).catch(()=>{$('#detail').innerHTML='<h2>The tapes didn’t load.</h2><p>Please reload to try again.</p>';$('#songs').innerHTML='';$('#count').textContent='Collection unavailable'});
+Promise.all([fetch('/songs.json?v=59').then(r=>{if(!r.ok)throw Error('Collection unavailable');return r.json()}),fetch('/tapes.json?v=10').then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([data,t])=>{tapes=t||{};songs=data;routeFromURL(true);tracking=true;if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'select_grateful_dead_song',title:'Select a Grateful Dead song',description:'Search the collection and open one song’s first, last and HeadyVersion-favorite performances. Does not start audio.',inputSchema:{type:'object',properties:{name:{type:'string'}},required:['name'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){if(!input||typeof input.name!=='string')throw Error('A song name is required');const s=songs.find(s=>s.name.toLowerCase()===input.name.toLowerCase());if(!s)throw Error('Song not in this collection');$('#search').value='';selectSong(s.name);return {name:s.name,performances:['first','last','best'].map(k=>({type:k,date:s[k]?.date,playable:playable(s[k])}))}}})).catch(()=>{})}catch{}}}).catch(()=>{$('#detail').innerHTML='<h2>The tapes didn’t load.</h2><p>Please reload to try again.</p>';$('#songs').innerHTML='';$('#count').textContent='Collection unavailable'});
 
 const toggle=$('#audio-toggle'),seek=$('#audio-seek'),mute=$('#audio-mute');
 const clock=n=>Number.isFinite(n)?`${Math.floor(n/60)}:${String(Math.floor(n%60)).padStart(2,'0')}`:'0:00';
@@ -227,7 +227,7 @@ function dayGroupHTML(g,gi){
  return `<section class="day-group">${stripHTML(g)}${nPlay>1?`<div class="day-group-head"><button type="button" class="day-play-all" data-day-all="${gi}">${icon('play')} Play all ${nPlay}</button></div>`:''}${g.items.map((e,i)=>dayTapeHTML(e,gi,i)).join('')}${extra>0?`<button type="button" class="day-more" data-day-more="${gi}" aria-expanded="false">Show ${extra} more</button>`:''}</section>`;
 }
 let showsData=null;
-async function loadShows(){if(showsData)return showsData;try{const r=await fetch('/shows.json?v=13');if(!r.ok)throw Error('shows unavailable');showsData=await r.json()}catch{return []}return showsData}
+async function loadShows(){if(showsData)return showsData;try{const r=await fetch('/shows.json?v=14');if(!r.ok)throw Error('shows unavailable');showsData=await r.json()}catch{return []}return showsData}
 function pipsOn(d){const t={first:0,last:0,best:0};songs.forEach(s=>['first','last','best'].forEach(k=>{if(fanPick(s,k)?.date===d)t[k]++}));const ks=Object.keys(t).filter(k=>t[k]);return ks.length?`<span class="show-pips" aria-label="${ks.map(k=>t[k]+' '+k).join(', ')}">${ks.map(k=>`<i class="pip ${k}">${t[k]}</i>`).join('')}</span>`:''}
 function dayShowsHTML(list){
  const cap=list.length<=8?list.length:6,extra=list.length-cap;
@@ -410,10 +410,10 @@ function rematch(sl,tracks){
 }
 const TAPE_TYPE={sbd:'Soundboard',mtx:'Matrix',aud:'Audience',unk:'Unlabeled'};
 function tapeStars(t){return t[3]?`★ ${Number(t[2]).toFixed(1)} <span>(${t[3]})</span>`:'<span>No ratings yet</span>'}
-function tapePickerHTML(alt,id,open){
+function tapePickerHTML(alt,id,open,extra=0){
  const cur=alt.find(t=>t[0]===id)||alt[0],mine=id!==alt[0][0],n=alt.reduce((s,t)=>s+t[5],0);
  return `<div class="tp"><div class="tp-now"><span><b>${TAPE_TYPE[cur[1]]}</b> · ${tapeStars(cur)}<br><span class="tp-meta">${mine?'Your pick':`Our pick of ${n} tapes`}</span></span><button type="button" class="tp-btn" aria-expanded="${open}">${open?'Close':'Change tape'}</button></div>`
- +(open?`<ol class="tp-list">${alt.map((t,i)=>`<li><button type="button" class="tp-row${t[0]===id?' is-on':''}" data-tape="${escapeHTML(t[0])}" aria-pressed="${t[0]===id}"><span class="tp-radio" aria-hidden="true"></span><span class="tp-main"><b>${TAPE_TYPE[t[1]]}</b>${i===0?'<i class="tp-pick">Our pick</i>':''}${t[6]?'<em>Partial</em>':''}<small>${escapeHTML(t[4]||t[0])}${t[5]>1?` · ${t[5]} versions`:''}</small></span><span class="tp-stars">${tapeStars(t)}</span></button></li>`).join('')}</ol><p class="tp-foot">Ranked by archive.org listener ratings. Your choice plays for this show on this device; the setlist follows the tape you pick.</p>`:'')+'</div>';
+ +(open?`<ol class="tp-list">${alt.map((t,i)=>`<li><button type="button" class="tp-row${t[0]===id?' is-on':''}" data-tape="${escapeHTML(t[0])}" aria-pressed="${t[0]===id}"><span class="tp-radio" aria-hidden="true"></span><span class="tp-main"><b>${TAPE_TYPE[t[1]]}</b>${i===0?'<i class="tp-pick">Our pick</i>':''}${t[6]?'<em>Partial</em>':''}<small>${escapeHTML(t[4]||t[0])}${t[5]>1?` · ${t[5]} versions`:''}${i===0&&extra?` · gaps filled from ${extra} other ${extra===1?'tape':'tapes'}`:''}</small></span><span class="tp-stars">${tapeStars(t)}</span></button></li>`).join('')}</ol><p class="tp-foot">Ranked by archive.org listener ratings. Your choice plays for this show on this device; the setlist follows the tape you pick.</p>`:'')+'</div>';
 }
 function loadSetlist(d){if(!setlistData.has(d))setlistData.set(d,fetch(`/show/${d}/setlist.json`).then(r=>r.ok?r.json():null).catch(()=>null));return setlistData.get(d)}
 const titleKey=t=>t.toLowerCase().replace(/\bsaint\b/g,'st').replace(/\bthe\b|\band\b/g,'').replace(/[^a-z0-9]/g,'').replace(/ing/g,'in').replace(/s$/,'');
@@ -434,7 +434,7 @@ function setlistHTML(sl,e,pos,picker=''){
 }
 async function fillSetlist(e,openPicker=false){
  const el=$('#setlist');if(!el)return;
- const base=await loadSetlist(e.d),alt=base?.id&&!base.tapes?await loadAlt(e.d):null;if(!el.isConnected)return;
+ const base=await loadSetlist(e.d),alt=base?.id?await loadAlt(e.d):null;if(!el.isConnected)return;
  if(!base?.sets?.length){el.remove();return}
  let sl=base;const pref=alt&&tapePref.get(e.d);
  if(pref&&pref!==base.id&&alt.some(t=>t[0]===pref)){const got=await archiveTracks(pref);if(!el.isConnected)return;
@@ -445,7 +445,7 @@ async function fillSetlist(e,openPicker=false){
   const order=[...new Set(sl.sets.flatMap(([,l])=>l.map(r=>r[1]).filter(i=>i>=0)))],at=new Map(order.map((i,k)=>[i,k]));
   tracks=order.map(i=>({url:url(sl.tracks[i]),title:sl.tracks[i][1],duration:sl.tracks[i][2]||null}));pos=i=>at.get(i);
  }else if(sl.id)tracks=sl.tracks.map(t=>({url:url(t),title:t[1],duration:t[2]||null}));
- el.innerHTML=setlistHTML(sl,e,pos,alt?tapePickerHTML(alt,sl.id,openPicker):'');el._tracks=tracks;
+ el.innerHTML=setlistHTML(sl,e,pos,alt?tapePickerHTML(alt,sl.id,openPicker,sl===base&&base.tapes?base.tapes.length-1:0):'');el._tracks=tracks;
  const tb=el.querySelector('.tp-btn');if(tb)tb.onclick=()=>fillSetlist(e,!openPicker);
  el.querySelectorAll('[data-tape]').forEach(b=>b.onclick=()=>{const id=b.dataset.tape;tapePref.set(e.d,id===alt[0][0]?null:id);b.querySelector('small').textContent='Loading this tape…';fillSetlist(e,false).then(()=>el.querySelector('.tp')?.scrollIntoView({block:'nearest'}))});
  const p={date:e.d,venueName:e.v,venue:e.c?`${e.v} - ${e.c}`:e.v,identifier:sl.id,recording:`https://archive.org/details/${sl.id}`};

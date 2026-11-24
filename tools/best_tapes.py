@@ -9,11 +9,15 @@ Each archive.org upload of a date gets a score:
     (avg * reviews + 3.8 * 4) / (reviews + 4), so an unrated tape counts as an ordinary 3.8;
   - small nudges: soundboard or matrix +0.15, unlabeled -0.1, a Charlie Miller transfer or a Betty Board +0.1,
     and popularity (downloads) up to about +0.2.
-A show moves to the top scorer only when it beats the current tape by at least 0.15 and its tracks match the
-setlist at least as well as the current tape's. A First/Last/Best pick moves when the new tape has the song as a
-labeled track within 30% of the current length (never a locked pick or a Longest card, which was chosen
-for its length on that exact tape). Anything else that looks better is listed for a person to hear.
-Monitor mixes and half-aud/half-sbd uploads are never picked; shows played from two tapes are left alone.
+A show with a setlist is assembled song by song: each song plays from the best-scoring tape that has it (up to
+three tapes; a tape after the first must add at least two songs), so a great partial tape is used for the songs
+it has and another tape fills the rest. The tape playing the most songs is the show's main tape. A show changes
+only when it keeps every song it could already play and gets better by at least 0.15 per song on average (or
+can play more songs without getting worse). A tape the search doesn't list is scored from its own reviews.
+A First/Last/Best pick moves to the tape that plays its song in the show, when that tape scores at least 0.15
+higher and has the song as a labeled track within 30% of the current length (never a locked pick or a Longest
+card, which was chosen for its length on that exact tape). Monitor mixes and half-aud/half-sbd uploads are never
+picked; a show without a tape doesn't get one here.
 """
 import argparse
 import json
@@ -23,7 +27,7 @@ import urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 
 import flb
-from fetch_setlists import OUT as SETLISTS, tape_tracks
+from fetch_setlists import OUT as SETLISTS, tape_label, tape_tracks, title_key
 from merge_jerrybase import apply_jb, matched
 
 MARGIN = 0.15
@@ -72,6 +76,24 @@ def ranked(date):
     return sorted(((score(u), u) for u in us), key=lambda x: -x[0])
 
 
+def doc_for(ident, date):
+    """An upload's search entry, or one built from its own reviews when the search doesn't list it."""
+    for u in uploads(date):
+        if u['identifier'] == ident:
+            return u
+    try:
+        m = flb.metadata(ident)
+    except Exception:
+        m = {}
+    stars = [float(r['stars']) for r in m.get('reviews', []) if str(r.get('stars', '')).replace('.', '', 1).isdigit()]
+    return {'identifier': ident, 'avg_rating': sum(stars) / len(stars) if stars else None, 'num_reviews': len(stars),
+            'downloads': (m.get('item') or {}).get('downloads', 0)}
+
+
+def tape_score(ident, date):
+    return score(doc_for(ident, date)) if right_day(ident, date) else -1.0
+
+
 def info(u):
     return {'id': u['identifier'], 'type': TYPE[flb.source_class(u['identifier'])],
             'rating': u.get('avg_rating'), 'reviews': u.get('num_reviews') or 0, 'downloads': u.get('downloads') or 0}
@@ -92,40 +114,96 @@ def fill_gaps(rows, tracks):
     return rows
 
 
-def plan_show(show, entry):
-    """(new tape doc, new setlist entry or None, why-not) for one show."""
-    cur = show['id']
-    ranks = ranked(show['d'])
-    if not ranks:
-        return None
-    scores = {u['identifier']: s for s, u in ranks}
-    cur_s = scores.get(cur, 0) if right_day(cur, show['d']) else -1  # a tape filed under the wrong day always goes
+def current_tapes(entry):
+    return entry.get('tapes') or ([entry['id']] if entry.get('id') else [])
+
+
+def song_tapes(entry):
+    """[(row, tape id or None)] for every song in a setlist entry."""
+    ids = current_tapes(entry)
+    out = []
+    for _, rows in entry.get('sets', []):
+        for r in rows:
+            k = (entry['tracks'][r[1]][3] if len(entry['tracks'][r[1]]) > 3 else 0) if r[1] >= 0 else None
+            out.append((r, ids[k] if k is not None and ids else None))
+    return out
+
+
+def plan_single(show):
+    """A show with no setlist: just its main tape."""
+    cur, d = show['id'], show['d']
+    ranks = ranked(d)
+    cur_s = tape_score(cur, d)
     for s, u in ranks[:4]:
-        new = u['identifier']
-        if new == cur:
-            return None  # the current tape is already the best scorer we can use
-        if s < cur_s + MARGIN:
-            return {'show': show['d'], 'held': 'close call', 'cur': cur, 'cur_score': cur_s, 'new': info(u), 'new_score': s}
-        tracks = tape_tracks(new)
-        if not tracks:
-            continue  # no streamable MP3s: try the next one
-        if entry and entry.get('sets') and not entry.get('tapes'):
-            sets = [(l, [[r[0], r[2]] for r in rows]) for l, rows in entry['sets']]
-            rows = fill_gaps(apply_jb(sets, tracks), tracks)
-            old = matched(entry['sets']) if entry.get('id') else 0
-            if matched(rows) < old:
-                return {'show': show['d'], 'held': f'tracks line up worse ({matched(rows)} vs {old} songs)',
-                        'cur': cur, 'cur_score': cur_s, 'new': info(u), 'new_score': s}
-            return {'show': show['d'], 'cur': cur, 'cur_score': cur_s, 'new': info(u), 'new_score': s,
-                    'tracks': tracks, 'sets': rows, 'matched': [old, matched(rows)]}
-        if entry and entry.get('tapes'):
+        if u['identifier'] == cur or s < cur_s + MARGIN:
             return None
-        return {'show': show['d'], 'cur': cur, 'cur_score': cur_s, 'new': info(u), 'new_score': s, 'tracks': tracks}
+        tracks = tape_tracks(u['identifier'])
+        if tracks:
+            return {'show': d, 'cur': [cur], 'new': [u['identifier']], 'gain': round(s - cur_s, 2),
+                    'scores': {cur: cur_s, u['identifier']: s}, 'tracks': tracks}
     return None
 
 
-def plan_picks(songs, tape_for):
-    """Move First/Last/Best picks (and Best runners-up) to the best tape of their date."""
+def plan_show(show, entry):
+    """Assemble the show from the best tape for each song; None when nothing should change."""
+    d = show['d']
+    if not entry or not entry.get('sets') or not entry.get('id'):
+        return plan_single(show) if show.get('id') and not entry else None
+    sets = [(l, [[r[0], r[2]] for r in rows]) for l, rows in entry['sets']]
+    n = sum(len(rs) for _, rs in sets)
+    cur_ids = current_tapes(entry)
+    cands = {u['identifier']: s for s, u in ranked(d)[:6]}
+    for i in cur_ids:
+        cands.setdefault(i, tape_score(i, d))
+    assign, used = {}, []  # song position -> (tape slot, track)
+    for ident, s in sorted(cands.items(), key=lambda x: -x[1]):
+        if len(used) >= 3 or len(assign) == n:
+            break
+        tracks = tape_tracks(ident)
+        if not tracks:
+            continue
+        flat = [r for _, rs in fill_gaps(apply_jb(sets, tracks), tracks) for r in rs]
+        new = [i for i, r in enumerate(flat) if r[1] >= 0 and i not in assign]
+        if len(new) < min(2, n) or not new:
+            continue
+        used.append([ident, s, tracks])
+        for i in new:
+            assign[i] = (len(used) - 1, flat[i][1])
+    if not used:
+        return None
+    count = [sum(1 for k, _ in assign.values() if k == j) for j in range(len(used))]
+    order = sorted(range(len(used)), key=lambda j: (-count[j], -used[j][1]))
+    slot = {j: k for k, j in enumerate(order)}
+    tapes = [used[j] for j in order]
+    offsets, tracks = [], []
+    for k, (_, _, tt) in enumerate(tapes):
+        offsets.append(len(tracks))
+        tracks += [list(x[:3]) + ([k] if k else []) for x in tt]
+    rows, pos = [], 0
+    for label, rs in sets:
+        out = []
+        for name, seg in rs:
+            a = assign.get(pos)
+            out.append([name, offsets[slot[a[0]]] + a[1] if a else -1, seg])
+            pos += 1
+        rows.append([label, out])
+    ids = [x[0] for x in tapes]
+    scores = {**{i: cands.get(i, tape_score(i, d)) for i in cur_ids}, **{x[0]: x[1] for x in tapes}}
+    cur_rows = song_tapes(entry)
+    cur_m = sum(1 for r, _ in cur_rows if r[1] >= 0)
+    cur_q = sum(scores[i] for r, i in cur_rows if r[1] >= 0 and i)
+    new_q = sum(tapes[slot[k]][1] for k, _ in assign.values())
+    if ids == cur_ids and [r[1] for _, rs in rows for r in rs] == [r[1] for r, _ in cur_rows]:
+        return None
+    gain = (new_q - cur_q) / n
+    if len(assign) < cur_m or not (gain >= MARGIN or (len(assign) > cur_m and new_q >= cur_q)):
+        return None
+    return {'show': d, 'cur': cur_ids, 'new': ids, 'gain': round(gain, 2), 'matched': [cur_m, len(assign)],
+            'songs_per_tape': [count[j] for j in order], 'scores': scores, 'tracks': tracks, 'sets': rows}
+
+
+def plan_picks(songs, setlists, shows):
+    """Move First/Last/Best picks (and Best runners-up) to the tape that plays their song in the show."""
     swaps, held = [], []
     for song in songs:
         if song.get('kind') == 'sequence':
@@ -134,10 +212,14 @@ def plan_picks(songs, tape_for):
             cur, d = pick.get('identifier'), pick.get('date')
             if not (cur and d and pick.get('audio')) or pick.get('locked') or pick.get('sourceType') == 'longest':
                 continue  # locked: set by hand; Longest: chosen for its length on that exact tape
-            ranks = ranked(d)
-            scores = {u['identifier']: s for s, u in ranks}
-            want = tape_for.get(d) or (ranks[0][1]['identifier'] if ranks else None)
-            if not want or want == cur or scores.get(want, 0) < scores.get(cur, 0) + MARGIN:
+            keys = {title_key(x) for x in flb.song_names(song)}
+            e = setlists.get(d) or {}
+            want = next((i for r, i in song_tapes(e) if i and r[1] >= 0 and title_key(r[0]) in keys), None) \
+                if e.get('sets') and e.get('id') else (shows.get(d) or {}).get('id')
+            if not want or want == cur:
+                continue
+            scores = {cur: tape_score(cur, d), want: tape_score(want, d)}
+            if scores[want] < scores[cur] + MARGIN:
                 continue
             try:
                 track = flb.find_track(want, flb.song_names(song))
@@ -191,7 +273,10 @@ def alt_tapes(date, current):
     """Every tape of a show for the tape switcher: [[id, type, rating, reviews, label, versions, partial], ...],
     the site's pick first, then by score; uploads of one recording (same taper or source) are grouped."""
     groups = {}
-    for s, u in ranked(date):
+    ranks = ranked(date)
+    if current not in {u['identifier'] for _, u in ranks}:
+        ranks.append((tape_score(current, date), doc_for(current, date)))
+    for s, u in ranks:
         lab = label(u)
         key = (flb.source_class(u['identifier']), re.sub(r'[^a-z0-9]', '', lab.lower())[:30] or u['identifier'])
         g = groups.setdefault(key, [s, u, lab, 0])
@@ -225,37 +310,36 @@ def main():
         return
     shows = flb.load_shows()
     setlists = json.loads(SETLISTS.read_text())
-    todo = [s for s in shows if s.get('id') and not s.get('x')]
+    todo = [s for s in shows if s.get('id') and not s.get('x') and not s.get('xs')]
     with ThreadPoolExecutor(8) as pool:
         list(pool.map(lambda s: uploads(s['d']), todo))  # warm the cache
-        plans = list(pool.map(lambda s: plan_show(s, setlists.get(s['d'])), todo))
-    show_swaps = [p for p in plans if p and 'held' not in p]
-    show_held = [p for p in plans if p and 'held' in p]
-    tape_for = {p['show']: p['new']['id'] for p in show_swaps}
-    tape_for.update({s['d']: s['id'] for s in todo if s['d'] not in tape_for})
+        plans = [p for p in pool.map(lambda s: plan_show(s, setlists.get(s['d'])), todo) if p]
+    by_date = {s['d']: s for s in shows}
+    for p in plans:
+        s, main_id = by_date[p['show']], p['new'][0]
+        s['id'], s['t'] = main_id, TYPE[flb.source_class(main_id)]
+        e = setlists.get(p['show'])
+        if e is not None and 'sets' in p:
+            e.update(id=main_id, tracks=p['tracks'], sets=p['sets'])
+            if len(p['new']) > 1:
+                e['tapes'], e['kinds'] = p['new'], [tape_label(i) for i in p['new']]
+            else:
+                e.pop('tapes', None)
+                e.pop('kinds', None)
+        elif e is not None:
+            e.update(id=main_id, tracks=p['tracks'])
     songs = flb.load_songs()
-    pick_swaps, pick_held = plan_picks(songs, tape_for)
-
-    report = {'shows': [{k: v for k, v in p.items() if k not in ('tracks', 'sets')} for p in show_swaps],
-              'shows_held': show_held, 'picks': [{k: v for k, v in p.items() if k != 'track'} for p in pick_swaps],
-              'picks_held': pick_held}
+    pick_swaps, pick_held = plan_picks(songs, setlists, by_date)
+    report = {'shows': [{k: v for k, v in p.items() if k not in ('tracks', 'sets')} for p in plans],
+              'picks': [{k: v for k, v in p.items() if k != 'track'} for p in pick_swaps], 'picks_held': pick_held}
     with open(args.report, 'w') as f:
         json.dump(report, f, indent=1)
-    print(f'{len(show_swaps)} shows switch, {len(show_held)} held for a listen; '
-          f'{len(pick_swaps)} picks switch, {len(pick_held)} held. Plan: {args.report}')
+    multi = sum(1 for p in plans if len(p['new']) > 1)
+    print(f'{len(plans)} shows change ({multi} play from more than one tape); '
+          f'{len(pick_swaps)} picks move, {len(pick_held)} held. Plan: {args.report}')
     if not args.apply:
         print('Dry run. Re-run with --apply.')
         return
-
-    by_date = {s['d']: s for s in shows}
-    for p in show_swaps:
-        s, new = by_date[p['show']], p['new']['id']
-        s['id'], s['t'] = new, TYPE[flb.source_class(new)]
-        e = setlists.get(p['show'])
-        if e is not None:
-            e['id'], e['tracks'] = new, p['tracks']
-            if 'sets' in p:
-                e['sets'] = p['sets']
     by_name = {s['name']: s for s in songs}
     for p in pick_swaps:
         pick = dict(flb.picks(by_name[p['song']]))[p['slot']]
