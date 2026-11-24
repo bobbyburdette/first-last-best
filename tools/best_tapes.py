@@ -10,7 +10,7 @@ Each archive.org upload of a date gets a score:
   - small nudges: soundboard or matrix +0.15, unlabeled -0.1, a Charlie Miller transfer or a Betty Board +0.1,
     and popularity (downloads) up to about +0.2.
 A show with a setlist is assembled song by song: each song plays from the best-scoring tape that has it (up to
-three tapes; a tape after the first must add at least two songs), so a great partial tape is used for the songs
+three tapes; a backup tape may fill even a single missing song), so a great partial tape is used for the songs
 it has and another tape fills the rest. The tape playing the most songs is the show's main tape. A show changes
 only when it keeps every song it could already play and gets better by at least 0.15 per song on average (or
 can play more songs without getting worse). A tape the search doesn't list is scored from its own reviews.
@@ -164,8 +164,8 @@ def plan_show(show, entry):
             continue
         flat = [r for _, rs in fill_gaps(apply_jb(sets, tracks), tracks) for r in rs]
         new = [i for i, r in enumerate(flat) if r[1] >= 0 and i not in assign]
-        if len(new) < min(2, n) or not new:
-            continue
+        if not new or (not used and len(new) < min(2, n)):
+            continue  # a backup tape may fill even one song: a song from another tape beats a song you can't play
         used.append([ident, s, tracks])
         for i in new:
             assign[i] = (len(used) - 1, flat[i][1])
