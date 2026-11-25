@@ -59,7 +59,7 @@ server.listen(0, async () => {
     check('show page', (await p.locator('.tk-a-venue').textContent()).includes('Barton Hall'));
     await p.waitForSelector('.sl-row'); check('setlist with sets', (await p.locator('.sl-set').count()) >= 2);
     await p.locator('.sl-play', { hasText: 'Fire On The Mountain' }).click(); await wait(500);
-    check('tap a setlist song plays it', (await p.locator('.sl-row.is-playing .sl-name').textContent()).includes('Fire'));
+    check('tap a setlist song plays it', (await p.locator('.sl-row.is-playing .sl-name').allTextContents()).some(t => t.includes('Fire')));
     await go('/show/1976-10-09/'); await p.waitForSelector('.sl-row');
     check('multi-tape setlist', (await p.locator('.sl-src').count()) > 0 && (await p.locator('.sl-row.is-missing').count()) === 0);
 

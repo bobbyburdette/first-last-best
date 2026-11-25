@@ -306,6 +306,7 @@ def plan_show(show, entry):
         t = fl[i][1] if fl else -1
         return t if t >= 0 and all(not 0 <= x < len(fl) or fl[x][1] != t for x in (i - 1, i + 1)) else -1
 
+    cut = set()
     for i in sorted(assign):
         j, t = assign[i]
         la = secs(used[j][2][t]) if own(used[j][3], i) >= 0 else 0
@@ -316,7 +317,8 @@ def plan_show(show, entry):
                 continue
             u = tape(ident)
             t2 = own(u[3], i)
-            if t2 < 0 or not (secs(u[2][t2]) >= 120 and la < .5 * secs(u[2][t2])):
+            lb = secs(u[2][t2]) if t2 >= 0 else 0
+            if not (lb >= 120 and ((la < 150 and la < .4 * lb) or la < .25 * lb)):  # a real cut, not tuning time
                 continue
             ids_used = [x[0] for x in used]
             if ident not in ids_used:
@@ -325,6 +327,7 @@ def plan_show(show, entry):
                 used.append(u)
                 ids_used.append(ident)
             assign[i] = (ids_used.index(ident), t2)
+            cut.add(i)
             break
     count = [sum(1 for k, _ in assign.values() if k == j) for j in range(len(used))]
     order = [j for j in sorted(range(len(used)), key=lambda j: (-count[j], -used[j][1])) if count[j]]
@@ -351,8 +354,9 @@ def plan_show(show, entry):
     if ids == cur_ids and [r[1] for _, rs in rows for r in rs] == [r[1] for r, _ in cur_rows]:
         return None
     gain = (new_q - cur_q) / n
-    mins = lambda tr, rs: sum(secs(tr[i]) for i in {r[1] for _, x in rs for r in x if r[1] >= 0}) / 60
-    more_music = mins(tracks, rows) >= mins(entry['tracks'], entry['sets']) + 3 and gain > -.1  # fragments replaced
+    cur_flat = [r for _, x in entry['sets'] for r in x]
+    more_music = gain > -.1 and any(cur_flat[i][1] >= 0 and secs(entry['tracks'][cur_flat[i][1]]) < 150
+                                    for i in cut if i < len(cur_flat))  # a cut-short song that plays today
     if len(assign) < cur_m or not (gain >= MARGIN or (len(assign) > cur_m and new_q >= cur_q) or doubles(entry) or more_music):
         return None
     return {'show': d, 'cur': cur_ids, 'new': ids, 'gain': round(gain, 2), 'matched': [cur_m, len(assign)],
