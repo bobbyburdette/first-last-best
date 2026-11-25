@@ -247,20 +247,46 @@ def text(v):
     return re.sub(r'\s+', ' ', ''.join(c for c in v if c.isascii() and c.isprintable())).strip()
 
 
+JUNK = re.compile(r'(?i)^\W*(see\b.*|unknown\b.*|unk|n/?a|none|\?+|-+|various|anon(ymous)?)\W*$')
+CREDIT = re.compile(r'(?i)^\W*((source\s*(&|and)\s*)?(dts\s*(&|and)\s*)?(original\s+|concert\s+|analog\s+)?(recording|recorded|taped|taper|'
+                    r'matrix(ing|ed)?|mtx|transfer(red|s)?|xfer|remaster(ed)?|mix(ed)?|mastering|seeded|by)'
+                    r'(\s+(and|&)\s+\w+)?\s*(by|:)?\s*)+')
+NOT_A_NAME = re.compile(r'(?i)\b(sbd|aud|soundboard|audience|dts|matrix|mtx|source|src|mix|cdr?|mics?|info|unknown|thanks|'
+                        r'seeds?|collection|crew|reel|dat|mono|stereo|channel)\b|@|https?:|www\.')
+MONTH = (r'(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sept?(?:ember)?|oct(?:ober)?|'
+         r'nov(?:ember)?|dec(?:ember)?)\.?(?=\s*(?:\d|$))')  # only a date: 'April 2021', not 'Marcus'
+
+
+def who(v):
+    """A person's name from a taper/transferer field, minus the 'Recording by' / 'Matrix by' boilerplate, or ''."""
+    v = re.sub(r'\S+@\S+|https?://\S+|www\.\S+', ' ', text(v) or '')  # never show an email or link
+    m = re.search(r'(?i)\bby\s+(.+)', v)  # 'FOB recording by X', 'Pitch correction by X', 'Recorded for Y by X'
+    v = CREDIT.sub('', m.group(1) if m else v).strip()  # 'FOB recording by X', 'Transferred/Edited by X'
+    v = re.split(r'[:;,(\[]|\s+\d|\s+-\s|\s+' + MONTH + r'|\s+(?:and|&)\s+(?=\w+\s+\w+\s+(?:and|&))|\s+(?:[\w/]+\s+){0,2}?(?:correct\w*|repair\w*|master\w*|remaster\w*|edit\w*|transfer\w*|patch\w*|pathing|seed\w*|provided|restor\w*|mix\w*|matrix\w*|record\w*|tap\w*|adjust\w*|suppl\w*|shn|flac|eac)\s+by\s|(?<=[a-z]{2})\.\s', v, flags=re.I)[0]
+    v = re.sub(r'\s+', ' ', v).strip(' .-/')[:40]
+    v = v + '.' if re.search(r'\s[A-Z]$', v) else v  # 'Andrew F.'
+    return '' if len(v) < 2 or JUNK.match(v) or NOT_A_NAME.search(v) else v
+
+
 def label(u):
-    """Who made the tape, as briefly as the upload says: 'Taped by X', 'Transfer by X', or its source chain."""
-    taper, xfer, src = text(u.get('taper')), text(u.get('transferer')), text(u.get('source'))
-    if taper and not re.match(r'(?i)unknown|n/?a$', taper):
-        return 'Taped by ' + re.split(r'[:;,(]', taper)[0].strip()[:40]
-    if xfer and not re.match(r'(?i)unknown|n/?a$', xfer):
-        x = re.split(r'[;,(]', xfer)[0].strip()[:40]
-        return x if re.search(r'\d', x) else 'Transfer by ' + x
-    src = re.sub(r'(?i)^(set|disc|cd)\s*\d+\s*[:-]?\s*', '', re.split(r'[;>]|-->', src)[0]).strip()
+    """Who made the tape, as briefly as the upload says: 'Taped by X', 'Matrix by X', 'Transfer by X', or its source."""
+    taper, xfer, src = who(u.get('taper')), who(u.get('transferer')), text(u.get('source'))
+    if re.search(r'(?i)(^|[._-])(5-1|dts)([._-]|$)|surround', u['identifier'] + ' ' + (text(u.get('transferer')) or '')):
+        return 'Surround mix (5.1)'
+    matrix = re.search(r'(?i)(^|[._-])(mtx|matrix)([._-]|$)', u['identifier'])
+    if matrix and xfer:
+        return 'Matrix by ' + xfer
+    if taper:
+        return 'Taped by ' + taper
+    if xfer:
+        return xfer if re.search(r'\d', xfer) else 'Transfer by ' + xfer
+    src = re.sub(r'(?i)^(set|disc|cd)\s*\d+\s*[:-]?\s*', '', re.split(r'[;>]|-->', re.sub(r'(?i)\s*\(see[^)]*\)', '', src or ''))[0]).strip()
+    src = re.sub(r'(?i)^(main\s+)?(lineage|source|src|recording info)\s*(#?\d+)?\s*:\s*', '', src)
     src = re.sub(r'^KG (?=\d)', 'AKG ', src)  # a mangled 'AKG' in some old uploads
-    if len(re.sub(r'(?i)\b(sbd|aud|soundboard|audience|matrix|mtx|master|unknown|source|dat|cdr?|pcm|reel)\b|\W', '', src)) < 3:
-        who = [w for w in re.split(r'[._-]', u['identifier'].lower())[1:] if w.isalpha() and len(w) > 3
-               and w not in STOP]
-        return ('via ' + who[0].title()) if who else ''
+    if JUNK.match(src) or re.search(r'(?i)unknown|info\b|^recording', src) or len(re.sub(r'(?i)\b(sbd|aud|soundboard|audience|matrix|mtx|master|unknown|source|dat|cdr?|pcm|reel|see|info|file|notes?|recording|recorded|cassette|analog|digital)\b|\W', '', src)) < 3:
+        ws = [w for w in re.split(r'[._-]', u['identifier'].lower())[1:] if w.isalpha() and len(w) > 3
+              and w not in STOP]
+        return ('via ' + ws[0].title()) if ws else ''
     return src[:40]
 
 
