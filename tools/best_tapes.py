@@ -257,6 +257,34 @@ def fix_doubles(entry):
     return doubles(entry, fix=True)
 
 
+def own_lengths(flat, tracks):
+    """{song position: seconds} for songs on a track of their own (not a combined track)."""
+    return {i: secs(tracks[r[1]]) for i, r in enumerate(flat)
+            if 0 <= r[1] < len(tracks) and not any(j != i and x[1] == r[1] for j, x in enumerate(flat))}
+
+
+def shifted(entry, flat, tracks):
+    """Whether a tape's track titles look shifted against the show's current tape (a mislabeled upload: its
+    'Wharf Rat' is really the song before it). Set by set, its song lengths must match the current tape's better
+    one or two songs over than in place."""
+    ref = own_lengths([r for _, rs in entry['sets'] for r in rs], entry['tracks'])
+    mine = own_lengths(flat, tracks)
+    close = lambda a, b: a and b and abs(a - b) <= max(20, .12 * max(a, b))
+    at = 0
+    for _, rs in entry['sets']:
+        rows = [(i, mine[i]) for i in range(at, at + len(rs)) if i in mine]
+        at += len(rs)
+        if len(rows) < 4:
+            continue
+
+        def agree(k):
+            pairs = [(x, ref[i + k]) for i, x in rows if ref.get(i + k)]
+            return sum(1 for a, b in pairs if close(a, b)) / len(pairs) if len(pairs) >= 4 else 0
+        if max(agree(k) for k in (-2, -1, 1, 2)) >= .5 and max(agree(k) for k in (-2, -1, 1, 2)) > agree(0) + .2:
+            return True
+    return False
+
+
 def plan_show(show, entry):
     """Assemble the show from the best tape for each song; None when nothing should change."""
     d = show['d']
@@ -276,6 +304,8 @@ def plan_show(show, entry):
         if not tracks:
             continue
         flat = [r for _, rs in fill_gaps(apply_jb(sets, tracks), tracks) for r in rs]
+        if ident not in cur_ids and shifted(entry, flat, tracks):
+            continue  # mislabeled: its titles don't match its audio
         new = [i for i, r in enumerate(flat) if r[1] >= 0 and i not in assign]
         if not new or (not used and len(new) < min(2, n)):
             continue  # a backup tape may fill even one song: a song from another tape beats a song you can't play
@@ -300,6 +330,8 @@ def plan_show(show, entry):
         if ident not in pool:
             tt = tape_tracks(ident) or []
             pool[ident] = [ident, cands[ident], tt, [r for _, rs in fill_gaps(apply_jb(sets, tt), tt) for r in rs] if tt else []]
+            if ident not in cur_ids and pool[ident][3] and shifted(entry, pool[ident][3], tt):
+                pool[ident][3] = []
         return pool[ident]
 
     def own(fl, i):  # the song's own track on a tape (a combined track shared with a neighbor can't be compared)

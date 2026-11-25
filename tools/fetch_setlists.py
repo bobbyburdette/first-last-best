@@ -80,8 +80,17 @@ def tape_tracks(ident):
         files = flb.mp3s(ident)
     except Exception:
         return []
-    return [[f['name'], re.sub(r'^\s*\d{1,2}[\s.\-_]+', '', f.get('title') or f['name'][:-4]).strip(), f.get('length') or '']
+    return [[f['name'], re.sub(r'^\s*\d{1,2}[\s.\-_]+', '', f.get('title') or f['name'][:-4]).strip(), mmss(f.get('length'))]
             for f in files]
+
+
+def mmss(v):
+    """A track length as m:ss; some uploads list it in seconds ('391.25')."""
+    v = str(v or '').strip()
+    if re.fullmatch(r'\d+(\.\d+)?', v):
+        n = round(float(v))
+        return f'{n // 3600}:{n % 3600 // 60:02d}:{n % 60:02d}' if n >= 3600 else f'{n // 60}:{n % 60:02d}'
+    return v
 
 
 def match(sets, tracks):
