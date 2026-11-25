@@ -32,6 +32,8 @@ from fetch_setlists import OUT as SETLISTS, tape_label, tape_tracks, title_key
 from merge_jerrybase import apply_jb, matched
 
 MARGIN = 0.15
+# Uploads whose track titles don't match their audio, with the reason; never picked, never in the switcher.
+BAD = set(json.loads((flb.ROOT / 'data' / 'bad_tapes.json').read_text())) if (flb.ROOT / 'data' / 'bad_tapes.json').exists() else set()
 TYPE = {flb.SBD: 'sbd', flb.MATRIX: 'mtx', flb.AUD: 'aud', flb.UNKNOWN: 'unk'}
 
 
@@ -140,7 +142,8 @@ def score(u):
 
 
 def ranked(date):
-    us = [u for u in uploads(date) if not flb.risky_source(u['identifier']) and right_day(u['identifier'], date)]
+    us = [u for u in uploads(date) if not flb.risky_source(u['identifier']) and right_day(u['identifier'], date)
+          and u['identifier'] not in BAD]
     return sorted(((score(u), u) for u in us), key=lambda x: -x[0])
 
 
@@ -294,8 +297,10 @@ def plan_show(show, entry):
     n = sum(len(rs) for _, rs in sets)
     cur_ids = current_tapes(entry)
     cands = {u['identifier']: s for s, u in ranked(d)[:6]}
+    cur_bad = any(i in BAD for i in cur_ids)  # mislabeled: nothing to compare against, and it must go
     for i in cur_ids:
-        cands.setdefault(i, tape_score(i, d))
+        if i not in BAD:
+            cands.setdefault(i, tape_score(i, d))
     assign, used = {}, []  # song position -> (tape slot, track)
     for ident, s in sorted(cands.items(), key=lambda x: -x[1]):
         if len(used) >= 3 or len(assign) == n:
@@ -304,7 +309,7 @@ def plan_show(show, entry):
         if not tracks:
             continue
         flat = [r for _, rs in fill_gaps(apply_jb(sets, tracks), tracks) for r in rs]
-        if ident not in cur_ids and shifted(entry, flat, tracks):
+        if ident not in cur_ids and not cur_bad and shifted(entry, flat, tracks):
             continue  # mislabeled: its titles don't match its audio
         new = [i for i, r in enumerate(flat) if r[1] >= 0 and i not in assign]
         if not new or (not used and len(new) < min(2, n)):
@@ -330,7 +335,7 @@ def plan_show(show, entry):
         if ident not in pool:
             tt = tape_tracks(ident) or []
             pool[ident] = [ident, cands[ident], tt, [r for _, rs in fill_gaps(apply_jb(sets, tt), tt) for r in rs] if tt else []]
-            if ident not in cur_ids and pool[ident][3] and shifted(entry, pool[ident][3], tt):
+            if ident not in cur_ids and not cur_bad and pool[ident][3] and shifted(entry, pool[ident][3], tt):
                 pool[ident][3] = []
         return pool[ident]
 
@@ -389,7 +394,7 @@ def plan_show(show, entry):
     cur_flat = [r for _, x in entry['sets'] for r in x]
     more_music = gain > -.1 and any(cur_flat[i][1] >= 0 and secs(entry['tracks'][cur_flat[i][1]]) < 150
                                     for i in cut if i < len(cur_flat))  # a cut-short song that plays today
-    if len(assign) < cur_m or not (gain >= MARGIN or (len(assign) > cur_m and new_q >= cur_q) or doubles(entry) or more_music):
+    if not cur_bad and len(assign) < cur_m or not (cur_bad or gain >= MARGIN or (len(assign) > cur_m and new_q >= cur_q) or doubles(entry) or more_music):
         return None
     return {'show': d, 'cur': cur_ids, 'new': ids, 'gain': round(gain, 2), 'matched': [cur_m, len(assign)],
             'songs_per_tape': [count[j] for j in order], 'scores': scores, 'tracks': tracks, 'sets': rows}
@@ -412,7 +417,7 @@ def plan_picks(songs, setlists, shows):
             if not want or want == cur:
                 continue
             scores = {cur: tape_score(cur, d), want: tape_score(want, d)}
-            if scores[want] < scores[cur] + MARGIN:
+            if scores[want] < scores[cur] + MARGIN and cur not in BAD:
                 continue
             try:
                 track = flb.find_track(want, flb.song_names(song))
@@ -424,7 +429,7 @@ def plan_picks(songs, setlists, shows):
                 held.append({**row, 'held': 'song not labeled on the better tape'})
                 continue
             cd, nd = flb.secs(pick.get('duration', '0')), flb.secs(track['length'])
-            if cd and abs(nd - cd) / cd > .30:
+            if cd and abs(nd - cd) / cd > .30 and cur not in BAD:  # a mislabeled tape's length is another song's
                 held.append({**row, 'held': f"length {pick.get('duration')} vs {track['length']}"})
                 continue
             swaps.append({**row, 'track': track})
