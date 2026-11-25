@@ -171,6 +171,11 @@ def fill_gaps(rows, tracks):
     """A song the matcher missed (the taper titled it differently, e.g. 'Women are Smarter') takes the one unused
     track between its matched neighbors."""
     flat = [r for _, rs in rows for r in rs]
+    for i in range(1, len(flat)):  # 'Scarlet Begonias -> Fire On The Mountain' as one track: Fire is in it
+        r, prev = flat[i], flat[i - 1]
+        if r[1] < 0 and 0 <= prev[1] < len(tracks) and title_key(prev[0]) in title_key(tracks[prev[1]][1]) \
+                and holds(tracks[prev[1]], prev[0], r[0]):
+            r[1] = prev[1]
     used = {r[1] for r in flat if r[1] >= 0}
     for i, r in enumerate(flat):
         if r[1] >= 0 or not 0 < i < len(flat) - 1:
@@ -212,6 +217,46 @@ def plan_single(show):
     return None
 
 
+def secs(t):
+    try:
+        return flb.secs(t[2]) if len(t) > 2 and t[2] else 0
+    except Exception:
+        return 0
+
+
+def holds(track, prev_name, name, other=None):
+    """Whether a combined track ('Scarlet Begonias -> Fire On The Mountain') holds `name`, the song after
+    `prev_name`. Against another tape's separate track of the song it must be clearly longer, or the same length
+    (the same audio uploaded twice); a short 'Drums -> The Other One' doesn't hold a 16-minute Other One."""
+    k, t = title_key(name), title_key(track[1])
+    if not (len(k) > 3 and k in t and k != title_key(prev_name)):
+        return False
+    if other is None:
+        return True
+    la, lb = secs(track), secs(other)
+    return not la or not lb or abs(la - lb) <= 2 or la >= 1.2 * lb
+
+
+def doubles(entry, fix=False):
+    """Songs the show plays twice: a backup tape's song that the track before it already holds
+    ('China Cat Sunflower > I Know You Rider', then 'I Know You Rider' again from another tape). With fix, the
+    song points at the track that holds it, so it plays once."""
+    if not entry.get('tapes') or not entry.get('sets'):
+        return 0
+    flat, tr, n = [r for _, rs in entry['sets'] for r in rs], entry['tracks'], 0
+    tape = lambda i: tr[i][3] if len(tr[i]) > 3 else 0
+    for a, b in zip(flat, flat[1:]):
+        if a[1] >= 0 and b[1] >= 0 and tape(a[1]) != tape(b[1]) and holds(tr[a[1]], a[0], b[0], tr[b[1]]):
+            n += 1
+            if fix:
+                b[1] = a[1]
+    return n
+
+
+def fix_doubles(entry):
+    return doubles(entry, fix=True)
+
+
 def plan_show(show, entry):
     """Assemble the show from the best tape for each song; None when nothing should change."""
     d = show['d']
@@ -234,17 +279,59 @@ def plan_show(show, entry):
         new = [i for i, r in enumerate(flat) if r[1] >= 0 and i not in assign]
         if not new or (not used and len(new) < min(2, n)):
             continue  # a backup tape may fill even one song: a song from another tape beats a song you can't play
-        used.append([ident, s, tracks])
+        used.append([ident, s, tracks, flat])
         for i in new:
             assign[i] = (len(used) - 1, flat[i][1])
     if not used:
         return None
+    for i in sorted(assign):
+        j, t = assign[i]
+        if i == 0 or assign.get(i - 1) != (j, t):
+            continue  # not held by the track before it
+        for j2, (_, _, tt, fl) in enumerate(used):
+            t2 = fl[i][1]
+            if j2 != j and t2 >= 0 and t2 != fl[i - 1][1] and not holds(used[j][2][t], fl[i - 1][0], fl[i][0], tt[t2]):
+                assign[i] = (j2, t2)  # the other tape has the song as its own, fuller track
+                break
+    # A fragment (a tape cut: 'Bertha' at 0:40) gives way to another tape's song track more than twice as long.
+    pool = {u[0]: u for u in used}
+
+    def tape(ident):
+        if ident not in pool:
+            tt = tape_tracks(ident) or []
+            pool[ident] = [ident, cands[ident], tt, [r for _, rs in fill_gaps(apply_jb(sets, tt), tt) for r in rs] if tt else []]
+        return pool[ident]
+
+    def own(fl, i):  # the song's own track on a tape (a combined track shared with a neighbor can't be compared)
+        t = fl[i][1] if fl else -1
+        return t if t >= 0 and all(not 0 <= x < len(fl) or fl[x][1] != t for x in (i - 1, i + 1)) else -1
+
+    for i in sorted(assign):
+        j, t = assign[i]
+        la = secs(used[j][2][t]) if own(used[j][3], i) >= 0 else 0
+        if not la:
+            continue
+        for ident in sorted(cands, key=lambda x: -cands[x]):
+            if ident == used[j][0]:
+                continue
+            u = tape(ident)
+            t2 = own(u[3], i)
+            if t2 < 0 or not (secs(u[2][t2]) >= 120 and la < .5 * secs(u[2][t2])):
+                continue
+            ids_used = [x[0] for x in used]
+            if ident not in ids_used:
+                if len(used) >= 3:
+                    continue
+                used.append(u)
+                ids_used.append(ident)
+            assign[i] = (ids_used.index(ident), t2)
+            break
     count = [sum(1 for k, _ in assign.values() if k == j) for j in range(len(used))]
-    order = sorted(range(len(used)), key=lambda j: (-count[j], -used[j][1]))
+    order = [j for j in sorted(range(len(used)), key=lambda j: (-count[j], -used[j][1])) if count[j]]
     slot = {j: k for k, j in enumerate(order)}
     tapes = [used[j] for j in order]
     offsets, tracks = [], []
-    for k, (_, _, tt) in enumerate(tapes):
+    for k, (_, _, tt, _) in enumerate(tapes):
         offsets.append(len(tracks))
         tracks += [list(x[:3]) + ([k] if k else []) for x in tt]
     rows, pos = [], 0
@@ -264,7 +351,9 @@ def plan_show(show, entry):
     if ids == cur_ids and [r[1] for _, rs in rows for r in rs] == [r[1] for r, _ in cur_rows]:
         return None
     gain = (new_q - cur_q) / n
-    if len(assign) < cur_m or not (gain >= MARGIN or (len(assign) > cur_m and new_q >= cur_q)):
+    mins = lambda tr, rs: sum(secs(tr[i]) for i in {r[1] for _, x in rs for r in x if r[1] >= 0}) / 60
+    more_music = mins(tracks, rows) >= mins(entry['tracks'], entry['sets']) + 3 and gain > -.1  # fragments replaced
+    if len(assign) < cur_m or not (gain >= MARGIN or (len(assign) > cur_m and new_q >= cur_q) or doubles(entry) or more_music):
         return None
     return {'show': d, 'cur': cur_ids, 'new': ids, 'gain': round(gain, 2), 'matched': [cur_m, len(assign)],
             'songs_per_tape': [count[j] for j in order], 'scores': scores, 'tracks': tracks, 'sets': rows}
@@ -423,6 +512,8 @@ def main():
                 e.pop('kinds', None)
         elif e is not None:
             e.update(id=main_id, tracks=p['tracks'])
+    fixed = sum(fix_doubles(e) for e in setlists.values())
+    print(f'{fixed} songs no longer play twice')
     songs = flb.load_songs()
     pick_swaps, pick_held = plan_picks(songs, setlists, by_date)
     report = {'shows': [{k: v for k, v in p.items() if k not in ('tracks', 'sets')} for p in plans],
