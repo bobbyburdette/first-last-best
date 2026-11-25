@@ -482,3 +482,15 @@ a.song-button{text-decoration:none;color:inherit}
  #detail:has(> .plays:not([hidden])) .plays-facts{display:grid;gap:4px}
  #detail:has(> .plays:not([hidden])) #history-jump{display:none}
 }
+/* Card headers, "stamp": a big left-aligned label, the song name under it, one oversized doodle bleeding off the
+   right edge of the band (rose for First, skull for Last, bolt for Best) */
+.tape-band{position:relative;overflow:hidden;align-items:flex-start;text-align:left;padding:22px var(--pad-x) 18px;gap:6px}
+.tape-band .tb-row{justify-content:flex-start;gap:0;position:relative;z-index:1}
+.tape-band .tb-row .tb-ico{display:none}
+.tape-band .tape-band-title{font-size:52px;line-height:.95;letter-spacing:-1px}
+.tape-band .tape-band-title.is-long{font-size:40px}
+.tape-band .tb-song{position:relative;z-index:1;font-size:14px;letter-spacing:.16em;margin-left:2px}
+.tape-band::after{content:'';position:absolute;right:-18px;top:50%;width:150px;height:150px;transform:translateY(-50%) rotate(-8deg);background:url('tape-doodles.webp') 0 50%/300% 100% no-repeat;mix-blend-mode:multiply;opacity:.55;pointer-events:none}
+.tape-band.tb-last::after{background-position:50% 50%}
+.tape-band.tb-best::after{background-position:100% 50%}
+@media (max-width:650px){.tape-band{padding:18px var(--pad-x) 14px}.tape-band .tape-band-title{font-size:40px}.tape-band .tape-band-title.is-long{font-size:30px}.tape-band .tb-song{font-size:12.5px}.tape-band::after{width:112px;height:112px;right:-14px}}
