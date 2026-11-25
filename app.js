@@ -73,7 +73,7 @@ function advanceTape(){
  goNext();
 }
 function goNext(){
- if(!queue.length){$('#player-status').textContent='End of tape.';syncTrackNav();return}
+ if(!queue.length){{const st=$('#player-status');st.textContent='End of tape.';setTimeout(()=>{if(st.textContent==='End of tape.')st.textContent=''},5000)}syncTrackNav();return}
  if(playing)playHistory.push({s:playing.s,k:playing.k});
  const next=queue.shift();play(next.s,next.k);
 }
