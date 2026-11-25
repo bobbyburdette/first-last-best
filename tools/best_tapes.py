@@ -20,6 +20,7 @@ card, which was chosen for its length on that exact tape). Monitor mixes and hal
 picked; a show without a tape doesn't get one here.
 """
 import argparse
+import functools
 import json
 import math
 import re
@@ -58,16 +59,83 @@ def right_day(ident, date):
     return d is None or d == date
 
 
+# What listeners say in their reviews, read with a short phrase list (no guessing at tone): each flag is
+# (note shown in the tape switcher, phrase, weight). A sentence that mentions a fix or another tape ("the speed
+# was corrected", "unlike the old source") or plays the problem down ("no hiss", "minor dropouts") doesn't count.
+FLAGS = [
+    ('runs fast', r'\b(runs?|plays?|running|too|bit|little|slightly|way)\s+(a\s+bit\s+|too\s+)?fast\b|\bsped up\b'
+                  r'|\bpitch(ed)?\s+(is\s+)?(too\s+)?(high|sharp)\b', .3),
+    ('runs slow', r'\b(runs?|plays?|running|too|bit|little|slightly|way)\s+(a\s+bit\s+|too\s+)?slow\b'
+                  r'|\bpitch(ed)?\s+(is\s+)?(too\s+)?(low|flat)\b', .3),
+    ('speed problems', r'\b(speed|pitch)\s+(is\s+|was\s+)?(off|wrong|issues?|problems?|fluctuat\w*|wobbl\w*|varies|drifts?)\b'
+                       r'|\bwow\s+(and|&)\s+flutter\b|\bwarbl\w*', .3),
+    ('hiss', r'\b(lots of|heavy|loud|excessive|bad|too much|annoying|very)\s+(tape\s+)?hiss\w*', .15),
+    ('dropouts', r'\bdrop-?\s?outs?\b', .15),
+    ('distortion', r'\b(sound|recording|tape|source|audio|levels?|vocals?|bass|mix|transfer)\s+(is\s+|was\s+|gets?\s+|a\s+bit\s+|very\s+|quite\s+|pretty\s+)*distort\w*'
+                   r'|\bdistortion\s+(on|in|throughout|problems?|issues?)\b|\bclipp(ing|ed)\b|\boverload\w*', .15),
+    ('muddy sound', r'\b(sound|recording|tape|source|audio|mix|transfer)s?\s+(is\s+|was\s+|are\s+|a\s+bit\s+|rather\s+|pretty\s+|very\s+|quite\s+|kind\s+of\s+|somewhat\s+)*(muddy|muffled|tinny|boomy|murky)\b'
+                    r'|\b(muddy|muffled|tinny|boomy|murky)\s+(sound\w*|mix|recording|tape|audio|source|transfer)\b', .15),
+    ('cuts', r'\bcuts?\s+(out|off)\b|\babrupt(ly)?\s+(cut|end)|\bmissing\s+(songs?|tracks?|parts?)\b', .1),
+    ('glitches', r'\bglitch\w*|\bdigital\s+(noise|errors?|clicks?)\b', .1),
+]
+GOOD = (r'\bbest[- ]sounding\b|\bbest\s+(source|version|recording|copy|transfer|tape|sbd|soundboard|quality|sound)\b'
+        r'|\bsounds?\s+(amazing|incredible|fantastic|excellent|stellar|pristine|perfect|superb)\b|\bcrystal\s*clear\b'
+        r'|\bpristine\b|\bimpeccable\b|\b(huge|big|major|massive)\s+upgrade\b')
+EXCUSE = (r'\b(fix|fixe[sd]|correct(ed|s|ion)?|re-?pitch\w*|adjust\w*|resolved|repaired|no longer|unlike|other\s+(source|version|tape|copy)s?'
+          r'|previous|older|old\s+(source|version|transfer|copy)|no|not|without|free of|zero|minimal|minor|slight|slightly|barely|hardly'
+          r'|little|tiny|occasional|few)\b')
+
+
+def reviews(ident):
+    """An upload's archive.org reviews: from its cached metadata, else just the reviews (a small request)."""
+    path = flb.CACHE / 'meta' / (re.sub(r'[^A-Za-z0-9._-]', '_', ident) + '.json')
+    if path.exists():
+        return json.loads(path.read_text()).get('reviews') or []
+    try:
+        return flb._cached_json('reviews', ident, f'https://archive.org/metadata/{ident}/reviews').get('result') or []
+    except Exception:
+        return []
+
+
+@functools.lru_cache(maxsize=None)
+def comments(ident):
+    """(score nudge, switcher note) from what reviewers say. A problem counts once two reviewers mention it; it
+    shows in the switcher when it's also at least 1 in 10 of the reviews. Praise ('best sounding') nudges up."""
+    rv = [' '.join(str(r.get(k) or '') for k in ('reviewtitle', 'reviewbody')) for r in reviews(ident)]
+    rv = [t for t in rv if t.strip()]
+    if len(rv) < 2:
+        return 0.0, ''
+    hits, good = {}, 0
+    for t in rv:
+        found = set()
+        for sent in re.split(r'(?<=[.!?;])\s+|\n+', re.sub(r'black\s+muddy(\s+river)?', 'bmr', t.lower())):  # the song
+            if re.search(EXCUSE, sent):
+                continue
+            found |= {note for note, pat, _ in FLAGS if re.search(pat, sent)}
+        for note in found:
+            hits[note] = hits.get(note, 0) + 1
+        good += bool(re.search(GOOD, t.lower()))
+    w = {note: wt for note, _, wt in FLAGS}
+    bad = sum(w[k] * c / len(rv) for k, c in hits.items() if c >= 2)
+    nudge = -min(.3, 2.5 * bad) + (min(.15, .3 * good / len(rv)) if good >= 2 else 0)
+    notes = sorted((k for k, c in hits.items() if c >= 2 and c / len(rv) >= .1), key=lambda k: -w[k] * hits[k])
+    return round(nudge, 3), ', '.join(notes[:2])
+
+
 def score(u):
+    """Listener rating weighted toward tapes many people rated (the crowd favorite), with a soundboard bonus like
+    Relisten's soundboard-first order, small nudges for Miller transfers, Betty Boards and downloads, and what
+    reviewers say about the sound."""
     ident = u['identifier']
     n = float(u.get('num_reviews') or 0)
     avg = float(u.get('avg_rating') or 0) if n else 0
-    s = (avg * n + 3.8 * 4) / (n + 4)
+    s = (avg * n + 3.9 * 10) / (n + 10) + .12 * math.log10(1 + n)
     c = flb.source_class(ident)
-    s += {flb.SBD: .15, flb.MATRIX: .15, flb.AUD: 0, flb.UNKNOWN: -.1}[c]
+    s += {flb.SBD: .2, flb.MATRIX: .12, flb.AUD: 0, flb.UNKNOWN: -.1}[c]
     if flb.is_miller(ident) or 'betty' in ident.lower():
         s += .1
     s += min(.2, math.log10(1 + float(u.get('downloads') or 0)) * .04)
+    s += comments(ident)[0] if n >= 2 else 0
     return round(s, 3)
 
 
@@ -296,7 +364,7 @@ STOP = {'sbeok', 'shnf', 'flac', 'flacf', 'late', 'early', 'show', 'partial', 'r
 
 
 def alt_tapes(date, current):
-    """Every tape of a show for the tape switcher: [[id, type, rating, reviews, label, versions, partial], ...],
+    """Every tape of a show for the tape switcher: [[id, type, rating, reviews, label, versions, partial, reviewers' note], ...],
     the site's pick first, then by score; uploads of one recording (same taper or source) are grouped."""
     groups = {}
     ranks = ranked(date)
@@ -311,7 +379,8 @@ def alt_tapes(date, current):
             g[0], g[1] = 99, u  # the site's pick represents its group
     rows = sorted(groups.values(), key=lambda g: -g[0])
     out = [[u['identifier'], TYPE[flb.source_class(u['identifier'])], round(float(u.get('avg_rating') or 0), 2),
-            int(u.get('num_reviews') or 0), lab, n, int(bool(re.search(r'(?i)(^|[._-])(s|set)\d([._-]|$)|partial', u['identifier'])))]
+            int(u.get('num_reviews') or 0), lab, n, int(bool(re.search(r'(?i)(^|[._-])(s|set)\d([._-]|$)|partial', u['identifier']))),
+            comments(u['identifier'])[1] if (u.get('num_reviews') or 0) >= 2 else '']
            for _, u, lab, n in rows]
     return out if len(out) > 1 and out[0][0] == current else None
 

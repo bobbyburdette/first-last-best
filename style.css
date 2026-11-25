@@ -494,3 +494,4 @@ a.song-button{text-decoration:none;color:inherit}
 .tape-band.tb-last::after{background-position:50% 50%}
 .tape-band.tb-best::after{background-position:100% 50%}
 @media (max-width:650px){.tape-band{padding:18px var(--pad-x) 14px}.tape-band .tape-band-title{font-size:40px}.tape-band .tape-band-title.is-long{font-size:30px}.tape-band .tb-song{font-size:12.5px}.tape-band::after{width:112px;height:112px;right:-14px}}
+.tp-warn{display:block;margin-top:3px;font-size:11px;font-style:italic;color:#9a3412}
