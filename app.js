@@ -64,7 +64,7 @@ async function play(s,k,part=0,tracksOverride=null,showMeta=null,perfOverride=nu
  }
  $('#player-status').textContent='Loading tape…';
  retryState=0;audio.src=tracks[part].url;
- syncTrackNav();
+ syncTrackNav();setLockScreen(p,tracks[part],showMeta,s);
  try{await audio.play();if(token===playToken)$('#player-status').textContent=''}
  catch(e){if(token!==playToken)return;if(e.name!=='NotAllowedError'&&retryTape())return;$('#player-status').textContent=e.name==='NotAllowedError'?'Tap Play on the player to continue.':'Tape didn’t load. Hit play again: that usually does it.';if(e.name!=='NotAllowedError'){queue=[];playHistory=[]}}
 }
@@ -474,6 +474,18 @@ $('#search').addEventListener('focus',()=>{loadShows()},{once:true});
 /* Now-playing tile shows the doodle for the tape kind (first/last/best) */
 function syncArt(){const art=$('.now-art');if(playing?.k)art.dataset.kind=playing.k;art.classList.toggle('is-playing',Boolean(playing)&&!audio.paused&&!audio.ended)}
 ['play','playing','pause','ended','emptied','loadstart'].forEach(n=>audio.addEventListener(n,syncArt));
+/* Lock screen and Control Center: say what's playing and wire up the skip buttons, so iOS knows whose audio this is */
+function setLockScreen(p,t,show,s){
+ if(!('mediaSession' in navigator)||!t)return;
+ const title=show?String(t.title).replace(/\s*-*>\s*$/,''):s.name,where=show?show.venue:(p.venueName||(p.venue||'').split(' - ')[0]);
+ try{navigator.mediaSession.metadata=new MediaMetadata({title,artist:'Grateful Dead',album:[p.date&&ticketDate(p.date).short,where].filter(Boolean).join(' · '),
+  artwork:[{src:'/icon-192.png',sizes:'192x192',type:'image/png'},{src:'/apple-touch-icon.png',sizes:'180x180',type:'image/png'}]})}catch{}
+}
+if('mediaSession' in navigator){const ms=navigator.mediaSession,on=(a,f)=>{try{ms.setActionHandler(a,f)}catch{}};
+ on('play',()=>audio.play());on('pause',()=>audio.pause());on('previoustrack',()=>stepTrack(-1));on('nexttrack',()=>stepTrack(1));
+ on('seekto',e=>{if(Number.isFinite(e.seekTime))audio.currentTime=e.seekTime});
+ ['play','playing'].forEach(n=>audio.addEventListener(n,()=>{ms.playbackState='playing'}));audio.addEventListener('pause',()=>{ms.playbackState='paused'});
+}
 /* Reload a resumed home-screen app when a newer build is live */
 (()=>{const ver=d=>[d.match?.(/app\.js\?v=\d+/)?.[0],d.match?.(/style\.css\?v=\d+/)?.[0]].join('|');const cur=ver(document.documentElement.innerHTML);let last=0;
 async function check(){if(Date.now()-last<60000)return;last=Date.now();try{const r=await fetch('./?update-check='+Date.now(),{cache:'no-store'});if(!r.ok)return;const lm=r.headers.get('last-modified')||'',liveAt=Date.parse(lm),loadedAt=Date.parse(document.lastModified),live=ver(await r.text());const newer=(live!=='|'&&live!==cur)||(liveAt&&loadedAt&&liveAt-loadedAt>1000);if(!newer||!(audio.paused||audio.ended))return;const key=live+lm;try{if(sessionStorage.getItem('flb-update')===key)return;sessionStorage.setItem('flb-update',key)}catch{return}location.reload()}catch{}}
