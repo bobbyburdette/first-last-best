@@ -481,10 +481,10 @@ function setLockScreen(p,t,show,s){
  try{navigator.mediaSession.metadata=new MediaMetadata({title,artist:'Grateful Dead',album:[p.date&&ticketDate(p.date).short,where].filter(Boolean).join(' · '),
   artwork:[{src:'/icon-192.png',sizes:'192x192',type:'image/png'},{src:'/apple-touch-icon.png',sizes:'180x180',type:'image/png'}]})}catch{}
 }
-if('mediaSession' in navigator){const ms=navigator.mediaSession,on=(a,f)=>{try{ms.setActionHandler(a,f)}catch{}};
- on('play',()=>audio.play());on('pause',()=>audio.pause());on('previoustrack',()=>stepTrack(-1));on('nexttrack',()=>stepTrack(1));
- on('seekto',e=>{if(Number.isFinite(e.seekTime))audio.currentTime=e.seekTime});
- ['play','playing'].forEach(n=>audio.addEventListener(n,()=>{ms.playbackState='playing'}));audio.addEventListener('pause',()=>{ms.playbackState='paused'});
+/* Only the skip buttons are ours: play, pause and the scrub bar stay with iOS's own audio handling, which keeps working
+   after the phone suspends the page (our handlers didn't wake it back up) */
+if('mediaSession' in navigator){const on=(a,f)=>{try{navigator.mediaSession.setActionHandler(a,f)}catch{}};
+ on('previoustrack',()=>stepTrack(-1));on('nexttrack',()=>stepTrack(1));
 }
 /* Reload a resumed home-screen app when a newer build is live */
 (()=>{const ver=d=>[d.match?.(/app\.js\?v=\d+/)?.[0],d.match?.(/style\.css\?v=\d+/)?.[0]].join('|');const cur=ver(document.documentElement.innerHTML);let last=0;
