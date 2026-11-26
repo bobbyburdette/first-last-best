@@ -53,7 +53,7 @@ function creditsHTML(s){const c=s.credits;if(!c?.writers)return '';const m=(c.re
 function selectSong(name,updateURL=true){const s=songs.find(s=>s.name===name);if(!s)return false;const dsb=$('#day-shows-box');if(dsb){dsb.hidden=true;dsb.innerHTML=''}document.body.classList.remove('is-day');selected=s;renderList();const available=['first','last','best'].filter(k=>playable(s[k]));$('#detail').innerHTML=`<div class="song-top"><div><p class="song-kicker">THE GRATEFUL DEAD</p><h2>${escapeHTML(s.name)}</h2><p class="song-meta">${s.first?.date?.slice(0,4)||'?'}—${s.last?.date?.slice(0,4)||'?'} <span aria-hidden="true">/</span> ${s.kind==='sequence'?'Complete live sequence':s.played?s.played+(s.played===1?' show':' shows'):s.teased?'Teased '+s.teased+' times':s.first?.label?.includes('Tease')?'Teased, never played in full':'Performance research pending'}</p><p class="song-links">${s.kind==='sequence'?`<a href="${escapeHTML(s.history)}" target="_blank" rel="noopener">Sequence ranking ${icon('external')}</a>`:`<button type="button" class="history-jump" id="history-jump" hidden>History${icon('next')}</button>`}${s.lyrics?`<a href="${escapeHTML(s.lyrics)}" target="_blank" rel="noopener" aria-label="Lyrics on dead.net">Lyrics${icon('external')}</a>`:''}</p>${creditsHTML(s)}</div><button class="play-all" id="play-all" ${available.length?'':'disabled'}>${available.length===3?'<span class="play-bars" aria-hidden="true"><i></i><i></i><i></i></span>':icon('play')} ${available.length===3?'Play all three':`Play ${available.length} available`}</button></div><div class="cards">${['first','last','best'].map((k,i)=>s[k]||k!=='best'?card(s,k,i):'').join('')}</div><section class="plays" id="plays" aria-label="Every time they played it" hidden></section><p class="caveat">${s.kind==='sequence'?'First and last refer to the complete sequence in order, not the individual songs. “Best” uses HeadyVersion’s separate sequence ranking.':(!s.best?'First and last are documented dates, not always surviving tapes. This song was only ever teased, so it has no best or longest version.':isLongest(s)?'First and last are documented dates, not always surviving tapes. This song doesn’t have enough HeadyVersion votes yet to name a fan favorite, so the third tape is its longest version on tape.':'First and last are documented dates, not always surviving tapes. “Best” follows HeadyVersion’s individual-song votes. Linked sequence rankings are separate.')} Votes are a dated snapshot, not a universal verdict. <button type="button" id="explain" data-open-method aria-haspopup="dialog" aria-controls="method">How picks work ${icon('info')}</button></p><p class="caveat report-line">Something wrong? <a class="report-link" href="${escapeHTML(reportHref(s.name))}">Report a mistake</a></p>`;$('#detail').querySelectorAll('[data-play]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];play(s,b.dataset.play)});$('#detail').querySelectorAll('[data-play-show]').forEach(b=>b.onclick=()=>openShow(s[b.dataset.playShow].date,true,true));$('#detail').querySelectorAll('[data-show-link]').forEach(a=>a.onclick=e=>{if(e.metaKey||e.ctrlKey||e.shiftKey)return;e.preventDefault();openShow(a.dataset.showLink,true)});$('#detail').querySelectorAll('[data-play-runner]').forEach(b=>b.onclick=()=>{queue=[];playHistory=[];const ri=Number(b.dataset.playRunner);play(s,'best',0,null,null,s.best.runnersUp[ri])});$('#play-all').onclick=()=>{queue=available.map(k=>({s,k}));playHistory=[];const item=queue.shift();if(item)play(item.s,item.k)};fillPlays(s);if(updateURL)history.replaceState(null,'',songPath(s));track('song/'+s.name,s.name);return true}
 async function play(s,k,part=0,tracksOverride=null,showMeta=null,perfOverride=null){
  const p=perfOverride||s[k],tracks=tracksOverride||tracksFor(p);if(!tracks[part])return;if(part===0)track('play/'+s.name+'/'+k,s.name+' · '+k);
- const token=++playToken;$('.player').classList.remove('is-idle');audio.pause();playing={s,k,part,tracks,show:showMeta};
+ const token=++playToken;$('.player').classList.remove('is-idle');audio.pause();playing={s,k,part,tracks,show:showMeta,perf:perfOverride};$('#resume')?.remove();
  if(showMeta){
   nowLink('Full show',p.date,showPath(p.date),()=>backToShow(p.date));$('#now-title').textContent=String(tracks[part].title).replace(/\s*-*>\s*$/,'');
   $('#now-date').textContent=`${showMeta.venue} · Track ${part+1}/${tracks.length}`;
@@ -63,17 +63,17 @@ async function play(s,k,part=0,tracksOverride=null,showMeta=null,perfOverride=nu
   $('#now-date').textContent=[where,tracks.length>1?`${part+1}/${tracks.length}: ${tracks[part].title}`:(p.duration||'').replace(/^0(\d:)/,'$1')].filter(Boolean).join(' · ');
  }
  $('#player-status').textContent='Loading tape…';
- retryState=0;audio.src=tracks[part].url;
+ retryState=0;audio.src=tracks[part].url;spotAt=0;saveSpot();
  syncTrackNav();setLockScreen(p,tracks[part],showMeta,s);
  try{await audio.play();if(token===playToken)$('#player-status').textContent=''}
  catch(e){if(token!==playToken)return;if(e.name!=='NotAllowedError'&&retryTape())return;$('#player-status').textContent=e.name==='NotAllowedError'?'Tap Play on the player to continue.':'Tape didn’t load. Hit play again: that usually does it.';if(e.name!=='NotAllowedError'){queue=[];playHistory=[]}}
 }
 function advanceTape(){
- if(playing&&playing.part+1<playing.tracks.length){play(playing.s,playing.k,playing.part+1,playing.tracks,playing.show);return}
+ if(playing&&playing.part+1<playing.tracks.length){play(playing.s,playing.k,playing.part+1,playing.tracks,playing.show,playing.perf);return}
  goNext();
 }
 function goNext(){
- if(!queue.length){{const st=$('#player-status');st.textContent='End of tape.';setTimeout(()=>{if(st.textContent==='End of tape.')st.textContent=''},5000)}syncTrackNav();return}
+ if(!queue.length){clearSpot();{const st=$('#player-status');st.textContent='End of tape.';setTimeout(()=>{if(st.textContent==='End of tape.')st.textContent=''},5000)}syncTrackNav();return}
  if(playing)playHistory.push({s:playing.s,k:playing.k});
  const next=queue.shift();play(next.s,next.k);
 }
@@ -85,7 +85,7 @@ function goPrev(){
 function stepTrack(delta){
  if(!playing)return;
  const dest=playing.part+delta;
- if(dest>=0&&dest<playing.tracks.length){play(playing.s,playing.k,dest,playing.tracks,playing.show);return}
+ if(dest>=0&&dest<playing.tracks.length){play(playing.s,playing.k,dest,playing.tracks,playing.show,playing.perf);return}
  if(delta>0)goNext();else goPrev();
 }
 function syncTrackNav(){
@@ -159,7 +159,7 @@ function routeFromURL(initial){
 window.addEventListener('popstate',()=>routeFromURL(false));
 /* The logo goes home without reloading the page, so whatever is playing keeps playing */
 document.querySelector('a.brand')?.addEventListener('click',e=>{if(e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;e.preventDefault();const q=$('#search');if(q&&q.value){q.value='';renderList()}history.pushState(null,'','/');selectSong(songs[Math.floor(Math.random()*songs.length)].name,false);window.scrollTo(0,0)});window.addEventListener('hashchange',()=>routeFromURL(false));
-Promise.all([fetch('/songs.json?v=67').then(r=>{if(!r.ok)throw Error('Collection unavailable');return r.json()}),fetch('/tapes.json?v=15').then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([data,t])=>{tapes=t||{};songs=data;routeFromURL(true);tracking=true;if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'select_grateful_dead_song',title:'Select a Grateful Dead song',description:'Search the collection and open one song’s first, last and HeadyVersion-favorite performances. Does not start audio.',inputSchema:{type:'object',properties:{name:{type:'string'}},required:['name'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){if(!input||typeof input.name!=='string')throw Error('A song name is required');const s=songs.find(s=>s.name.toLowerCase()===input.name.toLowerCase());if(!s)throw Error('Song not in this collection');$('#search').value='';selectSong(s.name);return {name:s.name,performances:['first','last','best'].map(k=>({type:k,date:s[k]?.date,playable:playable(s[k])}))}}})).catch(()=>{})}catch{}}}).catch(()=>{$('#detail').innerHTML='<h2>The tapes didn’t load.</h2><p>Please reload to try again.</p>';$('#songs').innerHTML='';$('#count').textContent='Collection unavailable'});
+Promise.all([fetch('/songs.json?v=67').then(r=>{if(!r.ok)throw Error('Collection unavailable');return r.json()}),fetch('/tapes.json?v=15').then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([data,t])=>{tapes=t||{};songs=data;routeFromURL(true);offerResume();tracking=true;if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'select_grateful_dead_song',title:'Select a Grateful Dead song',description:'Search the collection and open one song’s first, last and HeadyVersion-favorite performances. Does not start audio.',inputSchema:{type:'object',properties:{name:{type:'string'}},required:['name'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){if(!input||typeof input.name!=='string')throw Error('A song name is required');const s=songs.find(s=>s.name.toLowerCase()===input.name.toLowerCase());if(!s)throw Error('Song not in this collection');$('#search').value='';selectSong(s.name);return {name:s.name,performances:['first','last','best'].map(k=>({type:k,date:s[k]?.date,playable:playable(s[k])}))}}})).catch(()=>{})}catch{}}}).catch(()=>{$('#detail').innerHTML='<h2>The tapes didn’t load.</h2><p>Please reload to try again.</p>';$('#songs').innerHTML='';$('#count').textContent='Collection unavailable'});
 
 const toggle=$('#audio-toggle'),seek=$('#audio-seek'),mute=$('#audio-mute');
 const clock=n=>Number.isFinite(n)?`${Math.floor(n/60)}:${String(Math.floor(n%60)).padStart(2,'0')}`:'0:00';
@@ -474,6 +474,28 @@ $('#search').addEventListener('focus',()=>{loadShows()},{once:true});
 /* Now-playing tile shows the doodle for the tape kind (first/last/best) */
 function syncArt(){const art=$('.now-art');if(playing?.k)art.dataset.kind=playing.k;art.classList.toggle('is-playing',Boolean(playing)&&!audio.paused&&!audio.ended)}
 ['play','playing','pause','ended','emptied','loadstart'].forEach(n=>audio.addEventListener(n,syncArt));
+/* Remember what's playing and where. iOS sometimes reloads the home-screen app (after the lock-screen player sends
+   you to the wrong app, for one), and Safari won't let a reloaded page start music by itself, so offer a Resume button */
+const SPOT='flb-spot';let spotAt=0;
+function saveSpot(){if(!playing)return;const {s,k,part,tracks,show,perf}=playing;
+ try{localStorage.setItem(SPOT,JSON.stringify({s:k==='show'?s:{name:s.name},k,part,tracks,show,perf,t:Math.floor(audio.currentTime||0),at:Date.now()}))}catch{}}
+function clearSpot(){try{localStorage.removeItem(SPOT)}catch{}}
+audio.addEventListener('timeupdate',()=>{if(Math.abs(audio.currentTime-spotAt)>=5){spotAt=audio.currentTime;saveSpot()}});
+audio.addEventListener('pause',saveSpot);addEventListener('pagehide',saveSpot);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)saveSpot()});
+function offerResume(){
+ let st=null;try{st=JSON.parse(localStorage.getItem(SPOT)||'null')}catch{}
+ if(!st||playing||!st.at||Date.now()-st.at>7*864e5||!st.tracks?.[st.part])return;
+ const s=st.k==='show'?st.s:songs.find(x=>x.name===st.s?.name);if(!s)return;
+ const p=st.perf||s[st.k]||{},title=st.show?String(st.tracks[st.part].title).replace(/\s*-*>\s*$/,''):s.name;
+ $('#now-title').textContent=`Pick up where you left off: ${title}${p.date?', '+ticketDate(p.date).short:''}`;
+ const b=document.createElement('button');b.type='button';b.id='resume';b.className='resume-btn';
+ b.textContent=st.t>0?`▶ Resume at ${clock(st.t)}`:'▶ Resume';
+ b.onclick=()=>{queue=[];playHistory=[];
+  if(st.t>0)audio.addEventListener('loadedmetadata',()=>{try{audio.currentTime=st.t}catch{}},{once:true});
+  play(s,st.k,st.part,st.tracks,st.show,st.perf)};
+ $('.idle-links')?.prepend(b);
+}
 /* Lock screen and Control Center: say what's playing and wire up the skip buttons, so iOS knows whose audio this is */
 function setLockScreen(p,t,show,s){
  if(!('mediaSession' in navigator)||!t)return;
